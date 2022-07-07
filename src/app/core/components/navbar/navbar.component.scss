@@ -1,0 +1,82 @@
+header {
+    background-color: #F5F5F5;
+    height: 94px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+
+.header {
+    height: 94px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 80px;
+    margin-left: 20px;
+    margin-bottom: 0;
+}
+
+.divisão {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+}
+
+.search {
+    height: 94px;
+    display: flex;
+    width: 50%;
+    padding-left: 15%;
+    align-items: center;
+}
+
+.input {
+    width: 490px;
+    height: 41px;
+    border-radius: 20px 0px 0px 20px;
+    padding-left: 10px;
+    border: solid 1px black;
+    border-right: none;
+}
+
+.button {
+    height: 41px;
+    width: 41px;
+    border: solid 1px black;
+    border-left: none;
+    border-radius: 0px 20px 20px 0px;
+    background-color: white;
+}
+
+.navbar {
+    width: 40%;
+}
+
+.navbar ul {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-bottom: 0;
+}
+
+.navbar ul li  {
+ list-style: none;
+}
+
+.navbar ul li a  {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: space-around;
+}
+
+i {
+    padding-right: 5px;
+}
+
+
+
+
+
+

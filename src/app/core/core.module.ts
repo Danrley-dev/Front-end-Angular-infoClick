@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { MaterialModule } from '../shared/material.module';
 
 
 
@@ -13,7 +14,12 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     NotFoundComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule
+  ],
+  exports: [
+    NavbarComponent,
+    FooterComponent
   ]
 })
 export class CoreModule { }
