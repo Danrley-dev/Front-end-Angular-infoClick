@@ -1,0 +1,194 @@
+
+main {
+    background-image: url('../../assets/img/Fundo-home.png');
+    background-repeat: no-repeat;
+}
+
+
+
+.img-carousel {
+   object-fit: cover;
+
+}
+
+.container-cards1 {
+    margin-top: 200px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin-bottom: 100px;
+    width: 301px;
+    height: 454px;
+    background-color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.promo {
+   
+    display: flex;
+    justify-content: center;
+    border-bottom: solid 2px #F4DA5E;
+    height: 54.55px;
+}
+
+.porcent-promo {
+    width: 92.15px;
+    height: 51.58px;
+    padding-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.porcent-promo span {
+    color: #2FA53A;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.time-promo {
+    border-left: solid 2px #F4DA5E;
+    display: flex;
+    flex-direction: column;
+    width: 138.72px;
+    height: 54.55px;
+    padding-top: 2px;
+    padding-left: 30px;
+    color: #EA1010;
+    font-size: 16px;
+}
+
+.time-promo span {
+    color: black;
+}
+
+
+.details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.details img {
+    width: 169.81px;
+    height: 105.53px;
+    margin-top: 50px;
+    object-fit: cover;
+}
+
+.nome-produto {
+    width: 170px;
+    font-size: 12px;
+    text-align: center;
+    height: 41px;
+    margin-top: 34.5px;
+    font-weight: 500;
+}
+
+.preco-corte {
+    font-size: 20px;
+    font-weight: bold;
+    color: #BAC2C5;
+    text-decoration: line-through;
+}
+
+.preco-promo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.parcelas {
+    font-size: 12px;
+    margin-top: -10px;
+}
+
+.button-card {
+    width: 299px;
+    height: 71px;
+    background-color: #1F1F1F;
+    display: none;
+}
+
+.button-card a {
+    text-decoration: none;
+    color: white;
+}
+
+.card:hover {
+    height: 490px;
+    .button-card {
+        display: block;
+    }
+}
+
+.promo-card {
+    margin-top: 283px;
+    background-image: url('../../assets/img/1.png');
+    background-size: cover;
+    background-position:  center;
+    background-attachment: fixed;
+    height: 700px;
+    
+}
+
+.informacoes-container {
+    margin-top: 142px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: #F5F5F5;
+}
+
+.infos-div {
+    display: flex;
+    height: 392px;
+    align-items: center;
+}
+.infos-1, .infos-2, .infos-3, .infos-4 {
+    width: 310px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.infos-2, .infos-3 {
+    padding-right: 5px;
+    margin-top: -20px;
+}
+
+.infos-1 {
+    margin-top: -68px;
+}
+
+.infos-4 {
+    margin-top: -98px;
+}
+
+.info-nome {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.info-loja {
+    width: 297px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.saiba-mais {
+    font-weight: bold;
+    font-size: 20px;
+}
+.saiba-mais  a {
+    text-decoration: none;
+    color: #F5B93C;
+}
+
+.linha {
+    height: 256px;
+    width: 2px;
+    background-color: #3483FA;
+}
