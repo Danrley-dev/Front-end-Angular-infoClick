@@ -14,6 +14,17 @@
                 <li><a href=""></a><i class="bi bi-cart3"></i></li>
             </ul>
         </nav>
+        <div class="container-menu-hamburguer">
+            <button class="menu-hamburguer-button" type="button" (click)="menuClick()"><span class="bi bi-list menu-hamburguer"></span></button>
+            <nav class="navBar-hamburguer" *ngIf=" menuHamburguer">
+                <ul>
+                    <li><a href=""><i class="bi bi-pc-display"></i>PRODUTOS</a></li>
+                    <li><a href=""><i class="bi bi-card-checklist"></i>CADASTRO</a></li>
+                    <li><a href=""><i class="bi bi-person-circle"></i>LOGIN</a></li>
+                    <li><a href=""><i class="bi bi-cart3"></i>CARRINHO</a></li>
+                </ul>
+            </nav>
+        </div>
     </section>
     
 </header>
