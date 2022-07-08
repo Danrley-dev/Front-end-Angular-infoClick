@@ -6,12 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
+  menuHamburguer = false;
    
   constructor() { }
 
  
-
+  menuClick() {
+    this.menuHamburguer = !this.menuHamburguer;
+  }
   ngOnInit(): void {
   }
 
