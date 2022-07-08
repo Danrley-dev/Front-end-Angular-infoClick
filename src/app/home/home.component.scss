@@ -203,9 +203,7 @@ main {
     background-color: #3483FA;
 }
 
-
-
-
+ 
 @media(max-width: 950px) {
     .img1, .img2, .img3 {
        display: none;
@@ -218,6 +216,27 @@ main {
      }
  }
 
+ @media(max-width: 800px) {
+    .promo-card {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: local;
+        height: 500px;
+     }
+ }
+
+ @media(max-width: 630px) {
+    .promo-card {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: local;
+        height: 300px;
+     }
+     .linha {
+        display: none;
+     }
+ }
+
  @media(max-width: 450px) {
      .img-resp1-420, .img-resp2-420, .img-resp3-420 {
         display: initial;
@@ -227,6 +246,9 @@ main {
      .img-resp2-720,
      .img-resp3-720 {
         display: none;
+     }
+     .promo-card {
+        height: 200px;
      }
  }
 
