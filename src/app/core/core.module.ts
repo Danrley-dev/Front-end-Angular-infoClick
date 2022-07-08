@@ -4,6 +4,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MaterialModule } from '../shared/material.module';
+import { TermoDePrivacidadeComponent } from './components/termo-de-privacidade/termo-de-privacidade.component';
 
 
 
@@ -11,7 +12,8 @@ import { MaterialModule } from '../shared/material.module';
   declarations: [
     NavbarComponent,
     FooterComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    TermoDePrivacidadeComponent
   ],
   imports: [
     CommonModule,
