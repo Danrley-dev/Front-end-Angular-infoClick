@@ -1,7 +1,6 @@
 
 main {
     background-image: url('../../assets/img/Fundo-home.png');
-    background-repeat: no-repeat;
 }
 
 
@@ -9,6 +8,17 @@ main {
 .img-carousel {
    object-fit: cover;
 
+}
+.img-resp1,
+.img-resp2,
+.img-resp3,
+.img-resp1-420,
+.img-resp2-420,
+.img-resp3-420,
+.img-resp1-720,
+.img-resp2-720,
+.img-resp3-720  {
+    display: none;
 }
 
 .container-cards1 {
@@ -192,3 +202,39 @@ main {
     width: 2px;
     background-color: #3483FA;
 }
+
+
+
+
+@media(max-width: 950px) {
+    .img1, .img2, .img3 {
+       display: none;
+     }
+     .img-resp1-720,
+     .img-resp2-720,
+     .img-resp3-720 {
+        display: initial;
+        object-fit: cover;
+     }
+ }
+
+ @media(max-width: 450px) {
+     .img-resp1-420, .img-resp2-420, .img-resp3-420 {
+        display: initial;
+        object-fit: cover;
+     }
+     .img-resp1-720,
+     .img-resp2-720,
+     .img-resp3-720 {
+        display: none;
+     }
+ }
+
+ @media(max-width: 400px) {
+     .img-resp1, .img-resp2, .img-resp3 {
+        display: initial;
+     }
+     .img-resp1-420, .img-resp2-420, .img-resp3-420 {
+        display: none;
+     }
+ }
