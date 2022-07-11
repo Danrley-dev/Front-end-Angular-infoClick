@@ -23,6 +23,8 @@ import { NgxCaptchaModule } from 'ngx-captcha';
     FormsModule,
     ReactiveFormsModule,
     NgxCaptchaModule,
+    
+    
   ]
 })
 export class AuthModule { }

@@ -1,0 +1,176 @@
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    background-image: url("../../../assets/not-found/Group\ 50.png");
+    width: 100vw;
+    min-height: 50vh;
+    background-color: #f5f5f5;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+
+}
+
+.card {
+    width: 35rem;
+    background: none;
+    border: none;
+}
+
+.container {
+    justify-content: center;
+    align-content: center;
+
+}
+
+.titulo {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    color: #F5B93C;
+}
+
+.form-align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    border: none;
+}
+
+.form-align:focus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    border: none;
+}
+
+.form-label {
+    margin-right: 20px;
+    
+    
+}
+
+.label-align2 {
+    margin-right: 14px;
+}
+
+
+.form-control {
+    width: 511px;
+    height: 45px;
+    border-radius: 6px;
+    box-shadow: none;
+    
+}
+
+.recaptcha {
+    padding-left: 135.5px;
+}
+
+
+
+.botao {
+    min-width: 150px;
+    max-width: 500px;
+    max-height: 150px;
+    width: 25%;
+    height: 25%;
+    background-color: rgb(58, 56, 56);
+    border: none;
+    box-shadow: none;
+}
+
+.botao:hover {
+    transition: 0.7s;
+    background-color: rgb(36, 33, 33);
+    border: none;
+
+}
+
+.senha {
+    width: 25%;
+}
+
+.letra {
+    color: #F5B93C;
+    text-decoration: none;
+}
+
+.palavra {
+    color: #F5B93C;
+    text-decoration: none;
+}
+
+.needs-validation{
+    display: flexbox;
+    position: static;
+    max-width: fit-content;
+
+
+}
+
+.example-full-width {
+    width: 100%;
+
+}
+
+.cadastra {
+
+    margin-top: 15px;
+}
+
+.palavra2 {
+    color: #F5B93C;
+    text-decoration: none;
+}
+
+.palavra2:hover {
+    text-decoration: underline;
+}
+
+.palavra:hover {
+    text-decoration: underline;
+}
+
+@media(max-width: 640px) {
+    .card {
+        width: 20rem;
+        padding-left: 15px;
+        background: none;
+        border: none;
+    }
+    .form-label {
+        margin-right: 10px;
+    }
+    
+    .label-align2 {
+        margin-right: 5px;
+    }
+    
+
+    .form-align {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .titulo {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        color: #F5B93C;
+    }
+
+    .container-fluid {
+        width: 100vw;
+        min-height: 10vh;
+    }
+    .recaptcha {
+        padding-left: 0px;
+    }
+}
