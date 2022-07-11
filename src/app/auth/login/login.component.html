@@ -1,1 +1,43 @@
-<p>login works!</p>
+<mat-grid-list class="container-fluid" cols="1" rowHeight="650px">
+    <mat-grid-tile>
+        <form class="card">
+            <h1 class="titulo">Login</h1>
+            <div class="form-group form-align">
+                <mat-label class="form-label">Email</mat-label>
+                <mat-form-field  class="example-full-width"appearance="outline">
+                    <mat-label>Enter your email</mat-label>
+                    <input matInput placeholder="pat@example.com" [formControl]="email" required>
+                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-group form-align">
+                <mat-label class="label-align2">Senha</mat-label>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <input matInput [type]="hide ? 'password' : 'text'" [formControl]="senha" required>
+                    <mat-error *ngIf="senha.invalid">{{getErrorMessageSenha()}}</mat-error>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+            <div class="recaptcha" style="margin-bottom:15px ;">
+                <ngx-recaptcha2  #captchaElem [siteKey]="siteKey" [size]="size" [hl]="lang"
+                    [theme]="theme" [type]="type">
+                </ngx-recaptcha2>
+            </div>
+            <div>
+                <mat-button-toggle class="botao" style="border-radius: 7px ;"><a class="letra" href="">enviar</a>
+                </mat-button-toggle>
+            </div>
+            <div>
+                <p class="cadastra"><a class="palavra2" href="">E novo na Infoclick? Cadastre-se aqui</a></p>
+            </div>
+            <div>
+                <p class="cadastra2"><a class="palavra" href="">Esqueci a minha senha</a></p>
+            </div>
+        </form>
+    </mat-grid-tile>
+
+</mat-grid-list>
+
