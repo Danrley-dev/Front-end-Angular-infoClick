@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { CoreModule } from './core/core.module';
 import { HomeComponent } from './home/home.component';
+import { AuthModule } from './auth/auth.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HomeComponent } from './home/home.component';
     BrowserAnimationsModule,
     HotToastModule.forRoot(),
     CoreModule,
-    
+    AuthModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
