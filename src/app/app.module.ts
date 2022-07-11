@@ -9,6 +9,7 @@ import { HotToastModule } from '@ngneat/hot-toast';
 import { CoreModule } from './core/core.module';
 import { HomeComponent } from './home/home.component';
 import { AuthModule } from './auth/auth.module';
+import { ProdutosModule } from './produtos/produtos.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AuthModule } from './auth/auth.module';
     BrowserAnimationsModule,
     HotToastModule.forRoot(),
     CoreModule,
-    AuthModule
+    AuthModule,
+    ProdutosModule
 
   ],
   providers: [],
