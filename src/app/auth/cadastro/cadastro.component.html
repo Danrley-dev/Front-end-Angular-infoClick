@@ -1,1 +1,117 @@
-<p>cadastro works!</p>
+<main>
+  <div class="container">
+  <section class="caixa-principal">
+    <section>
+      <h4>CADASTRAR</h4>
+    </section>
+    <div *ngIf="!click1$; else empreendedor">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <div class="form-group botao" *ngIf="!click1$; else botaos">
+        <span [class]="classbotaoOne" (click)="onClick()">Consumidor</span>
+        <span [class]="classbotaoTwo" (click)="onClick()">Empreendedor</span>
+      </div>
+      <ng-template #botaos>
+        <span [class]="classbotaoOne" (click)="onClick()">Consumidor</span>
+        <span  [class]="classbotaoTwo" (click)="onClick()">Empreendedor</span>
+      </ng-template>
+      <div class="form-group form-align">
+        <label for="nome" class="label-align">Nome</label>
+        <input type="text" class="form-control" id="nome" aria-describedby="Help" placeholder="Digite seu nome">
+      </div>
+      <div class="form-group form-align">
+        <label for="cpf" class="label-align">CPF</label>
+        <input type="text" class="form-control"  id="cpf" aria-describedby="Help" placeholder="Digite seu CPF">
+      </div>
+      <div class="form-group form-align">
+        <label for="email" class="label-align">Email</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+      </div>
+      <div class="form-group form-align">
+        <label for="senha" class="label-align">Senha</label>
+        <input type="password" class="form-control" id="senha" placeholder="Digite sua senha">
+      </div>
+      <div class="form-group form-align">
+        <label for="celular" class="label-align">Celular</label>
+        <input type="text" class="form-control" id="celular" placeholder="(XX) X XXXX-XXXX ">
+      </div>
+      <div class="form-group form-align foto">
+        <label for="foto" class="label-align">Foto</label>
+        <div class="form-align upload" id="cloud">
+        <span class="btn"><i class="bi bi-cloud-plus"></i></span>
+      </div>
+      </div>
+      <section class="recptcha">
+        <ngx-recaptcha2
+          #captchaElem
+          [siteKey]="siteKey"
+          style="margin-bottom: 15px"
+        >
+        </ngx-recaptcha2>
+        </section>
+        <button type="submit" class="btn btn-dark">Enviar</button>
+        <span class="loginLink"><a href="/login">Já sou cadastrado</a></span>
+    </form>
+  </div>
+  </section>
+  <!-- TEMPLATE INICIO-->
+  <ng-template #empreendedor>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <div class="form-group botao" *ngIf="!click1$; else botaos">
+        <span [class]="classbotaoOne" (click)="onClick()">Consumidor</span>
+        <span [class]="classbotaoTwo" (click)="onClick()">Empreendedor</span>
+      </div>
+      <ng-template #botaos>
+        <div class="form-group botao">
+        <span [class]="classbotaoOne" (click)="onClick()">Consumidor</span>
+        <span  [class]="classbotaoTwo" (click)="onClick()">Empreendedor</span>
+      </div>
+      </ng-template>
+      <div class="form-group form-align">
+        <label for="nome" class="label-align">Nome</label>
+        <input type="text" class="form-control" id="nome" aria-describedby="Help" placeholder="Digite seu nome">
+      </div>
+      <div class="form-group form-align">
+        <label for="cpfOuCnpj" class="label-align">CNPJ</label>
+        <input type="text" class="form-control" id="cnpj" aria-describedby="Help" placeholder="Digite seu CPF ou CNPJ">
+      </div>
+      <div class="form-group form-align">
+        <label for="email" class="label-align">Email</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+      </div>
+      <div class="form-group form-align">
+        <label for="senha" class="label-align">Senha</label>
+        <input type="password" class="form-control" id="senha" placeholder="Digite sua senha">
+      </div>
+      <div class="form-group form-align">
+        <label for="celular" class="label-align">Celular</label>
+        <input type="text" class="form-control" id="celular" placeholder="(XX) X XXXX-XXXX ">
+      </div>
+      <div class="form-group form-align">
+        <label for="celular" class="label-align">Ramo</label>
+        <input type="text" class="form-control" id="ramo" placeholder="Sua área">
+      </div>
+      <div class="form-group form-align">
+        <label for="foto" class="label-align">Foto</label>
+        <div class="form-align upload" id="cloud">
+          <span class="btn"><i class="bi bi-cloud-plus"></i></span>
+        </div>
+      </div>
+      <section class="recptcha">
+        <ngx-recaptcha2
+          #captchaElem
+          [siteKey]="siteKey"
+          style="margin-bottom: 15px"
+        >
+        </ngx-recaptcha2>
+        </section>
+        <section>
+        <button type="submit" class="btn btn-dark">Enviar</button>
+        <span class="loginLink"><a href="/login">Já sou cadastrado</a></span>
+      </section>
+    </form>
+  </ng-template>
+  <!-- TEMPLATE-->
+</div>
+</main>
+
+

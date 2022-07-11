@@ -1,0 +1,435 @@
+main {
+  background-image: url("../../../assets/img/fundo.png");
+  background-color: #f5f5f5;
+  background-size: cover;
+  padding-bottom: 35px;
+}
+
+.container{
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+object-fit: contain;
+}
+
+
+.caixa-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 623.7px;
+  font-size: 20px;
+  border-bottom: 1px solid #bac2c5;
+  border-left: 1px solid #bac2c5;
+  border-right: 1px solid #bac2c5;
+  margin-left: 20%;
+  margin-right: 20%;
+  border-radius: 0px 0px 15px 15px;
+  margin-top: 15px;
+}
+
+h4 {
+  font-size: 30px;
+  color: #f5b93c;
+  font-weight: bold;
+  margin: 20% 0px 20% 0px;
+}
+
+.btn-con {
+  width: 259px;
+  height: 42px;
+  border-radius: 5px 0px 0px 5px;
+  background-color:#f5b93c;
+  cursor: pointer;
+  padding-left: 15%;
+  padding-right: 15.5%;
+}
+
+.botao {
+  margin-bottom: 44px;
+}
+
+.btn-emp {
+  width: 259px;
+  height: 42px;
+  border-radius: 0px 5px 5px 0px;
+  background-color: #f4da5e;
+  cursor: pointer;
+  border-left: 1px solid black;
+  padding-left: 12.5%;
+  padding-right: 12%;
+}
+
+.btn-con-troca {
+  width: 259px;
+  height: 42px;
+  border-radius: 5px 0px 0px 5px;
+  background-color:  #f4da5e;
+  cursor: pointer;
+  padding-left: 15%;
+  padding-right: 15.5%;
+}
+
+.btn-emp-troca {
+  width: 259px;
+  height: 42px;
+  border-radius: 0px 5px 5px 0px;
+  background-color: #f5b93c;
+  cursor: pointer;
+  border-left: 1px solid black;
+  padding-left: 12.5%;
+  padding-right: 12%;
+}
+
+.btn-con-troca:hover,
+.btn-con:hover {
+  background-color: #f5b93c;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.btn-emp-troca:hover,
+.btn-emp:hover {
+  background-color: #f5b93c;
+  border-radius: 0px 5px 5px 0px;
+}
+
+.recptcha {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.btn-dark {
+  color: #f5b93c;
+  margin-top: 20px;
+  margin-bottom: 7%;
+  margin-left: 20.7%;
+}
+
+.form-control {
+  width: 511px;
+  height: 45px;
+  border-radius: 6px;
+}
+
+.form-align {
+  width: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 19px;
+}
+
+.upload {
+  max-height: 45px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #bac2c5;
+  border-radius: 6px;
+  width: 82.5%;
+}
+
+.bi-cloud-plus {
+  font-size: 30px;
+}
+
+.label-align {
+  margin-right: 20px;
+}
+
+#nome,
+#cpf,
+#cnpj,
+#email,
+#senha,
+#ramo {
+  width: 82.5%;
+}
+
+.loginLink a {
+  font-size: 16px;
+  float: right;
+  margin-right: 21.5%;
+  margin-top: 5%;
+  text-decoration: none;
+  color: #9fa7ac;
+}
+
+@media only screen and (max-width: 1200px) {
+  .caixa-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 623.781px;
+    border-bottom: 1px solid #bac2c5;
+    border-left: 1px solid #bac2c5;
+    border-right: 1px solid #bac2c5;
+    border-radius: 0px 0px 15px 15px;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .container{
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .form-control {
+    width: 450px;
+  }
+
+
+  .btn-con,
+  .btn-con-troca {
+    padding-left: 12%;
+    padding-right: 13.25%;
+  }
+
+  .btn-emp,
+  .btn-emp-troca {
+    padding-left: 13.25%;
+    padding-right: 12%;
+  }
+
+  .btn-dark {
+    margin-bottom: 7%;
+    margin-left: 20.7%;
+  }
+
+  .loginLink a {
+    margin-right: 27%;
+    margin-top: 5%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .caixa-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #bac2c5;
+    border-left: 1px solid #bac2c5;
+    border-right: 1px solid #bac2c5;
+    border-radius: 0px 0px 15px 15px;
+    margin-left: 20%;
+    margin-right: 20%;
+    color: #f5b93c;
+  }
+
+
+  .form-control {
+    width: 400px;
+  }
+
+   .form-align {
+    padding: 0px 30px 0px 30px;
+  }
+
+  .btn-con,
+  .btn-con-troca {
+    width: 235px;
+    margin-left: 17px;
+    // padding-left: 11%;
+    // padding-right: 12%;
+  }
+
+  .btn-emp,
+  .btn-emp-troca {
+    width: 235px;
+    margin-right: 15px;
+    // padding-left: 10.5%;
+    // padding-right: 14%;
+  }
+
+  .btn-dark {
+    margin-left: 12%;
+  }
+  .loginLink a {
+    margin-right: 13%;
+    margin-top: 1.6%;
+  }
+
+  #nome,
+  #cpf,
+  #cnpj,
+  #email,
+  #celular,
+  #senha,
+  #cloud,
+  #ramo {
+    width: 82.5%;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .caixa-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    border-bottom: 1px solid #bac2c5;
+    border-left: 1px solid #bac2c5;
+    border-right: 1px solid #bac2c5;
+    color: #f5b93c;
+    border-radius: 0px 0px 15px 15px;
+    margin-left: 11%;
+    margin-right: 11%;
+  }
+
+  .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .botao {
+    margin-bottom: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-con,
+  .btn-con-troca {
+    width: 160px;
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+
+  .btn-emp,
+  .btn-emp-troca {
+    width: 170px;
+    padding-left: 6%;
+    padding-right: 8%;
+  }
+
+  .form-control {
+    width: 340px;
+  }
+
+  .label-align {
+    width: 80px;
+  }
+
+  .form-align {
+    width: 400px;
+  }
+  .btn-dark {
+    margin-left: 16%;
+  }
+
+  .loginLink a {
+    margin-right: 18%;
+    margin-top: 7%;
+  }
+
+  .recptcha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8%;
+  }
+
+
+  #nome,
+  #cpf,
+  #cnpj,
+  #email,
+  #celular,
+  #senha,
+  #cloud,
+  #ramo {
+    width: 82.5%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .caixa-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 375px;
+    border-bottom: 1px solid #bac2c5;
+    border-left: 1px solid #bac2c5;
+    border-right: 1px solid #bac2c5;
+    color: #f5b93c;
+    border-radius: 0px 0px 15px 15px;
+    margin-left: 11%;
+    margin-right: 11%;
+  }
+
+  .container{
+    padding: 0px;
+    margin: 2.5%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .botao {
+    margin-bottom: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-con,
+  .btn-con-troca {
+    width: 140px;
+  }
+
+  .btn-emp,
+  .btn-emp-troca {
+    width: 150px;
+  }
+
+  .form-control {
+    width: 100%;
+
+  }
+
+  .label-align {
+    width: 30px;
+  }
+
+  .form-align {
+    padding-left: 0px;
+    padding-right: 0px;
+    width:280px;
+    display: flex;
+    align-items: center;
+    border: 1px solid red;
+    margin-left: 7.5%;
+  }
+  .btn-dark {
+    margin-left: 7%;
+  }
+
+  .loginLink a {
+    margin-right: 10%;
+    margin-top: 8%;
+  }
+
+  .recptcha {
+    margin-left: 8%;
+  }
+
+
+  #nome,
+  #cpf,
+  #cnpj,
+  #email,
+  #celular,
+  #senha,
+  #cloud,
+  #ramo {
+    width: 82.5%;
+  }
+}

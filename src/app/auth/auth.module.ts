@@ -5,6 +5,9 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginComponent } from './login/login.component';
 import { RecuperarSenhaComponent } from './recuperar-senha/recuperar-senha.component';
+import { MaterialModule } from '../shared/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 
 @NgModule({
@@ -15,7 +18,11 @@ import { RecuperarSenhaComponent } from './recuperar-senha/recuperar-senha.compo
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxCaptchaModule,
   ]
 })
 export class AuthModule { }
