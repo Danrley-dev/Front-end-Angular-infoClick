@@ -10,6 +10,7 @@ import { CoreModule } from './core/core.module';
 import { HomeComponent } from './home/home.component';
 import { AuthModule } from './auth/auth.module';
 import { ProdutosModule } from './produtos/produtos.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ProdutosModule } from './produtos/produtos.module';
     HotToastModule.forRoot(),
     CoreModule,
     AuthModule,
-    ProdutosModule
+    ProdutosModule,
+    HttpClientModule
 
   ],
   providers: [],
