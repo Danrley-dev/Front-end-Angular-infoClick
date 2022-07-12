@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl,  Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -11,11 +11,11 @@ export class LoginComponent implements OnInit {
   public size: 'compact' | 'normal' = 'normal';
   public lang = 'pt';
   public type: 'image' | 'audio' = 'image';
-  public siteKey:string = '6Lf5nmQgAAAAAGBE82rwfwIllPqz90bkIuXEjzei';
-  
+  public siteKey: string = '6Lf5nmQgAAAAAGBE82rwfwIllPqz90bkIuXEjzei';
+
   hide = true;
   email = new FormControl('', [Validators.required, Validators.email]);
-  senha = new FormControl('', [Validators.required, ]);
+  senha = new FormControl('', [Validators.required,]);
 
   getErrorMessage() {
     if (this.email.hasError('required')) {
