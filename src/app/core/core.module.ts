@@ -5,6 +5,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MaterialModule } from '../shared/material.module';
 import { TermoDePrivacidadeComponent } from './components/termo-de-privacidade/termo-de-privacidade.component';
+import { DialogHomeComponent } from './components/dialog-home/dialog-home.component';
 
 
 
@@ -13,7 +14,8 @@ import { TermoDePrivacidadeComponent } from './components/termo-de-privacidade/t
     NavbarComponent,
     FooterComponent,
     NotFoundComponent,
-    TermoDePrivacidadeComponent
+    TermoDePrivacidadeComponent,
+    DialogHomeComponent
   ],
   imports: [
     CommonModule,
