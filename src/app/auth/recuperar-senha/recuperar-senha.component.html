@@ -1,1 +1,36 @@
-<p>recuperar-senha works!</p>
+<mat-grid-list class="container-fluid" cols="1" rowHeight="650px">
+  <mat-grid-tile>
+    <form class="card">
+      <div class="titulo">
+        <h1>Recuperar<p class="senha">senha</p>
+        </h1>
+      </div>
+      <p class="texto"> Recupere sua senha informando o e-mail cadastrado.</p>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-group form-align">
+        <div class="form-align2">
+          <mat-label class="form-label">Email</mat-label>
+          <mat-form-field class="example-full-width" appearance="outline">
+            <input matInput placeholder="Digite seu email" formControlName="email" type="email" required />
+            <mat-error *ngIf="loginForm.get('email')?.errors?.['required']">Campo obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <div class="recaptcha" style="margin-bottom:15px ;">
+            <ngx-recaptcha2 #captchaElem class="captcha" [siteKey]="siteKey" formControlName="recaptcha">
+            </ngx-recaptcha2>
+          </div>
+        </div>
+      </form>
+
+      <div class="btn-texto">
+        <button class="btn btn-dark" mat-raised-button color="black" [disabled]="loginForm.invalid"> <a href="/home">
+            Enviar</a>
+        </button>
+        <div>
+          <small class="texto-small"> <a href="/login">Voltar para página de Login</a>
+          </small>
+        </div>
+      </div>
+    </form>
+  </mat-grid-tile>
+</mat-grid-list>
