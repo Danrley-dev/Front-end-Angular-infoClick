@@ -26,8 +26,10 @@
     </ng-template>
   </ngb-carousel>
   <section class="container-cards1">
-    <div class="card">
-      <div class="promo">
+
+    <div *ngFor="let produto of produtos">
+    <div class="card" *ngFor="let loja of lojas">
+      <div class="promo" >
         <p class="porcent-promo"><span>25%</span> OFF</p>
         <p class="time-promo">
           termina em:
@@ -36,156 +38,19 @@
       </div>
       <div class="details">
         <img
-          src="https://s3-alpha-sig.figma.com/img/1040/ee73/6ac99f24d2831eb87ba8692d11e8ce9f?Expires=1658102400&Signature=c~cVUn8DMzD0T2qdimE5EZzM7vL~QMmdWRH3JUtnTKSrzOTdkkcO3EYpxSSltwhnCgfWLxMDrtC9Umgq6nx6PcdY9qkR~xwntub9x9sfBAiYC8EKgP7C7U9cEfe4ovIAgNnPIZT0t17BFEnKp~Iwqh8aVUM1b7R~WACbHrHrF-IdLtSnrNVS0MX-QfqOJt2X2ZI7AIcTgexx7ohaQDBJePQtec-VZaqBJcfxBtdbnH5y~YMeioImR9bKLH1y5cCeZuYfsFUcYACf5OiXhwvtM4DdzgoWWJgLi6zXKHDjCz-~qkS93XVn1Rvml4K6xm0tAedcVmwSwv7YdcWJ1j4xiQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+          src="{{ produto.produtoImagem }}"
           alt="Imagem de um computador">
-        <p class="nome-produto">DELL 4 núcleos 3.80Ghz
-          8GB Placa de vídeo Radeon</p>
-        <p class="preco-corte">De: R$ 5.999,78 por:</p>
-        <p class="preco-promo">R$ 5.999,78 à vista</p>
-        <p class="parcelas">12x de R$ 499,98 sem juros</p>
+        <p class="nome-produto"> <b>{{loja.nomeLoja}}</b></p>
+        <p class="preco-produto">{{produto.name}}</p>
+        <p class="preco-corte">De: {{produto.produtoValor}}</p>
+        <p class="preco-promo">{{produto.produtoDesconto}}</p>
+        <!-- <p class="parcelas">12x de R$ 499,98 sem juros</p> -->
       </div>
       <button class="button-card" type="button"><a href="#">ADICIONAR AO CARRINHO</a></button>
     </div>
-    <div class="card">
-      <div class="promo">
-        <p class="porcent-promo"><span>25%</span> OFF</p>
-        <p class="time-promo">
-          termina em:
-          <span>9 dias 12:21:21</span>
-        </p>
-      </div>
-      <div class="details">
-        <img
-          src="https://s3-alpha-sig.figma.com/img/1040/ee73/6ac99f24d2831eb87ba8692d11e8ce9f?Expires=1658102400&Signature=c~cVUn8DMzD0T2qdimE5EZzM7vL~QMmdWRH3JUtnTKSrzOTdkkcO3EYpxSSltwhnCgfWLxMDrtC9Umgq6nx6PcdY9qkR~xwntub9x9sfBAiYC8EKgP7C7U9cEfe4ovIAgNnPIZT0t17BFEnKp~Iwqh8aVUM1b7R~WACbHrHrF-IdLtSnrNVS0MX-QfqOJt2X2ZI7AIcTgexx7ohaQDBJePQtec-VZaqBJcfxBtdbnH5y~YMeioImR9bKLH1y5cCeZuYfsFUcYACf5OiXhwvtM4DdzgoWWJgLi6zXKHDjCz-~qkS93XVn1Rvml4K6xm0tAedcVmwSwv7YdcWJ1j4xiQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-          alt="Imagem de um computador">
-        <p class="nome-produto">DELL 4 núcleos 3.80Ghz
-          8GB Placa de vídeo Radeon</p>
-        <p class="preco-corte">De: R$ 5.999,78 por:</p>
-        <p class="preco-promo">R$ 5.999,78 à vista</p>
-        <p class="parcelas">12x de R$ 499,98 sem juros</p>
-      </div>
-      <button class="button-card" type="button"><a href="#">ADICIONAR AO CARRINHO</a></button>
-    </div>
-    <div class="card">
-      <div class="promo">
-        <p class="porcent-promo"><span>25%</span> OFF</p>
-        <p class="time-promo">
-          termina em:
-          <span>9 dias 12:21:21</span>
-        </p>
-      </div>
-      <div class="details">
-        <img
-          src="https://s3-alpha-sig.figma.com/img/1040/ee73/6ac99f24d2831eb87ba8692d11e8ce9f?Expires=1658102400&Signature=c~cVUn8DMzD0T2qdimE5EZzM7vL~QMmdWRH3JUtnTKSrzOTdkkcO3EYpxSSltwhnCgfWLxMDrtC9Umgq6nx6PcdY9qkR~xwntub9x9sfBAiYC8EKgP7C7U9cEfe4ovIAgNnPIZT0t17BFEnKp~Iwqh8aVUM1b7R~WACbHrHrF-IdLtSnrNVS0MX-QfqOJt2X2ZI7AIcTgexx7ohaQDBJePQtec-VZaqBJcfxBtdbnH5y~YMeioImR9bKLH1y5cCeZuYfsFUcYACf5OiXhwvtM4DdzgoWWJgLi6zXKHDjCz-~qkS93XVn1Rvml4K6xm0tAedcVmwSwv7YdcWJ1j4xiQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-          alt="Imagem de um computador">
-        <p class="nome-produto">DELL 4 núcleos 3.80Ghz
-          8GB Placa de vídeo Radeon</p>
-        <p class="preco-corte">De: R$ 5.999,78 por:</p>
-        <p class="preco-promo">R$ 5.999,78 à vista</p>
-        <p class="parcelas">12x de R$ 499,98 sem juros</p>
-      </div>
-      <button class="button-card" type="button"><a href="#">ADICIONAR AO CARRINHO</a></button>
-    </div>
-    <div class="card">
-      <div class="promo">
-        <p class="porcent-promo"><span>25%</span> OFF</p>
-        <p class="time-promo">
-          termina em:
-          <span>9 dias 12:21:21</span>
-        </p>
-      </div>
-      <div class="details">
-        <img
-          src="https://s3-alpha-sig.figma.com/img/1040/ee73/6ac99f24d2831eb87ba8692d11e8ce9f?Expires=1658102400&Signature=c~cVUn8DMzD0T2qdimE5EZzM7vL~QMmdWRH3JUtnTKSrzOTdkkcO3EYpxSSltwhnCgfWLxMDrtC9Umgq6nx6PcdY9qkR~xwntub9x9sfBAiYC8EKgP7C7U9cEfe4ovIAgNnPIZT0t17BFEnKp~Iwqh8aVUM1b7R~WACbHrHrF-IdLtSnrNVS0MX-QfqOJt2X2ZI7AIcTgexx7ohaQDBJePQtec-VZaqBJcfxBtdbnH5y~YMeioImR9bKLH1y5cCeZuYfsFUcYACf5OiXhwvtM4DdzgoWWJgLi6zXKHDjCz-~qkS93XVn1Rvml4K6xm0tAedcVmwSwv7YdcWJ1j4xiQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-          alt="Imagem de um computador">
-        <p class="nome-produto">DELL 4 núcleos 3.80Ghz
-          8GB Placa de vídeo Radeon</p>
-        <p class="preco-corte">De: R$ 5.999,78 por:</p>
-        <p class="preco-promo">R$ 5.999,78 à vista</p>
-        <p class="parcelas">12x de R$ 499,98 sem juros</p>
-      </div>
-      <button class="button-card" type="button"><a href="#">ADICIONAR AO CARRINHO</a></button>
-    </div>
-    <div class="card">
-      <div class="promo">
-        <p class="porcent-promo"><span>25%</span> OFF</p>
-        <p class="time-promo">
-          termina em:
-          <span>9 dias 12:21:21</span>
-        </p>
-      </div>
-      <div class="details">
-        <img
-          src="https://s3-alpha-sig.figma.com/img/1040/ee73/6ac99f24d2831eb87ba8692d11e8ce9f?Expires=1658102400&Signature=c~cVUn8DMzD0T2qdimE5EZzM7vL~QMmdWRH3JUtnTKSrzOTdkkcO3EYpxSSltwhnCgfWLxMDrtC9Umgq6nx6PcdY9qkR~xwntub9x9sfBAiYC8EKgP7C7U9cEfe4ovIAgNnPIZT0t17BFEnKp~Iwqh8aVUM1b7R~WACbHrHrF-IdLtSnrNVS0MX-QfqOJt2X2ZI7AIcTgexx7ohaQDBJePQtec-VZaqBJcfxBtdbnH5y~YMeioImR9bKLH1y5cCeZuYfsFUcYACf5OiXhwvtM4DdzgoWWJgLi6zXKHDjCz-~qkS93XVn1Rvml4K6xm0tAedcVmwSwv7YdcWJ1j4xiQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-          alt="Imagem de um computador">
-        <p class="nome-produto">DELL 4 núcleos 3.80Ghz
-          8GB Placa de vídeo Radeon</p>
-        <p class="preco-corte">De: R$ 5.999,78 por:</p>
-        <p class="preco-promo">R$ 5.999,78 à vista</p>
-        <p class="parcelas">12x de R$ 499,98 sem juros</p>
-      </div>
-      <button class="button-card" type="button"><a href="#">ADICIONAR AO CARRINHO</a></button>
-    </div>
-    <div class="card">
-      <div class="promo">
-        <p class="porcent-promo"><span>25%</span> OFF</p>
-        <p class="time-promo">
-          termina em:
-          <span>9 dias 12:21:21</span>
-        </p>
-      </div>
-      <div class="details">
-        <img
-          src="https://s3-alpha-sig.figma.com/img/1040/ee73/6ac99f24d2831eb87ba8692d11e8ce9f?Expires=1658102400&Signature=c~cVUn8DMzD0T2qdimE5EZzM7vL~QMmdWRH3JUtnTKSrzOTdkkcO3EYpxSSltwhnCgfWLxMDrtC9Umgq6nx6PcdY9qkR~xwntub9x9sfBAiYC8EKgP7C7U9cEfe4ovIAgNnPIZT0t17BFEnKp~Iwqh8aVUM1b7R~WACbHrHrF-IdLtSnrNVS0MX-QfqOJt2X2ZI7AIcTgexx7ohaQDBJePQtec-VZaqBJcfxBtdbnH5y~YMeioImR9bKLH1y5cCeZuYfsFUcYACf5OiXhwvtM4DdzgoWWJgLi6zXKHDjCz-~qkS93XVn1Rvml4K6xm0tAedcVmwSwv7YdcWJ1j4xiQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-          alt="Imagem de um computador">
-        <p class="nome-produto">DELL 4 núcleos 3.80Ghz
-          8GB Placa de vídeo Radeon</p>
-        <p class="preco-corte">De: R$ 5.999,78 por:</p>
-        <p class="preco-promo">R$ 5.999,78 à vista</p>
-        <p class="parcelas">12x de R$ 499,98 sem juros</p>
-      </div>
-      <button class="button-card" type="button"><a href="#">ADICIONAR AO CARRINHO</a></button>
-    </div>
-    <div class="card">
-      <div class="promo">
-        <p class="porcent-promo"><span>25%</span> OFF</p>
-        <p class="time-promo">
-          termina em:
-          <span>9 dias 12:21:21</span>
-        </p>
-      </div>
-      <div class="details">
-        <img
-          src="https://s3-alpha-sig.figma.com/img/1040/ee73/6ac99f24d2831eb87ba8692d11e8ce9f?Expires=1658102400&Signature=c~cVUn8DMzD0T2qdimE5EZzM7vL~QMmdWRH3JUtnTKSrzOTdkkcO3EYpxSSltwhnCgfWLxMDrtC9Umgq6nx6PcdY9qkR~xwntub9x9sfBAiYC8EKgP7C7U9cEfe4ovIAgNnPIZT0t17BFEnKp~Iwqh8aVUM1b7R~WACbHrHrF-IdLtSnrNVS0MX-QfqOJt2X2ZI7AIcTgexx7ohaQDBJePQtec-VZaqBJcfxBtdbnH5y~YMeioImR9bKLH1y5cCeZuYfsFUcYACf5OiXhwvtM4DdzgoWWJgLi6zXKHDjCz-~qkS93XVn1Rvml4K6xm0tAedcVmwSwv7YdcWJ1j4xiQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-          alt="Imagem de um computador">
-        <p class="nome-produto">DELL 4 núcleos 3.80Ghz
-          8GB Placa de vídeo Radeon</p>
-        <p class="preco-corte">De: R$ 5.999,78 por:</p>
-        <p class="preco-promo">R$ 5.999,78 à vista</p>
-        <p class="parcelas">12x de R$ 499,98 sem juros</p>
-      </div>
-      <button class="button-card" type="button"><a href="#">ADICIONAR AO CARRINHO</a></button>
-    </div>
-    <div class="card">
-      <div class="promo">
-        <p class="porcent-promo"><span>25%</span> OFF</p>
-        <p class="time-promo">
-          termina em:
-          <span>9 dias 12:21:21</span>
-        </p>
-      </div>
-      <div class="details">
-        <img
-          src="https://s3-alpha-sig.figma.com/img/1040/ee73/6ac99f24d2831eb87ba8692d11e8ce9f?Expires=1658102400&Signature=c~cVUn8DMzD0T2qdimE5EZzM7vL~QMmdWRH3JUtnTKSrzOTdkkcO3EYpxSSltwhnCgfWLxMDrtC9Umgq6nx6PcdY9qkR~xwntub9x9sfBAiYC8EKgP7C7U9cEfe4ovIAgNnPIZT0t17BFEnKp~Iwqh8aVUM1b7R~WACbHrHrF-IdLtSnrNVS0MX-QfqOJt2X2ZI7AIcTgexx7ohaQDBJePQtec-VZaqBJcfxBtdbnH5y~YMeioImR9bKLH1y5cCeZuYfsFUcYACf5OiXhwvtM4DdzgoWWJgLi6zXKHDjCz-~qkS93XVn1Rvml4K6xm0tAedcVmwSwv7YdcWJ1j4xiQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-          alt="Imagem de um computador">
-        <p class="nome-produto">DELL 4 núcleos 3.80Ghz
-          8GB Placa de vídeo Radeon</p>
-        <p class="preco-corte">De: R$ 5.999,78 por:</p>
-        <p class="preco-promo">R$ 5.999,78 à vista</p>
-        <p class="parcelas">12x de R$ 499,98 sem juros</p>
-      </div>
-      <button class="button-card" type="button"><a href="#">ADICIONAR AO CARRINHO</a></button>
-    </div>
+  </div>
+
+
   </section>
   <div class="promo-card"></div>
   <section class="informacoes-container">
