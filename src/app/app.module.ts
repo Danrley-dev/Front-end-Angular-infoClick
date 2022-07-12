@@ -25,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     HotToastModule.forRoot(),
     CoreModule,
+    HttpClientModule,
     AuthModule,
     ProdutosModule,
     HttpClientModule

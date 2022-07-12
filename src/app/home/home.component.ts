@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { forkJoin } from 'rxjs';
 import { Loja } from '../core/models/loja';
 import { Produto } from '../core/models/produto';
-import { ProdutoService } from '../core/services/produto.service';
+import { ProdutoService } from '../core/services/produtos/produto.service';
 
 @Component({
   selector: 'app-home',
