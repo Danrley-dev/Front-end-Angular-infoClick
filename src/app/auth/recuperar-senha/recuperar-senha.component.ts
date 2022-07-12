@@ -8,7 +8,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class RecuperarSenhaComponent implements OnInit {
   siteKey: string;
-
   constructor(private fb: FormBuilder) {
     this.siteKey = '6LfZoeIgAAAAAL36fd8Z62_r1rUqdz1g4VSgxqDz';
   }
@@ -20,13 +19,11 @@ export class RecuperarSenhaComponent implements OnInit {
 
   ocultar = true;
 
-
   onSubmit() {
     alert('E-mail enviado com sucesso!')
   }
 
   ngOnInit(): void {
   }
-
 
 }
