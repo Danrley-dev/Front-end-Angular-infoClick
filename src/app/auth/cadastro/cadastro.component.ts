@@ -1,51 +1,90 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.scss']
 })
+
 export class CadastroComponent implements OnInit {
 
-  siteKey: string;
-
-  signupForm = this.fb.group(
-    {
-      nome: ['', [Validators.required]],
-      cpf: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      senha: ['', [Validators.required, Validators.minLength(8)]],
-      celular: ['', [Validators.required]],
-    }
-  );
-  constructor(private fb: FormBuilder) { this.siteKey = '6Lf5nmQgAAAAAGBE82rwfwIllPqz90bkIuXEjzei';}
-
-  ngOnInit(): void {
-  }
-
-  click1$?: boolean = true;
+  ocultar = true;
+  click$?: boolean = false;
   classbotaoOne?: string = 'btn btn-con';
   classbotaoTwo?: string = 'btn btn-emp';
 
-  onClick() {
-    if (this.click1$ === true) {
-      this.click1$ = false;
-      this.classbotaoOne = 'btn btn-con';
-    } else {
-      this.click1$ = true;
-      this.classbotaoOne = 'btn btn-con-troca';
+
+  constructor(
+    private fb: FormBuilder,
+    private fbe: FormBuilder) { }
+
+
+  consumidorForm = this.fb.group(
+    {
+      nome: ['', [Validators.required, Validators.minLength(10)]],
+      cpf: ['', [Validators.required, Validators.maxLength(14)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
+      celular: ['', [Validators.required, Validators.maxLength(13)]],
+      perfil: ['', [Validators.required]],
+      cep: ['', [Validators.required, Validators.maxLength(9)]],
+      estado: ['', [Validators.required]],
+      cidade: ['', [Validators.required]],
+      bairro: ['', [Validators.required]],
+      rua: ['', [Validators.required]],
+      numero: ['', [Validators.required]],
     }
+  );
 
+  empreendedorForm = this.fbe.group(
+    {
+      nomeNegocio: ['', [Validators.required]],
+      cnpj: ['', [Validators.required, Validators.maxLength(17)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
+      celular: ['', [Validators.required, Validators.maxLength(13)]],
+      ramo: ['', [Validators.required]],
+      perfil: ['', [Validators.required]],
+      cep: ['', [Validators.required, Validators.maxLength(9)]],
+      estado: ['', [Validators.required]],
+      cidade: ['', [Validators.required]],
+      bairro: ['', [Validators.required]],
+      rua: ['', [Validators.required]],
+      numero: ['', [Validators.required]]
+    }
+  );
+
+
+   onClick() {
+    if (this.click$ === true) {
+      this.click$ = false;
+      this.classbotaoOne = 'btn btn-con';
+      this.classbotaoTwo = 'btn btn-emp';
+    } else {
+      this.click$ = true;
+      this.classbotaoOne = 'btn btn-con-troca';
+      this.classbotaoTwo = 'btn btn-emp-troca';
+    }
   }
 
 
-
-
-  onSubmit() {
-    return this.signupForm.value;
+  onSubmit(){
+    if (this.consumidorForm) {
+      console.log('Consumidor cadastrado com sucesso');
+      return this.consumidorForm.value;
+    }
+    if (this.empreendedorForm){
+      console.log('Empreendedor cadastrado com sucesso');
+      return this.empreendedorForm.value;
+    }
   }
 
 
+  ngOnInit(): void {
+    console.log(this.empreendedorForm.value);
+    console.log(this.consumidorForm.value);
 
+  }
 }
