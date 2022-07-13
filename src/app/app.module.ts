@@ -11,12 +11,14 @@ import { HomeComponent } from './home/home.component';
 import { AuthModule } from './auth/auth.module';
 import { ProdutosModule } from './produtos/produtos.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CarrinhoComponent } from './carrinho/carrinho.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    CarrinhoComponent
   ],
   imports: [
     BrowserModule,
