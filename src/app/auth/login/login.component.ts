@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder,  Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
@@ -14,13 +14,19 @@ export class LoginComponent implements OnInit {
   hide = true;
   ocultar = true;
 
+  constructor(private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    private toast: HotToastService) {
+    this.siteKey = '6LfZoeIgAAAAAL36fd8Z62_r1rUqdz1g4VSgxqDz';
+  }
   loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(2)]],
     recaptcha: ['', Validators.required],
   });
 
- 
+
 
   onSubmit() {
 
@@ -28,28 +34,21 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(email, password).pipe(
       this.toast.observe({
-        loading:'Aguarde' ,
-        
+        loading: 'Aguarde',
+
       })
     ).subscribe({
       next: (response) => {
         const token = response.headers.get('Authorization');
         this.authService.onLogin(token!.substring(7));
         this.router.navigate(['/']);
-        
+
         this.toast.success('Login efetuado com sucesso');
       },
       error: (err) => {
         this.toast.error('email ou senha invalido')
       },
     });
-  }
-
-  constructor(private fb: FormBuilder,
-              private authService: AuthService, 
-              private router: Router,
-              private toast: HotToastService) {
-    this.siteKey = '6LfZoeIgAAAAAL36fd8Z62_r1rUqdz1g4VSgxqDz';
   }
 
   ngOnInit(): void {
