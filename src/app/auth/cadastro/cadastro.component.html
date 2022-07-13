@@ -5,7 +5,7 @@
       <h4>CADASTRAR</h4>
     </section>
     <div *ngIf="!click$; else empreendedor">
-    <form [formGroup]="consumidorForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="consumidorForm" (ngSubmit)="onSubmitConsumidor()">
       <div class="form-group botao" *ngIf="!click$; else botaos">
         <button class="btn btn-con" [class]="classbotaoOne" (click)="onClick()">Consumidor</button>
         <button class="btn btn-emp"  [class]="classbotaoTwo" (click)="onClick()">Empreendedor</button>
@@ -17,14 +17,14 @@
       <div class=" form-align">
         <mat-label class="form-label">Nome</mat-label>
         <mat-form-field class="example-full-width" appearance="outline">
-          <input matInput placeholder="Nome complento" formControlName="nome" type="text" required="nome">
+          <input matInput placeholder="Nome complento" formControlName="nome" type="text" required>
           <mat-error *ngIf="consumidorForm.get('nome')?.errors?.['required']">Campo obrigatório</mat-error>
         </mat-form-field>
       </div>
       <div class=" form-align">
         <mat-label class="form-label">CPF</mat-label>
         <mat-form-field appearance="outline">
-          <input matInput  placeholder="Informe seu CPF" formControlName="cpf" type="text" required="cpf">
+          <input matInput  placeholder="Informe seu CPF" formControlName="cpf" type="text" required=>
           <mat-error *ngIf="consumidorForm.get('cpf')?.errors?.['required']">Campo obrigatório</mat-error>
           <mat-error *ngIf="consumidorForm.get('cpf')?.errors?.['maxlength']">Máximo 14 digitos</mat-error>
         </mat-form-field>
@@ -32,7 +32,7 @@
       <div class=" form-align">
         <mat-label  class="form-label">Email</mat-label>
         <mat-form-field appearance="outline">
-          <input matInput placeholder="Digite seu email" formControlName="email" type="email" required="email">
+          <input matInput placeholder="Digite seu email" formControlName="email" type="email" required>
           <mat-error *ngIf="consumidorForm.get('email')?.errors?.['required']">Campo obrigatório</mat-error>
           <mat-error *ngIf="consumidorForm.get('email')?.errors?.['email']">exemplo@exemplo.com</mat-error>
         </mat-form-field>
@@ -52,59 +52,45 @@
       <div class=" form-align">
         <mat-label  class="form-label">Celular</mat-label>
         <mat-form-field appearance="outline">
-          <input matInput placeholder="(XX) X XXXX-XXXX" formControlName="celular" type="text" required="celular">
-          <mat-error *ngIf="consumidorForm.get('celular')?.errors?.['required']">Campo obrigatório</mat-error>
+          <input matInput placeholder="(XX) X XXXX-XXXX" formControlName="celular" type="text">
           <mat-error *ngIf="consumidorForm.get('celular')?.errors?.['maxlength']">Máximo 13 digitos</mat-error>
-        </mat-form-field>
-      </div>
-      <div class=" form-align">
-        <mat-label  class="form-label">Perfil</mat-label>
-        <mat-form-field appearance="outline">
-          <input matInput placeholder="ex: empreendedor" formControlName="perfil" type="text" required="perfil">
-          <mat-error *ngIf="consumidorForm.get('perfil')?.errors?.['required']">Campo obrigatório</mat-error>
         </mat-form-field>
       </div>
       <div class="form-align">
         <mat-label  class="form-label">CEP</mat-label>
         <mat-form-field appearance="outline">
-          <input matInput placeholder="03259-000" formControlName="cep" type="text" required="cep">
-          <mat-error *ngIf="consumidorForm.get('cep')?.errors?.['required']">Campo obrigatório</mat-error>
+          <input matInput placeholder="Exemplo: 03259-000" formControlName="cep" type="text">
           <mat-error *ngIf="consumidorForm.get('cep')?.errors?.['maxlength']">Máximo 9 digitos</mat-error>
         </mat-form-field>
       </div>
       <div class="form-align">
         <mat-label  class="form-label">Estado</mat-label>
         <mat-form-field appearance="outline">
-          <input matInput placeholder="ex.: São Paulo" formControlName="estado" type="text" required="estado">
-          <mat-error *ngIf="consumidorForm.get('estado')?.errors?.['required']">Campo obrigatório</mat-error>
+          <input matInput placeholder="Ex: São Paulo" formControlName="estado" type="text" >
         </mat-form-field>
       </div>
       <div class="form-align">
         <mat-label  class="form-label">Cidade</mat-label>
         <mat-form-field appearance="outline">
-          <input matInput placeholder="ex.: São Paulo" formControlName="cidade" type="text" required="cidade">
-          <mat-error *ngIf="consumidorForm.get('cidade')?.errors?.['required']">Campo obrigatório</mat-error>
+          <input matInput placeholder="Ex: São Paulo" formControlName="cidade" type="text">
         </mat-form-field>
       </div>
       <div class="form-align">
         <mat-label  class="form-label">Bairro</mat-label>
         <mat-form-field appearance="outline">
-          <input matInput placeholder="ex.: Mooca" formControlName="bairro" type="text" required="bairro">
-          <mat-error *ngIf="consumidorForm.get('bairro')?.errors?.['required']">Campo obrigatório</mat-error>
+          <input matInput placeholder="Ex: Mooca" formControlName="bairro" type="text" >
         </mat-form-field>
       </div>
       <div class="form-align ruaNum">
         <mat-label  class="form-label">Rua</mat-label>
         <mat-form-field appearance="outline">
-          <input matInput placeholder="ex.: Rua taquari" formControlName="rua" type="text" required="rua">
-          <mat-error *ngIf="consumidorForm.get('rua')?.errors?.['required']">Campo obrigatório</mat-error>
+          <input matInput placeholder="Ex: Rua taquari" formControlName="rua" type="text">
         </mat-form-field>
         </div>
       <div class="form-align ruaNum">
-        <mat-label  class="form-label">Nº</mat-label>
+        <mat-label  class="form-label">Número</mat-label>
         <mat-form-field appearance="outline">
-          <input matInput placeholder=" nº" formControlName="numero" type="text" required="numero">
-          <mat-error *ngIf="consumidorForm.get('numero')?.errors?.['required']">Campo obrigatório</mat-error>
+          <input matInput placeholder="Ex: 42" formControlName="numero" type="text">
         </mat-form-field>
       </div>
       <div class=" form-align">
@@ -118,7 +104,7 @@
   </section>
   <!-- TEMPLATE INICIO-->
   <ng-template #empreendedor>
-    <form [formGroup]="empreendedorForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="empreendedorForm" (ngSubmit)="onSubmitEmpreendedor()">
       <div class="form-group botao" *ngIf="!click$; else botaos">
         <button class="btn btn-con" [class]="classbotaoOne" (click)="onClick()">Consumidor</button>
         <button class="btn btn-emp"  [class]="classbotaoTwo" (click)="onClick()">Empreendedor</button>
@@ -128,16 +114,16 @@
         <button class="btn btn-emp-troca" [class]="classbotaoTwo" (click)="onClick()">Empreendedor</button>
       </ng-template>
       <div class=" form-align">
-        <mat-label class="form-label">Loja</mat-label>
+        <mat-label class="form-label">Nome</mat-label>
         <mat-form-field class="example-full-width" appearance="outline">
-          <input matInput placeholder="nome da sua loja" formControlName="nomeNegocio" type="text" required="nomeNegocio">
+          <input matInput placeholder="Digite o seu nome" formControlName="nomeNegocio" type="text" required>
           <mat-error *ngIf="empreendedorForm.get('nomeNegocio')?.errors?.['required']">Campo obrigatório</mat-error>
         </mat-form-field>
       </div>
       <div class=" form-align">
         <mat-label class="form-label">CNPJ</mat-label>
         <mat-form-field appearance="outline">
-          <input matInput placeholder="Informe seu CNPJ" formControlName="cnpj" type="text" required="cnpj">
+          <input matInput placeholder="Informe seu CNPJ" formControlName="cnpj" type="text" required>
           <mat-error *ngIf="empreendedorForm.get('cnpj')?.errors?.['required']">Campo obrigatório</mat-error>
           <mat-error *ngIf="empreendedorForm.get('cnpj')?.errors?.['maxlength']">Máximo 17 digitos</mat-error>
         </mat-form-field>
@@ -145,7 +131,7 @@
       <div class=" form-align">
         <mat-label  class="form-label">Email</mat-label>
         <mat-form-field appearance="outline">
-          <input matInput placeholder="Digite seu email" formControlName="email" type="email" required="email">
+          <input matInput placeholder="Digite seu email" formControlName="email" type="email" required>
           <mat-error *ngIf="empreendedorForm.get('email')?.errors?.['required']">Campo obrigatório</mat-error>
           <mat-error *ngIf="empreendedorForm.get('email')?.errors?.['email']">exemplo@exemplo.com</mat-error>
         </mat-form-field>
@@ -153,7 +139,7 @@
       <div class=" form-align">
         <mat-label  class="form-label">Senha</mat-label>
         <mat-form-field appearance="outline">
-          <input matInput [type]="ocultar ? 'password' : 'text'" placeholder="Digite sua senha" formControlName="password" type="password" required="password">
+          <input matInput [type]="ocultar ? 'password' : 'text'" placeholder="Digite sua senha" formControlName="password" type="password" required>
           <mat-error *ngIf="empreendedorForm.get('password')?.errors?.['required']">Campo obrigatório</mat-error>
           <mat-error *ngIf="empreendedorForm.get('password')?.errors?.['minlength']">Mínimo 8 dígitos</mat-error>
           <button type="button" mat-icon-button matSuffix (click)="ocultar = !ocultar"
@@ -163,68 +149,59 @@
         </mat-form-field>
       </div>
       <div class=" form-align">
-        <mat-label  class="form-label">Perfil</mat-label>
-        <mat-form-field appearance="outline">
-          <input matInput placeholder="ex: empreendedor" formControlName="perfil" type="text" required="perfil">
-          <mat-error *ngIf="empreendedorForm.get('perfil')?.errors?.['required']">Campo obrigatório</mat-error>
-        </mat-form-field>
-      </div>
-      <div class=" form-align">
-        <mat-label  class="form-label">Ramo</mat-label>
-        <mat-form-field appearance="outline">
-          <input matInput placeholder="ex: empreendedor" formControlName="ramo" type="text" required="ramo">
-          <mat-error *ngIf="empreendedorForm.get('ramo')?.errors?.['required']">Campo obrigatório</mat-error>
+       <mat-form-field appearance="fill">
+          <mat-select placeholder="Ramo do negócio" name="ramo" formControlName="ramo" required>
+            <mat-option [value]="0">Hardware</mat-option>
+            <mat-option [value]="1">Software</mat-option>
+            <mat-option [value]="2">Ambos</mat-option>
+          </mat-select>
+          <mat-error *ngIf="empreendedorForm.get('ramo')?.errors?.['required']"
+            >Campo obrigatório</mat-error
+          >
         </mat-form-field>
       </div>
       <div class=" form-align">
         <mat-label  class="form-label">Celular</mat-label>
         <mat-form-field appearance="outline">
-          <input matInput placeholder="(XX) X XXXX-XXXX" formControlName="celular" type="text" required="celular">
-          <mat-error *ngIf="empreendedorForm.get('celular')?.errors?.['required']">Campo obrigatório</mat-error>
+          <input matInput placeholder="(XX) X XXXX-XXXX" formControlName="celular" type="text">
           <mat-error *ngIf="empreendedorForm.get('celular')?.errors?.['maxlength']">Máximo 13 digitos</mat-error>
         </mat-form-field>
       </div>
       <div class="form-align">
         <mat-label  class="form-label">CEP</mat-label>
         <mat-form-field appearance="outline">
-          <input matInput placeholder="03259-000" formControlName="cep" type="text" required="cep">
-          <mat-error *ngIf="empreendedorForm.get('cep')?.errors?.['required']">Campo obrigatório</mat-error>
+          <input matInput placeholder="Ex: 03259-000" formControlName="cep" type="text">
           <mat-error *ngIf="empreendedorForm.get('cep')?.errors?.['maxlength']">Máximo 9 digitos</mat-error>
         </mat-form-field>
       </div>
       <div class="form-align">
         <mat-label  class="form-label">Estado</mat-label>
         <mat-form-field appearance="outline">
-          <input matInput placeholder="ex.: São Paulo" formControlName="estado" type="text" required="estado">
-          <mat-error *ngIf="empreendedorForm.get('estado')?.errors?.['required']">Campo obrigatório</mat-error>
+          <input matInput placeholder="Ex: São Paulo" formControlName="estado" type="text">
         </mat-form-field>
       </div>
       <div class="form-align">
         <mat-label  class="form-label">Cidade</mat-label>
         <mat-form-field appearance="outline">
-          <input matInput placeholder="ex.: São Paulo" formControlName="cidade" type="text" required="cidade">
-          <mat-error *ngIf="empreendedorForm.get('cidade')?.errors?.['required']">Campo obrigatório</mat-error>
+          <input matInput placeholder="Ex: São Paulo" formControlName="cidade" type="text">
         </mat-form-field>
       </div>
       <div class="form-align">
         <mat-label  class="form-label">Bairro</mat-label>
         <mat-form-field appearance="outline">
-          <input matInput placeholder="ex.: Mooca" formControlName="bairro" type="text" required="bairro">
-          <mat-error *ngIf="empreendedorForm.get('bairro')?.errors?.['required']">Campo obrigatório</mat-error>
+          <input matInput placeholder="Ex: Mooca" formControlName="bairro" type="text">
         </mat-form-field>
       </div>
       <div class="form-align ruaNum">
         <mat-label  class="form-label rua">Rua</mat-label>
         <mat-form-field appearance="outline">
-          <input class="rua" matInput placeholder="ex.: Rua da mooca" formControlName="rua" type="text" required="rua">
-          <mat-error *ngIf="empreendedorForm.get('rua')?.errors?.['required']">Campo obrigatório</mat-error>
+          <input class="rua" matInput placeholder="Ex: Rua da mooca" formControlName="rua" type="text">
         </mat-form-field>
         </div>
       <div class="form-align ruaNum">
-        <mat-label  class="form-label num">Nº</mat-label>
+        <mat-label  class="form-label num">Número</mat-label>
         <mat-form-field appearance="outline">
-          <input class="num" matInput placeholder=" nº" formControlName="numero" type="text" required="numero">
-          <mat-error *ngIf="empreendedorForm.get('numero')?.errors?.['required']">Campo obrigatório</mat-error>
+          <input class="num" matInput placeholder="Ex: 42" formControlName="numero" type="text">
         </mat-form-field>
       </div>
       <div class=" form-align">

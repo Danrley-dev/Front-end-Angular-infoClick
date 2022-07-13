@@ -1,5 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ConsumidorService } from 'src/app/core/services/consumidor/consumidor.service';
+import { EmpreendedorService } from 'src/app/core/services/empreendedor/empreendedor.service';
 
 
 @Component({
@@ -15,47 +17,43 @@ export class CadastroComponent implements OnInit {
   classbotaoOne?: string = 'btn btn-con';
   classbotaoTwo?: string = 'btn btn-emp';
 
-
-  constructor(
-    private fb: FormBuilder,
-    private fbe: FormBuilder) { }
-
-
+  constructor(private fb: FormBuilder,
+              private consumidorService: ConsumidorService,
+              private empreendedorService: EmpreendedorService,
+              ) { }
+          
   consumidorForm = this.fb.group(
     {
-      nome: ['', [Validators.required, Validators.minLength(10)]],
-      cpf: ['', [Validators.required, Validators.maxLength(14)]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
-      celular: ['', [Validators.required, Validators.maxLength(13)]],
-      perfil: ['', [Validators.required]],
-      cep: ['', [Validators.required, Validators.maxLength(9)]],
-      estado: ['', [Validators.required]],
-      cidade: ['', [Validators.required]],
-      bairro: ['', [Validators.required]],
-      rua: ['', [Validators.required]],
-      numero: ['', [Validators.required]],
+      nome: [null, [Validators.required, Validators.minLength(10)]],
+      cpf: [null, [Validators.required, Validators.maxLength(14)]],
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required, Validators.minLength(6)]], 
+      celular: [null, [Validators.maxLength(13)]],
+      cep: [null],
+      estado: [null],
+      cidade: [null],
+      bairro: [null],
+      rua: [null],
+      numero: [null],
     }
   );
 
-  empreendedorForm = this.fbe.group(
+  empreendedorForm = this.fb.group(
     {
-      nomeNegocio: ['', [Validators.required]],
-      cnpj: ['', [Validators.required, Validators.maxLength(17)]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
-      celular: ['', [Validators.required, Validators.maxLength(13)]],
-      ramo: ['', [Validators.required]],
-      perfil: ['', [Validators.required]],
-      cep: ['', [Validators.required, Validators.maxLength(9)]],
-      estado: ['', [Validators.required]],
-      cidade: ['', [Validators.required]],
-      bairro: ['', [Validators.required]],
-      rua: ['', [Validators.required]],
-      numero: ['', [Validators.required]]
+      nomeNegocio: [null, [Validators.required]],
+      cnpj: [null, [Validators.required, Validators.maxLength(25)]],
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required, Validators.minLength(6)]], //trocar para minLength(8)
+      celular: [null, Validators.maxLength(13)],
+      ramo: [null, [Validators.required]],
+      cep: [null, [Validators.maxLength(9)]],
+      estado: [null],
+      cidade: [null],
+      bairro: [null],
+      rua: [null],
+      numero: [null]
     }
   );
-
 
    onClick() {
     if (this.click$ === true) {
@@ -69,18 +67,27 @@ export class CadastroComponent implements OnInit {
     }
   }
 
+  onSubmitConsumidor(){
+      this.consumidorService.create(this.consumidorForm.value).subscribe({
+        next: (response) => {
+          alert('Cadastro realizado com sucesso!');
+        },
+        error: (error) => {
+          alert('Erro ao realizar o cadastro!');
+        }
+      })
+    }
 
-  onSubmit(){
-    if (this.consumidorForm) {
-      console.log('Consumidor cadastrado com sucesso');
-      return this.consumidorForm.value;
-    }
-    if (this.empreendedorForm){
-      console.log('Empreendedor cadastrado com sucesso');
-      return this.empreendedorForm.value;
-    }
+  onSubmitEmpreendedor(){
+      this.empreendedorService.create(this.empreendedorForm.value).subscribe({
+        next: (response) => {
+          alert('Cadastro realizado com sucesso!');
+        },
+        error: (error) => {
+          alert('Erro ao realizar o cadastro!');
+        }
+      })
   }
-
 
   ngOnInit(): void {
     console.log(this.empreendedorForm.value);
