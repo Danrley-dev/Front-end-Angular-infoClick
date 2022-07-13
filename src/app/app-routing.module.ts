@@ -1,3 +1,4 @@
+import { LojaEmpreendedorComponent } from './loja-empreendedor/loja-empreendedor.component';
 import { ProdutosListComponent } from './produtos/components/produtos-list/produtos-list.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { NgModule } from '@angular/core';
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'produtos-list', component: ProdutosListComponent},
   {path: 'carrinho', component: CarrinhoComponent},
   {path: 'loja-create', component: LojaCreateComponent},
+  {path: 'loja-empreendedor', component:LojaEmpreendedorComponent},
   { path: '**', component: NotFoundComponent },
 ];
 

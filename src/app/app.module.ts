@@ -15,6 +15,7 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './shared/material.module';
 import { LojaCreateComponent } from './empreendedor/loja-create/loja-create/loja-create.component';
+import { LojaEmpreendedorComponent } from './loja-empreendedor/loja-empreendedor.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { LojaCreateComponent } from './empreendedor/loja-create/loja-create/loja
     AppComponent,
     HomeComponent,
     CarrinhoComponent,
-    LojaCreateComponent
+    LojaCreateComponent,
+    LojaEmpreendedorComponent
   ],
   imports: [
     BrowserModule,
