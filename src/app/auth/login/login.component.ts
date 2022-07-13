@@ -20,26 +20,35 @@ export class LoginComponent implements OnInit {
     recaptcha: ['', Validators.required],
   });
 
+ 
+
   onSubmit() {
 
     const { email, password } = this.loginForm.value;
 
-    this.authService.login(email, password).subscribe({
+    this.authService.login(email, password).pipe(
+      this.toast.observe({
+        loading:'Aguarde' ,
+        
+      })
+    ).subscribe({
       next: (response) => {
         const token = response.headers.get('Authorization');
         this.authService.onLogin(token!.substring(7));
         this.router.navigate(['/']);
-        alert('login feito com sucesso')
+        
+        this.toast.success('Login efetuado com sucesso');
       },
       error: (err) => {
-        alert('email ou senha invalido')
+        this.toast.error('email ou senha invalido')
       },
     });
   }
 
   constructor(private fb: FormBuilder,
               private authService: AuthService, 
-              private router: Router) {
+              private router: Router,
+              private toast: HotToastService) {
     this.siteKey = '6LfZoeIgAAAAAL36fd8Z62_r1rUqdz1g4VSgxqDz';
   }
 

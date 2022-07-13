@@ -25,7 +25,10 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
     AppRoutingModule,
     NgbModule,
     BrowserAnimationsModule,
-    HotToastModule.forRoot(),
+    HotToastModule.forRoot({
+      position: 'bottom-center',
+      duration:4000
+    }),
     CoreModule,
     HttpClientModule,
     AuthModule,
