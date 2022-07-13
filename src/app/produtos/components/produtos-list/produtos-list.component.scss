@@ -203,6 +203,12 @@ main {
   .container-carousel {
     width: 800px;
 }
+.card {
+  height: 490px;
+  .button-card {
+    display: block;
+  }
+}
 }
 
 @media(max-width: 810px) {
@@ -212,6 +218,12 @@ main {
 }
 .container-carousel img {
   height: 250px;
+}
+.card {
+  height: 490px;
+  .button-card {
+    display: block;
+  }
 }
 }
 
@@ -225,6 +237,13 @@ main {
 }
 .container-carousel img {
   height: 200px;
+}
+
+.card {
+  height: 490px;
+  .button-card {
+    display: block;
+  }
 }
 }
 
@@ -247,5 +266,11 @@ main {
 }
 .container-carousel img {
   height: 130px;
+}
+.card {
+  height: 490px;
+  .button-card {
+    display: block;
+  }
 }
 }
