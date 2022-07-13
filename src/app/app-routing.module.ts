@@ -1,3 +1,4 @@
+import { ProdutosListComponent } from './produtos/components/produtos-list/produtos-list.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'recuperar-senha', component: RecuperarSenhaComponent },
   { path: 'termo-de-privacidade', component: TermoDePrivacidadeComponent },
   { path: 'produto-detail', component: ProdutoDetailComponent },
+  {path: 'produtos-list', component: ProdutosListComponent},
   {path: 'carrinho', component: CarrinhoComponent},
   { path: '**', component: NotFoundComponent },
 ];
