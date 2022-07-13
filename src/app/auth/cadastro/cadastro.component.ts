@@ -75,6 +75,7 @@ export class CadastroComponent implements OnInit {
     this.consumidorService.create(this.consumidorForm.value).subscribe({
       next: (response) => {
         this.toast.success('Cadastro consumidor efetuado com sucesso');
+        this.router.navigate(['produtos-list']);
       },
       error: (error) => {
         this.toast.error('Algum erro inesperado aconteceu')
@@ -86,6 +87,7 @@ export class CadastroComponent implements OnInit {
     this.empreendedorService.create(this.empreendedorForm.value).subscribe({
       next: (response) => {
         this.toast.success('Cadastro empreendedor efetuado com sucesso');
+        this.router.navigate(['loja-create']);
       },
       error: (err) => {
         this.toast.error('Algum erro inesperado aconteceu')
