@@ -9,6 +9,7 @@ import { NotFoundComponent } from './core/components/not-found/not-found.compone
 import { TermoDePrivacidadeComponent } from './core/components/termo-de-privacidade/termo-de-privacidade.component';
 import { HomeComponent } from './home/home.component';
 import { ProdutoDetailComponent } from './produtos/components/produto-detail/produto-detail.component';
+import { LojaCreateComponent } from './empreendedor/loja-create/loja-create/loja-create.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'produto-detail', component: ProdutoDetailComponent },
   {path: 'produtos-list', component: ProdutosListComponent},
   {path: 'carrinho', component: CarrinhoComponent},
+  {path: 'loja-create', component: LojaCreateComponent},
   { path: '**', component: NotFoundComponent },
 ];
 

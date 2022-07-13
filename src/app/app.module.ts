@@ -12,13 +12,17 @@ import { AuthModule } from './auth/auth.module';
 import { ProdutosModule } from './produtos/produtos.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from './shared/material.module';
+import { LojaCreateComponent } from './empreendedor/loja-create/loja-create/loja-create.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CarrinhoComponent
+    CarrinhoComponent,
+    LojaCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,10 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
     HttpClientModule,
     AuthModule,
     ProdutosModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule
 
   ],
   providers: [],

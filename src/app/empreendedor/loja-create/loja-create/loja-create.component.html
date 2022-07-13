@@ -1,0 +1,43 @@
+<main>
+    <div class="container">
+        <section class="caixa-principal">
+            <section>
+                <h4>CRIE SUA LOJA</h4>
+            </section>
+            <form [formGroup]="lojaForm" (ngSubmit)="onSubmit()">
+                <div class=" form-align">
+                    <mat-label class="form-label">Nome</mat-label>
+                    <mat-form-field appearance="outline">
+                        <input matInput placeholder="Nome da sua loja" formControlName="nome" type="text" required="nome">
+                        <mat-error *ngIf="lojaForm.get('nome')?.errors?.['required']">Campo obrigatório</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class=" form-align">
+                    <mat-label class="form-label">Descrição</mat-label>
+                    <mat-form-field appearance="outline">
+                        <textarea matInput placeholder="Descrição da sua loja" formControlName="descricao" type="text" required="descricao"></textarea>
+                        <mat-error *ngIf="lojaForm.get('descricao')?.errors?.['required']">Campo obrigatório</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class=" form-align">
+                    <mat-label class="form-label">Cor</mat-label>
+                    <mat-form-field appearance="outline">
+                        <input matInput type="color">
+                    </mat-form-field>
+                </div>
+                <div class="form-align">
+                    <mat-label class="form-label">CNPJ</mat-label>
+                    <mat-form-field appearance="outline">
+                        <input matInput placeholder="00.000.000/0001-00" formControlName="cnpj" type="text" required="cnpj">
+                        <mat-error *ngIf="lojaForm.get('cnpj')?.errors?.['required']">Campo obrigatório</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class=" form-align">
+                    <mat-label for="foto" class="label-align form-label fotoCon">Foto</mat-label>
+                    <span class="btn form-align upload" id="cloud"><i class="bi bi-cloud-plus"></i></span>
+                  </div>
+                  <button mat-raised-button color="black" class="btn btn-dark" [disabled]="lojaForm.invalid">Enviar</button>
+            </form>
+        </section>
+    </div>
+</main>
