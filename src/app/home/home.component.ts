@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { forkJoin } from 'rxjs';
+import { DialogHomeComponent } from '../core/components/dialog-home/dialog-home.component';
 import { Loja } from '../core/models/loja';
 import { Produto } from '../core/models/produto';
 import { ProdutoService } from '../core/services/produtos/produto.service';
@@ -22,7 +24,9 @@ export class HomeComponent implements OnInit {
   segundos: number = 4;
 
   images = ['../../assets/img/HP1.png', '../../assets/img/HP1-RESP.png', '../../assets/img/HP1-RESP(420).png', '../../assets/img/HP1-RESP(720).png', '../../assets/img/HP2.png', '../../assets/img/HP2-RESP.png', '../../assets/img/HP2-RESP(420).png', '../../assets/img/HP2-RESP(720).png', '../../assets/img/HP3.png', '../../assets/img/HP3-RESP.png', '../../assets/img/HP3-RESP(410).png', '../../assets/img/HP3-RESP(720).png']
-  constructor(private produtoService: ProdutoService, private route: ActivatedRoute) { }
+  constructor(private produtoService: ProdutoService,
+     private route: ActivatedRoute,
+     private dialog: MatDialog) { }
 
   MostraProdutosNaLoja() {
     forkJoin([this.produtoService.listaProdutos(), this.produtoService.listaLojas()]).subscribe(
@@ -31,6 +35,13 @@ export class HomeComponent implements OnInit {
         this.lojas = response[1];
       }
     );
+  }
+  onClickDialogHome(): void {
+    setTimeout(() => {
+      this.dialog.open(DialogHomeComponent, {
+        width: '640px'
+      });
+    }, 3000);
   }
 
   handleListaProdutos() {
@@ -88,6 +99,7 @@ export class HomeComponent implements OnInit {
     this.MostraProdutosNaLoja();
 
     this.countDown();
+    this.onClickDialogHome();
   }
 
 }
