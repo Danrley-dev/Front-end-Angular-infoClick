@@ -13,7 +13,7 @@ import { ProdutoDetailComponent } from './produtos/components/produto-detail/pro
 import { LojaCreateComponent } from './empreendedor/loja-create/loja-create/loja-create.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'cadastro', component: CadastroComponent },
   { path: 'login', component: LoginComponent },
   { path: 'recuperar-senha', component: RecuperarSenhaComponent },
