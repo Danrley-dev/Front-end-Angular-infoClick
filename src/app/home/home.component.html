@@ -46,8 +46,8 @@
         <p class="nome-produto"> <b>{{loja.nomeLoja}}</b></p>
       </a>
         <p class="preco-produto">{{item.name}}</p>
-        <p class="preco-corte">De: {{item.produtoValor}}</p>
-        <p class="preco-promo">{{item.produtoDesconto}}</p>
+        <p class="preco-corte">De: {{item.produtoValor | currency: "BRL"}}</p>
+        <p class="preco-promo">{{item.produtoDesconto | currency: "BRL"}}</p>
         <!-- <p class="parcelas">12x de R$ 499,98 sem juros</p> -->
 
       <button (click)="addToCart(item)"class="button-card" type="button"><a href="#">ADICIONAR AO CARRINHO</a></button>
