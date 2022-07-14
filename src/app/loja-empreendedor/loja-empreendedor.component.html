@@ -1,34 +1,21 @@
 <main>
   <div class="banner-loja">
     <img class="logo-loja" src="https://wedologos.bladecdn.net/wp-content/uploads/2016/04/logo-loja-de-informatica-08.jpg" alt="" />
-  </div>
-  <p class="p-collapse">
-    <button
-      type="button"
-      class="btn button-collapse"
-      (click)="collapse.toggle()"
-      [attr.aria-expanded]="!isCollapsed"
-      aria-controls="collapseExample"
-    >
-      Saiba mais <i class="bi bi-caret-down"></i>
-    </button>
-  </p>
-
-
-  <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
     <div class="container-informacoes">
-      <div>
+      <div class="container-nome-loja">
         <p class="nome-loja">nome: <span>MagoDigital</span></p>
         <p class="data-loja">data de criação: <span>13/07/2022</span></p>
       </div>
       <p class="descricao-loja">
         <span>descrição:</span> Tenha uma experiência de compra
-        onlineconveniente e perfeita para encontrar produtos a qualquer hora e
-        lugar. Com um forte suporte de pagamento e entrega, a Shopee quer que
+        online conveniente e perfeita para encontrar produtos a qualquer hora e
+        lugar. Com um forte suporte de pagamento e entrega, a MagoDigital quer que
         você sinta mais facilidade e segurança na hora de comprar na internet
       </p>
     </div>
   </div>
+
+  <h2 class="titulo">Todos os Produtos</h2>
 
   <section class="container-cards1">
     <div *ngFor="let itens of loja.produtos ">
