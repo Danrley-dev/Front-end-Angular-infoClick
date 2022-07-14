@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CarrinhoService } from '../../services/carrinho/carrinho.service';
 
 @Component({
@@ -12,7 +13,12 @@ export class NavbarComponent implements OnInit {
   totalPrice: number = 0.00;
   totalQuantity: number = 0;
 
-  constructor(private carrinhoService: CarrinhoService) { }
+  constructor(private carrinhoService: CarrinhoService, private router: Router) { }
+
+  pesquisar(value: string){
+    console.log(`value:${value}`);
+    this.router.navigateByUrl(`/pesquisar/${value}`);
+  }
 
   updateCartStatus() {
 

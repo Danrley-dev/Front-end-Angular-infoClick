@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { HotToastService } from '@ngneat/hot-toast';
+import { ItemCarrinho } from 'src/app/core/models/item-carrinho';
 import { Loja } from 'src/app/core/models/loja';
 import { Produto } from 'src/app/core/models/produto';
+import { CarrinhoService } from 'src/app/core/services/carrinho/carrinho.service';
 import { ProdutoService } from 'src/app/core/services/produtos/produto.service';
 
 @Component({
@@ -16,7 +19,13 @@ export class ProdutoDetailComponent implements OnInit {
   produto: Produto = new Produto();
   loja: Loja = new Loja();
 
-  constructor(private produtoService: ProdutoService, private route: ActivatedRoute) { }
+  constructor(private produtoService: ProdutoService, private route: ActivatedRoute, private carrinhoService: CarrinhoService, private toast: HotToastService) { }
+
+  addToCart(produto: Produto) {
+
+    const itemCarrinho = new ItemCarrinho(produto);
+    this.carrinhoService.addToCart(itemCarrinho);
+  }
 
   produtoDetalhe(){
     const produtoId: number = +this.route.snapshot.paramMap.get('id')!;

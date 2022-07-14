@@ -11,16 +11,18 @@
             <p class="codigo-produto">
                 COD:  912-V809-2272
             </p>
+
             <p class="nome-empreendedor">
-                Vendido por: <span></span>
+                Vendido por: <span ><a routerLink="/loja-empreendedor/{{produto.loja?.idLoja}}" class="img-wrap" data-abc="true"  > {{produto.loja?.nomeLoja}}</a></span>
             </p>
+
             <p class="descricao-produto">
                {{produto.produtoDescricao}}
             </p>
             <p class="boleto"><i class="bi bi-upc"></i> De: <span class="preco-original">{{produto.produtoValor | currency: "BRL"}}</span> por:
                 <span class="preco-promo">{{produto.produtoDesconto | currency: "BRL"}}</span></p>
             <!-- <p class="cartao"><i class="bi bi-credit-card"></i> R$ 1.410,50 <span class="preco-dividido">12x sem juros</span></p> -->
-            <button type="button" class="button">ADICIONAR AO CARRINHO</button>
+            <button (click)="addToCart(produto)" type="button" class="button">ADICIONAR AO CARRINHO</button>
         </div>
     </section>
 

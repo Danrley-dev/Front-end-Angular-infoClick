@@ -3,8 +3,8 @@
         <a href="/"><img src="assets/img/logo-infoclick.png" class="logo" alt=""></a>
 
         <div class="search">
-            <input class="input" placeholder="Buscar produtos..."/>
-            <button class="button"><i class="bi bi-search"></i></button>
+            <input #Input class="input" placeholder="Buscar produtos..." (keyup.enter)="pesquisar(Input.value)"/>
+            <button class="button" (click)="pesquisar(Input.value)"><i class="bi bi-search"></i></button>
         </div>
         <nav class="navbar">
             <ul>
