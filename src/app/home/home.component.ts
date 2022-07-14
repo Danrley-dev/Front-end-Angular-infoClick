@@ -3,8 +3,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { forkJoin } from 'rxjs';
 import { DialogHomeComponent } from '../core/components/dialog-home/dialog-home.component';
+import { ItemCarrinho } from '../core/models/item-carrinho';
 import { Loja } from '../core/models/loja';
 import { Produto } from '../core/models/produto';
+import { CarrinhoService } from '../core/services/carrinho/carrinho.service';
 import { ProdutoService } from '../core/services/produtos/produto.service';
 
 @Component({
@@ -18,15 +20,27 @@ export class HomeComponent implements OnInit {
   lojas?: Loja[];
   searchMode?: boolean;
 
+
   dias: number = 19;
   horas: number = 22;
   minutos: number = 14;
   segundos: number = 4;
 
+  storage: Storage = localStorage;
+
   images = ['../../assets/img/HP1.png', '../../assets/img/HP1-RESP.png', '../../assets/img/HP1-RESP(420).png', '../../assets/img/HP1-RESP(720).png', '../../assets/img/HP2.png', '../../assets/img/HP2-RESP.png', '../../assets/img/HP2-RESP(420).png', '../../assets/img/HP2-RESP(720).png', '../../assets/img/HP3.png', '../../assets/img/HP3-RESP.png', '../../assets/img/HP3-RESP(410).png', '../../assets/img/HP3-RESP(720).png']
-  constructor(private produtoService: ProdutoService,
+  constructor(private produtoService: ProdutoService, private carrinhoService: CarrinhoService,
      private route: ActivatedRoute,
-     private dialog: MatDialog) { }
+     private dialog: MatDialog) {
+
+
+     }
+
+     addToCart(produto: Produto) {
+
+      const itemCarrinho = new ItemCarrinho(produto);
+      this.carrinhoService.addToCart(itemCarrinho);
+    }
 
   MostraProdutosNaLoja() {
     forkJoin([this.produtoService.listaProdutos(), this.produtoService.listaLojas()]).subscribe(
@@ -36,6 +50,8 @@ export class HomeComponent implements OnInit {
       }
     );
   }
+
+
   onClickDialogHome(): void {
     setTimeout(() => {
       this.dialog.open(DialogHomeComponent, {
@@ -57,6 +73,7 @@ export class HomeComponent implements OnInit {
       this.MostraProdutosNaLoja();
     }
   }
+
 
 
   countDown() {
@@ -83,9 +100,11 @@ export class HomeComponent implements OnInit {
         this.minutos === 0 &&
         this.segundos === 0
       ) {
+
         clearInterval(x);
       }
     }, 1000);
+
   }
 
 

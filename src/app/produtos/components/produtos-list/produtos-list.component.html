@@ -31,8 +31,6 @@
   </section>
 
 
-
-
 <section class="container-cards1">
 
   <div *ngFor="let loja of lojas">
@@ -50,13 +48,15 @@
         src="{{ item.produtoImagem }}"
         alt="Imagem de um computador">
       </a>
-      <p class="nome-produto"> <b>{{loja.nomeLoja}}</b></p>
+      <a routerLink="/loja-empreendedor/{{loja.idLoja}}" class="img-wrap" data-abc="true"  >
+        <p class="nome-produto"> <b>{{loja.nomeLoja}}</b></p>
+      </a>
       <p class="preco-produto">{{item.name}}</p>
       <p class="preco-corte">De: {{item.produtoValor}}</p>
       <p class="preco-promo">{{item.produtoDesconto}}</p>
        <!-- <p class="parcelas">12x de R$ 499,98 sem juros</p> -->
 
-    <button class="button-card" type="button"><a href="#">ADICIONAR AO CARRINHO</a></button>
+       <button (click)="addToCart(item)"class="button-card" type="button"><a href="#">ADICIONAR AO CARRINHO</a></button>
   </div>
   </div>
 </div>
