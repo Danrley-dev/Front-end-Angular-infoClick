@@ -1,60 +1,84 @@
 main {
-  background-color: #BBA7F2;
+  background-color: #f5f5f5;
 }
 
 .banner-loja {
-  background-image: url('../../assets/img/banner-exemplo.png');
-  background-size: cover;
+  background-color: #0caba8;
   height: 360px;
   display: flex;
   align-items: center;
   padding-left: 65px;
- }
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
 
- .logo-loja {
+.logo-loja {
   width: 140px;
   height: 140px;
   border-radius: 50%;
- }
+}
 
- .p-collapse {
+.p-collapse {
   text-align: center;
   border: none;
   margin-top: -1.5px;
- }
+}
 
- .button-collapse {
+.button-collapse {
   border-bottom: 1px solid black;
   border-left: 1px solid black;
   border-right: 1px solid black;
   box-shadow: none;
- }
+}
 
- .container-informacoes {
+.container-informacoes {
   width: 777px;
   height: 245px;
-  background-color: white;
+  // background-color: rgba(255, 255, 255, 0.278);
   margin: auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: -53px;
   padding-top: 50px;
-  border-radius: 0px 0px 10px 10px;
-  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
- }
+  border-radius: 10px;
+  // box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  /* From https://css.glass */
+  /* From https://css.glass */
+background: rgba(255, 255, 255, 0.06);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(3.1px);
+-webkit-backdrop-filter: blur(3.1px);
+}
 
- .nome-loja span, .data-loja span,  .descricao-loja span {
+.container-nome-loja {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.nome-loja span,
+.data-loja span,
+.descricao-loja span {
   font-weight: bold;
- }
+}
 
-
-
- .descricao-loja {
+.descricao-loja {
   width: 50%;
- }
+  text-align: justify;
+}
 
- .container-cards1 {
+
+.titulo {
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
+  border-bottom: 1px solid rgb(121, 121, 55);
+  width: 360px;
+}
+
+.container-cards1 {
   margin-top: 70px;
   display: flex;
   justify-content: space-evenly;
@@ -70,10 +94,9 @@ main {
 }
 
 .promo {
-
   display: flex;
   justify-content: center;
-  border-bottom: solid 2px #F4DA5E;
+  border-bottom: solid 2px #f4da5e;
   height: 54.55px;
 }
 
@@ -86,27 +109,26 @@ main {
 }
 
 .porcent-promo span {
-  color: #2FA53A;
+  color: #2fa53a;
   font-size: 16px;
   font-weight: bold;
 }
 
 .time-promo {
-  border-left: solid 2px #F4DA5E;
+  border-left: solid 2px #f4da5e;
   display: flex;
   flex-direction: column;
   width: 138.72px;
   height: 54.55px;
   padding-top: 2px;
   padding-left: 30px;
-  color: #EA1010;
+  color: #ea1010;
   font-size: 16px;
 }
 
 .time-promo span {
   color: black;
 }
-
 
 .details {
   display: flex;
@@ -133,7 +155,7 @@ main {
 .preco-corte {
   font-size: 20px;
   font-weight: bold;
-  color: #BAC2C5;
+  color: #bac2c5;
   text-decoration: line-through;
 }
 
@@ -150,7 +172,7 @@ main {
 .button-card {
   width: 299px;
   height: 71px;
-  background-color: #1F1F1F;
+  background-color: #1f1f1f;
   display: none;
 }
 
@@ -162,30 +184,71 @@ main {
 .card:hover {
   height: 490px;
   .button-card {
-      display: block;
+    display: block;
   }
 }
 
-@media(max-width: 800px) {
-  .container-informacoes{
+@media (max-width: 1000px) {
+  .container-informacoes {
     width: 600px;
   }
 }
 
-@media(max-width: 624px) {
-  .container-informacoes{
+@media (max-width: 830px) {
+  .container-informacoes {
+    width: 500px;
+    height: 280px;
+  }
+}
+
+@media (max-width: 730px) {
+
+  .banner-loja {
+    height: 500px;
+
+  }
+
+  .container-informacoes {
     width: 400px;
     display: flex;
     flex-direction: column;
     height: 450px;
   }
+
+  .container-nome-loja {
+    align-items: center;
+  }
+
   .descricao-loja {
     width: 80%;
-   }
+  }
 }
 
-@media(max-width: 424px) {
-  .container-informacoes{
+@media (max-width: 630px){
+  .banner-loja {
+    padding-left: 10px;
+  }
+}
+
+@media (max-width: 580px) {
+
+  .banner-loja {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-left: 0px;
+    height: 800px;
+  }
+
+  .container-informacoes {
+    margin: 0;
+  }
+
+}
+
+@media (max-width: 424px) {
+  .container-informacoes {
     width: 350px;
   }
 }
