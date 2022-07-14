@@ -6,8 +6,7 @@
                 <div class="form-align">
                     <mat-label class="form-label">Email</mat-label>
                     <mat-form-field class="example-full-width" appearance="outline">
-                        <mat-label>Enter your email</mat-label>
-                        <input matInput placeholder="pat@example.com" formControlName="email" type="email" required>
+                        <input matInput placeholder="Digite seu email" formControlName="email" type="email" required>
                         <mat-error *ngIf="loginForm.get('email')?.errors?.['required']">Campo obrigatório</mat-error>
                         <mat-error *ngIf="loginForm.get('email')?.errors?.['email']">Email inválido</mat-error>
                     </mat-form-field>
@@ -15,8 +14,9 @@
                 <div class=" form-align">
                     <mat-label class="label-align2">Senha</mat-label>
                     <mat-form-field class="example-full-width" appearance="outline">
-                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" type="password" required>
+                        <input matInput placeholder="Digite sua senha" [type]="hide ? 'password' : 'text'" formControlName="password" type="password" required>
                         <mat-error *ngIf="loginForm.get('password')?.errors?.['required']">Campo obrigatório</mat-error>
+                        <mat-error *ngIf="loginForm.get('password')?.errors?.['minlength']">Mínimo 8 dígitos</mat-error>
                         <a mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                             [attr.aria-pressed]="hide">
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -37,7 +37,7 @@
             </form>
             
             <div>
-                <p class="cadastra"><a class="palavra2" href="/cadastro">E novo na Infoclick? Cadastre-se aqui</a></p>
+                <p class="cadastra"><a class="palavra2" href="/cadastro">É novo na Infoclick? Cadastre-se aqui</a></p>
             </div>
             <div>
                 <p class="cadastra2"><a class="palavra" href="/recuperar-senha">Esqueci a minha senha</a></p>
