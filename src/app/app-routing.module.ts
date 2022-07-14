@@ -11,6 +11,7 @@ import { TermoDePrivacidadeComponent } from './core/components/termo-de-privacid
 import { HomeComponent } from './home/home.component';
 import { ProdutoDetailComponent } from './produtos/components/produto-detail/produto-detail.component';
 import { LojaCreateComponent } from './empreendedor/loja-create/loja-create/loja-create.component';
+import { ProdutoCreateComponent } from './produtos/components/produto-create/produto-create.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,11 +19,12 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'recuperar-senha', component: RecuperarSenhaComponent },
   { path: 'termo-de-privacidade', component: TermoDePrivacidadeComponent },
+  { path: 'produto-create', component: ProdutoCreateComponent },
   { path: 'produto-detail/:id', component: ProdutoDetailComponent },
-  {path: 'produtos-list', component: ProdutosListComponent},
-  {path: 'carrinho', component: CarrinhoComponent},
-  {path: 'loja-create', component: LojaCreateComponent},
-  {path: 'loja-empreendedor/:id', component:LojaEmpreendedorComponent},
+  { path: 'produtos-list', component: ProdutosListComponent },
+  { path: 'carrinho', component: CarrinhoComponent },
+  { path: 'loja-create', component: LojaCreateComponent },
+  { path: 'loja-empreendedor/:id', component: LojaEmpreendedorComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

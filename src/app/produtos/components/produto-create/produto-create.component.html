@@ -1,0 +1,86 @@
+<main>
+  <div class="container">
+    <section class="caixa-principal mat-elevation-z8">
+      <section>
+        <h4>CADASTRE SEU PRODUTO</h4>
+      </section>
+      <form [formGroup]="cadastrarProduto" (ngSubmit)="onSubmit()">
+        <div class=" form-align">
+          <mat-label class="form-label">Nome </mat-label>
+          <mat-form-field appearance="outline">
+            <input matInput placeholder="Nome do Produto" formControlName="name" type="text" required="name">
+            <mat-error *ngIf="cadastrarProduto.get('name')?.errors?.['required']">Campo obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+
+
+
+        <div class=" form-align">
+          <mat-label class="form-label">Descrição</mat-label>
+          <mat-form-field appearance="outline">
+            <textarea matInput placeholder="Descrição do Produto" formControlName="produtoDescricao" type="text" required="produtoDescricao"></textarea>
+            <mat-error *ngIf="cadastrarProduto.get('produtoDescricao')?.errors?.['required']">Campo obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+
+
+        <div class=" form-align">
+          <mat-label class="form-label">Categoria </mat-label>
+          <mat-form-field appearance="fill">
+            <mat-select placeholder="Categoria do Produto" name="categoriaProduto" formControlName="categoriaProduto" required>
+              <mat-option [value]="0">Hardware</mat-option>
+              <mat-option [value]="1">Software</mat-option>
+              <mat-option [value]="2">Ambos</mat-option>
+            </mat-select>
+            <mat-error *ngIf="cadastrarProduto.get('categoriaProduto')?.errors?.['required']">Campo obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+
+
+
+        <div class="form-align">
+          <mat-label class="form-label">Estoque </mat-label>
+          <mat-form-field appearance="outline">
+            <input matInput placeholder="Estoque do Produto" formControlName="produtoEstoque" type="number" required="produtoEstoque">
+            <mat-error *ngIf="cadastrarProduto.get('produtoEstoque')?.errors?.['required']">Campo obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class=" form-align">
+          <mat-label class="form-label">Status </mat-label>
+          <mat-form-field appearance="fill">
+            <mat-select placeholder="Status do Produto" name="status" formControlName="status" required>
+              <mat-option [value]="0">Ativo</mat-option>
+              <mat-option [value]="1">Inativo</mat-option>
+            </mat-select>
+            <mat-error *ngIf="cadastrarProduto.get('ramo')?.errors?.['required']">Campo obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+
+
+        <div class=" form-align">
+          <mat-label class="form-label">Valor</mat-label>
+          <mat-form-field appearance="outline">
+            <input matInput placeholder="Valor do Produto" formControlName="produtoValor" type="number" min="0" max="1" step="0.01" required="produtoValor">
+            <mat-error *ngIf="cadastrarProduto.get('produtoValor')?.errors?.['required']">Campo obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-align">
+          <mat-label class="form-label">Desconto </mat-label>
+          <mat-form-field appearance="outline">
+            <input matInput placeholder="Desconto do Produto" formControlName="produtoDesconto" type="number" min="0" max="1" step="0.01" required="produtoDesconto">
+            <mat-error *ngIf="cadastrarProduto.get('produtoDesconto')?.errors?.['required']">Campo obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class=" form-align">
+          <mat-label for="foto" class="label-align form-label fotoCon">Imagem</mat-label>
+          <span class="btn form-align upload" id="cloud"><i class="bi bi-cloud-plus"></i></span>
+        </div>
+        <button (click)="onSubmit()" mat-raised-button color="black" class="btn btn-dark" [disabled]="cadastrarProduto.invalid">Enviar</button>
+
+      </form>
+    </section>
+  </div>
+</main>
