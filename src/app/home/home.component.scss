@@ -1,4 +1,3 @@
-
 main {
     background-image: url('../../assets/img/Fundo-home.png');
 }
@@ -6,9 +5,10 @@ main {
 
 
 .img-carousel {
-   object-fit: cover;
+    object-fit: cover;
 
 }
+
 .img-resp1,
 .img-resp2,
 .img-resp3,
@@ -17,7 +17,7 @@ main {
 .img-resp3-420,
 .img-resp1-720,
 .img-resp2-720,
-.img-resp3-720  {
+.img-resp3-720 {
     display: none;
 }
 
@@ -37,7 +37,7 @@ main {
 }
 
 .promo {
-   
+
     display: flex;
     justify-content: center;
     border-bottom: solid 2px #F4DA5E;
@@ -128,6 +128,7 @@ main {
 
 .card:hover {
     height: 490px;
+
     .button-card {
         display: block;
     }
@@ -137,10 +138,11 @@ main {
     margin-top: 283px;
     background-image: url('../../assets/img/1.png');
     background-size: cover;
-    background-position:  center;
+    background-position: center;
     background-attachment: fixed;
+    text-align: center;
     height: 700px;
-    
+
 }
 
 .informacoes-container {
@@ -156,33 +158,43 @@ main {
     height: 392px;
     align-items: center;
 }
-.infos-1, .infos-2, .infos-3, .infos-4 {
+
+.infos-1,
+.infos-2,
+.infos-3,
+.infos-4 {
     width: 310px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.infos-2, .infos-3 {
-    padding-right: 5px;
-    margin-top: -20px;
-}
-
-.infos-1 {
-    margin-top: -68px;
-}
-
+.infos-1,
+.infos-2,
+.infos-3,
 .infos-4 {
-    margin-top: -98px;
+    padding-right: 5px;
+    height: 325px;
+}
+
+.info-1-img,
+.info-2-img,
+.info-3-img,
+.info-4-img {
+    height: 70px;
+    width: 65px;
+    object-fit: cover;
 }
 
 .info-nome {
-    font-size: 22px;
+    margin-top: 7px;
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
 }
 
 .info-loja {
+    margin-top: 8px;
     width: 297px;
     font-size: 20px;
     text-align: center;
@@ -192,7 +204,15 @@ main {
     font-weight: bold;
     font-size: 20px;
 }
-.saiba-mais  a {
+
+.saiba-mais-4 {
+    font-weight: bold;
+    font-size: 20px;
+    // margin-top: 0.3px;
+}
+
+.saiba-mais a,
+.saiba-mais-4 a {
     text-decoration: none;
     color: #F5B93C;
 }
@@ -203,60 +223,76 @@ main {
     background-color: #3483FA;
 }
 
- 
+
 @media(max-width: 950px) {
-    .img1, .img2, .img3 {
-       display: none;
-     }
-     .img-resp1-720,
-     .img-resp2-720,
-     .img-resp3-720 {
+
+    .img1,
+    .img2,
+    .img3 {
+        display: none;
+    }
+
+    .img-resp1-720,
+    .img-resp2-720,
+    .img-resp3-720 {
         display: initial;
         object-fit: cover;
-     }
- }
+    }
+}
 
- @media(max-width: 800px) {
+@media(max-width: 800px) {
     .promo-card {
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: local;
         height: 500px;
-     }
- }
+    }
+}
 
- @media(max-width: 630px) {
+@media(max-width: 630px) {
     .promo-card {
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: local;
         height: 300px;
-     }
-     .linha {
-        display: none;
-     }
- }
+    }
 
- @media(max-width: 450px) {
-     .img-resp1-420, .img-resp2-420, .img-resp3-420 {
+    .linha {
+        display: none;
+    }
+}
+
+@media(max-width: 450px) {
+
+    .img-resp1-420,
+    .img-resp2-420,
+    .img-resp3-420 {
         display: initial;
         object-fit: cover;
-     }
-     .img-resp1-720,
-     .img-resp2-720,
-     .img-resp3-720 {
-        display: none;
-     }
-     .promo-card {
-        height: 200px;
-     }
- }
+    }
 
- @media(max-width: 400px) {
-     .img-resp1, .img-resp2, .img-resp3 {
-        display: initial;
-     }
-     .img-resp1-420, .img-resp2-420, .img-resp3-420 {
+    .img-resp1-720,
+    .img-resp2-720,
+    .img-resp3-720 {
         display: none;
-     }
- }
+    }
+
+    .promo-card {
+        height: 200px;
+    }
+}
+
+@media(max-width: 400px) {
+
+    .img-resp1,
+    .img-resp2,
+    .img-resp3 {
+        display: initial;
+    }
+
+    .img-resp1-420,
+    .img-resp2-420,
+    .img-resp3-420 {
+        display: none;
+    }
+}
