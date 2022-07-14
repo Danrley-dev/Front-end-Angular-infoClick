@@ -28,32 +28,31 @@
   <section class="container-cards1">
 
     <div *ngFor="let loja of lojas">
-    <div class="card" *ngFor="let item of loja.produtos">
-      <div class="promo" >
-        <p class="porcent-promo"><span>25%</span> OFF</p>
-        <p class="time-promo">
-          termina em:
-          <span>{{dias}} {{horas}}:{{minutos}}:{{segundos}}</span>
-        </p>
-      </div>
-      <div class="details">
-        <a routerLink="/produto-detail/{{item.id}}" class="img-wrap" data-abc="true"  >
-        <img
-          src="{{ item.produtoImagem }}"
-          alt="Imagem de um computador">
-        </a>
-        <a routerLink="/loja-empreendedor/{{loja.idLoja}}" class="img-wrap" data-abc="true"  >
-        <p class="nome-produto"> <b>{{loja.nomeLoja}}</b></p>
-      </a>
-        <p class="preco-produto">{{item.name}}</p>
-        <p class="preco-corte">De: {{item.produtoValor | currency: "BRL"}}</p>
-        <p class="preco-promo">{{item.produtoDesconto | currency: "BRL"}}</p>
-        <!-- <p class="parcelas">12x de R$ 499,98 sem juros</p> -->
+      <div class="card" *ngFor="let item of loja.produtos">
+        <div class="promo">
+          <p class="porcent-promo"><span>25%</span> OFF</p>
+          <p class="time-promo">
+            termina em:
+            <span>{{dias}} {{horas}}:{{minutos}}:{{segundos}}</span>
+          </p>
+        </div>
+        <div class="details">
+          <a routerLink="/produto-detail/{{item.id}}" class="img-wrap" data-abc="true">
+            <img src="{{ item.produtoImagem }}" alt="Imagem de um computador">
+          </a>
+          <a routerLink="/loja-empreendedor/{{loja.idLoja}}" class="img-wrap" data-abc="true">
+            <p class="nome-produto"> <b>{{loja.nomeLoja}}</b></p>
+          </a>
+          <p class="preco-produto">{{item.name}}</p>
+          <p class="preco-corte">De: {{item.produtoValor | currency: "BRL"}}</p>
+          <p class="preco-promo">{{item.produtoDesconto | currency: "BRL"}}</p>
+          <!-- <p class="parcelas">12x de R$ 499,98 sem juros</p> -->
 
-      <button (click)="addToCart(item)"class="button-card" type="button"><a href="#">ADICIONAR AO CARRINHO</a></button>
+          <button (click)="addToCart(item)" class="button-card" type="button"><a href="#">ADICIONAR AO
+              CARRINHO</a></button>
+        </div>
+      </div>
     </div>
-    </div>
-  </div>
 
 
   </section>
@@ -61,39 +60,49 @@
   <section class="informacoes-container">
     <div class="infos-div">
       <div class="infos-1">
-        <img src="https://s3-alpha-sig.figma.com/img/13e5/a166/b3cb225d1d19e2bf91999e25203a10ae?Expires=1658102400&Signature=PZswgVnzv-8IydpEu~cH1y7O7nFUKtGeMJatrBfuddwbyoAGDepA7S1wwBUzPgoIA~FT1WeCEDbl~JeDyuKDqTWBg08DV8yheL30XMacCFVTGNqz3~rwugKSUowGCQ9a~lZgRf~NXkprBuIeig6myL5P1-rid5ynEnABWOoBBlDKZ01Lbhztrblma-PHb~m98h5jLpn8IQDPpD~kqx8LhdoRYC40XbauwFCZsga~PYz4BrnUmmHPLaTcbJjcmaOojCiXVuLS6-~p6Vj~32~UG3UInowd35ljZ2yCTXUImZQuHBLQ2~lM9kzp7Og8ebsapzGrHhLYlKOeDgieHGxQuA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" alt="Imagem de um cartão">
+        <img class="info-1-img"
+          src="https://s3-alpha-sig.figma.com/img/13e5/a166/b3cb225d1d19e2bf91999e25203a10ae?Expires=1658102400&Signature=PZswgVnzv-8IydpEu~cH1y7O7nFUKtGeMJatrBfuddwbyoAGDepA7S1wwBUzPgoIA~FT1WeCEDbl~JeDyuKDqTWBg08DV8yheL30XMacCFVTGNqz3~rwugKSUowGCQ9a~lZgRf~NXkprBuIeig6myL5P1-rid5ynEnABWOoBBlDKZ01Lbhztrblma-PHb~m98h5jLpn8IQDPpD~kqx8LhdoRYC40XbauwFCZsga~PYz4BrnUmmHPLaTcbJjcmaOojCiXVuLS6-~p6Vj~32~UG3UInowd35ljZ2yCTXUImZQuHBLQ2~lM9kzp7Og8ebsapzGrHhLYlKOeDgieHGxQuA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+          alt="Imagem de um cartão">
         <h5 class="info-nome">Escolha como pagar</h5>
-        <p class="info-loja">Com o E-comerce, você paga com cartão, boleto ou Pix. Você também pode pagar em até 12x no boleto com o Mercado Crédito.</p>
+        <p class="info-loja">Com o E-comerce, você paga com cartão, boleto ou Pix. Você também pode pagar em até 12x no
+          boleto com o Mercado Crédito.</p>
         <p class="saiba-mais"><a href="#">Saiba mais...</a></p>
       </div>
       <div class="linha"></div>
     </div>
     <div class="infos-div">
       <div class=" infos-2">
-        <img src="https://s3-alpha-sig.figma.com/img/7dbf/5c84/0da555931f5f9831d2851de133731f40?Expires=1658102400&Signature=Y5gEPYCUfElAgpEYzyKwzNrJUYhq3rdASXRx1oaV9NDJsu9VjEC9gPOYobwhep4ezNmDtnY9H0UrsRMRQ8X5yGkFXlDAOVw-5Gx8qtlxQB-DvZZvxl7nmsuFEN~AIzi-qnvj-3V8m3xxxXBX1QkSSAh07b6y5iJlrcHGg7tUqu9Zxq3XpctxDTKQopCeExHTddsVfY2QctLUmnIDQOfU50-2fYdCAByv-uDUhj4hc-zRO9jxqmdgB8Y~hPy3yFvvpZDp6Ji8WGnsCcK4xw~BqA4VpQl9mlyYHUqS1Y3hRhayoVZnTXHUiakPNuT7scwPC~~XvW31jMi22px-sAukbw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" alt="Imagem de uma caixa de entrega">
+        <img class="info-2-img"
+          src="https://s3-alpha-sig.figma.com/img/7dbf/5c84/0da555931f5f9831d2851de133731f40?Expires=1658102400&Signature=Y5gEPYCUfElAgpEYzyKwzNrJUYhq3rdASXRx1oaV9NDJsu9VjEC9gPOYobwhep4ezNmDtnY9H0UrsRMRQ8X5yGkFXlDAOVw-5Gx8qtlxQB-DvZZvxl7nmsuFEN~AIzi-qnvj-3V8m3xxxXBX1QkSSAh07b6y5iJlrcHGg7tUqu9Zxq3XpctxDTKQopCeExHTddsVfY2QctLUmnIDQOfU50-2fYdCAByv-uDUhj4hc-zRO9jxqmdgB8Y~hPy3yFvvpZDp6Ji8WGnsCcK4xw~BqA4VpQl9mlyYHUqS1Y3hRhayoVZnTXHUiakPNuT7scwPC~~XvW31jMi22px-sAukbw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+          alt="Imagem de uma caixa de entrega">
         <h5 class="info-nome">Frete grátis a partir de R$ 59</h5>
-        <p class="info-loja">Só por estar cadastrado no E-comerce, você tem frete grátis em milhares de produtos. É um benefício do especial para você.</p>
+        <p class="info-loja">Só por estar cadastrado no E-comerce, você tem frete grátis em milhares de produtos. É um
+          benefício do especial para você.</p>
         <p class="saiba-mais"><a href="#">Saiba mais...</a></p>
       </div>
       <div class="linha"></div>
     </div>
     <div class="infos-div">
       <div class=" infos-3">
-        <img src="https://s3-alpha-sig.figma.com/img/9ce9/2206/fec932ae4c096e75fc92423720d9feb5?Expires=1658102400&Signature=Y2CSFBygRqVhE37g5ny-0CGdWL3-zWyJ~crjWhflfqzx3JNy-cX2T9e99HxnYL1DR8roPUplkJcGq8sVsa9TZwTo69d3~mfQm9j59KSEqQP49GK4utW61XqiU5tFCroQn8RshSGhNT-fjSQJY9n1Vrkmae6q1jVrdA~0UTG42n2wwrx0JqNZQsxKgGCTPCiRpaynIHB5zWhYQkhzTM0yS-~RdNhfCgAw0xKdwFknUhyDfbe~YhTxWNDEdcHXxPtESow6BNyq6OZcOutCRrCZdGxsxZQR2u5PnBqeFouOrF25h3qp2XC1GbTyQyMJYXj4-MdqH69ZgNAieMpQ~xDnoA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" alt="Imagem de um cartão">
+        <img class="info-3-img"
+          src="https://s3-alpha-sig.figma.com/img/9ce9/2206/fec932ae4c096e75fc92423720d9feb5?Expires=1658102400&Signature=Y2CSFBygRqVhE37g5ny-0CGdWL3-zWyJ~crjWhflfqzx3JNy-cX2T9e99HxnYL1DR8roPUplkJcGq8sVsa9TZwTo69d3~mfQm9j59KSEqQP49GK4utW61XqiU5tFCroQn8RshSGhNT-fjSQJY9n1Vrkmae6q1jVrdA~0UTG42n2wwrx0JqNZQsxKgGCTPCiRpaynIHB5zWhYQkhzTM0yS-~RdNhfCgAw0xKdwFknUhyDfbe~YhTxWNDEdcHXxPtESow6BNyq6OZcOutCRrCZdGxsxZQR2u5PnBqeFouOrF25h3qp2XC1GbTyQyMJYXj4-MdqH69ZgNAieMpQ~xDnoA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+          alt="Imagem de um cartão">
         <h5 class="info-nome">Segurança, do início ao fim</h5>
-        <p class="info-loja">Não gostou do que comprou? Devolva! No E-comerce não há nada que você não possa fazer, porque você está sempre protegido.</p>
+        <p class="info-loja">Não gostou do que comprou? Devolva! Aqui no E-comerce não há nada que você não possa fazer,
+          porque você está sempre protegido.</p>
         <p class="saiba-mais"><a href="#">Saiba mais...</a></p>
       </div>
       <div class="linha"></div>
     </div>
-    <div  class="infos-div">
+    <div class="infos-div">
       <div class="infos-4">
-        <img src="https://s3-alpha-sig.figma.com/img/7a76/529e/c0deb9dafd2c44f44324fb1299ac6f44?Expires=1658102400&Signature=Fjj2P2j9AdkzmsjrU-4NaiTnUJy2IvRLOQNRLbW6mfZ5l7prgVmMbNaQpkrtaYpPPfhLABB13sj0UOlBPR5-Vha8DEU4JZkPceyeghJjAGmCZDsMs9BP6O0~E5LLDl7UT1eCzAZd7TwBZQy7RM-LrNh5MbY~~SUiLRU3Dr5OaivLanldBnak9FF~hVSe4ypFO-bZdKgKoM5PaBwgXqjtG-JEGzYlI89o5mjb0PQvIpSF~BK5hungpsSfFNihHBLg75tdwgGjl-sH2kmbnnYjOaYzqqn2Cs1ht8ST1NrAWgojoNUn2i~~sfejCKYFFMJfUaaEyY45jdQOBJmai5Xt5Q__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" alt="Imagem de um cartão">
+        <img class="info-4-img"
+          src="https://s3-alpha-sig.figma.com/img/7a76/529e/c0deb9dafd2c44f44324fb1299ac6f44?Expires=1658102400&Signature=Fjj2P2j9AdkzmsjrU-4NaiTnUJy2IvRLOQNRLbW6mfZ5l7prgVmMbNaQpkrtaYpPPfhLABB13sj0UOlBPR5-Vha8DEU4JZkPceyeghJjAGmCZDsMs9BP6O0~E5LLDl7UT1eCzAZd7TwBZQy7RM-LrNh5MbY~~SUiLRU3Dr5OaivLanldBnak9FF~hVSe4ypFO-bZdKgKoM5PaBwgXqjtG-JEGzYlI89o5mjb0PQvIpSF~BK5hungpsSfFNihHBLg75tdwgGjl-sH2kmbnnYjOaYzqqn2Cs1ht8ST1NrAWgojoNUn2i~~sfejCKYFFMJfUaaEyY45jdQOBJmai5Xt5Q__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+          alt="Imagem de um cartão">
         <h5 class="info-nome">Suporte ao Cliente</h5>
-        <p class="info-loja">Atendimento 24h todos os dias para facilitar as suas compras.</p>
-        <p class="saiba-mais"><a href="#">Saiba mais...</a></p>
+        <p class="info-loja">Atendimento 24h todos os dias para facilitar suas compras, com nossa equipe de Consultores altamente qualificados.</p>
+        <p class="saiba-mais-4"><a href="#">Saiba mais...</a></p>
       </div>
-      <div class="linha"></div>
     </div>
   </section>
 </main>
