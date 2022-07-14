@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: 'produtos-list', component: ProdutosListComponent},
   {path: 'carrinho', component: CarrinhoComponent},
   {path: 'loja-create', component: LojaCreateComponent},
-  {path: 'loja-empreendedor', component:LojaEmpreendedorComponent},
+  {path: 'loja-empreendedor/:id', component:LojaEmpreendedorComponent},
   { path: '**', component: NotFoundComponent },
 ];
 

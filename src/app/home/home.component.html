@@ -33,7 +33,7 @@
         <p class="porcent-promo"><span>25%</span> OFF</p>
         <p class="time-promo">
           termina em:
-          <span>9 dias 12:21:21</span>
+          <span>{{dias}} {{horas}}:{{minutos}}:{{segundos}}</span>
         </p>
       </div>
       <div class="details">
@@ -42,13 +42,16 @@
           src="{{ item.produtoImagem }}"
           alt="Imagem de um computador">
         </a>
+        <a routerLink="/loja-empreendedor/{{loja.idLoja}}" class="img-wrap" data-abc="true"  >
         <p class="nome-produto"> <b>{{loja.nomeLoja}}</b></p>
+      </a>
         <p class="preco-produto">{{item.name}}</p>
         <p class="preco-corte">De: {{item.produtoValor}}</p>
         <p class="preco-promo">{{item.produtoDesconto}}</p>
         <!-- <p class="parcelas">12x de R$ 499,98 sem juros</p> -->
-      </div>
-      <button class="button-card" type="button"><a href="#">ADICIONAR AO CARRINHO</a></button>
+
+      <button (click)="addToCart(item)"class="button-card" type="button"><a href="#">ADICIONAR AO CARRINHO</a></button>
+    </div>
     </div>
   </div>
 

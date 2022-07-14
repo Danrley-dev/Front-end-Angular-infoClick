@@ -1,37 +1,63 @@
 <main>
   <section class="container-produtos">
     <h2 class="carrinho-titulo"><i class="bi bi-cart3">Carrinho</i></h2>
-    <div class="produtos">
+    <div *ngIf="cartitems.length > 0">
+    <div class="produtos" *ngFor="let tempCartItem of cartitems">
       <img
-        src="https://s3-alpha-sig.figma.com/img/7b00/48b9/b5f9e40473731ca88a6184879620ef83?Expires=1658707200&Signature=UR2uPCyh4Mwt0-mqjpiSAUCNt94GvxdiatkISRO6a~0WaVIoX1vYLRqOiD0OaeusdSbeP2HUY4dJ0Jt9Vjq9pn5qoOlLnAJyUJ1EdNevbjHfzFbj-~wDD3cPhzlSi6Xvev37A94B00HAV01d9Cfcaf22JnHUkYBIL3egC1vflYZ-0BkeIPJM~UdQ~ngayEiDJR16BJ0TqWd22bu-3nVtPsnV6CklXxOq-e-LeH62t9WLFzQ5qMW621A-lTD~MHuBmYBzBxDQwlYAHWMlzKRpOEfUGpZ1hZHLbx9Konq6Ul84SPDkVbm7yU3fLSQNi-g2ofCgzH7~aN-J6WC4yUsggg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+        src="{{ tempCartItem.imagem }}"
         alt="Imagem de uma placa de video"
       />
       <div class="produto-descricao">
         <p class="nome-produto">
-          Placa de Vídeo MSI NVIDIA GeForce GTX 1050 Ti 4GT, OC, 4GB, Dual Fan,
-          GDDR5, 912-V809-2272
+          {{ tempCartItem.name }}
         </p>
-        <p class="preco">Preço:<span> R$ 1.199,00</span></p>
+
+        <p class="preco">Preço:<span> {{ tempCartItem.preco_unidade | currency: "BRL" }}</span></p>
+        <p class="preco">Quantiade:<span> {{ tempCartItem.quantidade }}</span></p>
+        <p class="preco">Valor:<span> {{ tempCartItem.quantidade * tempCartItem.preco_unidade! | currency: "BRL"}}</span></p>
+
+        <div class="items">
+          <label>Quantidade:</label>
+
+          <div class="row no-gutters">
+            <div class="col">
+              <button
+                (click)="incrementQuantity(tempCartItem)"
+                class="btn btn-primary btn-sm"
+              >
+                <i class="fas fa-plus">+</i>
+              </button>
+            </div>
+
+            <div class="col ml-4 mr-2">
+              {{ tempCartItem.quantidade }}
+            </div>
+
+            <div class="col">
+              <button
+                (click)="decrementQuantity(tempCartItem)"
+                class="btn btn-primary btn-sm"
+              >
+                <i class="fas fa-minus">-</i>
+              </button>
+            </div>
+
+            <div class="col-8"></div>
+            <button (click)="remove(tempCartItem)"  class="btn btn-primary btn-sm mt-2">Deletar</button>
+          </div>
+
+        </div>
+
       </div>
     </div>
-    <div class="produtos">
-      <img
-        src="https://s3-alpha-sig.figma.com/img/7b00/48b9/b5f9e40473731ca88a6184879620ef83?Expires=1658707200&Signature=UR2uPCyh4Mwt0-mqjpiSAUCNt94GvxdiatkISRO6a~0WaVIoX1vYLRqOiD0OaeusdSbeP2HUY4dJ0Jt9Vjq9pn5qoOlLnAJyUJ1EdNevbjHfzFbj-~wDD3cPhzlSi6Xvev37A94B00HAV01d9Cfcaf22JnHUkYBIL3egC1vflYZ-0BkeIPJM~UdQ~ngayEiDJR16BJ0TqWd22bu-3nVtPsnV6CklXxOq-e-LeH62t9WLFzQ5qMW621A-lTD~MHuBmYBzBxDQwlYAHWMlzKRpOEfUGpZ1hZHLbx9Konq6Ul84SPDkVbm7yU3fLSQNi-g2ofCgzH7~aN-J6WC4yUsggg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-        alt="Imagem de uma placa de video"
-      />
-      <div class="produto-descricao">
-        <p class="nome-produto">
-          Placa de Vídeo MSI NVIDIA GeForce GTX 1050 Ti 4GT, OC, 4GB, Dual Fan,
-          GDDR5, 912-V809-2272
-        </p>
-        <p class="preco">Preço: <span> R$ 1.199,00</span></p>
-      </div>
-    </div>
+  </div>
+
   </section>
   <section class="container-dados">
     <h2 class="titulo-resumo">Resumo</h2>
     <div class="preco-total">
-      <p class="preco">Total: <span>R$ 3.980,00</span></p>
+      <p class="preco">Total: <span>{{ totalPrice | currency: "BRL"}}</span></p>
+      <p class="preco">Quantidade de Itens: <span>{{ totalQuantity }}</span></p>
       <button class="button-comprar" type="button">COMPRAR</button>
       <button class="button-continuar-comprando" type="button"><a href="#">CONTINUAR COMPRANDO</a></button>
     </div>
