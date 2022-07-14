@@ -1,29 +1,25 @@
 <main>
     <section class="container">
         <div class="imagem-produto">
-            <img src="https://s3-alpha-sig.figma.com/img/7b00/48b9/b5f9e40473731ca88a6184879620ef83?Expires=1658707200&Signature=UR2uPCyh4Mwt0-mqjpiSAUCNt94GvxdiatkISRO6a~0WaVIoX1vYLRqOiD0OaeusdSbeP2HUY4dJ0Jt9Vjq9pn5qoOlLnAJyUJ1EdNevbjHfzFbj-~wDD3cPhzlSi6Xvev37A94B00HAV01d9Cfcaf22JnHUkYBIL3egC1vflYZ-0BkeIPJM~UdQ~ngayEiDJR16BJ0TqWd22bu-3nVtPsnV6CklXxOq-e-LeH62t9WLFzQ5qMW621A-lTD~MHuBmYBzBxDQwlYAHWMlzKRpOEfUGpZ1hZHLbx9Konq6Ul84SPDkVbm7yU3fLSQNi-g2ofCgzH7~aN-J6WC4yUsggg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" alt="Imagem de uma placa de video">
+            <img src="{{produto.produtoImagem}}" >
         </div>
         <div class="linha"></div>
         <div class="descricao-produto">
             <p class="nome-produto">
-                Placa de Vídeo MSI NVIDIA GeForce GTX 1050 Ti 
-                4GT, OC, 4GB, Dual Fan, GDDR5, 912-V809-2272
+                {{produto.name}}
             </p>
             <p class="codigo-produto">
                 COD:  912-V809-2272
             </p>
             <p class="nome-empreendedor">
-                Vendido por: <span>HardwareShop</span>
+                Vendido por: <span></span>
             </p>
             <p class="descricao-produto">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                Mollitia, consequatur. Nulla dolore autem adipisci corrupti 
-                cumque rerum quis dicta necessitatibus veniam nam, 
-                officia nesciunt fugit! Debitis ut dolores placeat non.
+               {{produto.produtoDescricao}}
             </p>
-            <p class="boleto"><i class="bi bi-upc"></i> De: <span class="preco-original">R$ 1.702,80</span> por:
-                <span class="preco-promo">R$ 1.199,00</span></p>
-            <p class="cartao"><i class="bi bi-credit-card"></i> R$ 1.410,50 <span class="preco-dividido">12x de R$ 117,55 sem juros</span></p>
+            <p class="boleto"><i class="bi bi-upc"></i> De: <span class="preco-original">{{produto.produtoValor | currency: "BRL"}}</span> por:
+                <span class="preco-promo">{{produto.produtoDesconto | currency: "BRL"}}</span></p>
+            <!-- <p class="cartao"><i class="bi bi-credit-card"></i> R$ 1.410,50 <span class="preco-dividido">12x sem juros</span></p> -->
             <button type="button" class="button">ADICIONAR AO CARRINHO</button>
         </div>
     </section>

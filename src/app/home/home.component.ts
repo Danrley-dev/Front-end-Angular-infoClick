@@ -99,7 +99,7 @@ export class HomeComponent implements OnInit {
     this.MostraProdutosNaLoja();
 
     this.countDown();
-    this.onClickDialogHome();
+    // this.onClickDialogHome();
   }
 
 }

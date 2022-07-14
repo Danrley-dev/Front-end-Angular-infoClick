@@ -27,8 +27,8 @@
   </ngb-carousel>
   <section class="container-cards1">
 
-    <div *ngFor="let produto of produtos">
-    <div class="card" *ngFor="let loja of lojas">
+    <div *ngFor="let loja of lojas">
+    <div class="card" *ngFor="let item of loja.produtos">
       <div class="promo" >
         <p class="porcent-promo"><span>25%</span> OFF</p>
         <p class="time-promo">
@@ -37,13 +37,15 @@
         </p>
       </div>
       <div class="details">
+        <a routerLink="/produto-detail/{{item.id}}" class="img-wrap" data-abc="true"  >
         <img
-          src="{{ produto.produtoImagem }}"
+          src="{{ item.produtoImagem }}"
           alt="Imagem de um computador">
+        </a>
         <p class="nome-produto"> <b>{{loja.nomeLoja}}</b></p>
-        <p class="preco-produto">{{produto.name}}</p>
-        <p class="preco-corte">De: {{produto.produtoValor}}</p>
-        <p class="preco-promo">{{produto.produtoDesconto}}</p>
+        <p class="preco-produto">{{item.name}}</p>
+        <p class="preco-corte">De: {{item.produtoValor}}</p>
+        <p class="preco-promo">{{item.produtoDesconto}}</p>
         <!-- <p class="parcelas">12x de R$ 499,98 sem juros</p> -->
       </div>
       <button class="button-card" type="button"><a href="#">ADICIONAR AO CARRINHO</a></button>

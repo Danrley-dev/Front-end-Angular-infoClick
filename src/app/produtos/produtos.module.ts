@@ -4,6 +4,7 @@ import { ProdutoDetailComponent } from './components/produto-detail/produto-deta
 import { MaterialModule } from '../shared/material.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProdutosListComponent } from './components/produtos-list/produtos-list.component';
+import { RouterModule} from '@angular/router';
 
 
 
@@ -15,7 +16,10 @@ import { ProdutosListComponent } from './components/produtos-list/produtos-list.
   imports: [
     CommonModule,
     MaterialModule,
-    NgbModule
+    NgbModule,
+    RouterModule,
+
+
   ],
   exports: [
     ProdutoDetailComponent

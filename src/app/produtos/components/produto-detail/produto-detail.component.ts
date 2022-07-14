@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Loja } from 'src/app/core/models/loja';
+import { Produto } from 'src/app/core/models/produto';
+import { ProdutoService } from 'src/app/core/services/produtos/produto.service';
 
 @Component({
   selector: 'app-produto-detail',
@@ -9,9 +13,38 @@ export class ProdutoDetailComponent implements OnInit {
 
   images = ['../../../../assets/img/3.png', '../../../../assets/img/4.png', '../../../../assets/img/1.png']
 
-  constructor() { }
+  produto: Produto = new Produto();
+  loja: Loja = new Loja();
+
+  constructor(private produtoService: ProdutoService, private route: ActivatedRoute) { }
+
+  produtoDetalhe(){
+    const produtoId: number = +this.route.snapshot.paramMap.get('id')!;
+
+    this.produtoService.getProdutoDetail(produtoId).subscribe(
+      data => {
+        this.produto = data;
+
+      });
+  }
+
+  getLojaDetail(){
+    const produtoId: number = +this.route.snapshot.paramMap.get('id')!;
+
+    this.produtoService.getLojaDetail(produtoId).subscribe(
+      data => {
+        this.loja = data;
+      }
+    )
+  }
 
   ngOnInit(): void {
+
+    console.log(this.produto);
+    this.route.paramMap.subscribe(()=> {
+      this.produtoDetalhe();
+
+    })
   }
 
 }

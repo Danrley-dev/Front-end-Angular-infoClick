@@ -11,7 +11,11 @@ import { Produto } from '../../models/produto';
 export class ProdutoService {
 
   private baseUrl = "http://localhost:8080/service/produto";
-  private lojaUrl = "http://localhost:8080/service/Lojas"
+  private lojaUrl = "http://localhost:8080/service/Lojas";
+  private categoriaUrl = "http://localhost:8080/service/produto/Categorias";
+
+
+
 
   constructor(private http: HttpClient) { }
 
