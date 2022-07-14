@@ -1,16 +1,17 @@
 main {
   background-image: url("../../../assets/img/fundoO.png");
+  background-image: no-repeat;
   background-color: #f5f5f5;
-  background-size:contain;
+  background-size: contain;
   padding-bottom: 35px;
 }
 
-.container-fluid{
-width: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
-object-fit: contain;
+.container-fluid {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: contain;
 }
 
 .caixa-principal {
@@ -38,9 +39,9 @@ h4 {
   width: 259px;
   height: 69px;
   border-radius: 5px 0px 0px 5px;
-  background-color:#f5b93c;
+  background-color: #f5b93c;
   cursor: pointer;
-  padding-left: 15%;
+  padding-left: 12.25%;
   padding-right: 15.5%;
 }
 
@@ -48,6 +49,9 @@ h4 {
   margin-bottom: 44px;
 }
 
+input, mat-select {
+  margin-bottom: 9px;
+}
 
 .btn-emp {
   font-size: 20px;
@@ -66,12 +70,11 @@ h4 {
   width: 259px;
   height: 69px;
   border-radius: 5px 0px 0px 5px;
-  background-color:  #f4da5e;
+  background-color: #f4da5e;
   cursor: pointer;
   padding-left: 15%;
   padding-right: 15.5%;
 }
-
 
 .btn-emp-troca {
   font-size: 20px;
@@ -91,11 +94,16 @@ h4 {
   border-radius: 5px 0px 0px 5px;
 }
 
-
 .btn-emp-troca:hover,
 .btn-emp:hover {
   background-color: #f5b93c;
   border-radius: 0px 5px 5px 0px;
+}
+
+.align-414 button {
+  position: absolute;
+  top: 7px;
+  right: -10px;
 }
 
 .btn-dark {
@@ -108,25 +116,19 @@ h4 {
   height: 60px;
 }
 
-.form-control {
-  width: 511px;
-  height: 45px;
-  border-radius: 6px;
-}
-
-mat-form-field {
+.caixa-input {
   width: 430px;
   margin: 0px;
-  padding: 0px;
+  padding: 0px;;
 }
 
-.form-align mat-label{
+.form-align mat-label {//alinhamento da label
   display: flex;
   align-items: flex-end;
   justify-content: end;
   margin-bottom: 25px;
-  margin-right: 5px;
-  width:20px;
+  margin-right: 15px;
+  width: 20px;
 }
 
 .ruaNum {
@@ -134,7 +136,6 @@ mat-form-field {
   flex-wrap: nowrap;
   align-items: center;
   justify-content: flex-end;
-
 }
 
 .form-align {
@@ -147,7 +148,7 @@ mat-form-field {
 
 .upload {
   max-height: 69px;
-  padding: 35px 0px;
+  padding: 40px 0px;
   display: flex;
   justify-content: center;
   border: 0.5px solid #d4d9dd;
@@ -162,14 +163,10 @@ mat-form-field {
 
 .label-align {
   margin-right: 20px;
+  margin-top: 25px;
 }
 
-#nome,
-#cpf,
-#cnpj,
-#email,
-#senha,
-#ramo {
+#cloud {
   width: 82.5%;
 }
 
@@ -180,6 +177,10 @@ mat-form-field {
   margin-top: 8%;
   text-decoration: none;
   color: #9fa7ac;
+}
+
+.loginLink a:hover {
+  color: #f5b93c;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -194,16 +195,19 @@ mat-form-field {
     border-radius: 0px 0px 15px 15px;
   }
 
-   .form-control {
-    width: 450px;
-  }
-
   .upload {
     margin-top: 0px;
     width: 82.5%;
+    padding: 38px 0px;
   }
 
-  .fotoCon{
+  .align-414 button {
+    position: absolute;
+    top: 7px;
+    right: -10px;
+  }
+
+  .fotoCon {
     margin-top: 25px;
   }
 
@@ -219,6 +223,10 @@ mat-form-field {
     padding-right: 12%;
   }
 
+  #cloud {
+    width: 82.5%;
+  }
+
   .btn-dark {
     margin-bottom: 7%;
     margin-left: 20.7%;
@@ -231,6 +239,13 @@ mat-form-field {
 }
 
 @media only screen and (max-width: 900px) {
+
+  main {
+    background-image: none;
+    background-color: #f5f5f5;
+  }
+
+
   .caixa-principal {
     display: flex;
     flex-direction: column;
@@ -240,25 +255,23 @@ mat-form-field {
     border-left: 1px solid #bac2c5;
     border-right: 1px solid #bac2c5;
     border-radius: 0px 0px 15px 15px;
-    color: #f5b93c;
+    color: #000000;
   }
 
 
-  .form-control {
-    width: 400px;
-  }
-
-   .form-align {
+  .form-align {
     padding: 0px 30px 0px 30px;
   }
 
   .upload {
+    width: 425px;
     margin-top: 0px;
     max-height: 69px;
-    padding: 35px 0px;
+    padding: 38px 0px;
   }
 
-  .fotoCon, .fotoEmp{
+  .fotoCon,
+  .fotoEmp {
     margin-top: 25px;
   }
 
@@ -275,48 +288,45 @@ mat-form-field {
     margin-right: 15px;
   }
 
+  .align-414 button {
+    position: absolute;
+    top: 7px;
+    right: -10px;
+  }
+
   .btn-dark {
     margin-left: 15.5%;
   }
   .loginLink a {
     margin-right: 9%;
     margin-top: 8%;
+    color: #f5b93c;
   }
 
+  .caixa-input {
+    width: 430px;
+    margin: 0px;
+    padding: 0px;
+  }
 
-mat-form-field {
-  width: 430px;
-  margin: 0px;
-  padding: 0px;
-}
+  .form-label {
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+    margin-bottom: 25px;
+    width: 70px;
+  }
 
-mat-label{
-  display: flex;
-  align-items: flex-end;
-  justify-content: end;
-  margin-bottom: 25px;
-  width: 70px;
-}
-
-  #nome,
-  #cpf,
-  #cnpj,
-  #email,
-  #celular,
-  #senha,
-  #cloud,
-  #ramo {
-    width: 100%;
+   #cloud {
+    width: 82.5%;
   }
 }
 
 @media only screen and (max-width: 600px) {
-
-  main{
+  main {
     background-image: none;
     background-color: #f5f5f5;
   }
-
 
   .caixa-principal {
     display: flex;
@@ -326,16 +336,15 @@ mat-label{
     border-bottom: 1px solid #bac2c5;
     border-left: 1px solid #bac2c5;
     border-right: 1px solid #bac2c5;
-    color: #f5b93c;
+    color: #000000;
     border-radius: 0px 0px 15px 15px;
   }
 
-  .container{
+  .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
   }
 
   .botao {
@@ -347,7 +356,7 @@ mat-label{
 
   .btn-con,
   .btn-con-troca {
-    width: 190px;
+    width: 200px;
     padding-left: 25px;
     text-align: center;
   }
@@ -359,33 +368,29 @@ mat-label{
     text-align: center;
   }
 
-  .form-control {
-    width: 340px;
-  }
-
   .label-align {
     width: 80px;
   }
 
-  mat-form-field {
+  .caixa-input {
     width: 300px;
     margin: 0px;
     padding: 0px;
   }
 
-  mat-label{
+  .form-label {
     display: flex;
     align-items: flex-end;
     justify-content: end;
     margin-left: 60px;
     margin-bottom: 25px;
-    width: 80px ;
+    width: 80px;
   }
 
   .align-414 button {
     position: absolute;
-    top: -40px;
-    right: -20px;
+    top: 7px;
+    right: -10px;
   }
 
   .form-align {
@@ -397,7 +402,7 @@ mat-label{
     padding: 0;
   }
 
-  .form-align #cloud{
+  .form-align #cloud {
     padding: 35px 0;
     margin: 0;
     width: 300px;
@@ -410,29 +415,23 @@ mat-label{
   .loginLink a {
     margin-right: 12%;
     margin-top: 9.5%;
+    color: #f5b93c;
   }
 
   .upload {
-    margin-top: 0px;
+    width: 285px;
+    margin: 0;
     max-height: 69px;
-    padding: 35px 0px;
+    padding: 38px 0px;
   }
 
-  #nome,
-  #cpf,
-  #cnpj,
-  #email,
-  #celular,
-  #senha,
-  #cloud,
-  #ramo {
-    width: 100%;
+  #cloud{
+    width: 82.5%;
   }
 }
 
 @media only screen and (max-width: 415px) {
-
-  main{
+  main {
     background-image: none;
     background-color: #f5f5f5;
   }
@@ -446,7 +445,7 @@ mat-label{
     border-bottom: 1px solid #bac2c5;
     border-left: 1px solid #bac2c5;
     border-right: 1px solid #bac2c5;
-    color: #f5b93c;
+    color: #000000;
     margin-left: 0;
     margin-right: 0;
     border-radius: 0px 0px 15px 15px;
@@ -466,7 +465,7 @@ mat-label{
 
   .btn-con,
   .btn-con-troca {
-    width: 150px;
+    width: 160px;
     padding-left: 5px;
     padding-right: 5px;
   }
@@ -478,23 +477,20 @@ mat-label{
     width: 160px;
   }
 
-  .form-control {//input
-    padding: 0;
-  }
 
-  mat-form-field {
+  .caixa-input {
     width: 300px;
     margin: 0px;
     padding: 0px;
   }
 
-  mat-label{
+  .form-label {
     display: flex;
     align-items: flex-end;
     justify-content: end;
     margin-bottom: 25px;
 
-    width: 70px ;
+    width: 70px;
   }
 
   .label-align {
@@ -504,21 +500,23 @@ mat-label{
   .form-align {
     padding-left: 0px;
     padding-right: 0px;
-    width:300px;
+    width: 300px;
     display: flex;
     align-items: center;
   }
 
-  .form-align #cloud{
+  .form-align #cloud {
     padding: 35px 0;
     margin: 0;
     width: 300px;
   }
 
   .upload {
+    width: 210px;
     margin-top: 0px;
     max-height: 69px;
     padding: 15px 0px;
+    padding: 38px 0px;
   }
 
   .btn-dark {
@@ -530,6 +528,6 @@ mat-label{
     margin-right: 27%;
     margin-top: 0;
     margin-bottom: 15px;
+    color: #f5b93c;
   }
-
 }
