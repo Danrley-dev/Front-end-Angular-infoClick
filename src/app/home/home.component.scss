@@ -2,11 +2,8 @@ main {
     background-image: url('../../assets/img/Fundo-home.png');
 }
 
-
-
 .img-carousel {
     object-fit: cover;
-
 }
 
 .img-resp1,
@@ -37,7 +34,6 @@ main {
 }
 
 .promo {
-
     display: flex;
     justify-content: center;
     border-bottom: solid 2px #F4DA5E;
@@ -73,7 +69,6 @@ main {
 .time-promo span {
     color: black;
 }
-
 
 .details {
     display: flex;
@@ -142,7 +137,6 @@ main {
     background-attachment: fixed;
     text-align: center;
     height: 700px;
-
 }
 
 .informacoes-container {
@@ -208,7 +202,6 @@ main {
 .saiba-mais-4 {
     font-weight: bold;
     font-size: 20px;
-    // margin-top: 0.3px;
 }
 
 .saiba-mais a,
@@ -223,9 +216,38 @@ main {
     background-color: #3483FA;
 }
 
+@media(max-width: 1300px) {
+    .picsum-img-wrapper{
+        width: 100%;
+    }
+    
+    .img-carousel {
+        object-fit: cover;
+        width: 95%;
+    }
+}
+
+@media(max-width: 1050px) {
+    .picsum-img-wrapper{
+        width: 100%;
+    }
+    
+    .img-carousel {
+        object-fit: cover;
+        width: 95%;
+    }
+}
 
 @media(max-width: 950px) {
-
+    .picsum-img-wrapper{
+        width: 100%;
+    }
+    
+    .img-carousel {
+        object-fit: cover;
+        width: 100%;
+    }
+    
     .img1,
     .img2,
     .img3 {
@@ -240,7 +262,17 @@ main {
     }
 }
 
-@media(max-width: 800px) {
+@media(max-width: 830px) {
+    
+    .picsum-img-wrapper{
+        width: 100%;
+    }
+    
+    .img-carousel {
+        object-fit: cover;
+        width: 100%;
+    }
+    
     .promo-card {
         background-size: cover;
         background-repeat: no-repeat;
