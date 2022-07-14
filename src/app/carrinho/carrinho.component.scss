@@ -1,3 +1,4 @@
+
 main {
   background-image: url("../../assets/img/fundo-carrinho.png");
   padding-top: 50px;
@@ -11,6 +12,7 @@ a {
   text-decoration: none;
   color: white;
 }
+
 
 .container-produtos {
   border-radius: 8px;
@@ -31,6 +33,7 @@ a {
   align-items: center;
   justify-content: space-between;
   border-bottom: solid 3px black;
+  height: 320px;
 }
 
 .produtos img {
@@ -55,7 +58,7 @@ span {
 .container-dados {
   border-radius: 8px;
   background-color: white;
-  height: 250px;
+  height: 300px;
   width: 284px;
   padding: 17px 7px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -90,8 +93,36 @@ span {
   color: white;
 }
 
+.text-quantidade {
+  margin-bottom: 10px;
+}
 
-@media(max-width: 900px) {
+.container-quantidade {
+  display: flex;
+  align-items: center;
+}
+
+.button-incremento, .button-decremento {
+  background-color: #F4DA5E;
+}
+
+
+.button-deletar {
+  background-color: black;
+  color: white;
+  width: 260px;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-left: 8px;
+}
+
+@media(max-width: 1080px) {
+  .produtos {
+    height: 350px;
+  }
+}
+
+@media(max-width: 915px) {
   .nome-produto {
     font-size: 12px;
   }
@@ -100,7 +131,11 @@ span {
     height: 200px;
     object-fit: cover;
   }
+  .button-deletar {
+    width: 200px;
+  }
 }
+
 
 @media(max-width: 790px) {
   .nome-produto {
@@ -111,9 +146,14 @@ span {
     height: 180px;
     object-fit: cover;
   }
+
+  .button-deletar {
+    width: 160px;
+  }
+
   .container-dados {
     width: 34vw;
-    height: 250px;
+    height: 280px;
   }
   .button-comprar {
     width: 180px;
@@ -139,6 +179,9 @@ span {
     height: 150px;
     object-fit: cover;
   }
+  .quantidade {
+    font-size: 13px;
+  }
 
   .button-comprar {
     width: 150px;
@@ -150,6 +193,10 @@ span {
     width: 150px;
     height: 35px;
     font-size: 11px;
+  }
+
+  .button-deletar {
+    width: 140px;
   }
 }
 
@@ -170,10 +217,18 @@ span {
   padding-right: 10px;
 }
 
+.button-deletar {
+  width: 200px;
+}
+
+.quantidade {
+  font-size: 15px;
+}
+
 .container-dados {
   border-radius: 8px;
   background-color: white;
-  height: 250px;
+  height: 300px;
   width: 284px;
   padding: 17px 7px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -205,6 +260,10 @@ span {
     width: 350px;
     padding: 28px 10px;
  }
+
+ .button-deletar {
+  width: 160px;
+}
 
  .produtos img {
   width: 140px;

@@ -2,65 +2,83 @@
   <section class="container-produtos">
     <h2 class="carrinho-titulo"><i class="bi bi-cart3">Carrinho</i></h2>
     <div *ngIf="cartitems.length > 0">
-    <div class="produtos" *ngFor="let tempCartItem of cartitems">
-      <img
-        src="{{ tempCartItem.imagem }}"
-        alt="Imagem de uma placa de video"
-      />
-      <div class="produto-descricao">
-        <p class="nome-produto">
-          {{ tempCartItem.name }}
-        </p>
+      <div class="produtos" *ngFor="let tempCartItem of cartitems">
+        <img
+          src="{{ tempCartItem.imagem }}"
+          alt="Imagem de uma placa de video"
+        />
+        <div class="produto-descricao">
+          <p class="nome-produto">
+            {{ tempCartItem.name }}
+          </p>
 
-        <p class="preco">Preço:<span> {{ tempCartItem.preco_unidade | currency: "BRL" }}</span></p>
-        <p class="preco">Quantiade:<span> {{ tempCartItem.quantidade }}</span></p>
-        <p class="preco">Valor:<span> {{ tempCartItem.quantidade * tempCartItem.preco_unidade! | currency: "BRL"}}</span></p>
+          <p class="preco">
+            Preço:<span>
+              {{ tempCartItem.preco_unidade | currency: "BRL" }}</span
+            >
+          </p>
+          <p class="preco">
+            Quantiade:<span> {{ tempCartItem.quantidade }}</span>
+          </p>
+          <p class="preco">
+            Valor:<span>
+              {{
+                tempCartItem.quantidade * tempCartItem.preco_unidade!
+                  | currency: "BRL"
+              }}</span
+            >
+          </p>
 
-        <div class="items">
-          <label>Quantidade:</label>
+          <div class="items">
+            <label class="text-quantidade">Quantidade:</label>
 
-          <div class="row no-gutters">
-            <div class="col">
-              <button
-                (click)="incrementQuantity(tempCartItem)"
-                class="btn btn-primary btn-sm"
-              >
-                <i class="fas fa-plus">+</i>
+            <div class="row no-gutters">
+              <div class="container-quantidade">
+                <div class="col">
+                  <button
+                    (click)="decrementQuantity(tempCartItem)"
+                    class="btn button-decremento"
+                  >
+                    <i class="fas fa-minus">-</i>
+                  </button>
+                </div>
+                <div class="col ml-4 mr-2">
+                  {{ tempCartItem.quantidade }}
+                </div>
+                <div class="col">
+                  <button
+                    (click)="incrementQuantity(tempCartItem)"
+                    class="btn button-incremento"
+                  >
+                    <i class="fas fa-plus">+</i>
+                  </button>
+                </div>
+              </div>
+
+              <button (click)="remove(tempCartItem)" class="btn button-deletar">
+                Deletar
               </button>
             </div>
-
-            <div class="col ml-4 mr-2">
-              {{ tempCartItem.quantidade }}
-            </div>
-
-            <div class="col">
-              <button
-                (click)="decrementQuantity(tempCartItem)"
-                class="btn btn-primary btn-sm"
-              >
-                <i class="fas fa-minus">-</i>
-              </button>
-            </div>
-
-            <div class="col-8"></div>
-            <button (click)="remove(tempCartItem)"  class="btn btn-primary btn-sm mt-2">Deletar</button>
           </div>
-
         </div>
-
       </div>
     </div>
-  </div>
-
   </section>
   <section class="container-dados">
     <h2 class="titulo-resumo">Resumo</h2>
     <div class="preco-total">
-      <p class="preco">Total: <span>{{ totalPrice | currency: "BRL"}}</span></p>
-      <p class="preco">Quantidade de Itens: <span>{{ totalQuantity }}</span></p>
+      <p class="preco">
+        Total: <span>{{ totalPrice | currency: "BRL" }}</span>
+      </p>
+      <p class="preco quantidade">
+        Quantidade de Itens: <span>{{ totalQuantity }}</span>
+      </p>
       <button class="button-comprar" type="button">COMPRAR</button>
-      <button class="button-continuar-comprando" type="button"><a href="#">CONTINUAR COMPRANDO</a></button>
+      <button class="button-continuar-comprando" type="button">
+        <a href="#">CONTINUAR COMPRANDO</a>
+      </button>
     </div>
   </section>
 </main>
+
 
