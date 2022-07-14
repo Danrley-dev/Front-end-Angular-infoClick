@@ -33,8 +33,8 @@
 
 <section class="container-cards1">
 
-  <div *ngFor="let loja of lojas">
-  <div class="card" *ngFor="let item of loja.produtos" >
+  <div *ngFor="let produto of produtos">
+  <div class="card"  >
     <div class="promo" >
       <p class="porcent-promo"><span>25%</span> OFF</p>
       <p class="time-promo">
@@ -43,20 +43,20 @@
       </p>
     </div>
     <div class="details">
-      <a routerLink="/produto-detail/{{item.id}}" class="img-wrap" data-abc="true"  >
+      <a routerLink="/produto-detail/{{produto.id}}" class="img-wrap" data-abc="true"  >
       <img
-        src="{{ item.produtoImagem }}"
+        src="{{ produto.produtoImagem }}"
         alt="Imagem de um computador">
       </a>
-      <a routerLink="/loja-empreendedor/{{loja.idLoja}}" class="img-wrap" data-abc="true"  >
-        <p class="nome-produto"> <b>{{loja.nomeLoja}}</b></p>
+      <a routerLink="/loja-empreendedor/{{produto.loja?.idLoja}}" class="img-wrap" data-abc="true"  >
+        <p class="nome-produto"> <b>{{produto.loja?.nomeLoja}}</b></p>
       </a>
-      <p class="preco-produto">{{item.name}}</p>
-      <p class="preco-corte">De: {{item.produtoValor}}</p>
-      <p class="preco-promo">{{item.produtoDesconto}}</p>
+      <p class="preco-produto">{{produto.name}}</p>
+      <p class="preco-corte">De: {{produto.produtoValor | currency: "BRL"}}</p>
+      <p class="preco-promo">{{produto.produtoDesconto | currency: "BRL"}}</p>
        <!-- <p class="parcelas">12x de R$ 499,98 sem juros</p> -->
 
-       <button (click)="addToCart(item)"class="button-card" type="button"><a href="#">ADICIONAR AO CARRINHO</a></button>
+       <button (click)="addToCart(produto)"class="button-card" type="button"><a >ADICIONAR AO CARRINHO</a></button>
   </div>
   </div>
 </div>

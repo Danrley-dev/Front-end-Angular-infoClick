@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { HotToastService } from '@ngneat/hot-toast';
 import { forkJoin } from 'rxjs';
 import { DialogHomeComponent } from '../core/components/dialog-home/dialog-home.component';
 import { ItemCarrinho } from '../core/models/item-carrinho';
@@ -31,15 +32,18 @@ export class HomeComponent implements OnInit {
   images = ['../../assets/img/HP1.png', '../../assets/img/HP1-RESP.png', '../../assets/img/HP1-RESP(420).png', '../../assets/img/HP1-RESP(720).png', '../../assets/img/HP2.png', '../../assets/img/HP2-RESP.png', '../../assets/img/HP2-RESP(420).png', '../../assets/img/HP2-RESP(720).png', '../../assets/img/HP3.png', '../../assets/img/HP3-RESP.png', '../../assets/img/HP3-RESP(410).png', '../../assets/img/HP3-RESP(720).png']
   constructor(private produtoService: ProdutoService, private carrinhoService: CarrinhoService,
      private route: ActivatedRoute,
-     private dialog: MatDialog) {
+     private dialog: MatDialog, private toast: HotToastService) {
 
 
      }
 
      addToCart(produto: Produto) {
-
       const itemCarrinho = new ItemCarrinho(produto);
       this.carrinhoService.addToCart(itemCarrinho);
+      this.toast.success('Produto adicionado no carrinho!',
+      {
+        position: 'top-right'
+      });
     }
 
   MostraProdutosNaLoja() {
@@ -118,7 +122,7 @@ export class HomeComponent implements OnInit {
     this.MostraProdutosNaLoja();
 
     this.countDown();
-    this.onClickDialogHome();
+    // this.onClickDialogHome();
   }
 
 }

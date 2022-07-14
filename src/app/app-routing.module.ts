@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: 'produto-create', component: ProdutoCreateComponent },
   { path: 'produto-detail/:id', component: ProdutoDetailComponent },
   { path: 'produtos-list', component: ProdutosListComponent },
+  { path: 'pesquisar/:keyword', component: ProdutosListComponent },
   { path: 'carrinho', component: CarrinhoComponent },
   { path: 'loja-create', component: LojaCreateComponent },
   { path: 'loja-empreendedor/:id', component: LojaEmpreendedorComponent },

@@ -66,7 +66,7 @@ export class ProdutosListComponent implements OnInit {
     });
     // this.handleListaProdutos();
 
-    this.MostraProdutosNaLoja();
+    // this.MostraProdutosNaLoja();
   }
 
 }
