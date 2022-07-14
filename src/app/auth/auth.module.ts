@@ -8,6 +8,7 @@ import { RecuperarSenhaComponent } from './recuperar-senha/recuperar-senha.compo
 import { MaterialModule } from '../shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxCaptchaModule } from 'ngx-captcha';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 
@@ -24,6 +25,7 @@ import { NgxCaptchaModule } from 'ngx-captcha';
     FormsModule,
     ReactiveFormsModule,
     NgxCaptchaModule,
+    NgxMaskModule.forRoot()
     
     
   ]
