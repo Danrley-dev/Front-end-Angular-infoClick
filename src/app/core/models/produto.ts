@@ -13,5 +13,5 @@ export class Produto {
   produtoDesconto?: number;
   dataCriacao?: Date;
   ultimaAtualizacao?: Date;
-  loja?: Loja [] = [];
+  loja?: Loja [];
 }

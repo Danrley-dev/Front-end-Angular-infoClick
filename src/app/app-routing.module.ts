@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'recuperar-senha', component: RecuperarSenhaComponent },
   { path: 'termo-de-privacidade', component: TermoDePrivacidadeComponent },
-  { path: 'produto-detail', component: ProdutoDetailComponent },
+  { path: 'produto-detail/:id', component: ProdutoDetailComponent },
   {path: 'produtos-list', component: ProdutosListComponent},
   {path: 'carrinho', component: CarrinhoComponent},
   {path: 'loja-create', component: LojaCreateComponent},
