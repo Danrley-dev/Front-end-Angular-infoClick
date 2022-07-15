@@ -9,12 +9,15 @@ import { MaterialModule } from '../shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { NgxMaskModule } from 'ngx-mask';
+import { LoaderComponent } from '../shared/loader/loader.component';
+
 
 @NgModule({
   declarations: [
     CadastroComponent,
     LoginComponent,
-    RecuperarSenhaComponent
+    RecuperarSenhaComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,

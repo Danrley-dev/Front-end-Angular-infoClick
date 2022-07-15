@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CarrinhoService } from '../../services/carrinho/carrinho.service';
@@ -13,7 +14,10 @@ export class NavbarComponent implements OnInit {
   totalPrice: number = 0.00;
   totalQuantity: number = 0;
 
-  constructor(private carrinhoService: CarrinhoService, private router: Router) { }
+  logged?: boolean;
+  email?: string;
+
+  constructor(private carrinhoService: CarrinhoService, private router: Router, private authService: AuthService) { }
 
   pesquisar(value: string){
     console.log(`value:${value}`);
@@ -31,11 +35,21 @@ export class NavbarComponent implements OnInit {
     );
   }
 
+  // geet email do usuario logado
+
+
+
   menuClick() {
     this.menuHamburguer = !this.menuHamburguer;
   }
   ngOnInit(): void {
     this.updateCartStatus();
+
+    this.logged = this.authService.isAuthenticated;
+    this.email = this.authService.getEmail();
+
+
+
   }
 
 }

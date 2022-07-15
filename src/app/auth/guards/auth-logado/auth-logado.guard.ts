@@ -14,7 +14,7 @@ export class AuthLogadoGuard implements CanActivate {
 
   canActivate(): boolean {
     if (this.authService.isAuthenticated) {
-      this.router.navigate([''])
+      this.router.navigate(['/'])
       return false;
     } else {
       return true;
