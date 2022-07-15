@@ -8,7 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { CoreModule } from './core/core.module';
 import { HomeComponent } from './home/home.component';
-import { AuthModule } from './auth/auth.module';
 import { ProdutosModule } from './produtos/produtos.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
@@ -16,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './shared/material.module';
 import { LojaCreateComponent } from './empreendedor/loja-create/loja-create/loja-create.component';
 import { LojaEmpreendedorComponent } from './loja-empreendedor/loja-empreendedor.component';
+import { interceptors } from './core/interceptors/auth.interceptor';
 
 
 @NgModule({
@@ -33,19 +33,17 @@ import { LojaEmpreendedorComponent } from './loja-empreendedor/loja-empreendedor
     BrowserAnimationsModule,
     HotToastModule.forRoot({
       position: 'bottom-center',
-      duration:4000
+      duration: 4000
     }),
     CoreModule,
     HttpClientModule,
-    AuthModule,
     ProdutosModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
-
+    MaterialModule,
   ],
-  providers: [],
+  providers: [interceptors],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
