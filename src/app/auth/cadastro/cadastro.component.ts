@@ -21,6 +21,7 @@ export class CadastroComponent implements OnInit {
   foto?: File;
   icon?: string = 'upload';
   errorsI?: any;
+  mudar: boolean = true;
 
   constructor(private fb: FormBuilder,
     private consumidorService: ConsumidorService,
@@ -127,6 +128,7 @@ export class CadastroComponent implements OnInit {
   }
 
   setImage(ev: any) {
+    this.mudar = !this.mudar;
     this.foto = ev.target.files[0];
 
   }
