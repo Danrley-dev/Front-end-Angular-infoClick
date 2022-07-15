@@ -21,6 +21,9 @@
             </p>
             <p class="boleto"><i class="bi bi-upc"></i> De: <span class="preco-original">{{produto.produtoValor | currency: "BRL"}}</span> por:
                 <span class="preco-promo">{{produto.produtoDesconto | currency: "BRL"}}</span></p>
+            <p class="estoque-produto">
+              Estoque Disponível: {{produto.produtoEstoque}}
+            </p>
             <!-- <p class="cartao"><i class="bi bi-credit-card"></i> R$ 1.410,50 <span class="preco-dividido">12x sem juros</span></p> -->
             <button (click)="addToCart(produto)" type="button" class="button">ADICIONAR AO CARRINHO</button>
         </div>
