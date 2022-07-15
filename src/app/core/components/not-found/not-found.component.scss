@@ -1,69 +1,63 @@
+.container-fluid {
+  display: flex;
+  background-image: url("../../../../assets/not-found/Group 50.png");
 
+  height: 700px;
+  background-color: #f5f5f5;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 
-
-.container-fluid{
-    display: flex;
-    background-image: url("../../../../assets/not-found/Group 50.png");
-        
-        min-height: 50vh;
-        background-color: #f5f5f5;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        
-    // grid-template-columns: 1fr;
-    // grid-template-rows: 1fr ;
-    justify-content: center;
-    align-content: center;
-    text-align: center;
+  // grid-template-columns: 1fr;
+  // grid-template-rows: 1fr ;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
 }
 
-
-
-
-
-
-
-
-
 .titulo {
-    margin-top: 15px;
-    position: relative;
-
+  margin-top: 15px;
+  position: relative;
 }
 
 .img {
-    position: sticky;
-
+  position: sticky;
+  height: 420px;
+  width: 500px;
 }
 
 .texto {
-    text-decoration: none;
-    color: #1f1f1f;
-
+  text-decoration: none;
+  color: #1f1f1f;
 }
 
 .texto:hover {
-    text-decoration: underline;
-    color: black;
+  text-decoration: underline;
+  color: black;
 }
 
-@media(max-width: 1000px ) {
-    .container {
-        display: flexbox;
-        background-image: url("../../../../assets/not-found/Group 50.png");
-        max-width: 100%;
-        min-height: 50vh;
-        background-color: #f5f5f5;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
+@media (max-width: 940px) {
 
+  .descricao {
+    color: #F5B93C;
+  }
+  .grid5 {
+    height: 100%;
+    width: 100%;
+    // background-color: green;
+  }
+}
 
+@media (max-width: 520px) {
+  .img {
+    height: 320px;
+    width: 400px;
+  }
+}
 
-    .grid5 {
-        height: 100%;
-        width: 100%;
-        // background-color: green;
-    }
+@media (max-width: 405px) {
+  .img {
+    height: 300px;
+    width: 360px;
+  }
 }
