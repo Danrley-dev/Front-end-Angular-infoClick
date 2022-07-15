@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   siteKey: string;
   hide = true;
   ocultar = true;
+  isLoading = true;
 
   constructor(private fb: FormBuilder,
     private authService: AuthService,
@@ -42,7 +43,7 @@ export class LoginComponent implements OnInit {
         const token = response.headers.get('Authorization');
         this.authService.onLogin(token!.substring(7));
         this.router.navigate(['/']);
-
+        window.location.reload();
         this.toast.success('Login efetuado com sucesso');
       },
       error: (err) => {

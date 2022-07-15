@@ -52,6 +52,10 @@ const routes: Routes = [
     component: ProdutosListComponent,
   },
   {
+    path: 'detalhe-usuario/:id',
+    component: ProdutosListComponent,
+  },
+  {
     path: 'pesquisar/:keyword',
     component: ProdutosListComponent
   },

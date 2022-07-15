@@ -34,6 +34,13 @@ export class AuthService {
     return false;
   }
 
+  // geet email do usuario logado
+  getEmail() {
+    return this.emailUser;
+  }
+
+
+
   onLogin(token: string) {
     localStorage.setItem('token', token);
   }

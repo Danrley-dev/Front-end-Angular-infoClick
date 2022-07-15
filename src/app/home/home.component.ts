@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
@@ -32,7 +33,7 @@ export class HomeComponent implements OnInit {
   images = ['../../assets/img/HP1.png', '../../assets/img/HP1-RESP.png', '../../assets/img/HP1-RESP(420).png', '../../assets/img/HP1-RESP(720).png', '../../assets/img/HP2.png', '../../assets/img/HP2-RESP.png', '../../assets/img/HP2-RESP(420).png', '../../assets/img/HP2-RESP(720).png', '../../assets/img/HP3.png', '../../assets/img/HP3-RESP.png', '../../assets/img/HP3-RESP(410).png', '../../assets/img/HP3-RESP(720).png']
   constructor(private produtoService: ProdutoService, private carrinhoService: CarrinhoService,
      private route: ActivatedRoute,
-     private dialog: MatDialog, private toast: HotToastService) {
+     private dialog: MatDialog, private toast: HotToastService, private auhtService: AuthService) {
 
 
      }
@@ -113,6 +114,8 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+    
 
     this.route.paramMap.subscribe(() => {
       this.handleListaProdutos();
