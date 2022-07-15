@@ -1,36 +1,41 @@
 <header>
     <div class="trancatela">
-    <section class="header">
-        <a href="/"><img src="assets/img/logo-infoclick.png" class="logo" alt=""></a>
-
-        <div class="search">
-            <input #Input class="input" placeholder="Buscar produtos..." (keyup.enter)="pesquisar(Input.value)"/>
-            <button class="button" (click)="pesquisar(Input.value)"><i class="bi bi-search"></i></button>
-        </div>
-        <nav class="navbar">
-            <ul>
-                <li><a href="/produtos-list"><i class="bi bi-pc-display"></i>PRODUTOS</a></li>
-                <li><a href="/cadastro"><i class="bi bi-card-checklist"></i>CADASTRO</a></li>
-                <li><a href="/login"><i class="bi bi-person-circle"></i>LOGIN</a></li>
-                <li><a href="/carrinho"><i class="bi bi-cart3" ></i><div class="badge bg-danger">{{totalQuantity}}</div></a></li>
-            </ul>
-        </nav>
-        <div class="container-menu-hamburguer">
-            <button class="menu-hamburguer-button" type="button" (click)="menuClick()"><span class="bi bi-list menu-hamburguer"></span></button>
-            <nav class="navBar-hamburguer" *ngIf=" menuHamburguer">
+        <section class="header">
+            <a href="/"><img src="assets/img/logo-infoclick.png" class="logo" alt=""></a>
+            <div class="search">
+                <input #Input class="input" placeholder="Buscar produtos..." (keyup.enter)="pesquisar(Input.value)" />
+                <button class="button" (click)="pesquisar(Input.value)"><i class="bi bi-search"></i></button>
+            </div>
+            <nav class="navbar" aria-label="">
                 <ul>
                     <li><a href="/produtos-list"><i class="bi bi-pc-display"></i>PRODUTOS</a></li>
                     <li><a href="/cadastro"><i class="bi bi-card-checklist"></i>CADASTRO</a></li>
                     <li><a href="/login"><i class="bi bi-person-circle"></i>LOGIN</a></li>
-                    <li><a href="/carrinho"><i class="bi bi-cart3"></i>CARRINHO</a></li>
+                    <li><a href="/carrinho">
+                            <mat-icon class="bi bi-cart3" matBadge="{{totalQuantity}}" matBadgeSize="small"
+                                matBadgeColor="accent" matBadgeOverlap="false"></mat-icon>
+                        </a>
+                    </li>
                 </ul>
             </nav>
-        </div>
-    </section>
-</div>
+            <div class="container-menu-hamburguer">
+                <button class="menu-hamburguer-button" type="button" (click)="menuClick()"><span
+                        class="bi bi-list menu-hamburguer"></span></button>
+                <nav class="navBar-hamburguer" aria-label="" *ngIf=" menuHamburguer">
+                    <ul>
+                        <li><a href="/produtos-list"><i class="bi bi-pc-display"></i>PRODUTOS</a></li>
+                        <li><a href="/cadastro"><i class="bi bi-card-checklist"></i>CADASTRO</a></li>
+                        <li><a href="/login"><i class="bi bi-person-circle"></i>LOGIN</a></li>
+                        <li><a href="/carrinho">
+                                <mat-icon class="bi bi-cart3" matBadge="{{totalQuantity}}" matBadgeSize="small"
+                                    matBadgeColor="accent">
+                                </mat-icon>CARRINHO
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+    </div>
 
 </header>
-
-
-
-

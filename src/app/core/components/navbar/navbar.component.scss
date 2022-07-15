@@ -5,7 +5,6 @@ header {
     margin-bottom: 10px;
 }
 
-
 .header {
     height: 94px;
     display: flex;
@@ -92,11 +91,25 @@ header {
     justify-content: space-around;
 }
 
+.batata {
+    background-color: black;
+}
+
 i {
     padding-right: 5px;
 }
 
+@media(max-width: 1160px) {
+    .search, .navbar {
+        display: flexbox;
+        align-items: center;
+        justify-content: space-between;
+    }
 
+//    .header {
+//     justify-content: space-between;
+//    }
+}
 
 
 @media(max-width: 1000px) {
