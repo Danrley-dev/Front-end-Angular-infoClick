@@ -46,7 +46,16 @@ export class LoginComponent implements OnInit {
         this.toast.success('Login efetuado com sucesso');
       },
       error: (err) => {
-        this.toast.error('email ou senha invalido')
+        switch(err.status){
+          case 500:
+            window.navigator?.vibrate?.(200);
+            return this.toast.error('Email ou senha invalidos');
+          default:
+            window.navigator?.vibrate?.(200);
+            return this.toast.error(
+            `Um erro aconteceu: ${err.error.message ?? 'Verifique sua conexão com a internet'}`
+          );
+        }
       },
     });
   }

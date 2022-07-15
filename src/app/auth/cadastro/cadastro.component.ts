@@ -20,6 +20,7 @@ export class CadastroComponent implements OnInit {
   classbotaoTwo?: string = 'btn btn-emp';
   foto?: File;
   icon?: string = 'upload';
+  errorsI?: any;
 
   constructor(private fb: FormBuilder,
     private consumidorService: ConsumidorService,
@@ -35,7 +36,6 @@ export class CadastroComponent implements OnInit {
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(6)]],
       celular: [null, [Validators.maxLength(13)]],
-      perfil: ['', [Validators.required]],
       cep: [null],
       estado: [null],
       cidade: [null],
@@ -53,7 +53,6 @@ export class CadastroComponent implements OnInit {
       password: [null, [Validators.required, Validators.minLength(6)]], //trocar para minLength(8)
       celular: [null, Validators.maxLength(13)],
       ramo: [null, [Validators.required]],
-      perfil: ['', [Validators.required]],
       cep: [null, [Validators.maxLength(9)]],
       estado: [null],
       cidade: [null],
@@ -81,8 +80,22 @@ export class CadastroComponent implements OnInit {
         this.toast.success('Cadastro consumidor efetuado com sucesso');
         this.router.navigate(['produtos-list']);
       },
-      error: (error) => {
-        this.toast.error('Algum erro inesperado aconteceu')
+      error: (err) => {
+        switch(err.status){
+          case 400:
+            window.navigator?.vibrate?.(200);
+            for(const element of err.error.errors) {
+              this.errorsI =  this.toast.error(element.message);
+            }
+            return this.errorsI;
+          case 500:
+            window.navigator?.vibrate?.(200);
+            return this.toast.error(err.error.message)
+          default:
+            window.navigator?.vibrate?.(200);
+            return this.toast.error(
+          `Um erro aconteceu: ${err.error.message ?? 'Verifique sua conexão com a internet'}`)
+        }
       }
     })
   }
@@ -93,16 +106,29 @@ export class CadastroComponent implements OnInit {
         this.toast.success('Cadastro empreendedor efetuado com sucesso');
         this.router.navigate(['loja-create']);
       },
-      error: (err) => {
-        this.toast.error('Algum erro inesperado aconteceu')
+      error: (erro) => {
+        switch(erro.status){
+          case 400:
+            window.navigator?.vibrate?.(200);
+            for(const element of erro.error.errors) {
+              this.errorsI =  this.toast.error(element.message);
+            }
+            return this.errorsI;
+          case 500:
+            window.navigator?.vibrate?.(200);
+            return this.toast.error(erro.error.message)
+          default:
+            window.navigator?.vibrate?.(200);
+            return this.toast.error(
+          `Um erro aconteceu: ${erro.error.message ?? 'Verifique sua conexão com a internet'}`)
+        }
       }
     })
   }
 
   setImage(ev: any) {
     this.foto = ev.target.files[0];
-    document.querySelector(".btnCheck")?.classList.add("btnCheck2");
-    this.icon = "library_add_check"
+
   }
 
   ngOnInit(): void {
