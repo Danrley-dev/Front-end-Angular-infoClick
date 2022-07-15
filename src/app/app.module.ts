@@ -16,6 +16,7 @@ import { MaterialModule } from './shared/material.module';
 import { LojaCreateComponent } from './empreendedor/loja-create/loja-create/loja-create.component';
 import { LojaEmpreendedorComponent } from './loja-empreendedor/loja-empreendedor.component';
 import { interceptors } from './core/interceptors/auth.interceptor';
+import { AuthModule } from './auth/auth.module';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { interceptors } from './core/interceptors/auth.interceptor';
     }),
     CoreModule,
     HttpClientModule,
+    AuthModule,
     ProdutosModule,
     HttpClientModule,
     FormsModule,
