@@ -56,7 +56,7 @@
       <div class=" form-align">
         <mat-label  class="form-label">Celular</mat-label>
         <mat-form-field class="caixa-input" appearance="outline">
-          <input matInput mask="(00) 00000-0000" placeholder="(XX) X XXXX-XXXX" formControlName="celular" type="text" required="celular">
+          <input matInput mask="(00) 00000-0000" placeholder="(XX) X XXXX-XXXX" formControlName="celular" type="text">
           <mat-error *ngIf="consumidorForm.get('celular')?.errors?.['required']">Campo obrigatório</mat-error>
           <mat-error *ngIf="consumidorForm.get('celular')?.errors?.['maxlength']">Máximo 13 digitos</mat-error>
         </mat-form-field>
@@ -64,7 +64,7 @@
       <div class="form-align">
         <mat-label  class="form-label">CEP</mat-label>
         <mat-form-field class="caixa-input" appearance="outline">
-          <input matInput mask="00000-000" placeholder="ex.: 03259-000" formControlName="cep" type="text" required="cep">
+          <input matInput mask="00000-000" placeholder="ex.: 03259-000" formControlName="cep" type="text">
           <mat-error *ngIf="consumidorForm.get('cep')?.errors?.['required']">Campo obrigatório</mat-error>
           <mat-error *ngIf="consumidorForm.get('cep')?.errors?.['maxlength']">Máximo 9 digitos</mat-error>
         </mat-form-field>
@@ -72,35 +72,35 @@
       <div class="form-align">
         <mat-label  class="form-label">Estado</mat-label>
         <mat-form-field class="caixa-input" appearance="outline">
-          <input matInput placeholder="ex.: São Paulo" formControlName="estado" type="text" required="estado">
+          <input matInput placeholder="ex.: São Paulo" formControlName="estado" type="text">
           <mat-error *ngIf="consumidorForm.get('estado')?.errors?.['required']">Campo obrigatório</mat-error>
         </mat-form-field>
       </div>
       <div class="form-align">
         <mat-label  class="form-label">Cidade</mat-label>
         <mat-form-field class="caixa-input" appearance="outline">
-          <input matInput placeholder="ex.: São Paulo" formControlName="cidade" type="text" required="cidade">
+          <input matInput placeholder="ex.: São Paulo" formControlName="cidade" type="text">
           <mat-error *ngIf="consumidorForm.get('cidade')?.errors?.['required']">Campo obrigatório</mat-error>
         </mat-form-field>
       </div>
       <div class="form-align">
         <mat-label  class="form-label">Bairro</mat-label>
         <mat-form-field class="caixa-input" appearance="outline">
-          <input matInput placeholder="ex.: Mooca" formControlName="bairro" type="text" required="bairro">
+          <input matInput placeholder="ex.: Mooca" formControlName="bairro" type="text">
           <mat-error *ngIf="consumidorForm.get('bairro')?.errors?.['required']">Campo obrigatório</mat-error>
         </mat-form-field>
       </div>
       <div class="form-align ruaNum">
         <mat-label  class="form-label">Rua</mat-label>
         <mat-form-field class="caixa-input" appearance="outline">
-          <input matInput placeholder="ex.: Rua taquari" formControlName="rua" type="text" required="rua">
+          <input matInput placeholder="ex.: Rua taquari" formControlName="rua" type="text">
           <mat-error *ngIf="consumidorForm.get('rua')?.errors?.['required']">Campo obrigatório</mat-error>
         </mat-form-field>
         </div>
       <div class="form-align ruaNum">
         <mat-label  class="form-label">Nº</mat-label>
         <mat-form-field class="caixa-input" appearance="outline">
-          <input matInput placeholder="ex.: nº 7" formControlName="numero" type="text" required="numero">
+          <input matInput placeholder="ex.: nº 7" formControlName="numero" type="text">
           <mat-error *ngIf="consumidorForm.get('numero')?.errors?.['required']">Campo obrigatório</mat-error>
         </mat-form-field>
       </div>
@@ -190,7 +190,7 @@
       <div class="form-align">
         <mat-label  class="form-label">CEP</mat-label>
         <mat-form-field class="caixa-input" appearance="outline">
-          <input matInput mask="00000-000" placeholder="ex.: 03259-000" formControlName="cep" type="text" required="cep">
+          <input matInput mask="00000-000" placeholder="ex.: 03259-000" formControlName="cep" type="text">
           <mat-error *ngIf="empreendedorForm.get('cep')?.errors?.['required']">Campo obrigatório</mat-error>
           <mat-error *ngIf="empreendedorForm.get('cep')?.errors?.['maxlength']">Máximo 9 digitos</mat-error>
         </mat-form-field>
@@ -198,35 +198,35 @@
       <div class="form-align">
         <mat-label  class="form-label">Estado</mat-label>
         <mat-form-field class="caixa-input" appearance="outline">
-          <input matInput placeholder="ex.: São Paulo" formControlName="estado" type="text" required="estado">
+          <input matInput placeholder="ex.: São Paulo" formControlName="estado" type="text">
           <mat-error *ngIf="empreendedorForm.get('estado')?.errors?.['required']">Campo obrigatório</mat-error>
         </mat-form-field>
       </div>
       <div class="form-align">
         <mat-label  class="form-label">Cidade</mat-label>
         <mat-form-field class="caixa-input" appearance="outline">
-          <input matInput placeholder="ex.: São Paulo" formControlName="cidade" type="text" required="cidade">
+          <input matInput placeholder="ex.: São Paulo" formControlName="cidade" type="text">
           <mat-error *ngIf="empreendedorForm.get('cidade')?.errors?.['required']">Campo obrigatório</mat-error>
         </mat-form-field>
       </div>
       <div class="form-align">
         <mat-label  class="form-label">Bairro</mat-label>
         <mat-form-field class="caixa-input" appearance="outline">
-          <input matInput placeholder="ex.: Mooca" formControlName="bairro" type="text" required="bairro">
+          <input matInput placeholder="ex.: Mooca" formControlName="bairro" type="text">
           <mat-error *ngIf="empreendedorForm.get('bairro')?.errors?.['required']">Campo obrigatório</mat-error>
         </mat-form-field>
       </div>
       <div class="form-align ruaNum">
         <mat-label  class="form-label rua">Rua</mat-label>
         <mat-form-field class="caixa-input" appearance="outline">
-          <input class="rua" matInput placeholder="ex.: R. da mooca" formControlName="rua" type="text" required="rua">
+          <input class="rua" matInput placeholder="ex.: R. da mooca" formControlName="rua" type="text">
           <mat-error *ngIf="empreendedorForm.get('rua')?.errors?.['required']">Campo obrigatório</mat-error>
         </mat-form-field>
         </div>
       <div class="form-align ruaNum">
         <mat-label  class="form-label num">Nº</mat-label>
         <mat-form-field class="caixa-input" appearance="outline">
-          <input class="num" matInput placeholder="ex.: nº 7" formControlName="numero" type="text" required="numero">
+          <input class="num" matInput placeholder="ex.: nº 7" formControlName="numero" type="text">
           <mat-error *ngIf="empreendedorForm.get('numero')?.errors?.['required']">Campo obrigatório</mat-error>
         </mat-form-field>
       </div>
