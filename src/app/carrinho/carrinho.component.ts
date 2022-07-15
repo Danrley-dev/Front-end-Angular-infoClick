@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HotToastService } from '@ngneat/hot-toast';
 import { ItemCarrinho } from '../core/models/item-carrinho';
 import { CarrinhoService } from '../core/services/carrinho/carrinho.service';
 
@@ -13,7 +14,9 @@ export class CarrinhoComponent implements OnInit {
   totalPrice: number = 0;
   totalQuantity: number = 0;
 
-  constructor(private carrinhoService: CarrinhoService) { }
+  constructor(
+    private carrinhoService: CarrinhoService,
+    private toast: HotToastService) { }
 
   listCartDetails() {
 
@@ -33,11 +36,19 @@ export class CarrinhoComponent implements OnInit {
   incrementQuantity(item: ItemCarrinho) {
 
       this.carrinhoService.addToCart(item);
+      this.toast.success('Foi adicionado mais uma unidade do produto no carrinho',
+      {
+        position: 'top-right'
+      });
 
     }
 
     decrementQuantity(item: ItemCarrinho) {
         this.carrinhoService.decrementQuantity(item);
+        this.toast.success('Foi retirado uma unidade do produto no carrinho',
+        {
+          position: 'top-right'
+        });
       }
 
     remove(item: ItemCarrinho) {
@@ -46,6 +57,10 @@ export class CarrinhoComponent implements OnInit {
 
   ngOnInit(): void {
     this.listCartDetails();
+    this.toast.success('Produto retirado do carrinho',
+      {
+        position: 'top-right'
+      });
 
     console.log(this.cartitems);
   }
