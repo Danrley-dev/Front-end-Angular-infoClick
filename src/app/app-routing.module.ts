@@ -12,21 +12,66 @@ import { HomeComponent } from './home/home.component';
 import { ProdutoDetailComponent } from './produtos/components/produto-detail/produto-detail.component';
 import { LojaCreateComponent } from './empreendedor/loja-create/loja-create/loja-create.component';
 import { ProdutoCreateComponent } from './produtos/components/produto-create/produto-create.component';
+import { AuthLogadoGuard } from './auth/guards/auth-logado/auth-logado.guard';
+import { AuthGuard } from './auth/guards/auth/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'cadastro', component: CadastroComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'recuperar-senha', component: RecuperarSenhaComponent },
-  { path: 'termo-de-privacidade', component: TermoDePrivacidadeComponent },
-  { path: 'produto-create', component: ProdutoCreateComponent },
-  { path: 'produto-detail/:id', component: ProdutoDetailComponent },
-  { path: 'produtos-list', component: ProdutosListComponent },
-  { path: 'pesquisar/:keyword', component: ProdutosListComponent },
-  { path: 'carrinho', component: CarrinhoComponent },
-  { path: 'loja-create', component: LojaCreateComponent },
-  { path: 'loja-empreendedor/:id', component: LojaEmpreendedorComponent },
-  { path: '**', component: NotFoundComponent },
+  {
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'cadastro',
+    component: CadastroComponent,
+    canActivate: [AuthLogadoGuard]
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [AuthLogadoGuard]
+  },
+  {
+    path: 'recuperar-senha',
+    component: RecuperarSenhaComponent
+  },
+  {
+    path: 'termo-de-privacidade',
+    component: TermoDePrivacidadeComponent
+  },
+  {
+    path: 'produto-create',
+    component: ProdutoCreateComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'produto-detail/:id',
+    component: ProdutoDetailComponent
+  },
+  {
+    path: 'produtos-list',
+    component: ProdutosListComponent,
+  },
+  {
+    path: 'pesquisar/:keyword',
+    component: ProdutosListComponent
+  },
+  {
+    path: 'carrinho',
+    component: CarrinhoComponent
+  },
+  {
+    path: 'loja-create',
+    component: LojaCreateComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'loja-empreendedor/:id',
+    component: LojaEmpreendedorComponent
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
+  },
 ];
 
 @NgModule({

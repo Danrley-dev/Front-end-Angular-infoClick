@@ -10,8 +10,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { NgxMaskModule } from 'ngx-mask';
 
-
-
 @NgModule({
   declarations: [
     CadastroComponent,
@@ -26,8 +24,6 @@ import { NgxMaskModule } from 'ngx-mask';
     ReactiveFormsModule,
     NgxCaptchaModule,
     NgxMaskModule.forRoot()
-    
-    
   ]
 })
 export class AuthModule { }
