@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { API_CONFIG } from 'src/app/config/api.config';
 import { Empreendedor } from 'src/app/core/models/empreendedor';
+import { EmpreendedorService } from 'src/app/core/services/empreendedor/empreendedor.service';
 import { LojaService } from 'src/app/core/services/loja/loja.service';
 
 @Component({
@@ -18,21 +19,22 @@ export class LojaCreateComponent implements OnInit {
     private lojaService: LojaService,
     private toast: HotToastService,
     private router: Router,
+    private empreendedorService: EmpreendedorService
     ) { }
 
+    idEmpreendedor?: number;
     errorsI?: any;
     mudar: boolean = true;
     foto?: File;
 
     lojaForm = this.fb.group({
-      nome: ['', [Validators.required,]],
-      descricao: ['', [Validators.required]],
-      cor: ['', [Validators.required]],
-      
+      nomeLoja: ['', [Validators.required,]],
+      descricaoLoja: ['', [Validators.required]],
+      corDeFundo: ['', [Validators.required]],
     });
         
     onSubmitloja() {
-      this.lojaService.create(this.lojaForm.value).subscribe({
+      this.lojaService.create(this.idEmpreendedor!,this.lojaForm.value).subscribe({
         next: () => {
           this.toast.success('Cadastro loja efetuado com sucesso');
           this.router.navigate([`loja-empreendedor`]);
@@ -63,7 +65,10 @@ export class LojaCreateComponent implements OnInit {
   
     }
 
-  ngOnInit(): void {
-  }
+   ngOnInit(): void {
+    this.empreendedorService.getEmpreendorIdByEmail(localStorage.getItem('email')!).subscribe((idEmpreendedor => {
+        this.idEmpreendedor = idEmpreendedor
+      }))
+    }
 
 }

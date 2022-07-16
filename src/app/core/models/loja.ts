@@ -9,6 +9,7 @@ export class Loja {
   nomeLoja?: string;
   descricaoLoja?: string;
   empreendedor?: Empreendedor;
+  imagemLoja?: string;
 
   produtos?: Produto [];
 }
