@@ -8,27 +8,27 @@
                 <div class=" form-align">
                     <mat-label class="form-label">Nome</mat-label>
                     <mat-form-field appearance="outline">
-                        <input matInput placeholder="Nome da sua loja" formControlName="nome" type="text" required="nome">
-                        <mat-error *ngIf="lojaForm.get('nome')?.errors?.['required']">Campo obrigatório</mat-error>
+                        <input matInput placeholder="Nome da sua loja" formControlName="nomeLoja" type="text" required="nomeLoja">
+                        <mat-error *ngIf="lojaForm.get('nomeLoja')?.errors?.['required']">Campo obrigatório</mat-error>
                     </mat-form-field>
                 </div>
                 <div class=" form-align">
                     <mat-label class="form-label">Descrição</mat-label>
                     <mat-form-field appearance="outline">
-                        <textarea matInput placeholder="Descrição da sua loja" formControlName="descricao" type="text" required="descricao"></textarea>
-                        <mat-error *ngIf="lojaForm.get('descricao')?.errors?.['required']">Campo obrigatório</mat-error>
+                        <textarea matInput placeholder="Descrição da sua loja" formControlName="descricaoLoja" type="text" required="descricaoLoja"></textarea>
+                        <mat-error *ngIf="lojaForm.get('descricaoLoja')?.errors?.['required']">Campo obrigatório</mat-error>
                     </mat-form-field>
                 </div>
                 <div class=" form-align">
                     <mat-label class="form-label">Cor</mat-label>
                     <mat-form-field appearance="outline">
-                        <input matInput type="color" formControlName="cor" required="cor">
-                        <mat-error *ngIf="lojaForm.get('cor')?.errors?.['required']">Campo obrigatório</mat-error>
+                        <input matInput type="color" formControlName="corDeFundo" required="corDeFundo">
+                        <mat-error *ngIf="lojaForm.get('corDeFundo')?.errors?.['required']">Campo obrigatório</mat-error>
                     </mat-form-field>
                 </div>
                 <div class=" form-align">
                     <mat-label for="foto" class="label-align form-label fotoEmp">Foto</mat-label>
-                    <input class="btn form-align upload" id="cloud" (change)="setImage($event)" #foto type="file" name="foto" hidden>
+                    <input class="btn form-align upload" id="cloud" (change)="setImage($event)" #foto type="file" formControlName="imagemLoja" name="imagemLoja" hidden>
                     <button class="btnCheck btn form-align upload" (click)="foto.click()" type="button" mat-raised-button>
                       <i class="bi bi-cloud-plus" *ngIf="mudar; else upload"></i>
                       <ng-template #upload >
