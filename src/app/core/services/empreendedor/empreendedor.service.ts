@@ -12,17 +12,8 @@ export class EmpreendedorService {
 
   private empreendedorUrl = `${API_CONFIG.baseUrl.prod}/service/empreendedores`;
 
-  private lojaUrlId = "http://localhost:8080/service/Lojas";
-
 
   constructor(private http: HttpClient) { }
-
-
-  getLojaId(id: number): Observable<Loja>{
-    return this.http.get<Loja>(`${this.lojaUrlId}/find/${id}`).pipe(
-      map(response => response)
-    );
-  }
 
 
   create(empreendedor: Empreendedor){

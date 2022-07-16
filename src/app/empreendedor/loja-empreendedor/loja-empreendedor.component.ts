@@ -1,10 +1,11 @@
 import { ProdutoService } from 'src/app/core/services/produtos/produto.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Loja } from '../core/models/loja';
-import { EmpreendedorService } from '../core/services/empreendedor/empreendedor.service';
+import { Loja } from '../../core/models/loja';
+import { EmpreendedorService } from '../../core/services/empreendedor/empreendedor.service';
 import { forkJoin } from 'rxjs';
-import { Produto } from '../core/models/produto';
+import { Produto } from '../../core/models/produto';
+import { LojaService } from 'src/app/core/services/loja/loja.service';
 
 @Component({
   selector: 'app-loja-empreendedor',
@@ -18,20 +19,16 @@ export class LojaEmpreendedorComponent implements OnInit {
   lojas: Loja[] = [];
 
 
-  constructor(private produtoService: ProdutoService , private route: ActivatedRoute, private empreendedorService: EmpreendedorService) { }
+  constructor(private produtoService: ProdutoService , private route: ActivatedRoute, private lojaService: LojaService) { }
 
   getLojaDetail( ) {
     const lojaId: number = +this.route.snapshot.paramMap.get('id')!;
-    this.empreendedorService.getLojaId(lojaId).subscribe(
+    this.lojaService.getLojaId(lojaId).subscribe(
       data => {
         this.loja = data;
       }
     )
   }
-
- 
-
-
 
   public isCollapsed = true;
   ngOnInit(): void {
