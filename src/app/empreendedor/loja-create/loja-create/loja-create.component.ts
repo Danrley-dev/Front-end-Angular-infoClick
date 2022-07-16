@@ -21,6 +21,8 @@ export class LojaCreateComponent implements OnInit {
     ) { }
 
     errorsI?: any;
+    mudar: boolean = true;
+    foto?: File;
 
     lojaForm = this.fb.group({
       nome: ['', [Validators.required,]],
@@ -53,6 +55,12 @@ export class LojaCreateComponent implements OnInit {
           }
         }
       })
+    }
+
+    setImage(ev: any) {
+      this.mudar = !this.mudar;
+      this.foto = ev.target.files[0];
+  
     }
 
   ngOnInit(): void {

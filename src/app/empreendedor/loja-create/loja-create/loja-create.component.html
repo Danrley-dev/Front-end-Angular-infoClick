@@ -27,8 +27,14 @@
                     </mat-form-field>
                 </div>
                 <div class=" form-align">
-                    <mat-label for="foto" class="label-align form-label fotoCon">Foto</mat-label>
-                    <span class="btn form-align upload" id="cloud"><i class="bi bi-cloud-plus"></i></span>
+                    <mat-label for="foto" class="label-align form-label fotoEmp">Foto</mat-label>
+                    <input class="btn form-align upload" id="cloud" (change)="setImage($event)" #foto type="file" name="foto" hidden>
+                    <button class="btnCheck btn form-align upload" (click)="foto.click()" type="button" mat-raised-button>
+                      <i class="bi bi-cloud-plus" *ngIf="mudar; else upload"></i>
+                      <ng-template #upload >
+                        <mat-icon>done</mat-icon>
+                      </ng-template>
+                    </button>
                   </div>
                   <button mat-raised-button color="black" class="btn btn-dark" [disabled]="lojaForm.invalid">Enviar</button>
             </form>

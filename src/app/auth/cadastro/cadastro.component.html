@@ -104,13 +104,6 @@
           <mat-error *ngIf="consumidorForm.get('numero')?.errors?.['required']">Campo obrigatório</mat-error>
         </mat-form-field>
       </div>
-      <div class=" form-align">
-        <mat-label for="foto" class="label-align form-label fotoCon">Foto</mat-label>
-        <input class="btn form-align upload" id="cloud" (change)="setImage($event)" #foto type="file" name="foto" hidden>
-        <button class="btnCheck btn form-align upload" (click)="foto.click()" type="button" mat-raised-button>
-          <i class="bi bi-cloud-plus"></i>
-        </button>
-      </div>
       <button mat-raised-button color="black" class="btn btn-dark" [disabled]="consumidorForm.invalid">Enviar</button>
         <span class="loginLink"><a href="/login">Já sou cadastrado</a></span>
     </form>
@@ -229,16 +222,6 @@
           <input class="num" matInput placeholder="ex.: nº 7" formControlName="numero" type="text">
           <mat-error *ngIf="empreendedorForm.get('numero')?.errors?.['required']">Campo obrigatório</mat-error>
         </mat-form-field>
-      </div>
-      <div class=" form-align">
-        <mat-label for="foto" class="label-align form-label fotoEmp">Foto</mat-label>
-        <input class="btn form-align upload" id="cloud" (change)="setImage($event)" #foto type="file" name="foto" hidden>
-        <button class="btnCheck btn form-align upload" (click)="foto.click()" type="button" mat-raised-button>
-          <i class="bi bi-cloud-plus" *ngIf="mudar; else upload"></i>
-          <ng-template #upload >
-            <mat-icon>done</mat-icon>
-          </ng-template>
-        </button>
       </div>
         <button mat-raised-button color="black" class="btn btn-dark" [disabled]="empreendedorForm.invalid">Enviar</button>
         <span class="loginLink"><a href="/login">Já sou cadastrado</a></span>
