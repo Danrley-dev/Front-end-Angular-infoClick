@@ -1,3 +1,4 @@
+import { Empreendedor } from "./empreendedor";
 import { Produto } from "./produto";
 
 export class Loja {
@@ -7,7 +8,7 @@ export class Loja {
   corDefundo?: string;
   nomeLoja?: string;
   descricaoLoja?: string;
-  empreendedor?: string;
+  empreendedor?: Empreendedor;
 
   produtos?: Produto [];
 }

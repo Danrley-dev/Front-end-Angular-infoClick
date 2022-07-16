@@ -4,7 +4,7 @@
             <section>
                 <h4>CRIE SUA LOJA</h4>
             </section>
-            <form [formGroup]="lojaForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="lojaForm" (ngSubmit)="onSubmitloja()">
                 <div class=" form-align">
                     <mat-label class="form-label">Nome</mat-label>
                     <mat-form-field appearance="outline">
@@ -22,14 +22,8 @@
                 <div class=" form-align">
                     <mat-label class="form-label">Cor</mat-label>
                     <mat-form-field appearance="outline">
-                        <input matInput type="color">
-                    </mat-form-field>
-                </div>
-                <div class="form-align">
-                    <mat-label class="form-label">CNPJ</mat-label>
-                    <mat-form-field appearance="outline">
-                        <input matInput placeholder="00.000.000/0001-00" formControlName="cnpj" type="text" required="cnpj">
-                        <mat-error *ngIf="lojaForm.get('cnpj')?.errors?.['required']">Campo obrigatório</mat-error>
+                        <input matInput type="color" formControlName="cor" required="cor">
+                        <mat-error *ngIf="lojaForm.get('cor')?.errors?.['required']">Campo obrigatório</mat-error>
                     </mat-form-field>
                 </div>
                 <div class=" form-align">

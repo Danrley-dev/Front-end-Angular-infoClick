@@ -1,4 +1,4 @@
-import { LojaEmpreendedorComponent } from './loja-empreendedor/loja-empreendedor.component';
+import { LojaEmpreendedorComponent } from './empreendedor/loja-empreendedor/loja-empreendedor.component';
 import { ProdutosListComponent } from './produtos/components/produtos-list/produtos-list.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { NgModule } from '@angular/core';
