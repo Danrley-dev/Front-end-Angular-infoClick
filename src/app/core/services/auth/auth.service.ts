@@ -33,6 +33,10 @@ export class AuthService {
     }
     return false;
   }
+  logout() {
+    localStorage.clear();
+
+  }
 
   // geet email do usuario logado
   getEmail() {
