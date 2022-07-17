@@ -175,7 +175,7 @@ backdrop-filter: blur(3.1px);
   width: 92.15px;
   height: 51.58px;
   padding-top: 15px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: bold;
 }
 
@@ -240,24 +240,24 @@ backdrop-filter: blur(3.1px);
   margin-top: -10px;
 }
 
-.button-card {
-  width: 299px;
-  height: 71px;
-  background-color: #1f1f1f;
-  display: none;
-}
+// .button-card {
+//   width: 299px;
+//   height: 71px;
+//   background-color: #1f1f1f;
+//   display: none;
+// }
 
-.button-card a {
-  text-decoration: none;
-  color: white;
-}
+// .button-card a {
+//   text-decoration: none;
+//   color: white;
+// }
 
-.card:hover {
-  height: 490px;
-  .button-card {
-    display: block;
-  }
-}
+// .card:hover {
+//   height: 490px;
+//   .button-card {
+//     display: block;
+//   }
+// }
 
 @media (max-width: 1000px) {
   .container-informacoes {
