@@ -99,6 +99,16 @@ i {
     padding-right: 5px;
 }
 
+.material-icons{
+    width: 23px; 
+    display:contains;     
+    justify-content: space-between;
+    vertical-align:middle;
+
+  
+}
+
+
 @media(max-width: 1160px) {
     .search, .navbar {
         display: flexbox;
@@ -180,6 +190,7 @@ i {
         text-decoration: none;
         color: black;
     }
+   
 
 }
 

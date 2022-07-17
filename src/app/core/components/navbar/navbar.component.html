@@ -7,14 +7,17 @@
                 <button class="button" (click)="pesquisar(Input.value)"><i class="bi bi-search"></i></button>
             </div>
 
-
             <nav class="navbar" aria-label="" *ngIf="logged, else unlogged">
                 <ul>
                     <li><a href="/produtos-list"><i class="bi bi-pc-display"></i>PRODUTOS</a></li>
                     <li><a href=""><i class="bi bi-person-circle">{{email}}</i></a></li>
                     <li><a href="/carrinho">
-                            <mat-icon class="bi bi-cart3" matBadge="{{totalQuantity}}" matBadgeSize="small"
-                                matBadgeColor="accent" matBadgeOverlap="false"></mat-icon>
+                            <mat-icon class="bi bi-cart3" matBadge="{{totalQuantity}}" matBadgeSize="small" matBadgeColor="accent" matBadgeOverlap="false"></mat-icon>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/login " mat-list-item (click)="logout()" matTooltip="Logout" matTooltipPosition="below" matTooltipShowDelay="1000">
+                            <i class="material-icons" style="margin-top:5px">logout</i>
                         </a>
                     </li>
                 </ul>
@@ -27,31 +30,44 @@
                         <li><a href="/cadastro"><i class="bi bi-card-checklist"></i>CADASTRO</a></li>
                         <li><a href="/login"><i class="bi bi-person-circle"></i>LOGIN</a></li>
                         <li><a href="/carrinho">
-                                <mat-icon class="bi bi-cart3" matBadge="{{totalQuantity}}" matBadgeSize="small"
-                                    matBadgeColor="accent" matBadgeOverlap="false"></mat-icon>
+                                <mat-icon class="bi bi-cart3" matBadge="{{totalQuantity}}" matBadgeSize="small" matBadgeColor="accent" matBadgeOverlap="false"></mat-icon>
                             </a>
                         </li>
                     </ul>
                 </nav>
             </ng-template>
             <div class="container-menu-hamburguer">
-                <button class="menu-hamburguer-button" type="button" (click)="menuClick()"><span
-                        class="bi bi-list menu-hamburguer"></span></button>
+                <button class="menu-hamburguer-button" type="button" (click)="menuClick()"><span class="bi bi-list menu-hamburguer"></span></button>
+
                 <nav class="navBar-hamburguer" aria-label="" *ngIf=" menuHamburguer">
-                    <ul>
-                        <li><a href="/produtos-list"><i class="bi bi-pc-display"></i>PRODUTOS</a></li>
-                        <li><a href="/cadastro"><i class="bi bi-card-checklist"></i>CADASTRO</a></li>
-                        <li><a href="/login"><i class="bi bi-person-circle"></i>LOGIN</a></li>
-                        <li><a href="/carrinho">
-                                <mat-icon class="bi bi-cart3" matBadge="{{totalQuantity}}" matBadgeSize="small"
-                                    matBadgeColor="accent">
-                                </mat-icon>CARRINHO
-                            </a>
-                        </li>
-                    </ul>
+                    <nav aria-label="" *ngIf="logged, else unlogged">
+                        <ul>
+                            <li><a href=""><i class="bi bi-person-circle">{{email}}</i></a></li>
+                            <li><a href="/produtos-list"><i class="bi bi-pc-display"></i>PRODUTOS</a></li>
+                            <li><a href="/carrinho">
+                                    <mat-icon class="bi bi-cart3" matBadge="{{totalQuantity}}" matBadgeSize="small" matBadgeColor="accent" matBadgeOverlap="false"></mat-icon>CARRINHO
+                                </a>
+                            </li>
+                            <li class="logout">
+                                <a href="/login " (click)="logout()">
+                                    <i class="material-icons ">logout</i> </a><span>LOGOUT</span>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <ng-template #unlogged>
+                        <ul>
+                            <li><a href="/produtos-list"><i class="bi bi-pc-display"></i>PRODUTOS</a></li>
+                            <li><a href="/carrinho">
+                                    <mat-icon class="bi bi-cart3" matBadge="{{totalQuantity}}" matBadgeSize="small" matBadgeColor="accent" matBadgeOverlap="false"></mat-icon>CARRINHO
+                                </a>
+                            </li>
+                            <li><a href="/cadastro"><i class="bi bi-card-checklist"></i>CADASTRO</a></li>
+                            <li><a href="/login"><i class="bi bi-person-circle"></i>LOGIN</a></li>
+                        </ul>
+                    </ng-template>
                 </nav>
             </div>
         </section>
     </div>
-
 </header>

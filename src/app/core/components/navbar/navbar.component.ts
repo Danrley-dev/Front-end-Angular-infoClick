@@ -2,6 +2,7 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CarrinhoService } from '../../services/carrinho/carrinho.service';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-navbar',
@@ -17,9 +18,13 @@ export class NavbarComponent implements OnInit {
   logged?: boolean;
   email?: string;
 
-  constructor(private carrinhoService: CarrinhoService, private router: Router, private authService: AuthService) { }
+  constructor(
+    private carrinhoService: CarrinhoService,
+    private router: Router,
+    private authService: AuthService,
+    private toast: HotToastService) { }
 
-  pesquisar(value: string){
+  pesquisar(value: string) {
     console.log(`value:${value}`);
     this.router.navigateByUrl(`/pesquisar/${value}`);
   }
@@ -34,7 +39,11 @@ export class NavbarComponent implements OnInit {
       data => this.totalQuantity = data
     );
   }
-
+  logout() {
+    this.router.navigate(["login"])
+    this.authService.logout();
+    this.toast.info('Logout realizado com sucesso!')
+  }
   // geet email do usuario logado
 
 
