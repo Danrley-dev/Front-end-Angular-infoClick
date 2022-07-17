@@ -78,6 +78,77 @@ backdrop-filter: blur(3.1px);
   width: 360px;
 }
 
+/********************inicio*************************/
+
+.menu {
+  margin: 0px 0px 0px 15px;
+}
+
+.button-opcoes {
+  width: 200px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  color: #000000;
+  border: 0.5px solid #bac2c5;
+  border-radius: 6px;
+}
+
+.menu-hamburguer {
+  font-size: 22px;
+  margin-right: 16px;
+  color: #000000;
+}
+
+.arrow {
+  font-size: 13px;
+  margin-right: 12px;
+  margin-left: 20px;
+  color: #000000;
+}
+
+.lista-opcoes {
+  padding-top: 7px;
+  position: absolute;
+  background-color: #f0f0f0;
+  width: 200px;
+  padding-left: 0px;
+}
+
+.lista-opcoes li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lista-opcoes li a {
+  text-decoration: none;
+  color: black;
+}
+
+.adicionar:hover {
+  height: 30px;
+  padding-top: 4px;
+  background-color: #f4da5e;
+  border-radius: 6px;
+}
+
+.editar:hover {
+  width: 140px;
+  height: 30px;
+  margin-left: 31px;
+  padding-top: 4px;
+  background-color: #f4da5e;
+  border-radius: 6px;
+}
+
+.menu-mobile {
+  display: none;
+}
+
+/*******************fim*************************/
 .container-cards1 {
   margin-top: 70px;
   display: flex;
@@ -199,6 +270,30 @@ backdrop-filter: blur(3.1px);
     width: 500px;
     height: 280px;
   }
+
+  /************inicio**830*************/
+  .button-opcoes {
+    width: 160px;
+  }
+
+  .menu-hamburguer {
+    margin: 0 0 0 30px;
+  }
+
+  .arrow {
+    margin-right: 30px;
+    margin-left: 5px;
+  }
+
+  .lista-opcoes {
+    width: 150px;
+  }
+
+  .adicionar a span {
+    display: none;
+  }
+  /*************fim***830**************/
+
 }
 
 @media (max-width: 730px) {
@@ -222,6 +317,55 @@ backdrop-filter: blur(3.1px);
   .descricao-loja {
     width: 80%;
   }
+
+  /************inicio**730************/
+  .menu {
+    display: none;
+  }
+
+  .menu-mobile {
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    border: none;
+  }
+
+  .button-opcoes-mobile {
+    background-color: #F5F5F5;
+    margin-top: 5px;
+    border: none;
+  }
+
+  .menu-hamburguer-mobile {
+    background-color: #F5F5F5;
+    font-size: 35px;
+    margin-left: 15px;
+    border: none;
+  }
+
+  .lista-opcoes-mobile {
+    background-color: #f0f0f0;
+    margin: 85px 0  0 20px;
+    font-size: 16px;
+    width: 120px;
+    padding-top: 7px;
+    position: absolute;
+    padding-left: 0px;
+
+  }
+
+  .lista-opcoes-mobile li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lista-opcoes-mobile li a {
+    text-decoration: none;
+    color: black;
+  }
+
+//   /***********fim***730**********/
 }
 
 @media (max-width: 630px){

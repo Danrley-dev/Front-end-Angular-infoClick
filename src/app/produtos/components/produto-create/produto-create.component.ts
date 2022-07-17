@@ -9,6 +9,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class ProdutoCreateComponent implements OnInit {
 
+  imagem?: string;
 
   constructor(private fb: FormBuilder) { }
 
@@ -16,7 +17,7 @@ export class ProdutoCreateComponent implements OnInit {
     name: ['', [Validators.required,]],
     produtoValor: ['', [Validators.required,]],
     produtoDescricao: ['', [Validators.required]],
-    categoria: ['', [Validators.required]],
+    categoriaProduto: ['', [Validators.required]],
     produtoEstoque: ['', [Validators.required]],
     status: ['', [Validators.required]],
     produtoDesconto: ['', [Validators.required]],
@@ -27,6 +28,10 @@ export class ProdutoCreateComponent implements OnInit {
 
   ocultar = true;
 
+  setImage(ev: any) {
+    this.imagem = ev.target.files[0];
+
+  }
 
   onSubmit() {
     alert('Cadastro realizado com sucesso!');

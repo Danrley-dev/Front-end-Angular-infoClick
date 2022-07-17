@@ -17,7 +17,7 @@ export class LojaEmpreendedorComponent implements OnInit {
   loja: Loja = new Loja();
   produto: Produto = new Produto();
   lojas: Loja[] = [];
-
+  opGerencia = false;
 
   constructor(private produtoService: ProdutoService , private route: ActivatedRoute, private lojaService: LojaService) { }
 
@@ -28,6 +28,10 @@ export class LojaEmpreendedorComponent implements OnInit {
         this.loja = data;
       }
     )
+  }
+
+  clickOpcoes() {
+    this.opGerencia = !this.opGerencia;
   }
 
   public isCollapsed = true;

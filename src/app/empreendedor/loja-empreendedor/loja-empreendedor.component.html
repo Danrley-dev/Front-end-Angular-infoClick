@@ -17,6 +17,25 @@
 
   <h2 class="titulo">Todos os Produtos</h2>
 
+  <section>
+    <div class="menu">
+      <button class="button-opcoes"  (click)="clickOpcoes()"><i class="bi bi-list menu-hamburguer"></i>GERENCIAR<i class="bi bi-caret-down-fill arrow"></i></button>
+        <ul *ngIf="opGerencia" class="lista-opcoes">
+            <li class="adicionar"><a [routerLink]="['/produto-create']"><i class="bi bi-plus-circle"></i><span> ADICIONAR</span> PRODUTO</a></li>
+            <li class="editar"><a  [routerLink]="['/produtos-list']"><i class="bi bi-pen"> </i> EDITAR LOJA</a></li>
+        </ul>
+    </div>
+</section>
+<section>
+    <div class="menu-mobile">
+      <button class="button-opcoes-mobile"  (click)="clickOpcoes()"><i class="bi bi-list menu-hamburguer-mobile"></i></button>
+        <ul *ngIf="opGerencia" class="lista-opcoes-mobile">
+            <li class="adicionar-mobile"><a [routerLink]="['/produto-create']"><i class="bi bi-plus-circle"></i> PRODUTO</a></li>
+            <li class="editar-mobile"><a  [routerLink]="['/produtos-list']"><i class="bi bi-pen"> </i> EDITAR LOJA</a></li>
+        </ul>
+    </div>
+</section>
+
   <section class="container-cards1">
     <div *ngFor="let itens of loja.produtos ">
     <div class="card" >
