@@ -27,7 +27,7 @@
                     </mat-form-field>
                 </div>
                 <div class=" form-align">
-                    <mat-label for="foto" class="label-align form-label fotoEmp">Foto</mat-label>
+                    <mat-label for="foto" class="label-align form-label fotoEmp">Imagem</mat-label>
                     <input class="btn form-align upload" id="cloud" (change)="setImage($event)" #foto type="file" formControlName="imagemLoja" name="imagemLoja" hidden>
                     <button class="btnCheck btn form-align upload" (click)="foto.click()" type="button" mat-raised-button>
                       <i class="bi bi-cloud-plus" *ngIf="mudar; else upload"></i>

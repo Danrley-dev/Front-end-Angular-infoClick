@@ -32,7 +32,7 @@ export class LojaCreateComponent implements OnInit {
       descricaoLoja: ['', [Validators.required]],
       corDeFundo: ['', [Validators.required]],
     });
-        
+
     onSubmitloja() {
       this.lojaService.create(this.idEmpreendedor!,this.lojaForm.value).subscribe({
         next: () => {
@@ -62,13 +62,16 @@ export class LojaCreateComponent implements OnInit {
     setImage(ev: any) {
       this.mudar = !this.mudar;
       this.foto = ev.target.files[0];
-  
+
     }
 
    ngOnInit(): void {
     this.empreendedorService.getEmpreendorIdByEmail(localStorage.getItem('email')!).subscribe((idEmpreendedor => {
         this.idEmpreendedor = idEmpreendedor
       }))
+
+      console.log(this.lojaForm);
     }
+
 
 }

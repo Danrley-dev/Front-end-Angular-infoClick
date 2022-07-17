@@ -36,9 +36,10 @@ h4 {
   padding-bottom: 30px;
 }
 
-mat-form-field {
+.caixa-input {
   width: 430px;
-  border-radius: 5px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .form-align mat-label {
@@ -48,6 +49,10 @@ mat-form-field {
   margin-bottom: 25px;
   margin-right: 5px;
   width: 20px;
+}
+
+input, mat-select {
+  margin-bottom: 9px;
 }
 
 .form-align {
@@ -85,7 +90,8 @@ mat-form-field {
 }
 
 .label-align {
-  margin-right: 20px;
+  margin: 25px 20px 0 0;
+
 }
 
 @media only screen and (max-width: 1200px) {
@@ -122,7 +128,8 @@ mat-form-field {
       border-left: 1px solid #bac2c5;
       border-right: 1px solid #bac2c5;
       border-radius: 0px 0px 15px 15px;
-      color: #f5b93c;
+      color: #000000;
+      padding: 0 50px;
   }
 
   .form-align {
@@ -139,14 +146,13 @@ mat-form-field {
       margin-left: 15.5%;
   }
 
-
-  mat-form-field {
+  .caixa-input {
       width: 430px;
       margin: 0px;
       padding: 0px;
   }
 
-  mat-label {
+  .form-align mat-label {
       display: flex;
       align-items: flex-end;
       justify-content: end;
@@ -156,7 +162,7 @@ mat-form-field {
 
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 650px) {
 
   main {
       background-image: none;
@@ -171,7 +177,7 @@ mat-form-field {
       border-bottom: 1px solid #bac2c5;
       border-left: 1px solid #bac2c5;
       border-right: 1px solid #bac2c5;
-      color: #f5b93c;
+      color: #000000;
       border-radius: 0px 0px 15px 15px;
   }
 
@@ -187,13 +193,13 @@ mat-form-field {
       width: 80px;
   }
 
-  mat-form-field {
+  .caixa-input {
       width: 300px;
       margin: 0px;
       padding: 0px;
   }
 
-  mat-label {
+  .form-align mat-label {
       display: flex;
       align-items: flex-end;
       justify-content: end;
@@ -244,7 +250,7 @@ mat-form-field {
       border-bottom: 1px solid #bac2c5;
       border-left: 1px solid #bac2c5;
       border-right: 1px solid #bac2c5;
-      color: #f5b93c;
+      color: #000000;
       margin-left: 0;
       margin-right: 0;
       border-radius: 0px 0px 15px 15px;
@@ -254,13 +260,13 @@ mat-form-field {
       width: 350px;
   }
 
-  mat-form-field {
+  .caixa-input {
       width: 300px;
       margin: 0px;
       padding: 0px;
   }
 
-  mat-label {
+  .form-align mat-label {
       display: flex;
       align-items: flex-end;
       justify-content: end;
