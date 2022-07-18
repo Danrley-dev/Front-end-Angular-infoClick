@@ -10,25 +10,16 @@ import { Produto } from '../../models/produto';
 })
 export class ProdutoService {
 
-  
-
   private baseUrl = "http://localhost:8080/service/produto";
   private lojaUrl = "http://localhost:8080/service/Lojas";
 
-
-
-
-
   constructor(private http: HttpClient) { }
-
-
 
   searchProdutos(KeyWord: string): Observable<Produto[]>{
     return this.http.get<Produto[]>(`${this.baseUrl}/buscarPorNome?name=${KeyWord}`).pipe(
       map(response => response)
     );
   }
-
 
   listaProdutos(): Observable<Produto[]>{
     return this.http.get<Produto[]>(this.baseUrl).pipe(

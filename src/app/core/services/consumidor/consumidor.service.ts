@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { API_CONFIG } from 'src/app/config/api.config';
-import { Consumidor } from '../../models/consumidor';
+import { Consumidor } from '../../models/pessoa';
+
 
 @Injectable({
   providedIn: 'root'
