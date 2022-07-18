@@ -14,7 +14,7 @@ import { ItemCarrinho } from 'src/app/core/models/item-carrinho';
 })
 export class ProdutosListComponent implements OnInit {
 
-  filtro = false;
+  filtro = true;
   images = ['../../../../assets/img/2.png', '../../../../assets/img/5.png', '../../../../assets/img/6.png']
 
   produtos?: Produto[];
