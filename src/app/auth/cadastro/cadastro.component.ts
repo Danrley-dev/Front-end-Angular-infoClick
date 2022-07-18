@@ -48,7 +48,7 @@ export class CadastroComponent implements OnInit {
 
   empreendedorForm = this.fb.group(
     {
-      nomeNegocio: [null, [Validators.required]],
+      nome: [null, [Validators.required]],
       cnpj: [null, [Validators.required, Validators.maxLength(25)]],
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(6)]], //trocar para minLength(8)
@@ -134,8 +134,5 @@ export class CadastroComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.empreendedorForm.value);
-    console.log(this.consumidorForm.value);
-
   }
 }

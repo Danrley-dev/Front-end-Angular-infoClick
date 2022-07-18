@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
-import { API_CONFIG } from 'src/app/config/api.config';
-import { Empreendedor } from 'src/app/core/models/empreendedor';
 import { EmpreendedorService } from 'src/app/core/services/empreendedor/empreendedor.service';
 import { LojaService } from 'src/app/core/services/loja/loja.service';
 

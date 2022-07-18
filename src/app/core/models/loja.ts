@@ -1,4 +1,5 @@
-import { Empreendedor } from "./empreendedor";
+
+import { Empreendedor } from "./pessoa";
 import { Produto } from "./produto";
 
 export class Loja {
