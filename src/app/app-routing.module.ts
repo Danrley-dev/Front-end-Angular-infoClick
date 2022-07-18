@@ -48,6 +48,14 @@ const routes: Routes = [
     component: ProdutoDetailComponent
   },
   {
+    path: 'categoria/:id',
+    component: ProdutosListComponent,
+  },
+  {
+    path: 'categoria',
+    component: ProdutosListComponent,
+  },
+  {
     path: 'produtos-list',
     component: ProdutosListComponent,
   },

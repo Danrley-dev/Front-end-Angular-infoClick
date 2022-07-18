@@ -19,19 +19,18 @@ export class ProdutosListComponent implements OnInit {
 
   produtos?: Produto[];
   lojas?: Loja[];
+  categoriaId?: number;
   searchMode?: boolean;
 
 
   constructor(private produtoService: ProdutoService,
     private route: ActivatedRoute, private carrinhoService: CarrinhoService) { }
 
-    
     addToCart(produto: Produto) {
 
       const itemCarrinho = new ItemCarrinho(produto);
       this.carrinhoService.addToCart(itemCarrinho);
     }
-
 
     MostraProdutosNaLoja() {
       forkJoin([this.produtoService.listaProdutos(), this.produtoService.listaLojas()]).subscribe(
@@ -42,9 +41,19 @@ export class ProdutosListComponent implements OnInit {
       );
     }
 
+    handleProcuraProdutos() {
+      this.searchMode = this.route.snapshot.paramMap.has('keyword');
+      if (this.searchMode) {
+        this.produtoService.searchProdutos(this.route.snapshot.paramMap.get('keyword')!).subscribe(
+          (response) => {
+            this.produtos = response;
+          }
+        );
+      }
+    }
+
     handleListaProdutos() {
       this.searchMode = this.route.snapshot.paramMap.has('keyword');
-
       if (this.searchMode) {
         this.produtoService.searchProdutos(this.route.snapshot.paramMap.get('keyword')!).subscribe(
           (response) => {
@@ -52,7 +61,39 @@ export class ProdutosListComponent implements OnInit {
           }
         );
       } else {
-        this.MostraProdutosNaLoja();
+        this.listaProdutos();
+      }
+    }
+
+    handleListProdutos() {
+      const getCategoriaId: boolean = this.route.snapshot.paramMap.has('id');
+      if (getCategoriaId) {
+
+        this.categoriaId = +this.route.snapshot.paramMap.get('id')!;
+      } else {
+        this.categoriaId = 1;
+        // this.produtoService.listaProdutos().subscribe((data) => {
+        //   this.produtos = data;
+        // });
+      }
+      this.produtoService.getProdutoCategory(this.categoriaId).subscribe((data) => {
+        this.produtos = data;
+      });
+    }
+
+    listaProdutos() {
+      this.searchMode = this.route.snapshot.paramMap.has('keyword');
+      this.categoriaId = +this.route.snapshot.paramMap.get('id')!;
+
+
+      if (this.categoriaId) {
+        this.handleListProdutos();
+      }
+
+      else  {
+        this.produtoService.listaProdutos().subscribe((data) => {
+          this.produtos = data;
+        });
       }
     }
 
@@ -64,6 +105,8 @@ export class ProdutosListComponent implements OnInit {
 
     this.route.paramMap.subscribe(() => {
       this.handleListaProdutos();
+
+
     });
     // this.handleListaProdutos();
 

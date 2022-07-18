@@ -23,10 +23,11 @@
     </p>
     <div>
       <button class="button-filtro" (click)="filtroClick()"><i class="bi bi-list menu-hamburguer"></i>CATEGORIA<i class="bi bi-caret-down-fill arrow"></i></button>
-        <ul *ngIf="filtro" class="lista-filtro">
-            <li class="hardware"><a href="/produtos-list"><i class="bi bi-pc-display"></i>HARDWARE</a></li>
-            <li class="software"><a href="/produtos-list"><i class="bi bi-card-checklist"></i>SOFTWARE</a></li>
-        </ul>
+      <ul *ngIf="filtro" class="lista-filtro">
+        <li class="hardware"><a routerLink="/produtos-list"><i class="bi bi-pc-display"></i>TODOS</a></li>
+          <li class="hardware"><a routerLink="/categoria/1"><i class="bi bi-pc-display"></i>HARDWARE</a></li>
+          <li class="software"><a routerLink="/categoria/2"><i class="bi bi-card-checklist"></i>SOFTWARE</a></li>
+      </ul>
     </div>
   </section>
 
