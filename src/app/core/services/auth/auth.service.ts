@@ -37,19 +37,13 @@ export class AuthService {
   userRole() {
     this.userInfo().subscribe((has) => {
       let array: any[] = [];
-        array!= has.perfil;
-          if (array.includes('ADMIN') && array.includes('TECNICO') && array.includes('CLIENTE')) {
+        array = has.perfil!;
+          if (array.includes('ADMIN')) {
             return this.roleUser = 'Admin';
-          } else if(array.includes('ADMIN') && array.includes('TECNICO')) {
-            return this.roleUser = 'Admin';
-          } else if(array.includes('ADMIN') && array.includes('CLIENTE')) {
-            return this.roleUser = 'Admin';
-          } else if (array.includes('TECNICO')) {
-            return this.roleUser = 'Técnico';
-          } else if (array.includes('TECNICO') && array.includes('CLIENTE')) {
-            return this.roleUser = 'Técnico';
-          } else if (array.includes('CLIENTE')) {
-            return this.roleUser = 'Cliente';
+          } else if(array.includes('CONSUMIDOR')) {
+            return this.roleUser = 'Consumidor';
+          } else if(array.includes('EMPREENDEDOR')) {
+            return this.roleUser = 'Empreendedor';
           } else {
             return null;
           }
