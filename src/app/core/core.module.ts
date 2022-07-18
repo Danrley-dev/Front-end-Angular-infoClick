@@ -1,3 +1,4 @@
+import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -6,6 +7,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MaterialModule } from '../shared/material.module';
 import { TermoDePrivacidadeComponent } from './components/termo-de-privacidade/termo-de-privacidade.component';
 import { DialogHomeComponent } from './components/dialog-home/dialog-home.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
 
 
 
@@ -15,7 +19,8 @@ import { DialogHomeComponent } from './components/dialog-home/dialog-home.compon
     FooterComponent,
     NotFoundComponent,
     TermoDePrivacidadeComponent,
-    DialogHomeComponent
+    DialogHomeComponent,
+    LoadingComponent,
   ],
   imports: [
     CommonModule,
@@ -23,7 +28,15 @@ import { DialogHomeComponent } from './components/dialog-home/dialog-home.compon
   ],
   exports: [
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    LoadingComponent
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true
+    }
   ]
 })
 export class CoreModule { }
