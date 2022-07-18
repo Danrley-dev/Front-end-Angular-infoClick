@@ -17,6 +17,7 @@ import { LojaCreateComponent } from './empreendedor/loja-create/loja-create/loja
 import { LojaEmpreendedorComponent } from './empreendedor/loja-empreendedor/loja-empreendedor.component';
 import { interceptors } from './core/interceptors/auth.interceptor';
 import { AuthModule } from './auth/auth.module';
+import { AdminModule } from './admin/admin.module';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { AuthModule } from './auth/auth.module';
     HomeComponent,
     CarrinhoComponent,
     LojaCreateComponent,
-    LojaEmpreendedorComponent
+    LojaEmpreendedorComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +45,7 @@ import { AuthModule } from './auth/auth.module';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
+    AdminModule
   ],
   providers: [interceptors],
   bootstrap: [AppComponent]
