@@ -48,4 +48,10 @@ export class ProdutoService {
       map(response => response),
     );
   }
+
+  getProdutoCategory(id: number): Observable<Produto[]>{
+    return this.http.get<Produto[]>(`${this.baseUrl}/buscarPorCategoria?categoria=${id}`).pipe(
+      map(response => response)
+    );
+  }
 }

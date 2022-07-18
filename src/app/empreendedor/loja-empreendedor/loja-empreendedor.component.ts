@@ -1,3 +1,4 @@
+import { CarrinhoService } from 'src/app/core/services/carrinho/carrinho.service';
 import { ProdutoService } from 'src/app/core/services/produtos/produto.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -6,6 +7,8 @@ import { EmpreendedorService } from '../../core/services/empreendedor/empreended
 import { forkJoin } from 'rxjs';
 import { Produto } from '../../core/models/produto';
 import { LojaService } from 'src/app/core/services/loja/loja.service';
+import { ItemCarrinho } from 'src/app/core/models/item-carrinho';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-loja-empreendedor',
@@ -19,7 +22,7 @@ export class LojaEmpreendedorComponent implements OnInit {
   lojas: Loja[] = [];
   opGerencia = false;
 
-  constructor(private produtoService: ProdutoService , private route: ActivatedRoute, private lojaService: LojaService) { }
+  constructor(private toast: HotToastService, private carrinhoService: CarrinhoService, private produtoService: ProdutoService , private route: ActivatedRoute, private lojaService: LojaService) { }
 
   getLojaDetail( ) {
     const lojaId: number = +this.route.snapshot.paramMap.get('id')!;
@@ -28,6 +31,15 @@ export class LojaEmpreendedorComponent implements OnInit {
         this.loja = data;
       }
     )
+  }
+
+  addToCart(produto: Produto) {
+    const itemCarrinho = new ItemCarrinho(produto);
+    this.carrinhoService.addToCart(itemCarrinho);
+    this.toast.success('Produto adicionado no carrinho!',
+    {
+      position: 'bottom-center',
+    });
   }
 
   clickOpcoes() {

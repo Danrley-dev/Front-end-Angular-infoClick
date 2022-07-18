@@ -66,9 +66,9 @@
           <p class="preco-promo">Por: {{ itens.produtoDesconto | currency: "BRL"}}</p>
           <!-- <p class="parcelas">12x de R$ 499,98 sem juros</p> -->
         </div>
-        <!-- <button class="button-card" type="button">
-          <a href="#">ADICIONAR AO CARRINHO</a>
-        </button> -->
+        <button (click)="addToCart(produto)" class="button-card" type="button"><a >ADICIONAR AO
+          CARRINHO</a></button>
+
       </div>
     </div>
 
