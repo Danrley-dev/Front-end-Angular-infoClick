@@ -39,26 +39,20 @@ export class NavbarComponent implements OnInit {
       data => this.totalQuantity = data
     );
   }
+  
   logout() {
     this.router.navigate(["login"])
     this.authService.logout();
     this.toast.info('Logout realizado com sucesso!')
   }
-  // geet email do usuario logado
-
-
-
+ 
   menuClick() {
     this.menuHamburguer = !this.menuHamburguer;
   }
+
   ngOnInit(): void {
     this.updateCartStatus();
-
     this.logged = this.authService.isAuthenticated;
     this.email = this.authService.getEmail();
-
-
-
   }
-
 }
