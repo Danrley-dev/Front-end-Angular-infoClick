@@ -25,6 +25,7 @@ export class ProdutosListComponent implements OnInit {
   constructor(private produtoService: ProdutoService,
     private route: ActivatedRoute, private carrinhoService: CarrinhoService) { }
 
+    
     addToCart(produto: Produto) {
 
       const itemCarrinho = new ItemCarrinho(produto);
