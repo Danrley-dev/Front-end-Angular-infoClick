@@ -1,7 +1,8 @@
 import { LoadingService } from './../loading/loading.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { from, map, Observable } from 'rxjs';
+import { API_CONFIG } from 'src/app/config/api.config';
 import { Loja } from '../../models/loja';
 import { Produto } from '../../models/produto';
 
@@ -54,4 +55,13 @@ export class ProdutoService {
       map(response => response)
     );
   }
+
+  create(id: number, produto: Produto){
+    return this.http.post(`${this.baseUrl}/${id}`,produto);
+  }
+
+  delete(id: number, produto: Produto) {
+    return (null);
+  }
+
 }
