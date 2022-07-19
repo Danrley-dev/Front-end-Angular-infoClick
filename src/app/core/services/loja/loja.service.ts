@@ -7,7 +7,7 @@ import { Loja } from '../../models/loja';
   providedIn: 'root'
 })
 export class LojaService {
-  private lojaUrl = "http://localhost:8080/service/Lojas";
+  private lojaUrl = "http://localhost:8080/service/lojas";
 
   constructor(private http: HttpClient) { }
 
@@ -19,6 +19,10 @@ export class LojaService {
 
   create(idEmpreendedor: number,loja: Loja ){
     return this.http.post(`${this.lojaUrl}/${idEmpreendedor}`, loja);
+  }
+
+  findLojaById(email: string): Observable<number>{
+    return this.http.get<number>(`${this.lojaUrl}/${email}`)
   }
 
 }
