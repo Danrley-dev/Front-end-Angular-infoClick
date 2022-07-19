@@ -11,7 +11,8 @@
             <nav class="navbar" aria-label="" *ngIf="logged, else unlogged">
                 <ul>
 
-                    <i *ngIf="userAdmin " class="bi bi-cpu" > ADMIN</i>
+
+                    <li *ngIf="userAdmin"><a href="/admin"><i class="bi bi-cpu"></i>ADMIN</a></li>
                     <li><a href="/produtos-list"><i class="bi bi-pc-display"></i>PRODUTOS</a></li>
                     <li><a href=""><i class="bi bi-person-circle">{{email}}</i></a></li>
                     <li><a href="/carrinho">

@@ -19,19 +19,13 @@ export class NavbarComponent implements OnInit {
   email?: string;
   userEmpreendedor?: boolean;
   userAdmin?: boolean;
-  // role = this.authService.userRole();
+  role = this.authService.userRole();
 
   constructor(
     private carrinhoService: CarrinhoService,
     private router: Router,
     private authService: AuthService,
     private toast: HotToastService) { }
-
-
-
-    // get roleUser() {
-    //   return this.authService.roleUser;
-    // }
 
 
     isAdmin() {
@@ -80,6 +74,8 @@ export class NavbarComponent implements OnInit {
     this.logged = this.authService.isAuthenticated;
     this.email = this.authService.getEmail();
     this.isAdmin()
+
+
 
 
   }
