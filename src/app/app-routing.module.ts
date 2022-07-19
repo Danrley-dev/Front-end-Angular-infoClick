@@ -49,7 +49,7 @@ const routes: Routes = [
   {
     path: 'produto-create',
     component: ProdutoCreateComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'produto-detail/:id',

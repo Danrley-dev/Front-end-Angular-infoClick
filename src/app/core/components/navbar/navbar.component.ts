@@ -19,6 +19,7 @@ export class NavbarComponent implements OnInit {
   email?: string;
   userEmpreendedor?: boolean;
   userAdmin?: boolean;
+  userConsumidor?: boolean;
   role = this.authService.userRole();
 
   constructor(
@@ -40,6 +41,32 @@ export class NavbarComponent implements OnInit {
 
       })
      }
+
+     isEmpreendedor() {
+      this.authService.userInfo().subscribe(res => {
+        const perfilsBolean = Object.keys(res.perfil!).map(function (key: any) {
+          if (res.perfil![key] == 'EMPREENDEDOR') {
+            return true
+          }
+          return false;
+        })
+        this.userEmpreendedor = perfilsBolean.includes(true);
+
+     })
+    }
+
+    isConsumidor() {
+      this.authService.userInfo().subscribe(res => {
+        const perfilsBolean = Object.keys(res.perfil!).map(function (key: any) {
+          if (res.perfil![key] == 'CONSUMIDOR') {
+            return true
+          }
+          return false;
+        })
+        this.userConsumidor = perfilsBolean.includes(true);
+
+     })
+    }
 
 
 
@@ -74,9 +101,7 @@ export class NavbarComponent implements OnInit {
     this.logged = this.authService.isAuthenticated;
     this.email = this.authService.getEmail();
     this.isAdmin()
-
-
-
-
+    this.isEmpreendedor();
+    this.isConsumidor();
   }
 }

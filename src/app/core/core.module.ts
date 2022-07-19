@@ -9,6 +9,7 @@ import { TermoDePrivacidadeComponent } from './components/termo-de-privacidade/t
 import { DialogHomeComponent } from './components/dialog-home/dialog-home.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -24,7 +25,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    NgbCollapseModule
   ],
   exports: [
     NavbarComponent,
