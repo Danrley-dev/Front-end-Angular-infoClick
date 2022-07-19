@@ -1,3 +1,5 @@
+import { RoleEmpreendedorGuard } from './auth/guards/roleEmpreendedor/role-empreendedor.guard';
+import { AdminComponent } from './admin/components/admin/admin/admin.component';
 import { LojaEmpreendedorComponent } from './empreendedor/loja-empreendedor/loja-empreendedor.component';
 import { ProdutosListComponent } from './produtos/components/produtos-list/produtos-list.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
@@ -14,11 +16,17 @@ import { LojaCreateComponent } from './empreendedor/loja-create/loja-create/loja
 import { ProdutoCreateComponent } from './produtos/components/produto-create/produto-create.component';
 import { AuthLogadoGuard } from './auth/guards/auth-logado/auth-logado.guard';
 import { AuthGuard } from './auth/guards/auth/auth.guard';
+import { RoleAdminGuard } from './auth/guards/roleAdmin/role-admin.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,
+    canActivate: [RoleAdminGuard],
   },
   {
     path: 'cadastro',
@@ -74,7 +82,7 @@ const routes: Routes = [
   {
     path: 'loja-create',
     component: LojaCreateComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, RoleEmpreendedorGuard]
   },
   {
     path: 'loja-empreendedor/:id',

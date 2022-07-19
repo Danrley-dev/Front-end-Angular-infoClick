@@ -123,6 +123,9 @@ export class HomeComponent implements OnInit {
 
     this.MostraProdutosNaLoja();
 
+    console.log(this.auhtService.emailUser);
+    console.log(this.auhtService.roleUser);
+
     this.countDown();
     // this.onClickDialogHome();
   }

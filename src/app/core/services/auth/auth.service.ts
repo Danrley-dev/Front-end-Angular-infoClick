@@ -1,3 +1,4 @@
+import { Perfil } from './../../models/pessoa';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -11,10 +12,14 @@ import { PessoaService } from '../pessoa/pessoa.service';
 export class AuthService {
 
 
-  constructor(private http: HttpClient,private pessoasService: PessoaService) { }
+  constructor(private http: HttpClient,private pessoasService: PessoaService) {
+
+
+  }
 
   emailUser?: string;
   roleUser?: string;
+  userAdmin?: boolean;
 
   login(email: string, password: string) {
     const creds = { email, password };
@@ -30,6 +35,7 @@ export class AuthService {
     if (token !== null) {
       const decoded = this.jwt.decodeToken(token);
       this.emailUser = decoded.sub;
+      this.roleUser = decoded.Perfil;
     }
 
     return this.pessoasService.findByEmail(this.emailUser!).pipe(retry(3));
@@ -51,6 +57,20 @@ export class AuthService {
         });
   }
 
+  isAdmin() {
+    this.userInfo().subscribe(res => {
+      const perfilsBolean = Object.keys(res.perfil!).map(function (key: any) {
+        if (res.perfil![key] == 'ADMIN') {
+          return true
+        }
+        return false;
+      })
+      this.userAdmin = perfilsBolean.includes(true);
+
+   })
+  }
+
+
   jwt = new JwtHelperService();
 
   get isAuthenticated(): boolean {
@@ -59,6 +79,7 @@ export class AuthService {
     if (token !== null) {
       const decoded = this.jwt.decodeToken(token);
       this.emailUser = decoded.sub;
+      this.roleUser = decoded.Perfil;
       return !this.jwt.isTokenExpired(token);
     }
     return false;
