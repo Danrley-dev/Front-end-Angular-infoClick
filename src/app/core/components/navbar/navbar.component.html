@@ -7,8 +7,11 @@
                 <button class="button" (click)="pesquisar(Input.value)"><i class="bi bi-search"></i></button>
             </div>
 
+
             <nav class="navbar" aria-label="" *ngIf="logged, else unlogged">
                 <ul>
+
+                    <i *ngIf="userAdmin " class="bi bi-cpu" > ADMIN</i>
                     <li><a href="/produtos-list"><i class="bi bi-pc-display"></i>PRODUTOS</a></li>
                     <li><a href=""><i class="bi bi-person-circle">{{email}}</i></a></li>
                     <li><a href="/carrinho">
@@ -30,6 +33,7 @@
                         <li><a href="/cadastro"><i class="bi bi-card-checklist"></i>CADASTRO</a></li>
                         <li><a href="/login"><i class="bi bi-person-circle"></i>LOGIN</a></li>
                         <li><a href="/carrinho">
+
                                 <mat-icon class="bi bi-cart3" matBadge="{{totalQuantity}}" matBadgeSize="small" matBadgeColor="accent" matBadgeOverlap="false"></mat-icon>
                             </a>
                         </li>

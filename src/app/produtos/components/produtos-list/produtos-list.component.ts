@@ -6,6 +6,7 @@ import { ProdutoService } from 'src/app/core/services/produtos/produto.service';
 import { forkJoin } from 'rxjs';
 import { CarrinhoService } from 'src/app/core/services/carrinho/carrinho.service';
 import { ItemCarrinho } from 'src/app/core/models/item-carrinho';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-produtos-list',
@@ -24,12 +25,16 @@ export class ProdutosListComponent implements OnInit {
 
 
   constructor(private produtoService: ProdutoService,
-    private route: ActivatedRoute, private carrinhoService: CarrinhoService) { }
+    private route: ActivatedRoute, private carrinhoService: CarrinhoService, private toast: HotToastService,) { }
 
     addToCart(produto: Produto) {
 
       const itemCarrinho = new ItemCarrinho(produto);
       this.carrinhoService.addToCart(itemCarrinho);
+      this.toast.success('Produto adicionado no carrinho!',
+      {
+        position: 'bottom-right',
+      });
     }
 
     MostraProdutosNaLoja() {

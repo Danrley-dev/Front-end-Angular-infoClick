@@ -53,12 +53,12 @@
         </div>
 
         <div class="details">
-          <!--<a routerLink="/produto-detail/{{itens.id}}" class="img-wrap" data-abc="true">
-            <img src="{{itens.produtoImagem}}" />
-          </a>-->
-          <a class="img-wrap" data-abc="true">
+          <a routerLink="/produto-detail/{{itens.id}}" class="img-wrap" data-abc="true">
             <img src="{{itens.produtoImagem}}" />
           </a>
+          <!-- <a class="img-wrap" data-abc="true">
+            <img src="{{itens.produtoImagem}}" />
+          </a> -->
           <p class="nome-produto">
             {{itens.name}}
           </p>
@@ -66,7 +66,7 @@
           <p class="preco-promo">Por: {{ itens.produtoDesconto | currency: "BRL"}}</p>
           <!-- <p class="parcelas">12x de R$ 499,98 sem juros</p> -->
         </div>
-        <button (click)="addToCart(produto)" class="button-card" type="button"><a >ADICIONAR AO
+        <button (click)="addToCart(itens)" class="button-card" type="button"><a >ADICIONAR AO
           CARRINHO</a></button>
 
       </div>

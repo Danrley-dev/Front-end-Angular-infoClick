@@ -10,6 +10,7 @@ import { PessoaService } from '../pessoa/pessoa.service';
 })
 export class AuthService {
 
+
   constructor(private http: HttpClient,private pessoasService: PessoaService) { }
 
   emailUser?: string;
@@ -31,7 +32,7 @@ export class AuthService {
       this.emailUser = decoded.sub;
     }
 
-    return this.pessoasService.findByEmail(this.emailUser!).pipe(retry(5));
+    return this.pessoasService.findByEmail(this.emailUser!).pipe(retry(3));
   }
 
   userRole() {
@@ -62,11 +63,13 @@ export class AuthService {
     }
     return false;
   }
-  
+
   logout() {
     localStorage.clear();
 
   }
+
+
 
   getEmail() {
     return this.emailUser;
