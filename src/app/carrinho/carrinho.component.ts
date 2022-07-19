@@ -57,12 +57,9 @@ export class CarrinhoComponent implements OnInit {
 
   ngOnInit(): void {
     this.listCartDetails();
-    this.toast.success('Produto retirado do carrinho',
-      {
-        position: 'top-right'
-      });
 
-    console.log(this.cartitems);
+
+
   }
 
 }

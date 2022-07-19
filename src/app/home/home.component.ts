@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
       this.carrinhoService.addToCart(itemCarrinho);
       this.toast.success('Produto adicionado no carrinho!',
       {
-        position: 'top-right'
+        position: 'bottom-right',
       });
     }
 
@@ -115,7 +115,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    
 
     this.route.paramMap.subscribe(() => {
       this.handleListaProdutos();

@@ -17,12 +17,37 @@ export class NavbarComponent implements OnInit {
 
   logged?: boolean;
   email?: string;
+  userEmpreendedor?: boolean;
+  userAdmin?: boolean;
+  // role = this.authService.userRole();
 
   constructor(
     private carrinhoService: CarrinhoService,
     private router: Router,
     private authService: AuthService,
     private toast: HotToastService) { }
+
+
+
+    // get roleUser() {
+    //   return this.authService.roleUser;
+    // }
+
+
+    isAdmin() {
+       this.authService.userInfo().subscribe(res => {
+         const perfilsBolean = Object.keys(res.perfil!).map(function (key: any) {
+           if (res.perfil![key] == 'ADMIN') {
+             return true
+           }
+           return false;
+         })
+         this.userAdmin = perfilsBolean.includes(true);
+
+      })
+     }
+
+
 
   pesquisar(value: string) {
     console.log(`value:${value}`);
@@ -39,13 +64,13 @@ export class NavbarComponent implements OnInit {
       data => this.totalQuantity = data
     );
   }
-  
+
   logout() {
     this.router.navigate(["login"])
     this.authService.logout();
     this.toast.info('Logout realizado com sucesso!')
   }
- 
+
   menuClick() {
     this.menuHamburguer = !this.menuHamburguer;
   }
@@ -54,5 +79,8 @@ export class NavbarComponent implements OnInit {
     this.updateCartStatus();
     this.logged = this.authService.isAuthenticated;
     this.email = this.authService.getEmail();
+    this.isAdmin()
+
+
   }
 }
