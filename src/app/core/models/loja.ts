@@ -1,5 +1,5 @@
 
-import { Empreendedor } from "./pessoa";
+import { Empreendedor, Pessoa } from "./pessoa";
 import { Produto } from "./produto";
 
 export class Loja {
@@ -12,5 +12,9 @@ export class Loja {
   empreendedor?: Empreendedor;
   imagemLoja?: string;
 
+  pessoa?: Pessoa;
+
   produtos?: Produto [];
+  empreendedores?: Empreendedor[];
+
 }
