@@ -31,9 +31,9 @@
           <mat-form-field class="caixa-input" appearance="outline">
             <mat-select placeholder="Categoria do Produto" name="categoriaProduto" formControlName="categoria"
               required="categoria" >
-              <mat-option [value]="0">Hardware</mat-option>
-              <mat-option [value]="1">Software</mat-option>
-              <mat-option [value]="2">Ambos</mat-option>
+              <mat-option [value]="1">Hardware</mat-option>
+              <mat-option [value]="2">Software</mat-option>
+              <mat-option [value]="3">Ambos</mat-option>
             </mat-select>
             <mat-error *ngIf="cadastrarProduto.get('categoria')?.errors?.['required']">Campo obrigatório
             </mat-error>

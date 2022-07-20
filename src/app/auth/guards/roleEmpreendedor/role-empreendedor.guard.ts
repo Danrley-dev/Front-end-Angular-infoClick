@@ -15,7 +15,7 @@ export class RoleEmpreendedorGuard implements CanActivate {
   ) {}
 
   canActivate(): boolean {
-    if (this.authService.roleUser?.includes('ROLE_EMPREENDEDOR' && 'ROLE_ADMIN')!) {
+    if (this.authService.roleUser?.includes('ROLE_EMPREENDEDOR')!) {
       return true;
     } else {
       this.router.navigate(['/'])

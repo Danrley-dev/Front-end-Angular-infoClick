@@ -6,7 +6,7 @@ export class Loja {
 
   idLoja?: number;
   dataCriacao?: Date;
-  corDefundo?: string;
+  corDeFundo?: string;
   nomeLoja?: string;
   descricaoLoja?: string;
   empreendedor?: Empreendedor;
