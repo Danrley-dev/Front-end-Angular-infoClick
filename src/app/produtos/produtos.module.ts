@@ -7,6 +7,8 @@ import { ProdutosListComponent } from './components/produtos-list/produtos-list.
 import { RouterModule } from '@angular/router';
 import { ProdutoCreateComponent } from './components/produto-create/produto-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -22,8 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     NgbModule,
     RouterModule,
     ReactiveFormsModule,
-
-
+    MatProgressSpinnerModule,
+    SharedModule
   ],
   exports: [
     ProdutoDetailComponent,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
+import { Observable } from 'rxjs';
 import { Produto } from 'src/app/core/models/produto';
 import { LojaService } from 'src/app/core/services/loja/loja.service';
 import { ProdutoService } from 'src/app/core/services/produtos/produto.service';
@@ -15,12 +16,15 @@ import { UploadImgService } from 'src/app/core/services/uploadImg/upload-img.ser
 })
 export class ProdutoCreateComponent implements OnInit {
 
+  carregando = false;
+
   idLoja?: number;
   imagem?: File;
   icon?: string = 'upload';
   errorsI?: any;
   mudar: boolean = true;
-  urlImagem: any = ""
+  urlImagem: any = "";
+
 
   constructor(
     private fb: FormBuilder,
@@ -80,11 +84,14 @@ export class ProdutoCreateComponent implements OnInit {
   setImage(event: any) {
     let arquivo = event.target.files[0]
     let reader = new FileReader()
+    this.carregando = true;
 
     reader.readAsDataURL(arquivo)
     reader.onloadend = () => {
       console.log(reader.result)
       this.uploadService.uploadFoto("produtoImg" + Date.now(), reader.result).then(urlImagem => {
+        this.carregando = false;
+        this.mudar = !this.mudar;
         this.urlImagem = urlImagem
       })
   }

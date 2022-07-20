@@ -23,6 +23,8 @@ export class LojaCreateComponent implements OnInit {
     private uploadService: UploadImgService
     ) { }
 
+    carregando = false;
+
     urlImagem: any = ""
     idEmpreendedor?: number;
     errorsI?: any;
@@ -45,7 +47,7 @@ export class LojaCreateComponent implements OnInit {
       }
 
       this.lojaService.create(this.idEmpreendedor!,LOJA).then(() =>{
-        
+
           this.toast.success('Cadastro loja efetuado com sucesso');
           this.router.navigate([`loja-empreendedor`]);
         },
@@ -71,12 +73,16 @@ export class LojaCreateComponent implements OnInit {
     setImage(event: any) {
     let arquivo = event.target.files[0]
     let reader = new FileReader()
+    this.carregando = true;
+
 
     reader.readAsDataURL(arquivo)
     reader.onloadend = () => {
       console.log(reader.result)
       this.uploadService.uploadFoto("lojaImg" + Date.now(), reader.result).then(urlImagem => {
         this.urlImagem = urlImagem
+        this.carregando = false;
+        this.mudar = !this.mudar;
       })
     }
   }
