@@ -14,7 +14,7 @@ export class ProdutoService {
 
 
   private baseUrl = "http://localhost:8080/service/produto";
-  private lojaUrl = "http://localhost:8080/service/Lojas";
+  private lojaUrl = "http://localhost:8080/service/lojas";
 
   constructor(private http: HttpClient) { }
 
@@ -56,8 +56,8 @@ export class ProdutoService {
     );
   }
 
-  create(id: number, produto: Produto){
-    return this.http.post(`${this.baseUrl}/${id}`,produto);
+  create(id: number, produto: Produto):  Promise<any>{
+    return this.http.post(`${this.baseUrl}/${id}`,produto).toPromise();
   }
 
   delete(id: number, produto: Produto) {

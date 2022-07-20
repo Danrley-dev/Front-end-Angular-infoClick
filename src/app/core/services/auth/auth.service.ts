@@ -1,4 +1,3 @@
-import { Perfil } from './../../models/pessoa';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -11,11 +10,7 @@ import { PessoaService } from '../pessoa/pessoa.service';
 })
 export class AuthService {
 
-
-  constructor(private http: HttpClient,private pessoasService: PessoaService) {
-
-
-  }
+  constructor(private http: HttpClient,private pessoasService: PessoaService) {}
 
   emailUser?: string;
   roleUser?: string;
@@ -70,7 +65,6 @@ export class AuthService {
    })
   }
 
-
   jwt = new JwtHelperService();
 
   get isAuthenticated(): boolean {
@@ -89,8 +83,6 @@ export class AuthService {
     localStorage.clear();
 
   }
-
-
 
   getEmail() {
     return this.emailUser;

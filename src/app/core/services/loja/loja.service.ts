@@ -17,8 +17,8 @@ export class LojaService {
     );
   }
 
-  create(idEmpreendedor: number,loja: Loja ){
-    return this.http.post(`${this.lojaUrl}/${idEmpreendedor}`, loja);
+  create(idEmpreendedor: number,loja: Loja ): Promise<any>{
+    return this.http.post(`${this.lojaUrl}/${idEmpreendedor}`, loja).toPromise();
   }
 
   findLojaById(email: string): Observable<number>{
