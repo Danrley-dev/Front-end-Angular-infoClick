@@ -1,18 +1,20 @@
 <main class="trancatela">
-  <div class="banner-loja">
-    <img class="logo-loja" src="{{ loja.imagemLoja }}" />
-    <div class="container-informacoes">
-      <div class="container-nome-loja">
-        <p class="nome-loja"><span>Nome: </span>{{ loja.nomeLoja }}</p>
-        <p class="data-loja">
-          <span>Data de criação: </span>{{ loja.dataCriacao }}
+  <body [ngStyle]="{'background-color':loja.corDeFundo}">
+    <div class="banner-loja">
+      <img class="logo-loja" src="{{ loja.imagemLoja }}" />
+      <div class="container-informacoes">
+        <div class="container-nome-loja">
+          <p class="nome-loja"><span>Nome: </span>{{ loja.nomeLoja }}</p>
+          <p class="data-loja">
+            <span>Data de criação: </span>{{ loja.dataCriacao }}
+          </p>
+        </div>
+        <p class="descricao-loja">
+          <span>Descrição:</span> {{ loja.descricaoLoja }}
         </p>
       </div>
-      <p class="descricao-loja">
-        <span>Descrição:</span> {{ loja.descricaoLoja }}
-      </p>
     </div>
-  </div>
+  </body>
 
   <h2 class="titulo">Todos os Produtos</h2>
 

@@ -24,6 +24,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideFunctions,getFunctions } from '@angular/fire/functions';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { LojaEdicaoComponent } from './empreendedor/loja-edicao/loja-edicao.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { LojaEdicaoComponent } from './empreendedor/loja-edicao/loja-edicao.comp
     ReactiveFormsModule,
     MaterialModule,
     AdminModule,
+    CommonModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideFunctions(() => getFunctions()),
