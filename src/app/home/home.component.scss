@@ -23,9 +23,11 @@ main {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  height: 490px;
 }
 
+.card-container {
+  height: 540px;
+}
 .card {
   margin-bottom: 100px;
   width: 301px;
@@ -265,6 +267,8 @@ main {
     display: initial;
     object-fit: cover;
   }
+
+
 }
 
 @media (max-width: 830px) {
@@ -282,6 +286,10 @@ main {
     background-repeat: no-repeat;
     background-attachment: local;
     height: 500px;
+  }
+  .button-card {
+    display: block;
+    margin-top: -6px;
   }
 }
 

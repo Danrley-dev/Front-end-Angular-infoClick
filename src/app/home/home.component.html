@@ -75,50 +75,51 @@
   </ngb-carousel>
   <section class="container-cards1">
     <div *ngFor="let produto of produtos">
-      <div class="card">
-        <div class="promo">
-          <p class="porcent-promo"><span>25%</span> OFF</p>
-          <p class="time-promo">
-            termina em:
-            <span>{{ dias }} {{ horas }}:{{ minutos }}:{{ segundos }}</span>
-          </p>
-        </div>
-        <div class="details">
-          <a
-            routerLink="/produto-detail/{{ produto.loja?.idLoja }}"
-            class="img-wrap"
-            data-abc="true"
-          >
-            <img
-              src="{{ produto.produtoImagem }}"
-              alt="Imagem de um computador"
-            />
-          </a>
-          <a
-            routerLink="/loja-empreendedor/{{ produto.loja?.idLoja }}"
-            class="img-wrap"
-            data-abc="true"
-          >
-            <p class="nome-loja">
-              <b>{{ produto.loja?.nomeLoja }}</b>
+      <div class="card-container">
+        <div class="card">
+          <div class="promo">
+            <p class="porcent-promo"><span>25%</span> OFF</p>
+            <p class="time-promo">
+              termina em:
+              <span>{{ dias }} {{ horas }}:{{ minutos }}:{{ segundos }}</span>
             </p>
-          </a>
-          <p class="nome-produto">{{ produto.name }}</p>
-          <p class="preco-corte">
-            De: {{ produto.produtoValor | currency: "BRL" }}
-          </p>
-          <p class="preco-promo">
-            {{ produto.produtoDesconto | currency: "BRL" }}
-          </p>
-          <!-- <p class="parcelas">12x de R$ 499,98 sem juros</p> -->
-
-          <button
-            (click)="addToCart(produto)"
-            class="button-card"
-            type="button"
-          >
-            <a>ADICIONAR AO CARRINHO</a>
-          </button>
+          </div>
+          <div class="details">
+            <a
+              routerLink="/produto-detail/{{ produto.loja?.idLoja }}"
+              class="img-wrap"
+              data-abc="true"
+            >
+              <img
+                src="{{ produto.produtoImagem }}"
+                alt="Imagem de um computador"
+              />
+            </a>
+            <a
+              routerLink="/loja-empreendedor/{{ produto.loja?.idLoja }}"
+              class="img-wrap"
+              data-abc="true"
+            >
+              <p class="nome-loja">
+                <b>{{ produto.loja?.nomeLoja }}</b>
+              </p>
+            </a>
+            <p class="nome-produto">{{ produto.name }}</p>
+            <p class="preco-corte">
+              De: {{ produto.produtoValor | currency: "BRL" }}
+            </p>
+            <p class="preco-promo">
+              {{ produto.produtoDesconto | currency: "BRL" }}
+            </p>
+            <!-- <p class="parcelas">12x de R$ 499,98 sem juros</p> -->
+            <button
+              (click)="addToCart(produto)"
+              class="button-card"
+              type="button"
+            >
+              <a>ADICIONAR AO CARRINHO</a>
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -150,7 +150,14 @@ i {
     justify-content: space-between;
     vertical-align: middle;
 
+}
 
+.carrinho-li {
+  margin-top: -5px;
+}
+
+.logout-li {
+  margin-top: -6px;
 }
 
 
@@ -232,7 +239,7 @@ i {
         justify-content: space-evenly;
         flex-direction: column;
         align-items: flex-start;
-        height: 200px;
+        height: 250px;
     }
 
     .navBar-hamburguer li {
@@ -242,6 +249,31 @@ i {
     .navBar-hamburguer a {
         text-decoration: none;
         color: black;
+    }
+
+    .bi-cart3{
+      margin-top: -10px;
+    }
+
+    .ul-menu-hamburguer li {
+      width: 150px;
+    }
+
+    .ul-menu-hamburguer li a {
+      width: 130px;
+      height: 100%;
+    }
+
+    .ul-menu-hamburguer li a i, .ul-menu-hamburguer li a mat-icon  {
+      margin-right: 5px;
+    }
+
+    .a-logout, .a-produtos {
+      padding-left: 3px;
+    }
+
+    .a-carrinho{
+      padding-left: 1.2px;
     }
 
 
