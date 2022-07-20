@@ -34,6 +34,7 @@ import { LojaEdicaoComponent } from './empreendedor/loja-edicao/loja-edicao.comp
     LojaCreateComponent,
     LojaEmpreendedorComponent,
     LojaEdicaoComponent,
+    
   ],
   imports: [
     BrowserModule,

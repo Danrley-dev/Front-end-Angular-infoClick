@@ -99,6 +99,7 @@ const routes: Routes = [
     path: 'loja-edicao',
     component: LojaEdicaoComponent
   },
+  
   {
     path: '**',
     component: NotFoundComponent

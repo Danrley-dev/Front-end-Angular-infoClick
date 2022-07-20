@@ -13,5 +13,6 @@ export class LojaEdicaoComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
 
 }

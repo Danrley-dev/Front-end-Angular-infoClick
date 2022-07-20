@@ -23,3 +23,4 @@ describe('LojaEdicaoComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
