@@ -8,7 +8,6 @@ import { Loja } from 'src/app/core/models/loja';
 })
 export class LojaEdicaoComponent implements OnInit {
   loja: Loja = new Loja();
-  
   lojas: Loja[] = [];
   constructor() { }
 
