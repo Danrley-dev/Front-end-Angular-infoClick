@@ -1,17 +1,15 @@
 <main class="trancatela">
   <div class="banner-loja">
-    <img class="logo-loja" src="{{loja.imagemLoja}}" />
+    <img class="logo-loja" src="{{ loja.imagemLoja }}" />
     <div class="container-informacoes">
       <div class="container-nome-loja">
-        <p class="nome-loja">
-          <span>Nome: </span>{{loja.nomeLoja}}
-        </p>
+        <p class="nome-loja"><span>Nome: </span>{{ loja.nomeLoja }}</p>
         <p class="data-loja">
-          <span>Data de criação: </span>{{loja.dataCriacao}}
+          <span>Data de criação: </span>{{ loja.dataCriacao }}
         </p>
       </div>
       <p class="descricao-loja">
-        <span>Descrição:</span> {{loja.descricaoLoja}}
+        <span>Descrição:</span> {{ loja.descricaoLoja }}
       </p>
     </div>
   </div>
@@ -20,32 +18,50 @@
 
   <section>
     <div class="menu">
-      <button class="button-opcoes" (click)="clickOpcoes()"><i class="bi bi-list menu-hamburguer"></i>GERENCIAR<i
-          class="bi bi-caret-down-fill arrow"></i></button>
+      <button class="button-opcoes" (click)="clickOpcoes()">
+        <i class="bi bi-list menu-hamburguer"></i>GERENCIAR<i
+          class="bi bi-caret-down-fill arrow"
+        ></i>
+      </button>
       <ul *ngIf="opGerencia" class="lista-opcoes">
-        <li class="adicionar"><a [routerLink]="['/produto-create']"><i class="bi bi-plus-circle"></i><span>
-              ADICIONAR</span> PRODUTO</a></li>
-        <li class="editar"><a [routerLink]="['/loja-edicao']"><i class="bi bi-pen"> </i> EDITAR LOJA</a></li>
+        <li class="adicionar">
+          <a [routerLink]="['/produto-create']"
+            ><i class="bi bi-plus-circle"></i><span> ADICIONAR</span> PRODUTO</a
+          >
+        </li>
+        <li class="editar">
+          <a [routerLink]="['/loja-edicao']"
+            ><i class="bi bi-pen"> </i> EDITAR LOJA</a
+          >
+        </li>
       </ul>
     </div>
   </section>
   <section>
     <div class="menu-mobile">
-      <button class="button-opcoes-mobile" (click)="clickOpcoes()"><i
-          class="bi bi-list menu-hamburguer-mobile"></i></button>
+      <button class="button-opcoes-mobile" (click)="clickOpcoes()">
+        <i class="bi bi-list menu-hamburguer-mobile"></i>
+      </button>
       <ul *ngIf="opGerencia" class="lista-opcoes-mobile">
-        <li class="adicionar-mobile"><a [routerLink]="['/produto-create']"><i class="bi bi-plus-circle"></i> PRODUTO</a>
+        <li class="adicionar-mobile">
+          <a [routerLink]="['/produto-create']"
+            ><i class="bi bi-plus-circle"></i> PRODUTO</a
+          >
         </li>
-        <li class="editar-mobile"><a [routerLink]="['/loja-edicao']"><i class="bi bi-pen"> </i> EDITAR LOJA</a></li>
+        <li class="editar-mobile">
+          <a [routerLink]="['/loja-edicao']"
+            ><i class="bi bi-pen"> </i> EDITAR LOJA</a
+          >
+        </li>
       </ul>
     </div>
   </section>
 
   <section class="container-cards1">
-    <div *ngFor="let itens of loja.produtos ">
+    <div *ngFor="let itens of loja.produtos">
       <div class="card">
         <div class="promo">
-          <p class="porcent-promo">{{itens.categoria}}</p>
+          <p class="porcent-promo">{{ itens.categoria }}</p>
           <!-- <p class="time-promo">
           termina em:
           <span>9 dias 12:21:21</span>
@@ -53,24 +69,31 @@
         </div>
 
         <div class="details">
-          <a routerLink="/produto-detail/{{itens.id}}" class="img-wrap" data-abc="true">
-            <img src="{{itens.produtoImagem}}" />
+          <a
+            routerLink="/produto-detail/{{ itens.id }}"
+            class="img-wrap"
+            data-abc="true"
+          >
+            <img src="{{ itens.produtoImagem }}" />
           </a>
           <!-- <a class="img-wrap" data-abc="true">
             <img src="{{itens.produtoImagem}}" />
           </a> -->
           <p class="nome-produto">
-            {{itens.name}}
+            {{ itens.name }}
           </p>
-          <p class="preco-corte">De: {{ itens.produtoValor | currency: "BRL"}}</p>
-          <p class="preco-promo">Por: {{ itens.produtoDesconto | currency: "BRL"}}</p>
+          <p class="preco-corte">
+            De: {{ itens.produtoValor | currency: "BRL" }}
+          </p>
+          <p class="preco-promo">
+            Por: {{ itens.produtoDesconto | currency: "BRL" }}
+          </p>
           <!-- <p class="parcelas">12x de R$ 499,98 sem juros</p> -->
+          <button (click)="addToCart(itens)" class="button-card" type="button">
+            <a>ADICIONAR AO CARRINHO</a>
+          </button>
         </div>
-        <button (click)="addToCart(itens)" class="button-card" type="button"><a >ADICIONAR AO
-          CARRINHO</a></button>
-
       </div>
     </div>
-
   </section>
 </main>

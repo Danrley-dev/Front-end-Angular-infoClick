@@ -2,17 +2,17 @@
   <ngb-carousel class="container-carousel" *ngIf="images">
     <ng-template ngbSlide>
       <div class="picsum-img-wrapper">
-        <img [src]="images[0]" alt="Random first slide">
+        <img [src]="images[0]" alt="Random first slide" />
       </div>
     </ng-template>
     <ng-template ngbSlide>
       <div class="picsum-img-wrapper">
-        <img [src]="images[1]" alt="Random second slide">
+        <img [src]="images[1]" alt="Random second slide" />
       </div>
     </ng-template>
     <ng-template ngbSlide>
       <div class="picsum-img-wrapper">
-        <img [src]="images[2]" alt="Random third slide">
+        <img [src]="images[2]" alt="Random third slide" />
       </div>
     </ng-template>
   </ngb-carousel>
@@ -20,61 +20,73 @@
   <section class="section-filtro">
     <div class="container-filtro">
       <ul *ngIf="filtro" class="lista-filtro">
-        <li class="todos-produtos"><a routerLink="/produtos-list"><i class="bi bi-pc-display"></i>TODOS PRODUTOS</a></li>
-          <li class="hardware"><a routerLink="/categoria/1"><i class="bi bi-pc"></i>HARDWARE</a></li>
-          <li class="software"><a routerLink="/categoria/2"><i class="bi bi-cpu"></i>SOFTWARE</a></li>
+        <li class="todos-produtos">
+          <a routerLink="/produtos-list"
+            ><i class="bi bi-pc-display"></i>TODOS PRODUTOS</a
+          >
+        </li>
+        <li class="hardware">
+          <a routerLink="/categoria/1"><i class="bi bi-pc"></i>HARDWARE</a>
+        </li>
+        <li class="software">
+          <a routerLink="/categoria/2"><i class="bi bi-cpu"></i>SOFTWARE</a>
+        </li>
       </ul>
     </div>
   </section>
 
-  <!-- <div>
-      <button class="button-filtro" (click)="filtroClick()"><i class="bi bi-list menu-hamburguer"></i>CATEGORIA<i class="bi bi-caret-down-fill arrow"></i></button>
-      <ul *ngIf="filtro" class="lista-filtro">
-        <li class="hardware"><a routerLink="/produtos-list"><i class="bi bi-pc-display"></i>TODOS</a></li>
-          <li class="hardware"><a routerLink="/categoria/1"><i class="bi bi-pc-display"></i>HARDWARE</a></li>
-          <li class="software"><a routerLink="/categoria/2"><i class="bi bi-card-checklist"></i>SOFTWARE</a></li>
-      </ul>
-    </div> -->
-
-
-<section class="container-cards1">
-
-  <div *ngIf="produtos?.length==0" class="alert alert-warning " role="alert">
-    Nao temos esse produto ou você digitou errado
-  </div>
-
-  <div *ngFor="let produto of produtos">
-  <div class="card"  >
-    <div class="promo" >
-      <p class="porcent-promo"><span>25%</span> OFF</p>
-      <p class="time-promo">
-        termina em:
-        <span>9 dias 12:21:21</span>
-      </p>
+  <section class="container-cards1">
+    <div *ngIf="produtos?.length == 0" class="alert alert-warning" role="alert">
+      Nao temos esse produto ou você digitou errado
     </div>
-    <div class="details">
-      <a routerLink="/produto-detail/{{produto.id}}" class="img-wrap" data-abc="true"  >
-      <img
-        src="{{ produto.produtoImagem }}"
-        alt="Imagem de um computador">
-      </a>
-      <a routerLink="/loja-empreendedor/{{produto.loja?.idLoja}}" class="img-wrap" data-abc="true"  >
-        <p class="nome-produto"> <b>{{produto.loja?.nomeLoja}}</b></p>
-      </a>
-      <p class="preco-produto">{{produto.name}}</p>
-      <p class="preco-corte">De: {{produto.produtoValor | currency: "BRL"}}</p>
-      <p class="preco-promo">{{produto.produtoDesconto | currency: "BRL"}}</p>
-       <!-- <p class="parcelas">12x de R$ 499,98 sem juros</p> -->
 
-       <button (click)="addToCart(produto)"class="button-card" type="button"><a >ADICIONAR AO CARRINHO</a></button>
-  </div>
-  </div>
-</div>
+    <div *ngFor="let produto of produtos" class="container-card">
+      <div class="card">
+        <div class="promo">
+          <p class="porcent-promo"><span>25%</span> OFF</p>
+          <p class="time-promo">
+            termina em:
+            <span>9 dias 12:21:21</span>
+          </p>
+        </div>
+        <div class="details">
+          <a
+            routerLink="/produto-detail/{{ produto.id }}"
+            class="img-wrap"
+            data-abc="true"
+          >
+            <img
+              src="{{ produto.produtoImagem }}"
+              alt="Imagem de um computador"
+            />
+          </a>
+          <a
+            routerLink="/loja-empreendedor/{{ produto.loja?.idLoja }}"
+            class="img-wrap"
+            data-abc="true"
+          >
+            <p class="nome-loja">
+              <b>{{ produto.loja?.nomeLoja }}</b>
+            </p>
+          </a>
+          <p class="nome-produto">{{ produto.name }}</p>
+          <p class="preco-corte">
+            De: {{ produto.produtoValor | currency: "BRL" }}
+          </p>
+          <p class="preco-promo">
+            {{ produto.produtoDesconto | currency: "BRL" }}
+          </p>
+          <!-- <p class="parcelas">12x de R$ 499,98 sem juros</p> -->
 
-
-</section>
-
-
-
-
+          <button
+            (click)="addToCart(produto)"
+            class="button-card"
+            type="button"
+          >
+            <a>ADICIONAR AO CARRINHO</a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>

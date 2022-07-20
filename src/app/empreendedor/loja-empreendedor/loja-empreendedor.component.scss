@@ -44,11 +44,11 @@ main {
   // box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
   /* From https://css.glass */
   /* From https://css.glass */
-background: rgba(255, 255, 255, 0.06);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(3.1px);
--webkit-backdrop-filter: blur(3.1px);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.1px);
+  -webkit-backdrop-filter: blur(3.1px);
 }
 
 .container-nome-loja {
@@ -68,7 +68,6 @@ backdrop-filter: blur(3.1px);
   width: 50%;
   text-align: justify;
 }
-
 
 .titulo {
   text-align: center;
@@ -253,7 +252,6 @@ backdrop-filter: blur(3.1px);
 }
 
 .card:hover {
-  height: 490px;
   .button-card {
     display: block;
   }
@@ -293,14 +291,11 @@ backdrop-filter: blur(3.1px);
     display: none;
   }
   /*************fim***830**************/
-
 }
 
 @media (max-width: 730px) {
-
   .banner-loja {
     height: 500px;
-
   }
 
   .container-informacoes {
@@ -331,13 +326,13 @@ backdrop-filter: blur(3.1px);
   }
 
   .button-opcoes-mobile {
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
     margin-top: 5px;
     border: none;
   }
 
   .menu-hamburguer-mobile {
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
     font-size: 35px;
     margin-left: 15px;
     border: none;
@@ -345,13 +340,12 @@ backdrop-filter: blur(3.1px);
 
   .lista-opcoes-mobile {
     background-color: #f0f0f0;
-    margin: 85px 0  0 20px;
+    margin: 85px 0 0 20px;
     font-size: 16px;
     width: 120px;
     padding-top: 7px;
     position: absolute;
     padding-left: 0px;
-
   }
 
   .lista-opcoes-mobile li {
@@ -365,17 +359,16 @@ backdrop-filter: blur(3.1px);
     color: black;
   }
 
-//   /***********fim***730**********/
+  //   /***********fim***730**********/
 }
 
-@media (max-width: 630px){
+@media (max-width: 630px) {
   .banner-loja {
     padding-left: 10px;
   }
 }
 
 @media (max-width: 580px) {
-
   .banner-loja {
     display: flex;
     flex-direction: column;
@@ -388,7 +381,6 @@ backdrop-filter: blur(3.1px);
   .container-informacoes {
     margin: 0;
   }
-
 }
 
 @media (max-width: 424px) {

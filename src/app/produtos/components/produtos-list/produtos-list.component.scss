@@ -77,64 +77,15 @@ main {
   margin-right: 5px;
 }
 
-// .container-filtro p {
-//   margin-bottom: 0px;
-//   color: #F5B93C;
-//   font-weight: 600;
-//   margin-right: 10px;
-// }
-
-// .button-filtro {
-//   width: 150px;
-//   height: 32px;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// }
-
-// .menu-hamburguer {
-//   font-size: 22px;
-//   margin-right: 4px;
-// }
-
-// .arrow {
-//   font-size: 13px;
-//   margin-left: 2px;
-// }
-
-// .lista-filtro {
-//   padding-top: 10px;
-//   position: absolute;
-//   background-color: #F0F0F0;
-//   width: 150px;
-//   padding-left: 0px;
-// }
-
-// .lista-filtro li {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   border-bottom: 1px solid black;
-// }
-
-// .lista-filtro li a {
-//   text-decoration: none;
-//   color: black;
-// }
-
-// .hardware {
-//   border-top: 1px solid black;
-// }
-
-// .software {
-//   padding-top: 5px;
-// }
-
 .container-cards1 {
   margin-top: 70px;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+}
+
+.container-card {
+  height: 490px;
 }
 
 .card {
@@ -196,7 +147,7 @@ main {
   object-fit: cover;
 }
 
-.nome-produto {
+.nome-loja {
   width: 170px;
   font-size: 12px;
   text-align: center;
@@ -215,6 +166,10 @@ main {
 .preco-promo {
   font-size: 20px;
   font-weight: bold;
+}
+
+.nome-produto {
+  text-align: center;
 }
 
 .parcelas {
@@ -414,7 +369,7 @@ main {
     padding-left: 10px;
     padding-right: 10px;
     font-size: 13px;
-    }
+  }
 
   .software {
     padding-left: 15px;
@@ -451,14 +406,13 @@ main {
     padding-left: 5px;
     padding-right: 5px;
     font-size: 13px;
-    }
+  }
 
   .software {
     padding-left: 15px;
     font-size: 13px;
   }
 
-  
   .card {
     height: 490px;
     .button-card {
@@ -515,13 +469,16 @@ main {
     .container-carousel img {
       height: 130px;
     }
+
     .container-cards1 {
       width: 150px;
       margin-left: 5%;
     }
+
     div {
       width: 90%;
     }
+
     .card {
       width: 220px;
       text-align: center;
