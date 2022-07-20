@@ -1,5 +1,5 @@
-<header>
-    <div class="trancatela">
+<div class="trancatela">
+    <header>
         <section class="header">
             <a href="/"><img src="assets/img/logo-infoclick.png" class="logo" alt=""></a>
             <div class="search">
@@ -79,16 +79,16 @@
                 <nav class="navBar-hamburguer" *ngIf=" menuHamburguer">
                     <nav aria-label="" *ngIf="logged, else unlogged">
                         <ul>
-                            <li *ngIf="userAdmin" >
+                            <li *ngIf="userAdmin">
                                 <a href="/admin">
                                     <i>
                                         <mat-icon> devices</mat-icon> PAINEL
                                     </i>
                                 </a> <br>
                                 <a href="#">
-                                     <i>
-                                         <mat-icon>dashboard</mat-icon> DASHBOARD
-                                     </i>
+                                    <i>
+                                        <mat-icon>dashboard</mat-icon> DASHBOARD
+                                    </i>
                                 </a>
                             </li>
 
@@ -127,7 +127,7 @@
                             </li>
                             <li class="logout">
                                 <a href="/login " (click)="logout()">
-                                    <i class="material-icons ">logout</i> 
+                                    <i class="material-icons ">logout</i>
                                 </a>
                                 <span>LOGOUT</span>
                             </li>
@@ -148,5 +148,6 @@
                 </nav>
             </div>
         </section>
-    </div>
-</header>
+
+    </header>
+</div>
