@@ -94,6 +94,15 @@ input, mat-select {
 
 }
 
+.done {
+  font-size: 40px;
+}
+
+.uploader-status ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #f5b93c;
+}
+
+
 @media only screen and (max-width: 1200px) {
   .caixa-principal {
       display: flex;
@@ -305,3 +314,6 @@ input, mat-select {
   }
 
 }
+
+
+

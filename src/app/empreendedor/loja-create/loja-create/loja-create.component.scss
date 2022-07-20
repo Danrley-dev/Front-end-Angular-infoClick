@@ -72,16 +72,27 @@ mat-form-field {
 .btn-dark {
     font-size: 20px;
     color: #f5b93c;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-bottom: 7%;
-    margin-left: 20.7%;
+    margin-left: 38%;
     width: 120px;
     height: 60px;
 }
 
+
 .label-align {
     margin-right: 20px;
+    margin-top: 25px;
 }
+
+.done {
+  font-size: 40px;
+}
+
+.uploader-status ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #f5b93c;
+}
+
 
 @media only screen and (max-width: 1200px) {
     .caixa-principal {
@@ -107,6 +118,12 @@ mat-form-field {
 }
 
 @media only screen and (max-width: 900px) {
+
+  main {
+    background-image: none;
+    background-color: #f5f5f5;
+}
+
     .caixa-principal {
         display: flex;
         flex-direction: column;
@@ -116,7 +133,7 @@ mat-form-field {
         border-left: 1px solid #bac2c5;
         border-right: 1px solid #bac2c5;
         border-radius: 0px 0px 15px 15px;
-        color: #f5b93c;
+        color: #000000;
     }
 
     .form-align {
@@ -127,7 +144,9 @@ mat-form-field {
         margin-top: 0px;
         max-height: 69px;
         padding: 35px 0px;
+        width:430px;
     }
+
 
     .btn-dark {
         margin-left: 15.5%;
@@ -165,7 +184,7 @@ mat-form-field {
         border-bottom: 1px solid #bac2c5;
         border-left: 1px solid #bac2c5;
         border-right: 1px solid #bac2c5;
-        color: #f5b93c;
+        color: #000000;
         border-radius: 0px 0px 15px 15px;
     }
 
@@ -217,9 +236,12 @@ mat-form-field {
 
     .upload {
         margin-top: 0px;
-        max-height: 69px;
+        height: 69px;
         padding: 35px 0px;
-    }
+        width: 295px;
+      }
+
+
 }
 
 @media only screen and (max-width: 415px) {
@@ -238,7 +260,7 @@ mat-form-field {
         border-bottom: 1px solid #bac2c5;
         border-left: 1px solid #bac2c5;
         border-right: 1px solid #bac2c5;
-        color: #f5b93c;
+        color: #000000;
         margin-left: 0;
         margin-right: 0;
         border-radius: 0px 0px 15px 15px;
@@ -285,6 +307,7 @@ mat-form-field {
         margin-top: 0px;
         max-height: 69px;
         padding: 15px 0px;
+        width: 295px;
     }
 
     .btn-dark {
@@ -293,3 +316,4 @@ mat-form-field {
     }
 
 }
+

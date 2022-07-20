@@ -82,15 +82,21 @@
             </mat-error>
           </mat-form-field>
         </div>
-
         <div class=" form-align">
           <mat-label for="imagem" class="label-align form-label imagemProd">Imagem</mat-label>
-          <input class="btn form-align upload" id="cloud" (change)="setImage($event)" #imagem type="file" formControlName="produtoImagem" name="produtoImagem" 
+          <input class="btn form-align upload" id="cloud" (change)="setImage($event)" #imagem type="file" formControlName="produtoImagem" name="produtoImagem"
             hidden>
           <button class="btnCheck btn form-align upload" (click)="imagem.click()" type="button" mat-raised-button>
+          <span *ngIf="!carregando; else loading">
             <i class="bi bi-cloud-plus" *ngIf="mudar; else upload"></i>
+          </span>
             <ng-template #upload>
-              <mat-icon>done</mat-icon>
+              <mat-icon class="done">done</mat-icon>
+            </ng-template>
+            <ng-template #loading>
+              <div class="uploader-status">
+                <mat-spinner diameter="45" customSpinner></mat-spinner>
+              </div>
             </ng-template>
           </button>
         </div>
@@ -100,3 +106,6 @@
     </section>
   </div>
 </main>
+
+
+
