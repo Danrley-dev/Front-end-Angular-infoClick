@@ -1,153 +1,211 @@
 <div class="trancatela">
-    <header>
-        <section class="header">
-            <a href="/"><img src="assets/img/logo-infoclick.png" class="logo" alt=""></a>
-            <div class="search">
-                <input #Input class="input" placeholder="Buscar produtos..." (keyup.enter)="pesquisar(Input.value)" />
-                <button class="button" (click)="pesquisar(Input.value)"><i class="bi bi-search"></i></button>
+  <header>
+    <section class="header">
+      <a href="/"
+        ><img src="assets/img/logo-infoclick.png" class="logo" alt=""
+      /></a>
+      <div class="search">
+        <input
+          #Input
+          class="input"
+          placeholder="Buscar produtos..."
+          (keyup.enter)="pesquisar(Input.value)"
+        />
+        <button class="button" (click)="pesquisar(Input.value)">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+      <nav class="navbar" aria-label="" *ngIf="logged; else unlogged">
+        <ul>
+          <div class="dropdown">
+            <i *ngIf="userAdmin" class="dropbtn">
+              <mat-icon>person</mat-icon> ADMIN
+            </i>
+            <div class="dropdown-content">
+              <a href="/admin"> <mat-icon>devices</mat-icon> Painel </a>
+              <a href="#"> <mat-icon>dashboard</mat-icon> Dashboard </a>
             </div>
-            <nav class="navbar" aria-label="" *ngIf="logged, else unlogged">
-                <ul>
-                    <div class="dropdown">
-                        <i *ngIf="userAdmin" class="dropbtn">
-                            <mat-icon>person</mat-icon> ADMIN
-                        </i>
-                        <div class="dropdown-content">
-                            <a href="/admin">
-                                <mat-icon>devices</mat-icon> Painel
-                            </a>
-                            <a href="#">
-                                <mat-icon>dashboard</mat-icon> Dashboard
-                            </a>
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <i *ngIf="userEmpreendedor" class="dropbtn">
-                            <mat-icon>person</mat-icon> EMPREENDEDOR
-                        </i>
-                        <div class="dropdown-content">
-                            <a href="#">
-                                <mat-icon>perm_identity</mat-icon> Perfil
-                            </a>
-                            <a href="#">
-                                <mat-icon>add_shopping_cart</mat-icon>Criar loja
-                            </a>
-                            <a href="loja-empreendedor/:id">
-                                <mat-icon>meeting_room</mat-icon>Minha loja
-                            </a>
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <a href="#">
-                            <i *ngIf="userConsumidor" class="dropbtn">
-                                <mat-icon>person</mat-icon>MEU PERFIL
-                            </i>
-                        </a>
-                    </div>
-                    <li><a href="/produtos-list"><i class="bi bi-pc-display"></i>PRODUTOS</a></li>
-                    <li><a href="/carrinho">
-                            <mat-icon class="bi bi-cart3" matBadge="{{totalQuantity}}" matBadgeSize="small"
-                                matBadgeColor="accent" matBadgeOverlap="false"></mat-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/login " mat-list-item (click)="logout()" matTooltip="Logout"
-                            matTooltipPosition="below" matTooltipShowDelay="1000">
-                            <i class="material-icons" style="margin-top:5px">logout</i>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <ng-template #unlogged>
-                <nav class="navbar" aria-label="">
-                    <ul>
-                        <li><a href="/produtos-list"><i class="bi bi-pc-display"></i>PRODUTOS</a></li>
-                        <li><a href="/cadastro"><i class="bi bi-card-checklist"></i>CADASTRO</a></li>
-                        <li><a href="/login"><i class="bi bi-person-circle"></i>LOGIN</a></li>
-                        <li><a href="/carrinho">
-                                <mat-icon class="bi bi-cart3" matBadge="{{totalQuantity}}" matBadgeSize="small"
-                                    matBadgeColor="accent" matBadgeOverlap="false"></mat-icon>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </ng-template>
-            <div class="container-menu-hamburguer">
-                <button class="menu-hamburguer-button" type="button" (click)="menuClick()"><span
-                        class="bi bi-list menu-hamburguer"></span></button>
-
-                <nav class="navBar-hamburguer" *ngIf=" menuHamburguer">
-                    <nav aria-label="" *ngIf="logged, else unlogged">
-                        <ul>
-                            <li *ngIf="userAdmin">
-                                <a href="/admin">
-                                    <i>
-                                        <mat-icon> devices</mat-icon> PAINEL
-                                    </i>
-                                </a> <br>
-                                <a href="#">
-                                    <i>
-                                        <mat-icon>dashboard</mat-icon> DASHBOARD
-                                    </i>
-                                </a>
-                            </li>
-
-                            <li *ngIf="userEmpreendedor">
-                                <a href="#">
-                                    <i>
-                                        <mat-icon>perm_identity</mat-icon> PERFIL
-                                    </i>
-                                </a> <br>
-                                <a href="#">
-                                    <i>
-                                        <mat-icon>add_shopping_cart</mat-icon>CRIAR LOJA
-                                    </i>
-                                </a> <br>
-                                <a href="loja-empreendedor/:id">
-                                    <i>
-                                        <mat-icon>meeting_room</mat-icon>MINHA LOJA
-                                    </i>
-                                </a>
-                            </li>
-                            <li *ngIf="userConsumidor">
-                                <a href="#">
-                                    <i>
-                                        <mat-icon>person</mat-icon> MEU PERFIL
-                                    </i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/produtos-list"><i class="bi bi-pc-display"></i>PRODUTOS</a>
-                            </li>
-                            <li>
-                                <a href="/carrinho">
-                                    <mat-icon class="bi bi-cart3" matBadge="{{totalQuantity}}" matBadgeSize="small"
-                                        matBadgeColor="accent" matBadgeOverlap="false"></mat-icon>CARRINHO
-                                </a>
-                            </li>
-                            <li class="logout">
-                                <a href="/login " (click)="logout()">
-                                    <i class="material-icons ">logout</i>
-                                </a>
-                                <span>LOGOUT</span>
-                            </li>
-                        </ul>
-                    </nav>
-                    <ng-template #unlogged>
-                        <ul>
-                            <li><a href="/produtos-list"><i class="bi bi-pc-display"></i>PRODUTOS</a></li>
-                            <li><a href="/carrinho">
-                                    <mat-icon class="bi bi-cart3" matBadge="{{totalQuantity}}" matBadgeSize="small"
-                                        matBadgeColor="accent" matBadgeOverlap="false"></mat-icon>CARRINHO
-                                </a>
-                            </li>
-                            <li><a href="/cadastro"><i class="bi bi-card-checklist"></i>CADASTRO</a></li>
-                            <li><a href="/login"><i class="bi bi-person-circle"></i>LOGIN</a></li>
-                        </ul>
-                    </ng-template>
-                </nav>
+          </div>
+          <div class="dropdown">
+            <i *ngIf="userEmpreendedor" class="dropbtn">
+              <mat-icon>person</mat-icon> EMPREENDEDOR
+            </i>
+            <div class="dropdown-content">
+              <a href="#"> <mat-icon>perm_identity</mat-icon> Perfil </a>
+              <a href="#"> <mat-icon>add_shopping_cart</mat-icon>Criar loja </a>
+              <a href="loja-empreendedor/:id">
+                <mat-icon>meeting_room</mat-icon>Minha loja
+              </a>
             </div>
-        </section>
+          </div>
+          <div class="dropdown">
+            <a href="#">
+              <i *ngIf="userConsumidor" class="dropbtn">
+                <mat-icon>person</mat-icon>MEU PERFIL
+              </i>
+            </a>
+          </div>
+          <li>
+            <a href="/produtos-list"
+              ><i class="bi bi-pc-display"></i>PRODUTOS</a
+            >
+          </li>
+          <li class="carrinho-li">
+            <a href="/carrinho">
+              <mat-icon
+                class="bi bi-cart3"
+                matBadge="{{ totalQuantity }}"
+                matBadgeSize="small"
+                matBadgeColor="accent"
+                matBadgeOverlap="false"
+              ></mat-icon>
+            </a>
+          </li>
+          <li class="logout-li">
+            <a
+              href="/login "
+              mat-list-item
+              (click)="logout()"
+              matTooltip="Logout"
+              matTooltipPosition="below"
+              matTooltipShowDelay="1000"
+            >
+              <i class="material-icons logout-icon" style="margin-top: 5px"
+                >logout</i
+              >
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <ng-template #unlogged>
+        <nav class="navbar" aria-label="">
+          <ul>
+            <li>
+              <a href="/produtos-list"
+                ><i class="bi bi-pc-display"></i>PRODUTOS</a
+              >
+            </li>
+            <li>
+              <a href="/cadastro"
+                ><i class="bi bi-card-checklist"></i>CADASTRO</a
+              >
+            </li>
+            <li>
+              <a href="/login"><i class="bi bi-person-circle"></i>LOGIN</a>
+            </li>
+            <li>
+              <a href="/carrinho">
+                <mat-icon
+                  class="bi bi-cart3"
+                  style="margin-top: -4.8px; margin-left: -7px"
+                  matBadge="{{ totalQuantity }}"
+                  matBadgeSize="small"
+                  matBadgeColor="accent"
+                  matBadgeOverlap="false"
+                ></mat-icon>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </ng-template>
+      <div class="container-menu-hamburguer">
+        <button
+          class="menu-hamburguer-button"
+          type="button"
+          (click)="menuClick()"
+        >
+          <span class="bi bi-list menu-hamburguer"></span>
+        </button>
 
-    </header>
+        <nav class="navBar-hamburguer" *ngIf="menuHamburguer">
+          <nav aria-label="" *ngIf="logged; else unlogged">
+            <ul class="ul-menu-hamburguer">
+              <li *ngIf="userAdmin">
+                <a href="/admin">
+                  <i> <mat-icon> devices</mat-icon> PAINEL </i>
+                </a>
+                <br />
+                <a href="#">
+                  <i> <mat-icon>dashboard</mat-icon> DASHBOARD </i>
+                </a>
+              </li>
+
+              <li *ngIf="userEmpreendedor">
+                <a href="#">
+                  <i> <mat-icon>perm_identity</mat-icon> PERFIL </i>
+                </a>
+              </li>
+              <li *ngIf="userEmpreendedor">
+                <a href="#">
+                  <i> <mat-icon>add_shopping_cart</mat-icon>CRIAR LOJA </i>
+                </a>
+              </li>
+              <li *ngIf="userEmpreendedor">
+                <a href="loja-empreendedor/:id">
+                  <i> <mat-icon>meeting_room</mat-icon>MINHA LOJA </i>
+                </a>
+              </li>
+              <li *ngIf="userConsumidor">
+                <a href="#">
+                  <i> <mat-icon>person</mat-icon> MEU PERFIL </i>
+                </a>
+              </li>
+              <li>
+                <a href="/produtos-list" class="a-produtos"
+                  ><i class="bi bi-pc-display"></i>PRODUTOS</a
+                >
+              </li>
+              <li>
+                <a class="a-carrinho" href="/carrinho">
+                  <mat-icon
+                    class="bi bi-cart3"
+                    matBadge="{{ totalQuantity }}"
+                    matBadgeSize="small"
+                    matBadgeColor="accent"
+                    matBadgeOverlap="false"
+                  ></mat-icon
+                  ><span>CARRINHO</span>
+                </a>
+              </li>
+              <li class="logout">
+                <a href="/login " class="a-logout" (click)="logout()">
+                  <i class="material-icons">logout</i>
+                  <span>LOGOUT</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <ng-template #unlogged>
+            <ul>
+              <li>
+                <a href="/produtos-list"
+                  ><i class="bi bi-pc-display"></i>PRODUTOS</a
+                >
+              </li>
+              <li>
+                <a href="/carrinho">
+                  <mat-icon
+                    class="bi bi-cart3"
+                    matBadge="{{ totalQuantity }}"
+                    matBadgeSize="small"
+                    matBadgeColor="accent"
+                    matBadgeOverlap="false"
+                  ></mat-icon
+                  >CARRINHO
+                </a>
+              </li>
+              <li>
+                <a href="/cadastro"
+                  ><i class="bi bi-card-checklist"></i>CADASTRO</a
+                >
+              </li>
+              <li>
+                <a href="/login"><i class="bi bi-person-circle"></i>LOGIN</a>
+              </li>
+            </ul>
+          </ng-template>
+        </nav>
+      </div>
+    </section>
+  </header>
 </div>
