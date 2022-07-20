@@ -17,6 +17,7 @@ import { ProdutoCreateComponent } from './produtos/components/produto-create/pro
 import { AuthLogadoGuard } from './auth/guards/auth-logado/auth-logado.guard';
 import { AuthGuard } from './auth/guards/auth/auth.guard';
 import { RoleAdminGuard } from './auth/guards/roleAdmin/role-admin.guard';
+import { CadastroEditComponent } from './auth/cadastro-edit/cadastro-edit.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,11 @@ const routes: Routes = [
     path: 'cadastro',
     component: CadastroComponent,
     canActivate: [AuthLogadoGuard]
+  },
+  {
+    path: 'cadastro-edit',
+    component: CadastroEditComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
