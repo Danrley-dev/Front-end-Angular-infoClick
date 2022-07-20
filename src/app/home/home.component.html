@@ -2,105 +2,189 @@
   <ngb-carousel class="carousel-container" *ngIf="images">
     <ng-template ngbSlide>
       <div class="picsum-img-wrapper">
-        <img class="img-carousel img1" [src]="images[0]" alt="Random first slide">
-        <img class="img-carousel img-resp1" [src]="images[1]" alt="Random first slide">
-        <img class="img-carousel img-resp1-420" [src]="images[2]" alt="Random first slide">
-        <img class="img-carousel img-resp1-720 " [src]="images[3]" alt="Random first slide">
+        <img
+          class="img-carousel img1"
+          [src]="images[0]"
+          alt="Random first slide"
+        />
+        <img
+          class="img-carousel img-resp1"
+          [src]="images[1]"
+          alt="Random first slide"
+        />
+        <img
+          class="img-carousel img-resp1-420"
+          [src]="images[2]"
+          alt="Random first slide"
+        />
+        <img
+          class="img-carousel img-resp1-720"
+          [src]="images[3]"
+          alt="Random first slide"
+        />
       </div>
     </ng-template>
     <ng-template ngbSlide>
       <div class="picsum-img-wrapper">
-        <img class="img-carousel img2" [src]="images[4]" alt="Random second slide">
-        <img class="img-carousel img-resp2" [src]="images[5]" alt="Random first slide">
-        <img class="img-carousel img-resp2-420" [src]="images[6]" alt="Random first slide">
-        <img class="img-carousel img-resp2-720 " [src]="images[7]" alt="Random first slide">
+        <img
+          class="img-carousel img2"
+          [src]="images[4]"
+          alt="Random second slide"
+        />
+        <img
+          class="img-carousel img-resp2"
+          [src]="images[5]"
+          alt="Random first slide"
+        />
+        <img
+          class="img-carousel img-resp2-420"
+          [src]="images[6]"
+          alt="Random first slide"
+        />
+        <img
+          class="img-carousel img-resp2-720"
+          [src]="images[7]"
+          alt="Random first slide"
+        />
       </div>
     </ng-template>
     <ng-template ngbSlide>
       <div class="picsum-img-wrapper">
-        <img class="img-carousel img3" [src]="images[8]" alt="Random third slide">
-        <img class="img-carousel img-resp3" [src]="images[9]" alt="Random first slide">
-        <img class="img-carousel img-resp3-420" [src]="images[10]" alt="Random first slide">
-        <img class="img-carousel img-resp3-720 " [src]="images[11]" alt="Random first slide">
+        <img
+          class="img-carousel img3"
+          [src]="images[8]"
+          alt="Random third slide"
+        />
+        <img
+          class="img-carousel img-resp3"
+          [src]="images[9]"
+          alt="Random first slide"
+        />
+        <img
+          class="img-carousel img-resp3-420"
+          [src]="images[10]"
+          alt="Random first slide"
+        />
+        <img
+          class="img-carousel img-resp3-720"
+          [src]="images[11]"
+          alt="Random first slide"
+        />
       </div>
     </ng-template>
   </ngb-carousel>
   <section class="container-cards1">
-
     <div *ngFor="let produto of produtos">
-      <div class="card" >
+      <div class="card">
         <div class="promo">
           <p class="porcent-promo"><span>25%</span> OFF</p>
           <p class="time-promo">
-            termina em: 
-            <span>{{dias}} {{horas}}:{{minutos}}:{{segundos}}</span>
+            termina em:
+            <span>{{ dias }} {{ horas }}:{{ minutos }}:{{ segundos }}</span>
           </p>
         </div>
         <div class="details">
-          <a routerLink="/produto-detail/{{produto.loja?.idLoja}}" class="img-wrap" data-abc="true">
-            <img src="{{ produto.produtoImagem }}" alt="Imagem de um computador">
+          <a
+            routerLink="/produto-detail/{{ produto.loja?.idLoja }}"
+            class="img-wrap"
+            data-abc="true"
+          >
+            <img
+              src="{{ produto.produtoImagem }}"
+              alt="Imagem de um computador"
+            />
           </a>
-          <a routerLink="/loja-empreendedor/{{produto.loja?.idLoja}}" class="img-wrap" data-abc="true">
-            <p class="nome-produto"> <b>{{produto.loja?.nomeLoja}}</b></p>
+          <a
+            routerLink="/loja-empreendedor/{{ produto.loja?.idLoja }}"
+            class="img-wrap"
+            data-abc="true"
+          >
+            <p class="nome-loja">
+              <b>{{ produto.loja?.nomeLoja }}</b>
+            </p>
           </a>
-          <p class="preco-produto">{{produto.name}}</p>
-          <p class="preco-corte">De: {{produto.produtoValor | currency: "BRL"}}</p>
-          <p class="preco-promo">{{produto.produtoDesconto | currency: "BRL"}}</p>
+          <p class="nome-produto">{{ produto.name }}</p>
+          <p class="preco-corte">
+            De: {{ produto.produtoValor | currency: "BRL" }}
+          </p>
+          <p class="preco-promo">
+            {{ produto.produtoDesconto | currency: "BRL" }}
+          </p>
           <!-- <p class="parcelas">12x de R$ 499,98 sem juros</p> -->
 
-          <button (click)="addToCart(produto)" class="button-card" type="button"><a >ADICIONAR AO
-              CARRINHO</a></button>
+          <button
+            (click)="addToCart(produto)"
+            class="button-card"
+            type="button"
+          >
+            <a>ADICIONAR AO CARRINHO</a>
+          </button>
         </div>
       </div>
     </div>
-
-
   </section>
   <div class="promo-card"></div>
   <section class="informacoes-container">
     <div class="infos-div">
       <div class="infos-1">
-        <img class="info-1-img"
+        <img
+          class="info-1-img"
           src="../../assets/img/icone-cartao.png"
-          alt="Imagem de um cartão">
+          alt="Imagem de um cartão"
+        />
         <h5 class="info-nome">Escolha como pagar</h5>
-        <p class="info-loja">Com o E-comerce, você paga com cartão, boleto ou Pix. Você também pode pagar em até 12x no
-          boleto com o Mercado Crédito.</p>
+        <p class="info-loja">
+          Com o E-comerce, você paga com cartão, boleto ou Pix. Você também pode
+          pagar em até 12x no boleto com o Mercado Crédito.
+        </p>
         <p class="saiba-mais"><a href="#">Saiba mais...</a></p>
       </div>
       <div class="linha"></div>
     </div>
     <div class="infos-div">
-      <div class=" infos-2">
-        <img class="info-2-img"
+      <div class="infos-2">
+        <img
+          class="info-2-img"
           src="../../assets/img/icone-caixa.png"
-          alt="Imagem de uma caixa de entrega">
+          alt="Imagem de uma caixa de entrega"
+        />
         <h5 class="info-nome">Frete grátis a partir de R$ 59</h5>
-        <p class="info-loja">Só por estar cadastrado no E-comerce, você tem frete grátis em milhares de produtos. É um
-          benefício do especial para você.</p>
+        <p class="info-loja">
+          Só por estar cadastrado no E-comerce, você tem frete grátis em
+          milhares de produtos. É um benefício do especial para você.
+        </p>
         <p class="saiba-mais"><a href="#">Saiba mais...</a></p>
       </div>
       <div class="linha"></div>
     </div>
     <div class="infos-div">
-      <div class=" infos-3">
-        <img class="info-3-img"
+      <div class="infos-3">
+        <img
+          class="info-3-img"
           src="../../assets/img/icone-escudo.png"
-          alt="Imagem de um cartão">
+          alt="Imagem de um cartão"
+        />
         <h5 class="info-nome">Segurança, do início ao fim</h5>
-        <p class="info-loja">Não gostou do que comprou? Devolva! Aqui no E-comerce não há nada que você não possa fazer,
-          porque você está sempre protegido.</p>
+        <p class="info-loja">
+          Não gostou do que comprou? Devolva! Aqui no E-comerce não há nada que
+          você não possa fazer, porque você está sempre protegido.
+        </p>
         <p class="saiba-mais"><a href="#">Saiba mais...</a></p>
       </div>
       <div class="linha"></div>
     </div>
     <div class="infos-div">
       <div class="infos-4">
-        <img class="info-4-img"
+        <img
+          class="info-4-img"
           src="../../assets/../assets/img/icone-atendente.png"
-          alt="Imagem de um cartão">
+          alt="Imagem de um cartão"
+        />
         <h5 class="info-nome">Suporte ao Cliente</h5>
-        <p class="info-loja">Atendimento 24h todos os dias para facilitar suas compras, com nossa equipe de Consultores altamente qualificados.</p>
+        <p class="info-loja">
+          Atendimento 24h todos os dias para facilitar suas compras, com nossa
+          equipe de Consultores altamente qualificados.
+        </p>
         <p class="saiba-mais-4"><a href="#">Saiba mais...</a></p>
       </div>
     </div>
