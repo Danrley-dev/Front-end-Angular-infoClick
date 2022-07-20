@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
     const { email, password } = this.loginForm.value;
     localStorage.setItem('email', this.loginForm.value.email);
-    
+
     this.authService.login(email, password).pipe(
       this.toast.observe({
         loading: 'Aguarde',

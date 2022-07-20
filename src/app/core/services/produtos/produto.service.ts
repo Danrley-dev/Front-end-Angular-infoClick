@@ -1,10 +1,12 @@
+
 import { LoadingService } from './../loading/loading.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { from, map, Observable } from 'rxjs';
+import { BehaviorSubject, from, map, Observable, Subject } from 'rxjs';
 import { API_CONFIG } from 'src/app/config/api.config';
 import { Loja } from '../../models/loja';
 import { Produto } from '../../models/produto';
+
 
 
 @Injectable({
@@ -17,7 +19,6 @@ export class ProdutoService {
   private lojaUrl = "http://localhost:8080/service/lojas";
 
   constructor(private http: HttpClient) { }
-
 
   searchProdutos(KeyWord: string): Observable<Produto[]>{
     return this.http.get<Produto[]>(`${this.baseUrl}/buscarPorNome?name=${KeyWord}`).pipe(
@@ -44,6 +45,12 @@ export class ProdutoService {
     );
   }
 
+  delete(id: number): Observable<Produto>{
+    return this.http.delete<Produto>(`${this.baseUrl}/${id}`).pipe(
+      map(response => response),
+    );
+  }
+
   getLojaDetail(id: number): Observable<Loja>{
     return this.http.get<Loja>(`${this.lojaUrl}/find/${id}`).pipe(
       map(response => response),
@@ -60,8 +67,10 @@ export class ProdutoService {
     return this.http.post(`${this.baseUrl}/${id}`,produto).toPromise();
   }
 
-  delete(id: number, produto: Produto) {
-    return (null);
+
+
   }
 
-}
+ 
+
+
