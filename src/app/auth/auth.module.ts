@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { NgxMaskModule } from 'ngx-mask';
 import { LoaderComponent } from '../shared/loader/loader.component';
+import { CadastroEditComponent } from './cadastro-edit/cadastro-edit.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { LoaderComponent } from '../shared/loader/loader.component';
     CadastroComponent,
     LoginComponent,
     RecuperarSenhaComponent,
-    LoaderComponent
+    LoaderComponent,
+    CadastroEditComponent
   ],
   imports: [
     CommonModule,
