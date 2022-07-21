@@ -8,6 +8,7 @@ import { ItemCarrinho } from 'src/app/core/models/item-carrinho';
 import { HotToastService } from '@ngneat/hot-toast';
 import { LojaEditComponent } from '../loja-edit/loja-edit/loja-edit.component';
 import { MatDialog } from '@angular/material/dialog';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 @Component({
   selector: 'app-loja-empreendedor',
@@ -21,6 +22,9 @@ export class LojaEmpreendedorComponent implements OnInit {
   lojas: Loja[] = [];
   opGerencia = false;
   public isCollapsed = true;
+  userEmpreendedor?: boolean;
+  userAdmin?: boolean;
+  userConsumidor?: boolean;
 
   constructor(
     private toast: HotToastService,
@@ -28,7 +32,48 @@ export class LojaEmpreendedorComponent implements OnInit {
     private route: ActivatedRoute,
     private lojaService: LojaService,
     private dialog: MatDialog,
+    private authService: AuthService
   ) { }
+
+
+  isAdmin() {
+    this.authService.userInfo().subscribe(res => {
+      const perfilsBolean = Object.keys(res.perfil!).map(function (key: any) {
+        if (res.perfil![key] == 'ADMIN') {
+          return true
+        }
+        return false;
+      })
+      this.userAdmin = perfilsBolean.includes(true);
+
+   })
+  }
+
+  isEmpreendedor() {
+   this.authService.userInfo().subscribe(res => {
+     const perfilsBolean = Object.keys(res.perfil!).map(function (key: any) {
+       if (res.perfil![key] == 'EMPREENDEDOR') {
+         return true
+       }
+       return false;
+     })
+     this.userEmpreendedor = perfilsBolean.includes(true);
+
+  })
+ }
+
+ isConsumidor() {
+   this.authService.userInfo().subscribe(res => {
+     const perfilsBolean = Object.keys(res.perfil!).map(function (key: any) {
+       if (res.perfil![key] == 'CONSUMIDOR') {
+         return true
+       }
+       return false;
+     })
+     this.userConsumidor = perfilsBolean.includes(true);
+
+  })
+ }
 
   getLojaDetail() {
     const lojaId: number = +this.route.snapshot.paramMap.get('id')!;
@@ -58,6 +103,9 @@ export class LojaEmpreendedorComponent implements OnInit {
 
   ngOnInit(): void {
     this.getLojaDetail();
+    this.isAdmin()
+    this.isEmpreendedor();
+    this.isConsumidor();
   }
 
 }
