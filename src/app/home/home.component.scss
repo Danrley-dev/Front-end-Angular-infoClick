@@ -6,18 +6,6 @@ main {
   object-fit: cover;
 }
 
-.img-resp1,
-.img-resp2,
-.img-resp3,
-.img-resp1-420,
-.img-resp2-420,
-.img-resp3-420,
-.img-resp1-720,
-.img-resp2-720,
-.img-resp3-720 {
-  display: none;
-}
-
 .container-cards1 {
   margin-top: 200px;
   display: flex;
@@ -27,6 +15,75 @@ main {
 
 .card-container {
   height: 540px;
+}
+
+.carousel-control-next,
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 100% 100%;
+  background: blue;
+}
+
+.carousel-control-next-icon {
+  background-color: #ea1010 !important;
+}
+
+.picsum-img-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 100px;
+}
+
+.picsum-img-wrapper h1 {
+  font-size: 80px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.link-banner {
+  text-decoration: none;
+  color: #1f1f1f;
+}
+
+.p1-carousel {
+  width: 645px;
+  height: 155px;
+  font-size: 18px;
+}
+
+.img-2 {
+  width: 400px;
+  height: 320px;
+}
+
+.div-bola-amarela {
+  background-image: url("../../assets/img/bola-amarela.png");
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.div-bola-amarela-2 {
+  background-image: url("../../assets/img/bola-amarela2.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  height: 380px;
+  padding-top: 20px;
+}
+
+.div-bola-amarela-3 {
+  background-image: url("../../assets/img/bola-amarela.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  height: 370px;
+  width: 400px;
+  padding-top: 65px;
+  padding-left: 50px;
 }
 .card {
   margin-bottom: 100px;
@@ -223,6 +280,34 @@ main {
   background-color: #3483fa;
 }
 
+@media (max-width: 1920px) {
+  main {
+    background-image: url("../../assets/img/Fundo-home.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .picsum-img-wrapper {
+    width: 100%;
+  }
+
+  .img-carousel {
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+@media (max-width: 1440px) {
+  .picsum-img-wrapper {
+    width: 100%;
+  }
+
+  .img-carousel {
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
 @media (max-width: 1300px) {
   .picsum-img-wrapper {
     width: 100%;
@@ -230,57 +315,48 @@ main {
 
   .img-carousel {
     object-fit: cover;
-    width: 95%;
+    width: 100%;
   }
 }
 
-@media (max-width: 1050px) {
-  .picsum-img-wrapper {
-    width: 100%;
-  }
-
-  .img-carousel {
-    object-fit: cover;
-    width: 95%;
+@media (max-width: 1070px) {
+  .p1-carousel {
+    width: 500px;
+    height: 155px;
+    font-size: 16px;
   }
 }
 
 @media (max-width: 950px) {
   .picsum-img-wrapper {
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: none;
+    justify-content: center;
+    background-color: #f5f5f5;
+    padding-top: 50px;
   }
 
-  .img-carousel {
-    object-fit: cover;
-    width: 100%;
+  .carousel-info {
+    order: 2;
   }
 
-  .img1,
-  .img2,
-  .img3 {
-    display: none;
+  .div-bola-amarela,
+  .div-bola-amarela-2,
+  .div-bola-amarela-3 {
+    order: 1;
+    margin-left: -70px;
   }
 
-  .img-resp1-720,
-  .img-resp2-720,
-  .img-resp3-720 {
-    display: initial;
-    object-fit: cover;
+  .p1-carousel {
+    text-align: center;
+    height: 200px;
+    font-size: 18px;
+    font-weight: 600;
   }
-
-
 }
 
 @media (max-width: 830px) {
-  .picsum-img-wrapper {
-    width: 100%;
-  }
-
-  .img-carousel {
-    object-fit: cover;
-    width: 100%;
-  }
-
   .promo-card {
     background-size: cover;
     background-repeat: no-repeat;
@@ -306,18 +382,43 @@ main {
   }
 }
 
-@media (max-width: 450px) {
-  .img-resp1-420,
-  .img-resp2-420,
-  .img-resp3-420 {
-    display: initial;
-    object-fit: cover;
+@media (max-width: 530px) {
+  .p1-carousel {
+    text-align: center;
+    height: 200px;
+    width: 400px;
+    font-size: 16px;
+    font-weight: 600;
   }
 
-  .img-resp1-720,
-  .img-resp2-720,
-  .img-resp3-720 {
+  .picsum-img-wrapper h1 {
+    font-size: 50px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .img-2,
+  .img-1,
+  .img-3 {
     display: none;
+  }
+
+  .div-bola-amarela {
+    background-image: url("../../assets/img/Group 86.png");
+    width: 360px;
+    height: 290px;
+  }
+  .div-bola-amarela-2 {
+    background-image: url("../../assets/img/Group 85.png");
+    width: 360px;
+    height: 290px;
+  }
+
+  .div-bola-amarela-3 {
+    background-image: url("../../assets/img/Group 87.png");
+    width: 360px;
+    height: 290px;
   }
 
   .promo-card {
@@ -325,16 +426,12 @@ main {
   }
 }
 
-@media (max-width: 400px) {
-  .img-resp1,
-  .img-resp2,
-  .img-resp3 {
-    display: initial;
-  }
-
-  .img-resp1-420,
-  .img-resp2-420,
-  .img-resp3-420 {
-    display: none;
+@media (max-width: 420px) {
+  .p1-carousel {
+    text-align: center;
+    height: 200px;
+    width: 360px;
+    font-size: 16px;
+    font-weight: 600;
   }
 }
