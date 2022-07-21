@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { ConsumidorService } from 'src/app/core/services/consumidor/consumidor.service';
 import { EmpreendedorService } from 'src/app/core/services/empreendedor/empreendedor.service';
@@ -77,16 +77,19 @@ export class CadastroComponent implements OnInit {
 
   onSubmitConsumidor() {
     this.consumidorService.create(this.consumidorForm.value).subscribe({
-      next: (response) => {
-        this.toast.success('Cadastro consumidor efetuado com sucesso');
-        this.router.navigate(['produtos-list']);
+      next: () => {
+        this.toast.success('Cadastro de consumidor efetuado com sucesso')
+        this.router.navigate(['/'])
+          .then(() => {
+            location.replace(location.href);
+          });
       },
       error: (err) => {
-        switch(err.status){
+        switch (err.status) {
           case 400:
             window.navigator?.vibrate?.(200);
-            for(const element of err.error.errors) {
-              this.errorsI =  this.toast.error(element.message);
+            for (const element of err.error.errors) {
+              this.errorsI = this.toast.error(element.message);
             }
             return this.errorsI;
           case 500:
@@ -95,7 +98,7 @@ export class CadastroComponent implements OnInit {
           default:
             window.navigator?.vibrate?.(200);
             return this.toast.error(
-          `Um erro aconteceu: ${err.error.message ?? 'Verifique sua conexão com a internet'}`)
+              `Um erro aconteceu: ${err.error.message ?? 'Verifique sua conexão com a internet'}`)
         }
       }
     })
@@ -108,11 +111,11 @@ export class CadastroComponent implements OnInit {
         this.router.navigate(['loja-create']);
       },
       error: (erro) => {
-        switch(erro.status){
+        switch (erro.status) {
           case 400:
             window.navigator?.vibrate?.(200);
-            for(const element of erro.error.errors) {
-              this.errorsI =  this.toast.error(element.message);
+            for (const element of erro.error.errors) {
+              this.errorsI = this.toast.error(element.message);
             }
             return this.errorsI;
           case 500:
@@ -121,7 +124,7 @@ export class CadastroComponent implements OnInit {
           default:
             window.navigator?.vibrate?.(200);
             return this.toast.error(
-          `Um erro aconteceu: ${erro.error.message ?? 'Verifique sua conexão com a internet'}`)
+              `Um erro aconteceu: ${erro.error.message ?? 'Verifique sua conexão com a internet'}`)
         }
       }
     })
@@ -134,5 +137,6 @@ export class CadastroComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 }
