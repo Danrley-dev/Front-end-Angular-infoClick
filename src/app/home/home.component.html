@@ -68,7 +68,7 @@
           </div>
           <div class="details">
             <a
-              routerLink="/produto-detail/{{ produto.loja?.idLoja }}"
+              routerLink="/produto-detail/{{ produto.id }}"
               class="img-wrap"
               data-abc="true"
             >
@@ -106,7 +106,9 @@
       </div>
     </div>
   </section>
-  <div class="promo-card"></div>
+  <a href="/produto-list">
+    <div class="promo-card"></div>
+  </a>
   <section class="informacoes-container">
     <div class="infos-div">
       <div class="infos-1">

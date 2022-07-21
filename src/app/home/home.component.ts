@@ -1,4 +1,3 @@
-import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
@@ -21,31 +20,33 @@ export class HomeComponent implements OnInit {
   produtos?: Produto[];
   lojas?: Loja[];
   searchMode?: boolean;
-
-
   dias: number = 19;
   horas: number = 22;
   minutos: number = 14;
   segundos: number = 4;
-
   storage: Storage = localStorage;
+  images = [
+    '../../assets/img/Group 84.png',
+    '../../assets/img/Group 82.png',
+    '../../assets/img/Group 83.png'
+  ]
 
-  images = ['../../assets/img/Group 84.png', '../../assets/img/Group 82.png', '../../assets/img/Group 83.png']
-  constructor(private produtoService: ProdutoService, private carrinhoService: CarrinhoService,
-     private route: ActivatedRoute,
-     private dialog: MatDialog, private toast: HotToastService, private auhtService: AuthService) {
+  constructor(
+    private produtoService: ProdutoService,
+    private carrinhoService: CarrinhoService,
+    private route: ActivatedRoute,
+    private dialog: MatDialog,
+    private toast: HotToastService,
+  ) { }
 
-
-     }
-
-     addToCart(produto: Produto) {
-      const itemCarrinho = new ItemCarrinho(produto);
-      this.carrinhoService.addToCart(itemCarrinho);
-      this.toast.success('Produto adicionado no carrinho!',
+  addToCart(produto: Produto) {
+    const itemCarrinho = new ItemCarrinho(produto);
+    this.carrinhoService.addToCart(itemCarrinho);
+    this.toast.success('Produto adicionado no carrinho!',
       {
         position: 'bottom-right',
       });
-    }
+  }
 
   MostraProdutosNaLoja() {
     forkJoin([this.produtoService.listaProdutos(), this.produtoService.listaLojas()]).subscribe(
@@ -55,7 +56,6 @@ export class HomeComponent implements OnInit {
       }
     );
   }
-
 
   onClickDialogHome(): void {
     setTimeout(() => {
@@ -79,8 +79,6 @@ export class HomeComponent implements OnInit {
     }
   }
 
-
-
   countDown() {
     const x = setInterval(() => {
       if (this.segundos > 0) {
@@ -98,36 +96,24 @@ export class HomeComponent implements OnInit {
         this.minutos = 59;
         this.segundos = 59;
       }
-
       if (
         this.dias === 0 &&
         this.horas === 0 &&
         this.minutos === 0 &&
         this.segundos === 0
       ) {
-
         clearInterval(x);
       }
     }, 1000);
-
   }
 
-
   ngOnInit(): void {
-
-
     this.route.paramMap.subscribe(() => {
       this.handleListaProdutos();
     });
-    // this.handleListaProdutos();
-
+    
     this.MostraProdutosNaLoja();
-
-    console.log(this.auhtService.emailUser);
-    console.log(this.auhtService.roleUser);
-
     this.countDown();
-    // this.onClickDialogHome();
+    this.onClickDialogHome();
   }
-
 }

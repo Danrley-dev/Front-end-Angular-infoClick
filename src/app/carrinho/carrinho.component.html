@@ -25,20 +25,16 @@
               {{
                 tempCartItem.quantidade * tempCartItem.preco_unidade!
                   | currency: "BRL"
-              }}</span
-            >
+              }}</span>
           </p>
-
           <div class="items">
             <label class="text-quantidade">Quantidade:</label>
-
             <div class="row no-gutters">
               <div class="container-quantidade">
                 <div class="col">
                   <button
                     (click)="decrementQuantity(tempCartItem)"
-                    class="btn button-decremento"
-                  >
+                    class="btn button-decremento">
                     <i class="fas fa-minus"></i>
                   </button>
                 </div>
@@ -48,13 +44,11 @@
                 <div class="col">
                   <button
                     (click)="incrementQuantity(tempCartItem)"
-                    class="btn button-incremento"
-                  >
+                    class="btn button-incremento">
                     <i class="fas fa-plus"></i>
                   </button>
                 </div>
               </div>
-
               <button (click)="remove(tempCartItem)" class="btn button-deletar">
                 Deletar
               </button>
@@ -75,7 +69,7 @@
       </p>
       <button class="button-comprar" type="button">COMPRAR</button>
       <button class="button-continuar-comprando" type="button">
-        <a href="#">CONTINUAR COMPRANDO</a>
+        <a href="/produto-list">CONTINUAR COMPRANDO</a>
       </button>
     </div>
   </section>
