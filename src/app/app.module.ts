@@ -23,8 +23,8 @@ import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideFunctions,getFunctions } from '@angular/fire/functions';
 import { provideStorage,getStorage } from '@angular/fire/storage';
-import { LojaEdicaoComponent } from './empreendedor/loja-edicao/loja-edicao.component';
 import { CommonModule } from '@angular/common';
+import { LojaEditComponent } from './empreendedor/loja-edit/loja-edit/loja-edit.component';
 
 
 @NgModule({
@@ -34,8 +34,7 @@ import { CommonModule } from '@angular/common';
     CarrinhoComponent,
     LojaCreateComponent,
     LojaEmpreendedorComponent,
-    LojaEdicaoComponent,
-    
+    LojaEditComponent
   ],
   imports: [
     BrowserModule,

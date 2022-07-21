@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LojaEdicaoComponent } from './loja-edicao.component';
+import { LojaEditComponent } from './loja-edit.component';
 
-describe('LojaEdicaoComponent', () => {
-  let component: LojaEdicaoComponent;
-  let fixture: ComponentFixture<LojaEdicaoComponent>;
+describe('LojaEditComponent', () => {
+  let component: LojaEditComponent;
+  let fixture: ComponentFixture<LojaEditComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LojaEdicaoComponent]
+      declarations: [ LojaEditComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LojaEdicaoComponent);
+    fixture = TestBed.createComponent(LojaEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -23,4 +23,3 @@ describe('LojaEdicaoComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-

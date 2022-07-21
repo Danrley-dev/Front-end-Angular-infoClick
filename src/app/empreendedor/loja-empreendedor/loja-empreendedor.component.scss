@@ -31,23 +31,11 @@ main {
 }
 
 .container-informacoes {
-  width: 777px;
-  height: 245px;
-  // background-color: rgba(255, 255, 255, 0.278);
-  margin: auto;
+  max-width: 600px;
+  max-height: 400px;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding-top: 50px;
-  border-radius: 10px;
-  // box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
-  /* From https://css.glass */
-  /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(3.1px);
-  -webkit-backdrop-filter: blur(3.1px);
+  justify-content:flex-start;
+  margin-left: 5%;
 }
 
 .container-nome-loja {
@@ -264,6 +252,7 @@ main {
 
 @media (max-width: 830px) {
   .container-informacoes {
+    margin-top: 50px;
     width: 500px;
     height: 280px;
   }
@@ -380,7 +369,7 @@ main {
     justify-content: space-evenly;
     align-items: center;
     padding-left: 0px;
-    height: 800px;
+    height: 650px;
   }
 
   .container-informacoes {
@@ -390,6 +379,7 @@ main {
 
 @media (max-width: 424px) {
   .container-informacoes {
+    margin-top: 50px;
     width: 350px;
   }
 }

@@ -1,5 +1,4 @@
 import { CarrinhoService } from 'src/app/core/services/carrinho/carrinho.service';
-import { ProdutoService } from 'src/app/core/services/produtos/produto.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Loja } from '../../core/models/loja';
@@ -7,6 +6,8 @@ import { Produto } from '../../core/models/produto';
 import { LojaService } from 'src/app/core/services/loja/loja.service';
 import { ItemCarrinho } from 'src/app/core/models/item-carrinho';
 import { HotToastService } from '@ngneat/hot-toast';
+import { LojaEditComponent } from '../loja-edit/loja-edit/loja-edit.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-loja-empreendedor',
@@ -24,9 +25,9 @@ export class LojaEmpreendedorComponent implements OnInit {
   constructor(
     private toast: HotToastService,
     private carrinhoService: CarrinhoService,
-    private produtoService: ProdutoService,
     private route: ActivatedRoute,
-    private lojaService: LojaService
+    private lojaService: LojaService,
+    private dialog: MatDialog,
   ) { }
 
   getLojaDetail() {
@@ -37,6 +38,10 @@ export class LojaEmpreendedorComponent implements OnInit {
       }
     )
   }
+
+  openDialog() {
+    this.dialog.open(LojaEditComponent),{width: '640px'};
+   }
 
   addToCart(produto: Produto) {
     const itemCarrinho = new ItemCarrinho(produto);
