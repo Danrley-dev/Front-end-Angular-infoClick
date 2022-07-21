@@ -1,6 +1,20 @@
 .dropbtn {
   display: flex;
-  width: 100%;
+  margin-right: -25px;
+  justify-content: space-evenly;
+  margin-bottom: 0;
+}
+
+.dropbtn-perfil{
+  display: flex;
+  margin-right: -2px;
+  justify-content: space-evenly;
+  margin-bottom: 0;
+}
+
+.dropbtn-admin{
+  display: flex;
+  margin-right: -90px;
   justify-content: space-evenly;
   margin-bottom: 0;
 }

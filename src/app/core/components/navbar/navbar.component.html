@@ -17,8 +17,8 @@
       </div>
       <nav class="navbar" aria-label="" *ngIf="logged; else unlogged">
         <ul>
-          <div class="dropdown">
-            <i *ngIf="userAdmin" class="dropbtn">
+          <div  class="dropdown">
+            <i  *ngIf="userAdmin" class="dropbtn-admin">
               <mat-icon>person</mat-icon> ADMIN
             </i>
             <div class="dropdown-content">
@@ -32,15 +32,14 @@
             </i>
             <div class="dropdown-content">
               <a href="#"> <mat-icon>perm_identity</mat-icon> Perfil </a>
-              <a href="#"> <mat-icon>add_shopping_cart</mat-icon>Criar loja </a>
               <a href="loja-empreendedor/:id">
                 <mat-icon>meeting_room</mat-icon>Minha loja
               </a>
             </div>
           </div>
           <div class="dropdown">
-            <a href="#">
-              <i *ngIf="userConsumidor" class="dropbtn">
+            <a href="./cadastro-edit">
+              <i *ngIf="userConsumidor" class="dropbtn-perfil">
                 <mat-icon>person</mat-icon>MEU PERFIL
               </i>
             </a>
@@ -146,7 +145,7 @@
                 </a>
               </li>
               <li *ngIf="userConsumidor">
-                <a href="#">
+                <a href="./cadastro-edit">
                   <i> <mat-icon>person</mat-icon> MEU PERFIL </i>
                 </a>
               </li>
