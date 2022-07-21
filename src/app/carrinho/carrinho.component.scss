@@ -46,6 +46,7 @@ a {
   display: flex;
   flex-direction: column;
   width: 300px;
+  padding-left: 5px;
 }
 .nome-produto {
   font-weight: 600;
@@ -113,13 +114,14 @@ span {
   width: 260px;
   border-radius: 5px;
   margin-top: 10px;
-  margin-left: 8px;
+  margin-left: 15px;
 }
 
 @media(max-width: 1080px) {
   .produtos {
     height: 350px;
   }
+
 }
 
 @media(max-width: 915px) {
@@ -133,6 +135,7 @@ span {
   }
   .button-deletar {
     width: 200px;
+    margin-left: 15px;
   }
 }
 
@@ -148,13 +151,15 @@ span {
   }
 
   .button-deletar {
-    width: 160px;
+    width: 180px;
+    margin-left: 21px;
   }
 
   .container-dados {
     width: 34vw;
     height: 280px;
   }
+
   .button-comprar {
     width: 180px;
     height: 40px;
@@ -263,6 +268,7 @@ span {
 
  .button-deletar {
   width: 160px;
+  margin-left: 25px;
 }
 
  .produtos img {
