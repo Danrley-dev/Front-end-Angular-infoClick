@@ -35,6 +35,9 @@
               <a [routerLink]="['/loja-empreendedor/:id']">
                 <mat-icon>meeting_room</mat-icon>Minha loja
               </a>
+              <a [routerLink]="['/loja-create']">
+                <i> <mat-icon>add_shopping_cart</mat-icon>CRIAR LOJA </i>
+              </a>
             </div>
           </div>
           <div class="dropdown">
@@ -135,7 +138,7 @@
                 </a>
               </li>
               <li *ngIf="userEmpreendedor">
-                <a [routerLink]="['/#']">
+                <a [routerLink]="['/loja-create']">
                   <i> <mat-icon>add_shopping_cart</mat-icon>CRIAR LOJA </i>
                 </a>
               </li>

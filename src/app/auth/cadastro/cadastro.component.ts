@@ -79,7 +79,7 @@ export class CadastroComponent implements OnInit {
     this.consumidorService.create(this.consumidorForm.value).subscribe({
       next: () => {
         this.toast.success('Cadastro de consumidor efetuado com sucesso')
-        this.router.navigate(['/'])
+        this.router.navigate(['/login'])
           .then(() => {
             location.replace(location.href);
           });
