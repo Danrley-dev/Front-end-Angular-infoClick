@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
-import { delay, EMPTY, Observable, tap } from 'rxjs';
 import { Consumidor, Empreendedor } from 'src/app/core/models/pessoa';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { ConsumidorService } from 'src/app/core/services/consumidor/consumidor.service';
@@ -15,24 +14,17 @@ import { EmpreendedorService } from 'src/app/core/services/empreendedor/empreend
 })
 export class CadastroEditComponent implements OnInit {
 
-
   ocultar = true;
-  foto?: File;
-  icon?: string = 'upload';
   errorsI?: any;
   mudar: boolean = true;
   loading = true;
-  idConsumidor!: number;
-  idEmpreendedor!: number;
+
+  idConsumidor?: number;
+  idEmpreendedor?: number;
 
   userConsumidor!: boolean;
   userEmpreendedor!: boolean;
   userAdmin!: boolean;
-
-  consumidor$?: Observable<Consumidor[]> = EMPTY;
-  empreendedor$?: Observable<Empreendedor[]> = EMPTY;
-
-
 
   constructor(
     private fb: FormBuilder,
@@ -41,14 +33,11 @@ export class CadastroEditComponent implements OnInit {
     private toast: HotToastService,
     private router: Router,
     private authService: AuthService,
-    private route: ActivatedRoute
   ) { }
-
-
 
   consumidorForm = this.fb.group(
     {
-      id: [null],
+      id: [this.idConsumidor],
       nome: [null],
       cpf: [null, Validators.maxLength(14)],
       email: [null, [Validators.required, Validators.email]],
@@ -65,7 +54,7 @@ export class CadastroEditComponent implements OnInit {
 
   empreendedorForm = this.fb.group(
     {
-      id: [null],
+      id: [this.idEmpreendedor],
       nome: [null],
       cnpj: [null, Validators.maxLength(25)],
       email: [null, [Validators.required, Validators.email]],
@@ -80,19 +69,6 @@ export class CadastroEditComponent implements OnInit {
       numero: [null]
     }
   );
-
-  isAdmin() {
-    this.authService.userInfo().subscribe(res => {
-      const perfilsBolean = Object.keys(res.perfil!).map(function (key: any) {
-        if (res.perfil![key] == 'ADMIN') {
-          return true
-        }
-        return false;
-      })
-      this.userAdmin = perfilsBolean.includes(true);
-
-   })
-  }
 
   isConsumidor() {
     const containsConsumidor = this.authService.userInfo().subscribe(res => {
@@ -119,7 +95,6 @@ export class CadastroEditComponent implements OnInit {
     })
    }
 
-
   onSubmitConsumidor() {
 
     const consumidor: Consumidor = {
@@ -127,7 +102,7 @@ export class CadastroEditComponent implements OnInit {
     }
     const ref = this.toast.loading('Atualizando seus dados...');
 
-    this.consumidorService.update(this.idConsumidor, consumidor).subscribe({
+    this.consumidorService.update(this.idConsumidor!, consumidor).subscribe({
       next: () => {
         ref.close();
         this.toast.success('Dados atualizado com sucesso!');
@@ -163,7 +138,7 @@ export class CadastroEditComponent implements OnInit {
     }
     const ref = this.toast.loading('Atualizando seus dados...');
 
-    this.empreendedorService.update(this.idEmpreendedor, empreendedor).subscribe({
+    this.empreendedorService.update(this.idEmpreendedor!, empreendedor).subscribe({
       next: () => {
         ref.close();
         this.toast.success('Dados atualizado com sucesso!');
@@ -191,36 +166,12 @@ export class CadastroEditComponent implements OnInit {
     );
   }
 
-  setImage(ev: any) {
-    this.mudar = !this.mudar;
-    this.foto = ev.target.files[0];
-  }
-
-
-  resultadoConsumidor = false;
-  resultadoEmpreendedor = false;
-
   ngOnInit(): void {
+    
+  this.empreendedorService.getEmpreendorIdByEmail(localStorage.getItem('email')!).subscribe((idEmpreendedor => {
+        this.idEmpreendedor = idEmpreendedor
 
-  this.empreendedor$ = this.empreendedorService.findAll().pipe(delay(500), tap(()=> {
-    this.resultadoEmpreendedor = true;
-  }));
-
-
-  this.consumidor$ = this.consumidorService.findAll().pipe(delay(500), tap(()=> {
-    this.resultadoConsumidor = true;
-  }));
-
-  this.consumidorService.getConsumidorIdByEmail(localStorage.getItem('email')!).subscribe((idConsumidor => {
-    this.idConsumidor = idConsumidor;
-  }));
-
-    this.empreendedorService.getEmpreendorIdByEmail(localStorage.getItem('email')!).subscribe((idEmpreendedor => {
-      this.idEmpreendedor = idEmpreendedor;
-    }));
-
-    const idE = this.route.snapshot.params['id'];
-    this.empreendedorService.findById(idE).subscribe({
+    this.empreendedorService.findById(this.idEmpreendedor).subscribe({
       next: (empreendedor) => {
         empreendedor.password = '';
         this.empreendedorForm.patchValue(empreendedor);
@@ -228,14 +179,27 @@ export class CadastroEditComponent implements OnInit {
       },
       error: (err) => {
         this.loading = false;
-
-
       },
     });
+}))
 
-    this.isAdmin();
+this.consumidorService.getConsumidorIdByEmail(localStorage.getItem('email')!).subscribe((idConsumidor => {
+    this.idConsumidor = idConsumidor
+
+    this.consumidorService.findById(this.idConsumidor).subscribe({
+      next: (consumidor) => {
+        consumidor.password = '';
+        this.consumidorForm.patchValue(consumidor);
+        this.loading = false;
+      },
+      error: (err) => {
+        this.loading = false;
+      },
+    });
+}))
+
     this.isConsumidor();
     this.isEmpreendedor();
-  }
+}
 
 }
