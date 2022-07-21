@@ -22,9 +22,10 @@ export class ConsumidorService {
     return this.http.get<Consumidor[]>(this.consumidorUrl);
   }
 
-  findById(id: number): Observable<number> {
-    return this.http.get<number>(`${this.consumidorUrl}/${id}`);
+  findById(id: number): Observable<Consumidor> {
+    return this.http.get<Consumidor>(`${this.consumidorUrl}/${id}`);
   }
+  
   create(consumidor: Consumidor){
     return this.http.post(this.consumidorUrl, consumidor);
   }
