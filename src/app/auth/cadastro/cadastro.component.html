@@ -224,7 +224,7 @@
         </mat-form-field>
       </div>
         <button mat-raised-button color="black" class="btn btn-dark" [disabled]="empreendedorForm.invalid">Enviar</button>
-        <span class="loginLink"><a href="/login">Já sou cadastrado</a></span>
+        <span class="loginLink"><a [routerLink]="['/login']">Já sou cadastrado</a></span>
     </form>
   </ng-template>
   <!-- TEMPLATE FIM-->

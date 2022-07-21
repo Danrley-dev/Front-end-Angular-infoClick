@@ -1,7 +1,7 @@
 <div class="trancatela">
   <header>
     <section class="header">
-      <a href="/"
+      <a  [routerLink]="['/']"
         ><img src="assets/img/logo-infoclick.png" class="logo" alt=""
       /></a>
       <div class="search">
@@ -22,8 +22,8 @@
               <mat-icon>person</mat-icon> ADMIN
             </i>
             <div class="dropdown-content">
-              <a href="/admin"> <mat-icon>devices</mat-icon> Painel </a>
-              <a href="#"> <mat-icon>dashboard</mat-icon> Dashboard </a>
+              <a  [routerLink]="['/admin']"> <mat-icon>devices</mat-icon> Painel </a>
+              <a  [routerLink]="['/#']"> <mat-icon>dashboard</mat-icon> Dashboard </a>
             </div>
           </div>
           <div class="dropdown">
@@ -31,26 +31,26 @@
               <mat-icon>person</mat-icon> EMPREENDEDOR
             </i>
             <div class="dropdown-content">
-              <a href="#"> <mat-icon>perm_identity</mat-icon> Perfil </a>
-              <a href="loja-empreendedor/:id">
+              <a [routerLink]="['/cadastro-edit']"> <mat-icon>perm_identity</mat-icon> Editar Perfil </a>
+              <a [routerLink]="['/loja-empreendedor/:id']">
                 <mat-icon>meeting_room</mat-icon>Minha loja
               </a>
             </div>
           </div>
           <div class="dropdown">
-            <a href="./cadastro-edit">
+            <a  [routerLink]="['/cadastro-edit']">
               <i *ngIf="userConsumidor" class="dropbtn-perfil">
                 <mat-icon>person</mat-icon>MEU PERFIL
               </i>
             </a>
           </div>
           <li>
-            <a href="/produtos-list"
+            <a  [routerLink]="['/produtos-list']"
               ><i class="bi bi-pc-display"></i>PRODUTOS</a
             >
           </li>
           <li class="carrinho-li">
-            <a href="/carrinho">
+            <a  [routerLink]="['/carrinho']">
               <mat-icon
                 class="bi bi-cart3"
                 matBadge="{{ totalQuantity }}"
@@ -62,7 +62,7 @@
           </li>
           <li class="logout-li">
             <a
-              href="/login "
+              [routerLink]="['/login']"
               mat-list-item
               (click)="logout()"
               matTooltip="Logout"
@@ -80,20 +80,20 @@
         <nav class="navbar" aria-label="">
           <ul>
             <li>
-              <a href="/produtos-list"
+              <a [routerLink]="['/produtos-list']"
                 ><i class="bi bi-pc-display"></i>PRODUTOS</a
               >
             </li>
             <li>
-              <a href="/cadastro"
+              <a [routerLink]="['/cadastro']" href=""
                 ><i class="bi bi-card-checklist"></i>CADASTRO</a
               >
             </li>
             <li>
-              <a href="/login"><i class="bi bi-person-circle"></i>LOGIN</a>
+              <a [routerLink]="['/login']"><i class="bi bi-person-circle"></i>LOGIN</a>
             </li>
             <li>
-              <a href="/carrinho">
+              <a [routerLink]="['/carrinho']">
                 <mat-icon
                   class="bi bi-cart3"
                   style="margin-top: -4.8px; margin-left: -7px"
@@ -120,42 +120,42 @@
           <nav aria-label="" *ngIf="logged; else unlogged">
             <ul class="ul-menu-hamburguer">
               <li *ngIf="userAdmin">
-                <a href="/admin">
+                <a [routerLink]="['/admin']">
                   <i> <mat-icon> devices</mat-icon> PAINEL </i>
                 </a>
                 <br />
-                <a href="#">
+                <a [routerLink]="['/#']">
                   <i> <mat-icon>dashboard</mat-icon> DASHBOARD </i>
                 </a>
               </li>
 
               <li *ngIf="userEmpreendedor">
-                <a href="#">
+                <a [routerLink]="['/#']">
                   <i> <mat-icon>perm_identity</mat-icon> PERFIL </i>
                 </a>
               </li>
               <li *ngIf="userEmpreendedor">
-                <a href="#">
+                <a [routerLink]="['/#']">
                   <i> <mat-icon>add_shopping_cart</mat-icon>CRIAR LOJA </i>
                 </a>
               </li>
               <li *ngIf="userEmpreendedor">
-                <a href="loja-empreendedor/:id">
+                <a [routerLink]="['/loja-empreendedor/:id']">
                   <i> <mat-icon>meeting_room</mat-icon>MINHA LOJA </i>
                 </a>
               </li>
               <li *ngIf="userConsumidor">
-                <a href="./cadastro-edit">
+                <a [routerLink]="['/cadastro-edit']">
                   <i> <mat-icon>person</mat-icon> MEU PERFIL </i>
                 </a>
               </li>
               <li>
-                <a href="/produtos-list" class="a-produtos"
+                <a [routerLink]="['/produtos-list']" class="a-produtos"
                   ><i class="bi bi-pc-display"></i>PRODUTOS</a
                 >
               </li>
               <li>
-                <a class="a-carrinho" href="/carrinho">
+                <a class="a-carrinho" [routerLink]="['/carrinho']" href="">
                   <mat-icon
                     class="bi bi-cart3"
                     matBadge="{{ totalQuantity }}"
@@ -167,7 +167,7 @@
                 </a>
               </li>
               <li class="logout">
-                <a href="/login " class="a-logout" (click)="logout()">
+                <a [routerLink]="['/login']" class="a-logout" (click)="logout()">
                   <i class="material-icons">logout</i>
                   <span>LOGOUT</span>
                 </a>
@@ -177,12 +177,12 @@
           <ng-template #unlogged>
             <ul>
               <li>
-                <a href="/produtos-list"
+                <a [routerLink]="['/produtos-list']"
                   ><i class="bi bi-pc-display"></i>PRODUTOS</a
                 >
               </li>
               <li>
-                <a href="/carrinho">
+                <a [routerLink]="['/carrinho']">
                   <mat-icon
                     class="bi bi-cart3"
                     matBadge="{{ totalQuantity }}"
@@ -194,12 +194,12 @@
                 </a>
               </li>
               <li>
-                <a href="/cadastro"
+                <a [routerLink]="['/cadastro']"
                   ><i class="bi bi-card-checklist"></i>CADASTRO</a
                 >
               </li>
               <li>
-                <a href="/login"><i class="bi bi-person-circle"></i>LOGIN</a>
+                <a [routerLink]="['/login']"><i class="bi bi-person-circle"></i>LOGIN</a>
               </li>
             </ul>
           </ng-template>
