@@ -7,17 +7,13 @@ import { Loja } from '../../models/loja';
   providedIn: 'root'
 })
 export class LojaService {
-
-    private lojaUrl = "http://localhost:8080/service/lojas";
+  private lojaUrl = "http://localhost:8080/service/lojas";
 
   constructor(private http: HttpClient) { }
 
   listaLojas(): Observable<Loja[]>{
     return this.http.get<Loja[]>(this.lojaUrl);
   }
-
-
-
 
   getLojaId(id: number): Observable<Loja>{
     return this.http.get<Loja>(`${this.lojaUrl}/find/${id}`).pipe(
@@ -37,6 +33,10 @@ export class LojaService {
     return this.http.delete<Loja>(`${this.lojaUrl}/find/${id}`).pipe(
       map(response => response),
     );
+  }
+
+  update(id: number, loja: Loja) {
+    return this.http.put(`${this.lojaUrl}/${id}`, loja);
   }
 
 }

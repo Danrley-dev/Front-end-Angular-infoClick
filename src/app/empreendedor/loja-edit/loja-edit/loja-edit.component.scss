@@ -1,0 +1,202 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-form-field {
+    width: 430px;
+    border-radius: 5px;
+}
+
+
+.form-align mat-label {
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+    margin-bottom: 25px;
+    margin-right: 5px;
+    width: 20px;
+}
+
+.form-align {
+    width: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 19px;
+}
+
+.upload {
+    max-height: 69px;
+    padding: 35px 0px;
+    display: flex;
+    justify-content: center;
+    border: 0.5px solid #d4d9dd;
+    border-radius: 4px;
+    width: 82.5%;
+    margin-top: 0px;
+}
+
+.bi-cloud-plus {
+    font-size: 30px;
+}
+
+.btn-dark {
+    font-size: 20px;
+    color: #f5b93c;
+    margin-top: 30px;
+    margin-bottom: 7%;
+    margin-left: 40%;
+    width: 120px;
+    height: 60px;
+}
+
+.label-align {
+    margin-right: 20px;
+    margin-top: 25px;
+}
+
+.done {
+    font-size: 40px;
+}
+
+.uploader-status ::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+    stroke: #f5b93c;
+}
+
+@media only screen and (max-width: 1200px) {
+    .upload {
+        margin-top: 0px;
+        width: 82.5%;
+    }
+
+    .btn-dark {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .form-align {
+        padding: 0px 30px 0px 30px;
+    }
+
+    .upload {
+        margin-top: 0px;
+        max-height: 69px;
+        padding: 35px 0px;
+        width: 430px;
+    }
+
+
+    .btn-dark {
+        text-align: center;
+    }
+
+
+    mat-form-field {
+        width: 430px;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    mat-label {
+        display: flex;
+        align-items: flex-end;
+        justify-content: end;
+        margin-bottom: 25px;
+        width: 70px;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow-y: hidden;
+    }
+
+    .label-align {
+        width: 80px;
+    }
+
+    mat-form-field {
+        width: 300px;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    mat-label {
+        display: flex;
+        align-items: flex-end;
+        justify-content: end;
+        margin-left: 60px;
+        margin-bottom: 25px;
+        width: 80px;
+    }
+
+    .form-align {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 380px;
+        margin: 0 20px;
+        padding: 0;
+    }
+
+    .form-align #cloud {
+        padding: 35px 0;
+        margin: 0;
+        width: 300px;
+    }
+
+    .btn-dark {
+        text-align: center;
+    }
+
+    .upload {
+        margin-top: 0px;
+        height: 69px;
+        padding: 35px 0px;
+        width: 295px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .container {
+        width: 350px;
+        display: block;
+    }
+
+    mat-form-field {
+        width: 300px;
+    }
+
+    .form-align {
+        width: 300px;
+        display: flex;
+        align-items: center;
+    }
+
+    .form-align #cloud {
+        padding: 35px 0;
+        margin: 0;
+        width: 300px;
+    }
+
+    .upload {
+        max-height: 50px;
+        padding: 15px 0px;
+        width: 295px;
+    }
+
+    .btn-dark {
+        text-align: center;
+    }
+
+}
