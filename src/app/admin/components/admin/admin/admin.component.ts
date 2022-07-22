@@ -1,3 +1,4 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { CarrinhoService } from './../../../../core/services/carrinho/carrinho.service';
 import { Pessoa, Empreendedor } from './../../../../core/models/pessoa';
 import { LojaService } from 'src/app/core/services/loja/loja.service';
@@ -31,7 +32,10 @@ export class AdminComponent implements OnInit {
     private produtoService: ProdutoService,
     private lojaService: LojaService,
     private pessoaService: PessoaService,
-    private carrinhoService: CarrinhoService
+    private carrinhoService: CarrinhoService,
+    private router: Router,
+    private route: ActivatedRoute
+
   ) {}
 
   listaProdutos() {
@@ -68,8 +72,12 @@ deletarLoja(id: number) {
   );
 }
 
+editarProduto (id: number) {
+
+    this.router.navigate(['edit', id], { relativeTo: this.route });
 
 
+}
 
 
   ngOnInit(): void {

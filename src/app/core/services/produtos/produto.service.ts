@@ -20,6 +20,12 @@ export class ProdutoService {
 
   constructor(private http: HttpClient) { }
 
+  getById(id: number){
+    return this.http.get<Produto>(`${this.baseUrl}/${id}`).pipe(
+      map(response => response),
+    );
+  }
+
   searchProdutos(KeyWord: string): Observable<Produto[]>{
     return this.http.get<Produto[]>(`${this.baseUrl}/buscarPorNome?name=${KeyWord}`).pipe(
       map(response => response),
@@ -68,9 +74,14 @@ export class ProdutoService {
   }
 
 
+  update(id: number, produto: Produto): Promise<any>{
+    return this.http.put(`${this.baseUrl}/${id}`,produto).toPromise();
+  }
+
+
 
   }
 
- 
+
 
 

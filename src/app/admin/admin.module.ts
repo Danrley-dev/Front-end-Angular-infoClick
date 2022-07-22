@@ -3,17 +3,29 @@ import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './components/admin/admin/admin.component';
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { EditsComponent } from './components/edits/edits/edits.component';
+import { MaterialModule } from '../shared/material.module';
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 
 @NgModule({
   declarations: [
-    AdminComponent
+    AdminComponent,
+    EditsComponent
+
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
-  ]
+    AdminRoutingModule,
+    MaterialModule,
+    NgbCollapseModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ]
 })
 export class AdminModule { }
