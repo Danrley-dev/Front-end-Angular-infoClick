@@ -25,7 +25,6 @@ export class ProdutoCreateComponent implements OnInit {
   mudar: boolean = true;
   urlImagem: any = "";
 
-
   constructor(
     private fb: FormBuilder,
     private lojaService: LojaService,
@@ -33,8 +32,7 @@ export class ProdutoCreateComponent implements OnInit {
     private router: Router,
     private produtoService: ProdutoService,
     private uploadService: UploadImgService
-  ) { }
-
+    ) { }
 
   cadastrarProduto = this.fb.group({
     name: ['', [Validators.required,]],

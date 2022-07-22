@@ -26,7 +26,7 @@ export class LojaService {
   }
 
   findLojaById(email: string): Observable<number>{
-    return this.http.get<number>(`${this.lojaUrl}/${email}`)
+    return this.http.get<number>(`${this.lojaUrl}/findLojaID/${email}`)
   }
 
   delete(id: number): Observable<Loja>{
