@@ -101,7 +101,7 @@
                         <td> <a ><span
                               class="bi bi-trash"
                               style="color: red"
-                              (click)="deletarProduto(produto.id!)"
+                              (click)="deletarProdutoModal(produto)"
                             ></span
                           ></a>
                         </td>
@@ -214,3 +214,12 @@
     </div>
   </div>
 </section>
+
+
+<ng-template #deleteModal>
+  <div class="modal-body text-center">
+    <p>Deseja deletar esse Produto?</p>
+    <button type="button" class="btn btn-default" (click)="confirmaDelete()">Sim</button>
+    <button type="button" class="btn btn-primary" (click)="naoDeletar()" >Não</button>
+  </div>
+</ng-template>
