@@ -18,6 +18,7 @@ import { AuthLogadoGuard } from './auth/guards/auth-logado/auth-logado.guard';
 import { AuthGuard } from './auth/guards/auth/auth.guard';
 import { RoleAdminGuard } from './auth/guards/roleAdmin/role-admin.guard';
 import { CadastroEditComponent } from './auth/cadastro-edit/cadastro-edit.component';
+import { EditsComponent } from './admin/components/edits/edits/edits.component';
 
 const routes: Routes = [
   {
@@ -27,7 +28,17 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
-    canActivate: [RoleAdminGuard],
+    // canActivate: [RoleAdminGuard],
+  },
+  {
+    path: 'edit',
+    component: EditsComponent,
+    // canActivate: [RoleAdminGuard],
+  },
+  {
+    path: 'admin/edit/:id',
+    component: EditsComponent,
+    // canActivate: [RoleAdminGuard],
   },
   {
     path: 'cadastro',

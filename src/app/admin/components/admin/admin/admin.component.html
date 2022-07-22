@@ -89,6 +89,7 @@
                         <th>Nome</th>
                         <th>Loja</th>
                         <th>Deletar</th>
+                        <th>Editar</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -97,18 +98,20 @@
                         <td>{{ produto.id }}</td>
                         <td>{{ produto.name }}</td>
                         <td>{{ produto.loja?.nomeLoja }}</td>
-                        <td>
-                          <a
-                            ><span
+                        <td> <a ><span
                               class="bi bi-trash"
                               style="color: red"
                               (click)="deletarProduto(produto.id!)"
                             ></span
                           ></a>
-                          <!-- <button type="button" class="btn btn-danger" (click)="deletarProduto(produto.id!)">
-                            <i class="fas fa-trash"></i>
-                          </button> -->
                         </td>
+                        <td>
+                          <a ><span
+                              class="bi bi-pencil"
+                              style="color: blue"
+                              (click)="editarProduto(produto.id!)"
+                            ></span
+                          ></a>
                       </tr>
                     </tbody>
                   </table>

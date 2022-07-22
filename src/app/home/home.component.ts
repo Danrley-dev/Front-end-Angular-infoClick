@@ -111,9 +111,9 @@ export class HomeComponent implements OnInit {
     this.route.paramMap.subscribe(() => {
       this.handleListaProdutos();
     });
-    
+
     this.MostraProdutosNaLoja();
     this.countDown();
-    this.onClickDialogHome();
+    // this.onClickDialogHome();
   }
 }
