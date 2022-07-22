@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CarrinhoService } from '../../services/carrinho/carrinho.service';
 import { HotToastService } from '@ngneat/hot-toast';
+import { EmpreendedorService } from '../../services/empreendedor/empreendedor.service';
 
 @Component({
   selector: 'app-navbar',
@@ -20,13 +21,16 @@ export class NavbarComponent implements OnInit {
   userEmpreendedor?: boolean;
   userAdmin?: boolean;
   userConsumidor?: boolean;
+  idEmpreendedor?:number;
   role = this.authService.userRole();
 
   constructor(
     private carrinhoService: CarrinhoService,
     private router: Router,
     private authService: AuthService,
-    private toast: HotToastService) { }
+    private toast: HotToastService,
+    private empreendedorService: EmpreendedorService
+    ) { }
 
 
     isAdmin() {
@@ -97,7 +101,14 @@ export class NavbarComponent implements OnInit {
     this.menuHamburguer = !this.menuHamburguer;
   }
 
+  rota(){
+    this.router.navigate([`/loja-empreendedor/${this.idEmpreendedor}`])
+  }
+
   ngOnInit(): void {
+    this.empreendedorService.getEmpreendorIdByEmail(localStorage.getItem('email')!).subscribe((idEmpreendedor => {
+      this.idEmpreendedor = idEmpreendedor
+    }))
     this.updateCartStatus();
     this.logged = this.authService.isAuthenticated;
     this.email = this.authService.getEmail();

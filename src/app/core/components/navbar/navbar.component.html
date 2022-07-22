@@ -22,7 +22,7 @@
               <mat-icon>person</mat-icon> ADMIN
             </i>
             <div class="dropdown-content">
-              <a  [routerLink]="['/admin']"> <mat-icon>devices</mat-icon> Painel </a>
+              <a  href="/admin"> <mat-icon>devices</mat-icon> Painel </a>
               <a  [routerLink]="['/#']"> <mat-icon>dashboard</mat-icon> Dashboard </a>
             </div>
           </div>
@@ -31,13 +31,9 @@
               <mat-icon>person</mat-icon> EMPREENDEDOR
             </i>
             <div class="dropdown-content">
-              <a [routerLink]="['/cadastro-edit']"> <mat-icon>perm_identity</mat-icon> Editar Perfil </a>
-              <a [routerLink]="['/loja-empreendedor/:id']">
-                <mat-icon>meeting_room</mat-icon>Minha loja
-              </a>
-              <a [routerLink]="['/loja-create']">
-                <i> <mat-icon>add_shopping_cart</mat-icon>CRIAR LOJA </i>
-              </a>
+              <a [routerLink]="['/cadastro-edit']" class="btn"> <mat-icon>perm_identity</mat-icon> Editar Perfil </a>
+                <a (click)="rota()" class="btn"> <mat-icon>meeting_room</mat-icon>Minha loja </a>
+              <a [routerLink]="['/loja-create']" class="btn"> <i> <mat-icon>add_shopping_cart</mat-icon>Criar loja </i></a>
             </div>
           </div>
           <div class="dropdown">
@@ -123,7 +119,7 @@
           <nav aria-label="" *ngIf="logged; else unlogged">
             <ul class="ul-menu-hamburguer">
               <li *ngIf="userAdmin">
-                <a [routerLink]="['/admin']">
+                <a href="/admin">
                   <i> <mat-icon> devices</mat-icon> PAINEL </i>
                 </a>
                 <br />

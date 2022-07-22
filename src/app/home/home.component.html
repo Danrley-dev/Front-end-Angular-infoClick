@@ -60,7 +60,7 @@
       <div class="card-container">
         <div class="card">
           <div class="promo">
-            <p class="porcent-promo"><span>25%</span> OFF</p>
+            <p class="porcent-promo"><span>{{produto.produtoDesconto}}%</span> OFF</p>
             <p class="time-promo">
               termina em:
               <span>{{ dias }} {{ horas }}:{{ minutos }}:{{ segundos }}</span>
@@ -80,20 +80,19 @@
             <a
               routerLink="/loja-empreendedor/{{ produto.loja?.idLoja }}"
               class="img-wrap"
-              data-abc="true"
-            >
+              data-abc="true">
               <p class="nome-loja">
                 <b>{{ produto.loja?.nomeLoja }}</b>
               </p>
             </a>
             <p class="nome-produto">{{ produto.name }}</p>
             <p class="preco-corte">
-              De: {{ produto.produtoValor | currency: "BRL" }}
+              De: {{  produto.produtoValor! + produto.produtoDesconto! | currency: "BRL" }}
             </p>
             <p class="preco-promo">
-              {{ produto.produtoDesconto | currency: "BRL" }}
+              {{ produto.produtoValor | currency: "BRL" }}
             </p>
-            <!-- <p class="parcelas">12x de R$ 499,98 sem juros</p> -->
+
             <button
               (click)="addToCart(produto)"
               class="button-card"

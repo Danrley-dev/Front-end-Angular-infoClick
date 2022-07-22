@@ -6,6 +6,15 @@ main {
   object-fit: cover;
 }
 
+::ng-deep .carousel-control-prev-icon{
+  background-image: url('https://www.svgrepo.com/show/87550/next.svg');
+  transform: rotate(180deg);
+ }
+ 
+ ::ng-deep .carousel-control-next-icon{
+  background-image: url('https://www.svgrepo.com/show/87550/next.svg');
+ }
+
 .container-cards1 {
   margin-top: 200px;
   display: flex;
