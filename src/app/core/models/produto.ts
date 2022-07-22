@@ -5,6 +5,7 @@ export class Produto {
   id?: number;
   name!: string;
   produtoValor?: number;
+  produtoAntigoValor?: number;
   produtoDescricao?: string;
   categoria?: string;
   produtoEstoque?: number;

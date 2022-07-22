@@ -43,7 +43,7 @@
     <div *ngFor="let produto of produtos" class="container-card">
       <div class="card">
         <div class="promo">
-          <p class="porcent-promo"><span>25%</span> OFF</p>
+          <p class="porcent-promo"><span>{{produto.produtoDesconto}}%</span> OFF</p>
           <p class="time-promo">
             termina em:
             <span>9 dias 12:21:21</span>
@@ -71,10 +71,10 @@
           </a>
           <p class="nome-produto">{{ produto.name }}</p>
           <p class="preco-corte">
-            De: {{ produto.produtoValor | currency: "BRL" }}
+            De: {{ produto.produtoAntigoValor | currency: "BRL" }}
           </p>
           <p class="preco-promo">
-            {{ produto.produtoDesconto | currency: "BRL" }}
+            {{ produto.produtoValor | currency: "BRL" }}
           </p>
           <!-- <p class="parcelas">12x de R$ 499,98 sem juros</p> -->
 
