@@ -87,7 +87,7 @@
             </a>
             <p class="nome-produto">{{ produto.name }}</p>
             <p class="preco-corte">
-              De: {{  produto.produtoValor! + produto.produtoDesconto! | currency: "BRL" }}
+              De: {{  produto.produtoAntigoValor | currency: "BRL" }}
             </p>
             <p class="preco-promo">
               {{ produto.produtoValor | currency: "BRL" }}
