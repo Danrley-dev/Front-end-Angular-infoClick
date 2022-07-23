@@ -1,3 +1,4 @@
+import { Consumidor } from 'src/app/core/models/pessoa';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CarrinhoService } from './../../../../core/services/carrinho/carrinho.service';
 import { Pessoa, Empreendedor } from './../../../../core/models/pessoa';
@@ -10,6 +11,8 @@ import { Loja } from 'src/app/core/models/loja';
 import { PessoaService } from 'src/app/core/services/pessoa/pessoa.service';
 import { ItemCarrinho } from 'src/app/core/models/item-carrinho';
 import { NgbAlertModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ConsumidorService } from 'src/app/core/services/consumidor/consumidor.service';
+import { EmpreendedorService } from 'src/app/core/services/empreendedor/empreendedor.service';
 
 @Component({
   selector: 'app-admin',
@@ -18,17 +21,24 @@ import { NgbAlertModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AdminComponent implements OnInit {
   produtos?: Produto[];
+  produtoss?: Produto;
   lojas?: Loja[];
+  consumidores?: Consumidor[];
   pessoas?: Pessoa[];
   empreendedor?: Empreendedor[];
   somar?: number;
   carrinho?: any;
 
+
   aba: string = 'home';
   deleteModalRef!: NgbModal;
   @ViewChild('deleteModal') deleteModal: any;
+  @ViewChild('deleteModalEmpreendedor') deleteModalEmpreendedor: any;
+  @ViewChild('deleteModalConsumidor') deleteModalConsumidor: any;
 
   deletaIdProduto?: Produto;
+  deletaIdEmpreendedor?: Empreendedor;
+  deletaIdConsumidor?: Consumidor;
 
 
 
@@ -41,9 +51,26 @@ export class AdminComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private alertService: NgbAlertModule,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private consumidoresService: ConsumidorService,
+    private empreendedorService: EmpreendedorService
+  ) { }
 
-  ) {}
+
+
+listaConsumidores(){
+  this.consumidoresService.findAll().subscribe((response) => {
+    this.consumidores = response;
+  });
+}
+
+listaEmpreendedor() {
+  this.empreendedorService.findAll().subscribe((response) => {
+    this.empreendedor = response;
+  }
+  );
+}
+
 
   listaProdutos() {
     this.produtoService.listaProdutos().subscribe((response) => {
@@ -64,13 +91,30 @@ export class AdminComponent implements OnInit {
   }
 
 deletarProdutoModal(produto: Produto) {
-    this.deletaIdProduto = produto;
+  this.deletaIdProduto = produto;
   return this.modalService.open(this.deleteModal, { size: 'sm' });
+}
+
+deletarConsumidorModal(consumidor: Consumidor) {
+  this.deletaIdConsumidor = consumidor;
+  return this.modalService.open(this.deleteModalConsumidor, { size: 'sm' });
+}
+
+deletarEmpreendedorModal (empreendedor: Empreendedor) {
+  this.deletaIdEmpreendedor = empreendedor;
+  return this.modalService.open(this.deleteModalEmpreendedor, { size: 'sm' });
 }
 
 deletarLoja(id: number) {
   this.lojaService.delete(id).subscribe((response) => {
     this.listaLojas();
+  }
+  );
+}
+
+deletaCosumidor(id: number) {
+  this.consumidoresService.delete(id).subscribe((response) => {
+    this.listaConsumidores();
   }
   );
 }
@@ -81,6 +125,8 @@ onRefresh() {
   this.listaPessoas();
 }
 
+
+// deletes
 confirmaDelete() {
   this.produtoService.delete(this.deletaIdProduto?.id!)
   .subscribe(
@@ -90,30 +136,69 @@ confirmaDelete() {
         this.modalService.dismissAll();
       }
     },
-
-
-
   );
 }
 
+confirmaDeleteEmpreendedor() {
+  this.empreendedorService.delete(this.deletaIdEmpreendedor?.id!)
+  .subscribe(
+    {
+      next: () => {
+        this.listaEmpreendedor();
+        this.modalService.dismissAll();
+      }
+    },
+  );
+}
+
+confirmaDeleteConsumidor() {
+  this.consumidoresService.delete(this.deletaIdConsumidor?.id!)
+  .subscribe(
+    {
+      next: () => {
+        this.listaConsumidores();
+        this.modalService.dismissAll();
+      }
+    },
+  );
+}
+// fim delete
+
+
+editarUsuario(id: number) {
+    this.router.navigate(['edit', id], { relativeTo: this.route });
+}
+
+// nao deleta produto
 naoDeletar() {
   this.modalService.dismissAll();
 }
 
 editarProduto (id: number) {
-
     this.router.navigate(['edit', id], { relativeTo: this.route });
-
-
 }
+
+
+editarEmpreendedor(id: number) {
+  this.router.navigate(['cadastro-edit', id], { relativeTo: this.route });
+}
+
+editarConsumidor(id: number) {
+
+  this.router.navigate(['consumidor-edit', id], { relativeTo: this.route });
+}
+
+
+
+
+
 
 
   ngOnInit(): void {
     this.listaProdutos();
     this.listaLojas();
     this.listaPessoas();
-
-
-
+    this.listaEmpreendedor();
+    this.listaConsumidores();
   }
 }

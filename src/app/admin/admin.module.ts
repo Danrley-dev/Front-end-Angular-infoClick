@@ -8,6 +8,8 @@ import { EditsComponent } from './components/edits/edits/edits.component';
 import { MaterialModule } from '../shared/material.module';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditConsumidorComponent } from './components/edit-consumidor/edit-consumidor/edit-consumidor.component';
+
 
 
 
@@ -15,7 +17,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AdminComponent,
-    EditsComponent
+    EditsComponent,
+    EditConsumidorComponent,
+
 
   ],
   imports: [

@@ -94,8 +94,8 @@
   </section>
   <!-- TEMPLATE INICIO-->
   <ng-template #empreendedor >
-   
-    <form  [formGroup]="empreendedorForm" (ngSubmit)="onSubmitEmpreendedor()" class="caixa-form">
+
+    <form  [formGroup]="empreendedorForm" (ngSubmit)="onSubmitEmpreendedor(); onSubmitAdminEmpreendedor()"  class="caixa-form">
       <div class=" form-align">
         <mat-label class="form-label">Nome</mat-label>
         <mat-form-field class="caixa-input" appearance="outline">
