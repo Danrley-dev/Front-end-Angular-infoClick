@@ -63,8 +63,7 @@ export class CarrinhoService {
 
     for (let currentCartItem of this.cartItems) {
       totalPriceValue += currentCartItem.quantidade * currentCartItem.preco_unidade!;
-      totalQuantityValue += currentCartItem.quantidade;
-    }
+      totalQuantityValue += currentCartItem.quantidade;    }
 
     // publish the new values ... all subscribers will receive the new data
     this.totalPrice.next(totalPriceValue);
@@ -79,6 +78,7 @@ export class CarrinhoService {
   persistCartItems() {
     this.storage.setItem('cartItems', JSON.stringify(this.cartItems));
   }
+
 
   logCartData(totalPriceValue: number, totalQuantityValue: number) {
 

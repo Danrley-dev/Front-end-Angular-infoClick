@@ -1,0 +1,99 @@
+<main class="trancatela">
+  <div class="container-fluid">
+  <section class="caixa-principal">
+    <section>
+      <div class="header">
+        <div class="titulo">
+          <h4>Meu Perfil</h4>
+          <p>Editar meus dados</p>
+        </div>
+        <span class="iconUser">
+          <i class="bi bi-person-circle"></i>
+        </span>
+      </div>
+    </section>
+    <hr>
+    <div >
+    <form [formGroup]="consumidorForm" (ngSubmit)="onSubmitAdminConsumdir()" class="caixa-form">
+      <div class=" form-align">
+        <mat-label class="form-label">Nome</mat-label>
+        <mat-form-field class="caixa-input" appearance="outline">
+          <input matInput placeholder="Nome completo" formControlName="nome" type="text">
+        </mat-form-field>
+      </div>
+      <div class=" form-align">
+        <mat-label class="form-label">CPF</mat-label>
+        <mat-form-field class="caixa-input" appearance="outline">
+          <input matInput mask="000.000.000-00"  placeholder="Informe seu CPF" formControlName="cpf" type="text">
+          <mat-error *ngIf="consumidorForm.get('cpf')?.errors?.['maxlength']">Máximo 14 digitos</mat-error>
+        </mat-form-field>
+      </div>
+      <div class=" form-align">
+        <mat-label  class="form-label">Email</mat-label>
+        <mat-form-field class="caixa-input" appearance="outline">
+          <input matInput placeholder="Digite seu email" formControlName="email" type="email" required="email">
+          <mat-error *ngIf="consumidorForm.get('email')?.errors?.['required']">Campo obrigatório</mat-error>
+          <mat-error *ngIf="consumidorForm.get('email')?.errors?.['email']">exemplo@exemplo.com</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-align align-414">
+        <mat-label  class="form-label">Senha</mat-label>
+        <mat-form-field class="caixa-input" appearance="outline">
+          <input matInput [type]="ocultar ? 'password' : 'text'" placeholder="Sua senha" formControlName="password" type="password" required>
+          <mat-error *ngIf="consumidorForm.get('password')?.errors?.['minlength']">Mínimo 8 dígitos</mat-error>
+
+        </mat-form-field>
+      </div>
+      <div class=" form-align">
+        <mat-label  class="form-label">Celular</mat-label>
+        <mat-form-field class="caixa-input" appearance="outline">
+          <input matInput mask="(00) 00000-0000" placeholder="(XX) X XXXX-XXXX" formControlName="celular" type="text">
+          <mat-error *ngIf="consumidorForm.get('celular')?.errors?.['maxlength']">Máximo 13 digitos</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-align">
+        <mat-label  class="form-label">CEP</mat-label>
+        <mat-form-field class="caixa-input" appearance="outline">
+          <input matInput mask="00000-000" placeholder="ex.: 03259-000" formControlName="cep" type="text">
+          <mat-error *ngIf="consumidorForm.get('cep')?.errors?.['maxlength']">Máximo 9 digitos</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-align">
+        <mat-label  class="form-label">Estado</mat-label>
+        <mat-form-field class="caixa-input" appearance="outline">
+          <input matInput placeholder="ex.: São Paulo" formControlName="estado" type="text">
+        </mat-form-field>
+      </div>
+      <div class="form-align">
+        <mat-label  class="form-label">Cidade</mat-label>
+        <mat-form-field class="caixa-input" appearance="outline">
+          <input matInput placeholder="ex.: São Paulo" formControlName="cidade" type="text">
+        </mat-form-field>
+      </div>
+      <div class="form-align">
+        <mat-label  class="form-label">Bairro</mat-label>
+        <mat-form-field class="caixa-input" appearance="outline">
+          <input matInput placeholder="ex.: Mooca" formControlName="bairro" type="text">
+        </mat-form-field>
+      </div>
+      <div class="form-align ruaNum">
+        <mat-label  class="form-label">Rua</mat-label>
+        <mat-form-field class="caixa-input" appearance="outline">
+          <input matInput placeholder="ex.: Rua taquari" formControlName="rua" type="text">
+        </mat-form-field>
+        </div>
+      <div class="form-align ruaNum">
+        <mat-label  class="form-label">Nº</mat-label>
+        <mat-form-field class="caixa-input" appearance="outline">
+          <input matInput placeholder="ex.: nº 7" formControlName="numero" type="text">
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="black" class="btn btn-dark" [disabled]="consumidorForm.invalid">Salvar</button>
+    </form>
+  </div>
+  </section>
+
+</div>
+</main>
+
+

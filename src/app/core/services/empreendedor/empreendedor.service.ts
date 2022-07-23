@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { API_CONFIG } from 'src/app/config/api.config';
 import { Empreendedor } from '../../models/pessoa';
 
@@ -32,4 +32,15 @@ export class EmpreendedorService {
   update(id: number, empreendedor: Empreendedor) {
     return this.http.put(`${this.empreendedorUrl}/${id}`, empreendedor);
   }
+
+  updateAdmin(id: number, empreendedor: Empreendedor): Promise<any>{
+    return this.http.put(`${this.empreendedorUrl}/${id}`,empreendedor).toPromise();
+  }
+
+  delete(id: number): Observable<Empreendedor>{
+    return this.http.delete<Empreendedor>(`${this.empreendedorUrl}/${id}`).pipe(
+      map(response => response),
+    );
+  }
+
 }

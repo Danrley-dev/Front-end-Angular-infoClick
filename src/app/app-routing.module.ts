@@ -19,11 +19,22 @@ import { AuthGuard } from './auth/guards/auth/auth.guard';
 import { RoleAdminGuard } from './auth/guards/roleAdmin/role-admin.guard';
 import { CadastroEditComponent } from './auth/cadastro-edit/cadastro-edit.component';
 import { EditsComponent } from './admin/components/edits/edits/edits.component';
+import { EditConsumidorComponent } from './admin/components/edit-consumidor/edit-consumidor/edit-consumidor.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'admin/consumidor-edit/:id',
+    component: EditConsumidorComponent,
+    // canActivate: [RoleAdminGuard],
+  },
+  {
+    path: 'admin/cadastro-edit/:id',
+    component: CadastroEditComponent,
+    // canActivate: [RoleAdminGuard],
   },
   {
     path: 'admin',
