@@ -1,0 +1,100 @@
+<main class="trancatela">
+    <div class="container">
+        <section class="caixa-principal mat-elevation-z8">
+            <section>
+                <h4>ATUALIZE O PRODUTO </h4>
+            </section>
+            <form [formGroup]="produtoForm" (ngSubmit)="onSubmit()">
+                <div class=" form-align">
+                    <mat-label class="form-label">Nome </mat-label>
+                    <mat-form-field class="caixa-input" appearance="outline">
+                        <input matInput placeholder="Nome do Produto" formControlName="name" type="text"
+                            required="name">
+                        <mat-error *ngIf="produtoForm.get('name')?.errors?.['required']">Campo obrigatório</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class=" form-align">
+                    <mat-label class="form-label">Descrição</mat-label>
+                    <mat-form-field class="caixa-input" appearance="outline">
+                        <textarea matInput placeholder="Descrição do Produto" formControlName="produtoDescricao"
+                            type="text" required="produtoDescricao"></textarea>
+                        <mat-error *ngIf="produtoForm.get('produtoDescricao')?.errors?.['required']">Campo obrigatório
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class=" form-align">
+                    <mat-label class="form-label">Categoria </mat-label>
+                    <mat-form-field class="caixa-input" appearance="outline">
+                        <mat-select placeholder="Categoria do Produto" name="categoriaProduto"
+                            formControlName="categoria" required="categoria">
+                            <mat-option [value]="1">Hardware</mat-option>
+                            <mat-option [value]="2">Software</mat-option>
+                            <mat-option [value]="3">Ambos</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="produtoForm.get('categoria')?.errors?.['required']">Campo obrigatório
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-align">
+                    <mat-label class="form-label">Estoque </mat-label>
+                    <mat-form-field class="caixa-input" appearance="outline">
+                        <input matInput placeholder="Estoque do Produto" formControlName="produtoEstoque" type="number"
+                            required="produtoEstoque">
+                        <mat-error *ngIf="produtoForm.get('produtoEstoque')?.errors?.['required']">Campo obrigatório
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class=" form-align">
+                    <mat-label class="form-label">Status </mat-label>
+                    <mat-form-field class="caixa-input" appearance="outline">
+                        <mat-select placeholder="Status do Produto" name="status" formControlName="status"
+                            required="status">
+                            <mat-option [value]="0">Ativo</mat-option>
+                            <mat-option [value]="1">Inativo</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="produtoForm.get('status')?.errors?.['required']">Campo obrigatório</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class=" form-align">
+                    <mat-label class="form-label">Valor</mat-label>
+                    <mat-form-field class="caixa-input" appearance="outline">
+                        <input matInput placeholder="Valor do Produto" formControlName="produtoValor" type="number"
+                            min="0" max="999999" step="0.01" required="produtoValor">
+                        <mat-error *ngIf="produtoForm.get('produtoValor')?.errors?.['required']">Campo obrigatório
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-align">
+                    <mat-label class="form-label">Desconto </mat-label>
+                    <mat-form-field class="caixa-input" appearance="outline">
+                        <input matInput placeholder="Desconto do Produto" formControlName="produtoDesconto"
+                            type="number" min="0" max="999999" step="0.01" required="produtoDesconto">
+                        <mat-error *ngIf="produtoForm.get('produtoDesconto')?.errors?.['required']">Campo obrigatório
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class=" form-align">
+                    <mat-label for="imagem" class="label-align form-label imagemProd">Imagem</mat-label>
+                    <input class="btn form-align upload" id="cloud" (change)="setImage($event)" #imagem type="file"
+                        formControlName="produtoImagem" name="produtoImagem" hidden>
+                    <button class="btnCheck btn form-align upload" (click)="imagem.click()" type="button"
+                        mat-raised-button>
+                        <span *ngIf="!carregando; else loading">
+                            <i class="bi bi-cloud-plus" *ngIf="mudar; else upload"></i>
+                        </span>
+                        <ng-template #upload>
+                            <mat-icon class="done">done</mat-icon>
+                        </ng-template>
+                        <ng-template #loading>
+                            <div class="uploader-status">
+                                <mat-spinner diameter="45" customSpinner></mat-spinner>
+                            </div>
+                        </ng-template>
+                    </button>
+                </div>
+                <button mat-raised-button color="black" class="btn btn-dark"
+                    [disabled]="produtoForm.invalid">Enviar</button>
+            </form>
+        </section>
+    </div>
+</main>

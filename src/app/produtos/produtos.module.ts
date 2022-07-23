@@ -9,13 +9,15 @@ import { ProdutoCreateComponent } from './components/produto-create/produto-crea
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SharedModule } from '../shared/shared.module';
+import { ProdutoUpdateComponent } from './components/produto-update/produto-update.component';
 
 
 @NgModule({
   declarations: [
     ProdutoDetailComponent,
     ProdutosListComponent,
-    ProdutoCreateComponent
+    ProdutoCreateComponent,
+    ProdutoUpdateComponent,
   ],
   imports: [
     CommonModule,
@@ -29,6 +31,7 @@ import { SharedModule } from '../shared/shared.module';
   exports: [
     ProdutoDetailComponent,
     ProdutoCreateComponent,
+    ProdutoUpdateComponent
   ]
 })
 export class ProdutosModule { }

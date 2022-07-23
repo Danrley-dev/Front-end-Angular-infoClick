@@ -18,11 +18,11 @@
   </body>
   <h2 class="titulo">Todos os Produtos</h2>
   <section>
-    <div class="menu" *ngIf="userEmpreendedor">
-      <button class="button-opcoes" (click)="clickOpcoes()">
+    <div class="menu" *ngIf="opGerencia">
+      <button class="button-opcoes">
         <i class="bi bi-list menu-hamburguer"></i>GERENCIAR<i class="bi bi-caret-down-fill arrow"></i>
       </button>
-      <ul *ngIf="opGerencia" class="lista-opcoes">
+      <ul class="lista-opcoes" *ngIf="opGerencia">
         <li class="adicionar">
           <a [routerLink]="['/produto-create']"><i class="bi bi-plus-circle"></i><span>ADICIONAR</span> PRODUTO</a>
         </li>
@@ -33,8 +33,8 @@
     </div>
   </section>
   <section>
-    <div class="menu-mobile" *ngIf="userEmpreendedor">
-      <button class="button-opcoes-mobile" (click)="clickOpcoes()">
+    <div class="menu-mobile" *ngIf="opGerencia">
+      <button class="button-opcoes-mobile">
         <i class="bi bi-list menu-hamburguer-mobile"></i>
       </button>
       <ul *ngIf="opGerencia" class="lista-opcoes-mobile">
@@ -51,7 +51,12 @@
     <div *ngFor="let itens of loja.produtos">
       <div class="card">
         <div class="promo">
+          <a *ngIf="opGerencia" (click)="editarProduto(itens.id!)">
+            <mat-icon class="inconEdit" style="font-size: 30px">edit</mat-icon>
+          </a>
           <p class="porcent-promo">{{ itens.categoria }}</p>
+          <a *ngIf="opGerencia" class="old" (click)="deletarProdutoModal(itens)"><i class="bi bi-trash"
+              style="font-size: 25px;"></i></a>
         </div>
         <div class="details">
           <a routerLink="/produto-detail/{{ itens.id }}" class="img-wrap" data-abc="true">
@@ -73,4 +78,11 @@
       </div>
     </div>
   </section>
+  <ng-template #deleteModal>
+    <div class="modal-body text-center">
+      <p>Deseja deletar esse Produto?</p>
+      <button type="button" class="btn btn-default" (click)="confirmaDelete()">Sim</button>
+      <button type="button" class="btn btn-primary" (click)="naoDeletar()">Não</button>
+    </div>
+  </ng-template>
 </main>

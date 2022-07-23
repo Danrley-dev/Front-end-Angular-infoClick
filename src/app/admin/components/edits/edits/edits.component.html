@@ -12,9 +12,6 @@
             <mat-error *ngIf="produtoForm.get('name')?.errors?.['required']">Campo obrigatório</mat-error>
           </mat-form-field>
         </div>
-
-
-
         <div class=" form-align">
           <mat-label class="form-label">Descrição</mat-label>
           <mat-form-field class="caixa-input" appearance="outline">
@@ -24,13 +21,11 @@
             </mat-error>
           </mat-form-field>
         </div>
-
-
         <div class=" form-align">
           <mat-label class="form-label">Categoria </mat-label>
           <mat-form-field class="caixa-input" appearance="outline">
             <mat-select placeholder="Categoria do Produto" name="categoriaProduto" formControlName="categoria"
-              required="categoria" >
+              required="categoria">
               <mat-option [value]="1">Hardware</mat-option>
               <mat-option [value]="2">Software</mat-option>
               <mat-option [value]="3">Ambos</mat-option>
@@ -39,9 +34,6 @@
             </mat-error>
           </mat-form-field>
         </div>
-
-
-
         <div class="form-align">
           <mat-label class="form-label">Estoque </mat-label>
           <mat-form-field class="caixa-input" appearance="outline">
@@ -51,7 +43,6 @@
             </mat-error>
           </mat-form-field>
         </div>
-
         <div class=" form-align">
           <mat-label class="form-label">Status </mat-label>
           <mat-form-field class="caixa-input" appearance="outline">
@@ -62,8 +53,6 @@
             <mat-error *ngIf="produtoForm.get('status')?.errors?.['required']">Campo obrigatório</mat-error>
           </mat-form-field>
         </div>
-
-
         <div class=" form-align">
           <mat-label class="form-label">Valor</mat-label>
           <mat-form-field class="caixa-input" appearance="outline">
@@ -72,7 +61,6 @@
             <mat-error *ngIf="produtoForm.get('produtoValor')?.errors?.['required']">Campo obrigatório</mat-error>
           </mat-form-field>
         </div>
-
         <div class="form-align">
           <mat-label class="form-label">Desconto </mat-label>
           <mat-form-field class="caixa-input" appearance="outline">
@@ -84,12 +72,12 @@
         </div>
         <div class=" form-align">
           <mat-label for="imagem" class="label-align form-label imagemProd">Imagem</mat-label>
-          <input class="btn form-align upload" id="cloud" (change)="setImage($event)" #imagem type="file" formControlName="produtoImagem" name="produtoImagem"
-            hidden>
+          <input class="btn form-align upload" id="cloud" (change)="setImage($event)" #imagem type="file"
+            formControlName="produtoImagem" name="produtoImagem" hidden>
           <button class="btnCheck btn form-align upload" (click)="imagem.click()" type="button" mat-raised-button>
-          <span *ngIf="!carregando; else loading">
-            <i class="bi bi-cloud-plus" *ngIf="mudar; else upload"></i>
-          </span>
+            <span *ngIf="!carregando; else loading">
+              <i class="bi bi-cloud-plus" *ngIf="mudar; else upload"></i>
+            </span>
             <ng-template #upload>
               <mat-icon class="done">done</mat-icon>
             </ng-template>
@@ -100,12 +88,8 @@
             </ng-template>
           </button>
         </div>
-        <button mat-raised-button color="black" class="btn btn-dark"
-          [disabled]="produtoForm.invalid">Enviar</button>
+        <button mat-raised-button color="black" class="btn btn-dark" [disabled]="produtoForm.invalid">Enviar</button>
       </form>
     </section>
   </div>
 </main>
-
-
-
