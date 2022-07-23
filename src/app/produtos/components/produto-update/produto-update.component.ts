@@ -36,8 +36,10 @@ export class ProdutoUpdateComponent implements OnInit {
     categoria: ['', [Validators.required]],
     produtoEstoque: ['', [Validators.required]],
     status: ['', [Validators.required]],
+    promocaoStatus: [null],
     produtoValor: ['', [Validators.required,]],
     produtoDesconto: ['', [Validators.required]],
+    dataLimitePromocao: [null],
     produtoImagem: [null]
   });
 
@@ -48,8 +50,10 @@ export class ProdutoUpdateComponent implements OnInit {
       categoria: this.produtoForm.value.categoria,
       produtoEstoque: this.produtoForm.value.produtoEstoque,
       status: this.produtoForm.value.status,
+      promocaoStatus: this.produtoForm.value.promocaoStatus,
       produtoValor: this.produtoForm.value.produtoValor,
       produtoDesconto: this.produtoForm.value.produtoDesconto,
+      dataLimitePromocao: this.produtoForm.value.dataLimitePromocao,
       produtoImagem: this.urlImagem,
     }
     this.produtoService.update(this.id!, PRODUTO).then(() => {
@@ -107,8 +111,10 @@ export class ProdutoUpdateComponent implements OnInit {
             categoria: produto.categoria,
             produtoEstoque: produto.produtoEstoque,
             status: produto.status,
+            promocaoStatus: produto.promocaoStatus,
             produtoValor: produto.produtoValor,
             produtoDesconto: produto.produtoDesconto,
+            dataLimitePromocao: produto.dataLimitePromocao,
             produtoImagem: produto.produtoImagem
           })
         }
