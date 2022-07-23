@@ -1,0 +1,319 @@
+main {
+
+  background-size: contain;
+  background-color: #F5F5F5;
+  // padding: 50px 0;
+  background-repeat: no-repeat;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.caixa-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 730px;
+  font-size: 20px;
+  border-bottom: 1px solid #bac2c5;
+  border-left: 1px solid #bac2c5;
+  border-right: 1px solid #bac2c5;
+  border-radius: 0px 0px 15px 15px;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+h4 {
+  font-size: 25px;
+  color: #f5b93c;
+  font-weight: bold;
+  margin: auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.caixa-input {
+  width: 430px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.form-align mat-label {
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
+  margin-bottom: 25px;
+  margin-right: 5px;
+  width: 20px;
+}
+
+input, mat-select {
+  margin-bottom: 9px;
+}
+
+.form-align {
+  width: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 19px;
+}
+
+.upload {
+  max-height: 69px;
+  padding: 35px 0px;
+  display: flex;
+  justify-content: center;
+  border: 0.5px solid #d4d9dd;
+  border-radius: 4px;
+  width: 82.5%;
+  margin-top: 0px;
+}
+
+.bi-cloud-plus {
+  font-size: 30px;
+}
+
+.btn-dark {
+  font-size: 20px;
+  color: #f5b93c;
+  margin-top: 25px;
+  margin-bottom: 7%;
+  margin-left: 40%;
+  width: 120px;
+  height: 60px;
+  align-items: center;
+}
+
+.label-align {
+  margin: 25px 20px 0 0;
+
+}
+
+.done {
+  font-size: 40px;
+}
+
+.uploader-status ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #f5b93c;
+}
+
+
+@media only screen and (max-width: 1200px) {
+  .caixa-principal {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 623.781px;
+      border-bottom: 1px solid #bac2c5;
+      border-left: 1px solid #bac2c5;
+      border-right: 1px solid #bac2c5;
+      border-radius: 0px 0px 15px 15px;
+      margin-top: 15px;
+  }
+
+  .upload {
+      margin-top: 0px;
+      width: 82.5%;
+  }
+
+  .btn-dark {
+      margin-bottom: 7%;
+      margin-left: 20.7%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .caixa-principal {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 675px;
+      border-bottom: 1px solid #bac2c5;
+      border-left: 1px solid #bac2c5;
+      border-right: 1px solid #bac2c5;
+      border-radius: 0px 0px 15px 15px;
+      color: #000000;
+      padding: 0 50px;
+  }
+
+  .form-align {
+      padding: 0px 30px 0px 30px;
+  }
+
+  .upload {
+      margin-top: 0px;
+      max-height: 69px;
+      padding: 35px 0px;
+  }
+
+  .btn-dark {
+      margin-left: 15.5%;
+  }
+
+  .caixa-input {
+      width: 430px;
+      margin: 0px;
+      padding: 0px;
+  }
+
+  .form-align mat-label {
+      display: flex;
+      align-items: flex-end;
+      justify-content: end;
+      margin-bottom: 25px;
+      width: 70px;
+  }
+
+}
+
+@media only screen and (max-width: 650px) {
+
+  main {
+      background-image: none;
+      background-color: #f5f5f5;
+  }
+
+  .caixa-principal {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 580px;
+      border-bottom: 1px solid #bac2c5;
+      border-left: 1px solid #bac2c5;
+      border-right: 1px solid #bac2c5;
+      color: #000000;
+      border-radius: 0px 0px 15px 15px;
+  }
+
+  .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+  }
+
+  .label-align {
+      width: 80px;
+  }
+
+  .caixa-input {
+      width: 300px;
+      margin: 0px;
+      padding: 0px;
+  }
+
+  .form-align mat-label {
+      display: flex;
+      align-items: flex-end;
+      justify-content: end;
+      margin-left: 60px;
+      margin-bottom: 25px;
+      width: 80px;
+  }
+
+  .form-align {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 380px;
+      margin: 0 20px;
+      padding: 0;
+  }
+
+  .form-align #cloud {
+      padding: 35px 0;
+      margin: 0;
+      width: 300px;
+  }
+
+  .btn-dark {
+      margin-left: 16%;
+  }
+
+  .upload {
+      margin-top: 0px;
+      max-height: 69px;
+      padding: 35px 0px;
+  }
+}
+
+@media only screen and (max-width: 415px) {
+
+  main {
+      background-image: none;
+      background-color: #f5f5f5;
+  }
+
+  .caixa-principal {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 360px;
+      border-bottom: 1px solid #bac2c5;
+      border-left: 1px solid #bac2c5;
+      border-right: 1px solid #bac2c5;
+      color: #000000;
+      margin-left: 0;
+      margin-right: 0;
+      border-radius: 0px 0px 15px 15px;
+  }
+
+  .container {
+      width: 350px;
+  }
+
+  .caixa-input {
+      width: 300px;
+      margin: 0px;
+      padding: 0px;
+  }
+
+  .form-align mat-label {
+      display: flex;
+      align-items: flex-end;
+      justify-content: end;
+      margin-bottom: 25px;
+
+      width: 70px;
+  }
+
+  .label-align {
+      width: 50px;
+  }
+
+  .form-align {
+      padding-left: 0px;
+      padding-right: 0px;
+      width: 300px;
+      display: flex;
+      align-items: center;
+  }
+
+  .form-align #cloud {
+      padding: 35px 0;
+      margin: 0;
+      width: 300px;
+  }
+
+  .upload {
+      margin-top: 0px;
+      max-height: 69px;
+      padding: 15px 0px;
+  }
+
+  .btn-dark {
+      margin-left: 32%;
+      height: 60px;
+  }
+
+}
+
+
+

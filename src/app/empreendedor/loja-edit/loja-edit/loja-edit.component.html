@@ -1,45 +1,44 @@
 <div class="trancatela">
     <div class="container">
-            <form [formGroup]="lojaForm" (ngSubmit)="onSubmitloja()">
-                <div class=" form-align">
-                    <mat-label class="form-label">Nome</mat-label> <br>
-                    <mat-form-field appearance="outline">
-                        <input matInput placeholder="Novo nome" formControlName="nomeLoja" type="text">
-                    </mat-form-field>
-                </div>
-                <div class=" form-align">
-                    <mat-label class="form-label">Descrição</mat-label> <br>
-                    <mat-form-field appearance="outline">
-                        <textarea matInput placeholder="Nova Descrição" formControlName="descricaoLoja" type="text"></textarea>
-                    </mat-form-field>
-                </div>
-                <div class=" form-align">
-                    <mat-label class="form-label">Cor</mat-label> <br>
-                    <mat-form-field appearance="outline">
-                        <input matInput type="color" formControlName="corDeFundo">
-                    </mat-form-field>
-                </div>
-                <div class=" form-align">
-                    <mat-label for="foto" class="label-align form-label">Imagem</mat-label>
-                    <input class="btn form-align upload" id="cloud" (change)="setImage($event)" #foto type="file"
-                        formControlName="imagemLoja" name="imagemLoja" hidden>
-                    <button class="btnCheck btn form-align upload" (click)="foto.click()" type="button"
-                        mat-raised-button>
-                        <span *ngIf="!carregando; else loading">
-                          <i class="bi bi-cloud-plus" *ngIf="mudar; else upload"></i>
-                        </span>
-                          <ng-template #upload >
-                            <mat-icon class="done">done</mat-icon>
-                          </ng-template>
-                          <ng-template #loading>
-                            <div class="uploader-status">
-                              <mat-spinner diameter="45" customSpinner></mat-spinner>
-                            </div>
-                          </ng-template>
-                    </button>
-                </div>
-                <button mat-raised-button class="btn btn-dark"
-                    [disabled]="lojaForm.invalid">Enviar</button>
-            </form>
+        <form [formGroup]="lojaForm" (ngSubmit)="onSubmitloja()">
+            <div class=" form-align">
+                <mat-label class="form-label">Nome</mat-label> <br>
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="Novo nome" formControlName="nomeLoja" type="text">
+                </mat-form-field>
+            </div>
+            <div class=" form-align">
+                <mat-label class="form-label">Descrição</mat-label> <br>
+                <mat-form-field appearance="outline">
+                    <textarea matInput placeholder="Nova Descrição" formControlName="descricaoLoja"
+                        type="text"></textarea>
+                </mat-form-field>
+            </div>
+            <div class=" form-align">
+                <mat-label class="form-label">Cor</mat-label> <br>
+                <mat-form-field appearance="outline">
+                    <input matInput type="color" formControlName="corDeFundo">
+                </mat-form-field>
+            </div>
+            <div class=" form-align">
+                <mat-label for="foto" class="label-align form-label">Imagem</mat-label>
+                <input class="btn form-align upload" id="cloud" (change)="setImage($event)" #foto type="file"
+                    formControlName="imagemLoja" name="imagemLoja" hidden>
+                <button class="btnCheck btn form-align upload" (click)="foto.click()" type="button" mat-raised-button>
+                    <span *ngIf="!carregando; else loading">
+                        <i class="bi bi-cloud-plus" *ngIf="mudar; else upload"></i>
+                    </span>
+                    <ng-template #upload>
+                        <mat-icon class="done">done</mat-icon>
+                    </ng-template>
+                    <ng-template #loading>
+                        <div class="uploader-status">
+                            <mat-spinner diameter="45" customSpinner></mat-spinner>
+                        </div>
+                    </ng-template>
+                </button>
+            </div>
+            <button mat-raised-button class="btn btn-dark" [disabled]="lojaForm.invalid">Enviar</button>
+        </form>
     </div>
 </div>

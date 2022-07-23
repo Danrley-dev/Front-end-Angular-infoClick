@@ -20,6 +20,7 @@ import { RoleAdminGuard } from './auth/guards/roleAdmin/role-admin.guard';
 import { CadastroEditComponent } from './auth/cadastro-edit/cadastro-edit.component';
 import { EditsComponent } from './admin/components/edits/edits/edits.component';
 import { EditConsumidorComponent } from './admin/components/edit-consumidor/edit-consumidor/edit-consumidor.component';
+import { ProdutoUpdateComponent } from './produtos/components/produto-update/produto-update.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,11 @@ const routes: Routes = [
     // canActivate: [RoleAdminGuard],
   },
   {
+    path: 'loja-empreendedor/:id/edit/:id',
+    component: ProdutoUpdateComponent,
+    // canActivate: [RoleAdminGuard],
+  },
+  {
     path: 'cadastro',
     component: CadastroComponent,
     canActivate: [AuthLogadoGuard]
@@ -77,6 +83,11 @@ const routes: Routes = [
   {
     path: 'produto-create',
     component: ProdutoCreateComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'produto-update/:id',
+    component: ProdutoUpdateComponent,
     canActivate: [AuthGuard]
   },
   {
