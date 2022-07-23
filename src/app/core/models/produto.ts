@@ -7,12 +7,31 @@ export class Produto {
   produtoValor?: number;
   produtoAntigoValor?: number;
   produtoDescricao?: string;
-  categoria?: string;
+  categoria?: Categoria;
   produtoEstoque?: number;
-  status?: string;
+  status?: Status;
   produtoImagem?: string;
+  promocaoStatus?: Promocao;
   produtoDesconto?: number;
+  dataLimitePromocao?: Date;
   dataCriacao?: Date;
   ultimaAtualizacao?: Date;
   loja?: Loja;
+}
+
+export enum Categoria {
+  NADA,
+  HARDWARE,
+  SOFTWARE,
+  AMBOS
+}
+
+export enum Status { 
+  ATIVO,
+  INATIVO
+}
+
+export enum Promocao {
+  ATIVADA,
+  DESATIVADA
 }

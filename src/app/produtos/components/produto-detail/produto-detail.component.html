@@ -19,8 +19,8 @@
             <p class="descricao-produto">
                {{produto.produtoDescricao}}
             </p>
-            <p class="boleto"><i class="bi bi-upc"></i> De: <span class="preco-original">{{produto.produtoValor | currency: "BRL"}}</span> por:
-                <span class="preco-promo">{{produto.produtoDesconto | currency: "BRL"}}</span></p>
+            <p class="boleto"><i class="bi bi-upc"></i> De: <span class="preco-original">{{produto.produtoAntigoValor | currency: "BRL"}}</span> por:
+                <span class="preco-promo">{{produto.produtoValor | currency: "BRL"}}</span></p>
             <!-- <p class="estoque-produto">
               Estoque Disponível: {{produto.produtoEstoque}}
             </p> -->

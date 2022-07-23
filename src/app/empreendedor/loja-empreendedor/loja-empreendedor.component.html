@@ -66,10 +66,10 @@
             {{ itens.name }}
           </p>
           <p class="preco-corte">
-            De: {{ itens.produtoValor | currency: "BRL" }}
+            De: {{ itens.produtoAntigoValor | currency: "BRL" }}
           </p>
           <p class="preco-promo">
-            Por: {{ itens.produtoDesconto | currency: "BRL" }}
+            Por: {{ itens.produtoValor | currency: "BRL" }}
           </p>
           <button (click)="addToCart(itens)" class="button-card" type="button">
             <a>ADICIONAR AO CARRINHO</a>

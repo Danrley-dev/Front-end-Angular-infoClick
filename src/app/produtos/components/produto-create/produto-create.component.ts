@@ -40,8 +40,10 @@ export class ProdutoCreateComponent implements OnInit {
     categoria: ['', [Validators.required]],
     produtoEstoque: ['', [Validators.required]],
     status: ['', [Validators.required]],
+    promocaoStatus: [null],
     produtoValor: ['', [Validators.required,]],
-    produtoDesconto: ['', [Validators.required]],
+    produtoDesconto: [null],
+    dataLimitePromocao: [null],
     produtoImagem: [null]
   });
 
@@ -52,8 +54,10 @@ export class ProdutoCreateComponent implements OnInit {
       categoria: this.cadastrarProduto.value.categoria,
       produtoEstoque: this.cadastrarProduto.value.produtoEstoque,
       status: this.cadastrarProduto.value.status,
+      promocaoStatus: this.cadastrarProduto.value.promocaoStatus,
       produtoValor: this.cadastrarProduto.value.produtoValor,
       produtoDesconto: this.cadastrarProduto.value.produtoDesconto,
+      dataLimitePromocao: this.cadastrarProduto.value.dataLimitePromocao,
       produtoImagem: this.urlImagem,
     }
     this.produtoService.create(this.idLoja!,PRODUTO).then(() =>{
