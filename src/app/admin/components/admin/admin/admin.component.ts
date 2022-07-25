@@ -13,6 +13,7 @@ import { ItemCarrinho } from 'src/app/core/models/item-carrinho';
 import { NgbAlertModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConsumidorService } from 'src/app/core/services/consumidor/consumidor.service';
 import { EmpreendedorService } from 'src/app/core/services/empreendedor/empreendedor.service';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-admin',
@@ -28,7 +29,7 @@ export class AdminComponent implements OnInit {
   empreendedor?: Empreendedor[];
   somar?: number;
   carrinho?: any;
-
+  errorsI?: any;
 
   aba: string = 'home';
   deleteModalRef!: NgbModal;
@@ -53,7 +54,8 @@ export class AdminComponent implements OnInit {
     private alertService: NgbAlertModule,
     private modalService: NgbModal,
     private consumidoresService: ConsumidorService,
-    private empreendedorService: EmpreendedorService
+    private empreendedorService: EmpreendedorService,
+    private toast: HotToastService
   ) { }
 
 
@@ -134,7 +136,8 @@ confirmaDelete() {
       next: () => {
         this.listaProdutos();
         this.modalService.dismissAll();
-      }
+        this.toast.success('Produto excluído!');
+      },
     },
   );
 }
@@ -146,6 +149,24 @@ confirmaDeleteEmpreendedor() {
       next: () => {
         this.listaEmpreendedor();
         this.modalService.dismissAll();
+        this.toast.success('Empreendedor excluído!')
+      },
+      error: (err) => {
+        switch (err.status) {
+          case 400:
+            window.navigator?.vibrate?.(200);
+            for (const element of err.error.errors) {
+              this.errorsI = this.toast.error(element.message);
+            }
+            return this.errorsI;
+          case 500:
+            window.navigator?.vibrate?.(200);
+            return this.toast.error(err.error.message)
+          default:
+            window.navigator?.vibrate?.(200);
+            return this.toast.error(
+              `Um erro aconteceu: ${err.error.message ?? 'Verifique sua conexão com a internet'}`)
+        }
       }
     },
   );
@@ -158,6 +179,7 @@ confirmaDeleteConsumidor() {
       next: () => {
         this.listaConsumidores();
         this.modalService.dismissAll();
+        this.toast.success('Consumidor excluído!');
       }
     },
   );
@@ -175,7 +197,7 @@ naoDeletar() {
 }
 
 editarProduto (id: number) {
-    this.router.navigate(['edit', id], { relativeTo: this.route });
+    this.router.navigate(['edit', id], { relativeTo: this.route })
 }
 
 
@@ -184,14 +206,8 @@ editarEmpreendedor(id: number) {
 }
 
 editarConsumidor(id: number) {
-
   this.router.navigate(['consumidor-edit', id], { relativeTo: this.route });
 }
-
-
-
-
-
 
 
   ngOnInit(): void {
@@ -201,4 +217,6 @@ editarConsumidor(id: number) {
     this.listaEmpreendedor();
     this.listaConsumidores();
   }
+
 }
+

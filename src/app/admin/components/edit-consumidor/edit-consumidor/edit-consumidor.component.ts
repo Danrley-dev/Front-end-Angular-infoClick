@@ -17,9 +17,7 @@ export class EditConsumidorComponent implements OnInit {
   errorsI?: any;
   mudar: boolean = true;
   loading = true;
-
   id?: number;
-
   idConsumidor?: number;
 
   constructor( private fb: FormBuilder,
@@ -61,7 +59,7 @@ export class EditConsumidorComponent implements OnInit {
       };
       this.consumidorService.updateAdmin(this.id!, CONSUMIDOR).then(
         () => {
-          this.toast.success('Produto editado com sucesso');
+          this.toast.success('Consumidor editado com sucesso');
           this.router.navigate(['/admin']);
         },
         (error) => {
@@ -110,7 +108,7 @@ export class EditConsumidorComponent implements OnInit {
       });
     });
 
-    
+
   }
 
 }
