@@ -1,76 +1,64 @@
 <div class="trancatela">
   <header>
     <section class="header">
-      <a  [routerLink]="['/']"
-        ><img src="assets/img/logo-infoclick.png" class="logo" alt=""
-      /></a>
+      <a [routerLink]="['/']"><img src="assets/img/logo-infoclick.png" class="logo" alt="" /></a>
       <div class="search">
-        <input
-          #Input
-          class="input"
-          placeholder="Buscar produtos..."
-          (keyup.enter)="pesquisar(Input.value)"
-        />
+        <input #Input class="input" placeholder="Buscar produtos..." (keyup.enter)="pesquisar(Input.value)" />
         <button class="button" (click)="pesquisar(Input.value)">
           <i class="bi bi-search"></i>
         </button>
       </div>
       <nav class="navbar" aria-label="" *ngIf="logged; else unlogged">
         <ul>
-          <div  class="dropdown">
-            <i  *ngIf="userAdmin" class="dropbtn-admin">
+          <div class="dropdown">
+            <i *ngIf="userAdmin" class="dropbtn-admin">
               <mat-icon>person</mat-icon> ADMIN
             </i>
             <div class="dropdown-content">
-              <a  href="/admin"> <mat-icon>devices</mat-icon> Painel </a>
-              <a  [routerLink]="['/#']"> <mat-icon>dashboard</mat-icon> Dashboard </a>
+              <a href="/admin">
+                <mat-icon>devices</mat-icon> Painel
+              </a>
+              <a [routerLink]="['/#']">
+                <mat-icon>dashboard</mat-icon> Dashboard
+              </a>
             </div>
           </div>
+          <a [routerLink]="['/loja-create']" id="sumir" *ngIf="sumir">
+            <mat-icon>add_shopping_cart</mat-icon>CRIAR LOJA
+          </a>
           <div class="dropdown">
             <i *ngIf="userEmpreendedor" class="dropbtn">
               <mat-icon>person</mat-icon> EMPREENDEDOR
             </i>
             <div class="dropdown-content">
-              <a [routerLink]="['/cadastro-edit']" class="btn"> <mat-icon>perm_identity</mat-icon> Editar Perfil </a>
-                <a (click)="rota()" class="btn"> <mat-icon>meeting_room</mat-icon>Minha loja </a>
-              <a [routerLink]="['/loja-create']" class="btn"> <i> <mat-icon>add_shopping_cart</mat-icon>Criar loja </i></a>
+              <a [routerLink]="['/cadastro-edit']" class="btn">
+                <mat-icon>perm_identity</mat-icon> Editar Perfil
+              </a>
+              <a (click)="rota()" class="btn">
+                <mat-icon>meeting_room</mat-icon>Minha loja
+              </a>
             </div>
           </div>
           <div class="dropdown">
-            <a  [routerLink]="['/cadastro-edit']">
+            <a [routerLink]="['/cadastro-edit']">
               <i *ngIf="userConsumidor" class="dropbtn-perfil">
                 <mat-icon>person</mat-icon>MEU PERFIL
               </i>
             </a>
           </div>
           <li>
-            <a  [routerLink]="['/produtos-list']"
-              ><i class="bi bi-pc-display"></i>PRODUTOS</a
-            >
+            <a [routerLink]="['/produtos-list']"><i class="bi bi-pc-display"></i>PRODUTOS</a>
           </li>
           <li class="carrinho-li">
-            <a  [routerLink]="['/carrinho']">
-              <mat-icon
-                class="bi bi-cart3"
-                matBadge="{{ totalQuantity }}"
-                matBadgeSize="small"
-                matBadgeColor="accent"
-                matBadgeOverlap="false"
-              ></mat-icon>
+            <a [routerLink]="['/carrinho']">
+              <mat-icon class="bi bi-cart3" matBadge="{{ totalQuantity }}" matBadgeSize="small" matBadgeColor="accent"
+                matBadgeOverlap="false"></mat-icon>
             </a>
           </li>
           <li class="logout-li">
-            <a
-              [routerLink]="['/login']"
-              mat-list-item
-              (click)="logout()"
-              matTooltip="Logout"
-              matTooltipPosition="below"
-              matTooltipShowDelay="1000"
-            >
-              <i class="material-icons logout-icon" style="margin-top: 5px"
-                >logout</i
-              >
+            <a [routerLink]="['/login']" mat-list-item (click)="logout()" matTooltip="Logout" matTooltipPosition="below"
+              matTooltipShowDelay="1000">
+              <i class="material-icons logout-icon" style="margin-top: 5px">logout</i>
             </a>
           </li>
         </ul>
@@ -79,39 +67,26 @@
         <nav class="navbar" aria-label="">
           <ul>
             <li>
-              <a [routerLink]="['/produtos-list']"
-                ><i class="bi bi-pc-display"></i>PRODUTOS</a
-              >
+              <a [routerLink]="['/produtos-list']"><i class="bi bi-pc-display"></i>PRODUTOS</a>
             </li>
             <li>
-              <a [routerLink]="['/cadastro']" href=""
-                ><i class="bi bi-card-checklist"></i>CADASTRO</a
-              >
+              <a [routerLink]="['/cadastro']" href=""><i class="bi bi-card-checklist"></i>CADASTRO</a>
             </li>
             <li>
               <a [routerLink]="['/login']"><i class="bi bi-person-circle"></i>LOGIN</a>
             </li>
             <li>
               <a [routerLink]="['/carrinho']">
-                <mat-icon
-                  class="bi bi-cart3"
-                  style="margin-top: -4.8px; margin-left: -7px"
-                  matBadge="{{ totalQuantity }}"
-                  matBadgeSize="small"
-                  matBadgeColor="accent"
-                  matBadgeOverlap="false"
-                ></mat-icon>
+                <mat-icon class="bi bi-cart3" style="margin-top: -4.8px; margin-left: -7px"
+                  matBadge="{{ totalQuantity }}" matBadgeSize="small" matBadgeColor="accent" matBadgeOverlap="false">
+                </mat-icon>
               </a>
             </li>
           </ul>
         </nav>
       </ng-template>
       <div class="container-menu-hamburguer">
-        <button
-          class="menu-hamburguer-button"
-          type="button"
-          (click)="menuClick()"
-        >
+        <button class="menu-hamburguer-button" type="button" (click)="menuClick()">
           <span class="bi bi-list menu-hamburguer"></span>
         </button>
 
@@ -120,49 +95,50 @@
             <ul class="ul-menu-hamburguer">
               <li *ngIf="userAdmin">
                 <a href="/admin">
-                  <i> <mat-icon> devices</mat-icon> PAINEL </i>
+                  <i>
+                    <mat-icon> devices</mat-icon> PAINEL
+                  </i>
                 </a>
                 <br />
                 <a [routerLink]="['/#']">
-                  <i> <mat-icon>dashboard</mat-icon> DASHBOARD </i>
+                  <i>
+                    <mat-icon>dashboard</mat-icon> DASHBOARD
+                  </i>
                 </a>
               </li>
-
+              <li *ngIf="userEmpreendedor">
+                <a [routerLink]="['/loja-create']" *ngIf="sumir">
+                  <mat-icon>add_shopping_cart</mat-icon>CRIAR LOJA
+                </a>
+              </li>
               <li *ngIf="userEmpreendedor">
                 <a [routerLink]="['/#']">
-                  <i> <mat-icon>perm_identity</mat-icon> PERFIL </i>
+                  <i>
+                    <mat-icon>perm_identity</mat-icon> PERFIL
+                  </i>
                 </a>
               </li>
               <li *ngIf="userEmpreendedor">
-                <a [routerLink]="['/loja-create']">
-                  <i> <mat-icon>add_shopping_cart</mat-icon>CRIAR LOJA </i>
-                </a>
-              </li>
-              <li *ngIf="userEmpreendedor">
-                <a [routerLink]="['/loja-empreendedor/:id']">
-                  <i> <mat-icon>meeting_room</mat-icon>MINHA LOJA </i>
+                <a (click)="rota()">
+                  <i>
+                    <mat-icon>meeting_room</mat-icon>MINHA LOJA
+                  </i>
                 </a>
               </li>
               <li *ngIf="userConsumidor">
                 <a [routerLink]="['/cadastro-edit']">
-                  <i> <mat-icon>person</mat-icon> MEU PERFIL </i>
+                  <i>
+                    <mat-icon>person</mat-icon> MEU PERFIL
+                  </i>
                 </a>
               </li>
               <li>
-                <a [routerLink]="['/produtos-list']" class="a-produtos"
-                  ><i class="bi bi-pc-display"></i>PRODUTOS</a
-                >
+                <a [routerLink]="['/produtos-list']" class="a-produtos"><i class="bi bi-pc-display"></i>PRODUTOS</a>
               </li>
               <li>
                 <a class="a-carrinho" [routerLink]="['/carrinho']" href="">
-                  <mat-icon
-                    class="bi bi-cart3"
-                    matBadge="{{ totalQuantity }}"
-                    matBadgeSize="small"
-                    matBadgeColor="accent"
-                    matBadgeOverlap="false"
-                  ></mat-icon
-                  ><span>CARRINHO</span>
+                  <mat-icon class="bi bi-cart3" matBadge="{{ totalQuantity }}" matBadgeSize="small"
+                    matBadgeColor="accent" matBadgeOverlap="false"></mat-icon><span>CARRINHO</span>
                 </a>
               </li>
               <li class="logout">
@@ -176,26 +152,16 @@
           <ng-template #unlogged>
             <ul>
               <li>
-                <a [routerLink]="['/produtos-list']"
-                  ><i class="bi bi-pc-display"></i>PRODUTOS</a
-                >
+                <a [routerLink]="['/produtos-list']"><i class="bi bi-pc-display"></i>PRODUTOS</a>
               </li>
               <li>
                 <a [routerLink]="['/carrinho']">
-                  <mat-icon
-                    class="bi bi-cart3"
-                    matBadge="{{ totalQuantity }}"
-                    matBadgeSize="small"
-                    matBadgeColor="accent"
-                    matBadgeOverlap="false"
-                  ></mat-icon
-                  >CARRINHO
+                  <mat-icon class="bi bi-cart3" matBadge="{{ totalQuantity }}" matBadgeSize="small"
+                    matBadgeColor="accent" matBadgeOverlap="false"></mat-icon>CARRINHO
                 </a>
               </li>
               <li>
-                <a [routerLink]="['/cadastro']"
-                  ><i class="bi bi-card-checklist"></i>CADASTRO</a
-                >
+                <a [routerLink]="['/cadastro']"><i class="bi bi-card-checklist"></i>CADASTRO</a>
               </li>
               <li>
                 <a [routerLink]="['/login']"><i class="bi bi-person-circle"></i>LOGIN</a>

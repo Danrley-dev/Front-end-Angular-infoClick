@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { CarrinhoService } from '../../services/carrinho/carrinho.service';
 import { HotToastService } from '@ngneat/hot-toast';
 import { EmpreendedorService } from '../../services/empreendedor/empreendedor.service';
+import { LojaService } from '../../services/loja/loja.service';
+import { Loja } from '../../models/loja';
 
 @Component({
   selector: 'app-navbar',
@@ -22,14 +24,17 @@ export class NavbarComponent implements OnInit {
   userAdmin?: boolean;
   userConsumidor?: boolean;
   idEmpreendedor?:number;
+  idLoja?:number;
   role = this.authService.userRole();
+  sumir = true;
 
   constructor(
     private carrinhoService: CarrinhoService,
     private router: Router,
     private authService: AuthService,
     private toast: HotToastService,
-    private empreendedorService: EmpreendedorService
+    private empreendedorService: EmpreendedorService,
+    private lojaService: LojaService
     ) { }
 
 
@@ -42,7 +47,6 @@ export class NavbarComponent implements OnInit {
            return false;
          })
          this.userAdmin = perfilsBolean.includes(true);
-
       })
      }
 
@@ -55,7 +59,6 @@ export class NavbarComponent implements OnInit {
           return false;
         })
         this.userEmpreendedor = perfilsBolean.includes(true);
-
      })
     }
 
@@ -72,19 +75,15 @@ export class NavbarComponent implements OnInit {
      })
     }
 
-
-
   pesquisar(value: string) {
     console.log(`value:${value}`);
     this.router.navigateByUrl(`/pesquisar/${value}`);
   }
 
   updateCartStatus() {
-
     this.carrinhoService.totalPrice.subscribe(
       data => this.totalPrice = data
     );
-
     this.carrinhoService.totalQuantity.subscribe(
       data => this.totalQuantity = data
     );
@@ -107,8 +106,16 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.empreendedorService.getEmpreendorIdByEmail(localStorage.getItem('email')!).subscribe((idEmpreendedor => {
-      this.idEmpreendedor = idEmpreendedor
+      this.idEmpreendedor = idEmpreendedor;
     }))
+
+    this.lojaService.findLojaById(localStorage.getItem('email')!).subscribe((idLoja =>{
+      this.idLoja = idLoja;
+      if(this.idLoja == this.idEmpreendedor){
+       this.sumir = false
+      }
+    }))
+
     this.updateCartStatus();
     this.logged = this.authService.isAuthenticated;
     this.email = this.authService.getEmail();

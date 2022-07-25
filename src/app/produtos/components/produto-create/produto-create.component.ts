@@ -62,7 +62,7 @@ export class ProdutoCreateComponent implements OnInit {
     }
     this.produtoService.create(this.idLoja!,PRODUTO).then(() =>{
         this.toast.success('Produto cadastrado com sucesso');
-        this.router.navigate(['/loja-empreendedor/{{idLoja}}']);
+        this.router.navigate([`/loja-empreendedor/${this.idLoja}`]);
       },
       error => {
         switch(error.status){
