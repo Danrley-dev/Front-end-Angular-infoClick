@@ -30,6 +30,7 @@ export class LojaCreateComponent implements OnInit {
   errorsI?: any;
   mudar: boolean = true;
   foto?: File;
+  idLoja?: Loja;
 
   lojaForm = this.fb.group({
     nomeLoja: [null, [Validators.required,]],
@@ -49,7 +50,7 @@ export class LojaCreateComponent implements OnInit {
     this.lojaService.create(this.idEmpreendedor!, LOJA).then(() => {
 
       this.toast.success('Cadastro loja efetuado com sucesso');
-      this.router.navigate([`loja-empreendedor`]);
+      this.router.navigate([`loja-empreendedor/${this.idEmpreendedor}`]);
     },
       error => {
         switch (error.status) {

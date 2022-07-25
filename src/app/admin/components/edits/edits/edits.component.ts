@@ -27,77 +27,77 @@ export class EditsComponent implements OnInit {
 
   carregando = false;
 
-    urlImagem: any = ""
-    id?: number;
-    errorsI?: any;
-    mudar: boolean = true;
-    foto?: File;
+  urlImagem: any = ""
+  id?: number;
+  errorsI?: any;
+  mudar: boolean = true;
+  foto?: File;
 
-    produtoForm = this.fb.group({
-      name: ['', [Validators.required,]],
-      produtoDescricao: ['', [Validators.required]],
-      categoria: ['', [Validators.required]],
-      produtoEstoque: ['', [Validators.required]],
-      status: ['', [Validators.required]],
-      promocaoStatus: [null],
-      produtoValor: ['', [Validators.required,]],
-      produtoDesconto: ['', [Validators.required]],
-      dataLimitePromocao: [null],
-      produtoImagem: [null]
-    });
+  produtoForm = this.fb.group({
+    name: ['', [Validators.required,]],
+    produtoDescricao: ['', [Validators.required]],
+    categoria: ['', [Validators.required]],
+    produtoEstoque: ['', [Validators.required]],
+    status: ['', [Validators.required]],
+    promocaoStatus: [null],
+    produtoValor: ['', [Validators.required,]],
+    produtoDesconto: ['', [Validators.required]],
+    dataLimitePromocao: [null],
+    produtoImagem: [null]
+  });
 
-    onSubmit() {
-      const PRODUTO: Produto ={
-        name: this.produtoForm.value.name,
-        produtoDescricao: this.produtoForm.value.produtoDescricao,
-        categoria: this.produtoForm.value.categoria,
-        produtoEstoque: this.produtoForm.value.produtoEstoque,
-        status: this.produtoForm.value.status,
-        promocaoStatus: this.produtoForm.value.promocaoStatus,
-        produtoValor: this.produtoForm.value.produtoValor,
-        produtoDesconto: this.produtoForm.value.produtoDesconto,
-        dataLimitePromocao: this.produtoForm.value.dataLimitePromocao,
-        produtoImagem: this.urlImagem,
-      }
-      this.produtoService.update(this.id!,PRODUTO).then(() =>{
-          this.toast.success('Produto editado com sucesso');
-          this.router.navigate(['/admin']);
-        },
-        error => {
-          switch(error.status){
-            case 400:
-              window.navigator?.vibrate?.(200);
-              for(const element of error.error.errors) {
-                this.errorsI =  this.toast.error(element.message);
-              }
-              return this.errorsI;
-            case 500:
-              window.navigator?.vibrate?.(200);
-              return this.toast.error(error.error.message)
-            default:
-              window.navigator?.vibrate?.(200);
-              return this.toast.error(
-            `Um erro aconteceu: ${error.error.message ?? 'Verifique sua conexão com a internet'}`)
-          }
-        }
-      )}
-
-    setImage(event: any) {
-      let arquivo = event.target.files[0]
-      let reader = new FileReader()
-      this.carregando = true;
-
-      reader.readAsDataURL(arquivo)
-      reader.onloadend = () => {
-        console.log(reader.result)
-        this.uploadService.uploadFoto("produtoImg" + Date.now(), reader.result).then(urlImagem => {
-          this.carregando = false;
-          this.mudar = !this.mudar;
-          this.urlImagem = urlImagem
-        })
+  onSubmit() {
+    const PRODUTO: Produto = {
+      name: this.produtoForm.value.name,
+      produtoDescricao: this.produtoForm.value.produtoDescricao,
+      categoria: this.produtoForm.value.categoria,
+      produtoEstoque: this.produtoForm.value.produtoEstoque,
+      status: this.produtoForm.value.status,
+      promocaoStatus: this.produtoForm.value.promocaoStatus,
+      produtoValor: this.produtoForm.value.produtoValor,
+      produtoDesconto: this.produtoForm.value.produtoDesconto,
+      dataLimitePromocao: this.produtoForm.value.dataLimitePromocao,
+      produtoImagem: this.urlImagem,
     }
+    this.produtoService.update(this.id!, PRODUTO).then(() => {
+      this.toast.success('Produto editado com sucesso');
+      this.router.navigate(['/admin']);
+    },
+      error => {
+        switch (error.status) {
+          case 400:
+            window.navigator?.vibrate?.(200);
+            for (const element of error.error.errors) {
+              this.errorsI = this.toast.error(element.message);
+            }
+            return this.errorsI;
+          case 500:
+            window.navigator?.vibrate?.(200);
+            return this.toast.error(error.error.message)
+          default:
+            window.navigator?.vibrate?.(200);
+            return this.toast.error(
+              `Um erro aconteceu: ${error.error.message ?? 'Verifique sua conexão com a internet'}`)
+        }
+      }
+    )
   }
 
+  setImage(event: any) {
+    let arquivo = event.target.files[0]
+    let reader = new FileReader()
+    this.carregando = true;
+    
+    reader.readAsDataURL(arquivo)
+    reader.onloadend = () => {
+      console.log(reader.result)
+      this.uploadService.uploadFoto("produtoImg" + Date.now(), reader.result).then(urlImagem => {
+        this.carregando = false;
+        this.mudar = !this.mudar;
+        this.urlImagem = urlImagem
+      })
+    }
+  }
 
   ngOnInit(): void {
 
@@ -122,15 +122,7 @@ export class EditsComponent implements OnInit {
           })
         }
         )
-
-
       }
     );
-
-
-
   }
-
-
-
 }
