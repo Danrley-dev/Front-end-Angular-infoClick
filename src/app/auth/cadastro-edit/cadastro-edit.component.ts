@@ -158,7 +158,7 @@ export class CadastroEditComponent implements OnInit {
     };
     this.empreendedorService.updateAdmin(this.id!, EMPREENDEDOR).then(
       () => {
-        this.toast.success('Produto editado com sucesso');
+        this.toast.success('Empreendedor editado com sucesso');
         this.router.navigate(['/admin']);
       },
       (error) => {
