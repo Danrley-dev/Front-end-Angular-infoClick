@@ -67,6 +67,7 @@ export class LojaEditComponent implements OnInit {
         this.mudar = !this.mudar;
       })
     }
+
   }
 
    ngOnInit(): void {

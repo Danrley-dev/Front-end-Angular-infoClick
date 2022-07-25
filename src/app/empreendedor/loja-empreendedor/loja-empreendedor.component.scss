@@ -15,6 +15,7 @@ main {
   width: 140px;
   height: 140px;
   border-radius: 50%;
+  object-fit: contain;
 }
 
 .p-collapse {
@@ -48,6 +49,7 @@ main {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(3.1px);
   -webkit-backdrop-filter: blur(3.1px);
+
 }
 
 .container-nome-loja {
@@ -225,11 +227,12 @@ main {
   align-items: center;
 }
 
+
 .details img {
   width: 169.81px;
   height: 105.53px;
   margin-top: 50px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .nome-produto {

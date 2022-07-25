@@ -25,7 +25,7 @@ export class LojaCreateComponent implements OnInit {
 
   carregando = false;
 
-  urlImagem: any = ""
+  urlImagem: any = "../../../../assets/img/logo-infoclick.png"
   idEmpreendedor?: number;
   errorsI?: any;
   mudar: boolean = true;
@@ -79,7 +79,7 @@ export class LojaCreateComponent implements OnInit {
     reader.readAsDataURL(arquivo)
     reader.onloadend = () => {
       this.uploadService.uploadFoto("lojaImg" + Date.now(), reader.result).then(urlImagem => {
-        this.urlImagem = urlImagem
+        this.urlImagem = urlImagem;
         this.carregando = false;
         this.mudar = !this.mudar;
       })
