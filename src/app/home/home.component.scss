@@ -10,7 +10,7 @@ main {
   background-image: url('https://www.svgrepo.com/show/87550/next.svg');
   transform: rotate(180deg);
  }
- 
+
  ::ng-deep .carousel-control-next-icon{
   background-image: url('https://www.svgrepo.com/show/87550/next.svg');
  }
@@ -149,7 +149,7 @@ main {
   width: 169.81px;
   height: 105.53px;
   margin-top: 50px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .nome-loja {

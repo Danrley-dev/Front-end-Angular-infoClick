@@ -15,6 +15,7 @@ main {
 .imagem-produto img {
     width: 500px;
     height: 500px;
+    object-fit: contain;
 }
 
 .linha {
@@ -61,7 +62,7 @@ main {
 .boleto i {
     font-size: 30px;
     margin-right: 10px;
-    
+
 }
 
 .boleto .preco-original {
@@ -185,7 +186,7 @@ main {
         background-size: cover;
         height: 200px;
     }
-    
+
     .linha {
         height: 2px;
         width: 350px;
@@ -214,7 +215,7 @@ main {
 }
 
 @media(max-width: 430px) {
-    
+
     .container {
         height: 900px;
         background-color: white;

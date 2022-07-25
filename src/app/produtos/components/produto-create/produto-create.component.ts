@@ -23,7 +23,7 @@ export class ProdutoCreateComponent implements OnInit {
   icon?: string = 'upload';
   errorsI?: any;
   mudar: boolean = true;
-  urlImagem: any = "";
+  urlImagem: any = "../../../../assets/img/logo-infoclick.png";
 
   constructor(
     private fb: FormBuilder,
