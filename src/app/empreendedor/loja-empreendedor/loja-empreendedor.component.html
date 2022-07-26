@@ -50,9 +50,14 @@
   <section class="container-cards1">
     <div *ngFor="let itens of loja.produtos">
       <div class="card">
-        <div class="promo">
-          <p class="porcent-promo">{{ itens.categoria }}</p>
+                  <div class="promo">
+           <p class="porcent-promo"><span>{{itens.produtoDesconto}}%</span> OFF</p>
+          <p class="time-promo">
+            termina em:
+            <span>{{itens.dataLimitePromocao | date }}</span>
+          </p>
         </div>
+
         <div class="details">
           <a routerLink="/produto-detail/{{ itens.id }}" class="img-wrap" data-abc="true">
             <img  src="{{ itens.produtoImagem }}" />

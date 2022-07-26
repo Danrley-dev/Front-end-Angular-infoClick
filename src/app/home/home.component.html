@@ -63,7 +63,7 @@
             <p class="porcent-promo"><span>{{produto.produtoDesconto}}%</span> OFF</p>
             <p class="time-promo">
               termina em:
-              <span>{{ dias }} {{ horas }}:{{ minutos }}:{{ segundos }}</span>
+              <span>{{produto.dataLimitePromocao | date }}</span>
             </p>
           </div>
           <div class="details">

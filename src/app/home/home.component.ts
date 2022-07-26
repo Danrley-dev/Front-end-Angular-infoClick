@@ -20,10 +20,6 @@ export class HomeComponent implements OnInit {
   produtos?: Produto[];
   lojas?: Loja[];
   searchMode?: boolean;
-  dias: number = 19;
-  horas: number = 22;
-  minutos: number = 14;
-  segundos: number = 4;
   storage: Storage = localStorage;
   images = [
     '../../assets/img/Group 84.png',
@@ -79,41 +75,11 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  countDown() {
-    const x = setInterval(() => {
-      if (this.segundos > 0) {
-        this.segundos--;
-      } else if (this.minutos > 0) {
-        this.minutos--;
-        this.segundos = 59;
-      } else if (this.horas > 0) {
-        this.horas--;
-        this.minutos = 59;
-        this.segundos = 59;
-      } else if (this.dias > 0) {
-        this.dias--;
-        this.horas = 23;
-        this.minutos = 59;
-        this.segundos = 59;
-      }
-      if (
-        this.dias === 0 &&
-        this.horas === 0 &&
-        this.minutos === 0 &&
-        this.segundos === 0
-      ) {
-        clearInterval(x);
-      }
-    }, 1000);
-  }
-
   ngOnInit(): void {
     this.route.paramMap.subscribe(() => {
       this.handleListaProdutos();
     });
 
     this.MostraProdutosNaLoja();
-    this.countDown();
-    // this.onClickDialogHome();
   }
 }
