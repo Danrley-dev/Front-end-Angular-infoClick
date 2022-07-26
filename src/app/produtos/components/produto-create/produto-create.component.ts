@@ -24,6 +24,7 @@ export class ProdutoCreateComponent implements OnInit {
   errorsI?: any;
   mudar: boolean = true;
   urlImagem: any = "../../../../assets/img/logo-infoclick.png";
+  produtoAtivo = false;
 
   constructor(
     private fb: FormBuilder,
@@ -33,6 +34,11 @@ export class ProdutoCreateComponent implements OnInit {
     private produtoService: ProdutoService,
     private uploadService: UploadImgService
     ) { }
+
+    click(){
+      this.produtoAtivo = !this.produtoAtivo
+    }
+    
 
   cadastrarProduto = this.fb.group({
     name: ['', [Validators.required,]],

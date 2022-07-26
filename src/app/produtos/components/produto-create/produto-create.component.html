@@ -25,7 +25,7 @@
           <mat-label class="form-label">Categoria </mat-label>
           <mat-form-field class="caixa-input" appearance="outline">
             <mat-select placeholder="Categoria do Produto" name="categoriaProduto" formControlName="categoria"
-              required="categoria" >
+              required="categoria">
               <mat-option [value]="1">Hardware</mat-option>
               <mat-option [value]="2">Software</mat-option>
               <mat-option [value]="3">Ambos</mat-option>
@@ -44,6 +44,14 @@
           </mat-form-field>
         </div>
         <div class=" form-align">
+          <mat-label class="form-label">Valor</mat-label>
+          <mat-form-field class="caixa-input" appearance="outline">
+            <input matInput placeholder="Valor do Produto" formControlName="produtoValor" type="number" min="0"
+              max="999999" step="0.01" required="produtoValor">
+            <mat-error *ngIf="cadastrarProduto.get('produtoValor')?.errors?.['required']">Campo obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+        <div class=" form-align">
           <mat-label class="form-label">Status </mat-label>
           <mat-form-field class="caixa-input" appearance="outline">
             <mat-select placeholder="Status do Produto" name="status" formControlName="status" required="status">
@@ -53,47 +61,47 @@
             <mat-error *ngIf="cadastrarProduto.get('status')?.errors?.['required']">Campo obrigatório</mat-error>
           </mat-form-field>
         </div>
-        <div class=" form-align">
-          <mat-label class="form-label">Status Promocao</mat-label>
-          <mat-form-field class="caixa-input" appearance="outline">
-            <mat-select placeholder="Status do Produto" name="promocaoStatus" formControlName="promocaoStatus" >
-              <mat-option [value]="0">Ativada</mat-option>
-              <mat-option [value]="1">Desativada</mat-option>
-            </mat-select>
-          </mat-form-field>
+        <div class="form-check form-switch">
+          <label *ngIf="!produtoAtivo" class="form-check-label" for="flexSwitchCheckDefault">Promoção?</label>
+          <input *ngIf="!produtoAtivo; else naoAtivada" (click)="click()" class="form-check-input bg-warning lb"
+            type="checkbox" role="switch" id="flexSwitchCheckDefault">
         </div>
-        <div class=" form-align">
-          <mat-label class="form-label">Valor</mat-label>
-          <mat-form-field class="caixa-input" appearance="outline">
-            <input matInput placeholder="Valor do Produto" formControlName="produtoValor" type="number" min="0"
-              max="999999" step="0.01" required="produtoValor">
-            <mat-error *ngIf="cadastrarProduto.get('produtoValor')?.errors?.['required']">Campo obrigatório</mat-error>
-          </mat-form-field>
-        </div>
-        <div class="form-align">
-          <mat-label class="form-label">Desconto </mat-label>
-          <mat-form-field class="caixa-input" appearance="outline">
-            <input matInput placeholder="Desconto do Produto" formControlName="produtoDesconto" type="number" min="0"
-              max="999999" step="0.01" required="produtoDesconto">
-            <mat-error *ngIf="cadastrarProduto.get('produtoDesconto')?.errors?.['required']">Campo obrigatório
-            </mat-error>
-          </mat-form-field>
-        </div>
-        <mat-form-field appearance="fill">
-           <mat-label>Data fim da promoção</mat-label>
-                <input formControlName="dataLimitePromocao" matInput [matDatepicker]="picker">
-                   <mat-hint>MM/DD/YYYY</mat-hint>
-                   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+          <ng-template #naoAtivada>
+            <div class="template">
+              <mat-label class="form-label">Status Promocao</mat-label>
+              <mat-form-field class="caixa-input" appearance="outline">
+                <mat-select placeholder="Status do Produto" name="promocaoStatus" formControlName="promocaoStatus">
+                  <mat-option [value]="0">Ativada</mat-option>
+                  <mat-option [value]="1">Desativada</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="template">
+              <mat-label class="form-label">Desconto </mat-label>
+              <mat-form-field class="caixa-input" appearance="outline">
+                <input matInput placeholder="Desconto do Produto" formControlName="produtoDesconto" type="number"
+                  min="0" max="999999" step="0.01" required="produtoDesconto">
+                <mat-error *ngIf="cadastrarProduto.get('produtoDesconto')?.errors?.['required']">Campo obrigatório
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="template">
+              <mat-label class="form-label">Data da promoção </mat-label>
+              <mat-form-field class="caixa-input" appearance="outline">
+                <input matInput placeholder="data" formControlName="dataLimitePromocao" type="date" required="dataLimitePromocao">
+                <mat-error *ngIf="cadastrarProduto.get('produtoDesconto')?.errors?.['required']">Campo obrigatório
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </ng-template>
         <div class=" form-align">
           <mat-label for="imagem" class="label-align form-label imagemProd">Imagem</mat-label>
-          <input class="btn form-align upload" id="cloud" (change)="setImage($event)" #imagem type="file" formControlName="produtoImagem" name="produtoImagem"
-            hidden>
+          <input class="btn form-align upload" id="cloud" (change)="setImage($event)" #imagem type="file"
+            formControlName="produtoImagem" name="produtoImagem" hidden>
           <button class="btnCheck btn form-align upload" (click)="imagem.click()" type="button" mat-raised-button>
-          <span *ngIf="!carregando; else loading">
-            <i class="bi bi-cloud-plus" *ngIf="mudar; else upload"></i>
-          </span>
+            <span *ngIf="!carregando; else loading">
+              <i class="bi bi-cloud-plus" *ngIf="mudar; else upload"></i>
+            </span>
             <ng-template #upload>
               <mat-icon class="done">done</mat-icon>
             </ng-template>
@@ -110,6 +118,3 @@
     </section>
   </div>
 </main>
-
-
-

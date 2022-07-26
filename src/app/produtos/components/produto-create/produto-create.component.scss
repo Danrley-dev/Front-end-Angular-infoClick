@@ -2,7 +2,6 @@ main {
   background-image: url("../../../../assets/img/fundoO.png");
   background-size: contain;
   background-color: #F5F5F5;
-  // padding: 50px 0;
   background-repeat: no-repeat;
 }
 
@@ -61,6 +60,31 @@ input, mat-select {
   align-items: center;
   justify-content: flex-end;
   margin-top: 19px;
+}
+
+.lb{
+  margin-left: 5px;
+}
+
+
+.template{
+  width: 520px;
+  display: flex;
+  align-items:center;
+  justify-content: flex-start;
+}
+
+.template mat-label {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-left: 43px;
+  width: 20px;
+}
+
+.form-switch{
+  padding-left: 0px;
+  margin-left: 30px;
 }
 
 .upload {
@@ -125,6 +149,30 @@ input, mat-select {
       margin-bottom: 7%;
       margin-left: 20.7%;
   }
+  .lb{
+    margin-left: 10px;
+  }
+
+  .template{
+    width: 520px;
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;
+  }
+  
+  .template mat-label {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-left: 60px;
+    width: 10px;
+  }
+
+  .form-switch{
+    padding-left: 0px;
+    margin-left: 20px;
+  }
+  
 }
 
 @media only screen and (max-width: 900px) {
@@ -168,6 +216,25 @@ input, mat-select {
       margin-bottom: 25px;
       width: 70px;
   }
+  .template{
+    width: 470px;
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;
+  }
+  
+  .template mat-label {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-left: 70px;
+    width: 10px;
+  }
+
+  .lb{
+    margin-left: 5px;
+  }
+  
 
 }
 
@@ -241,6 +308,15 @@ input, mat-select {
       max-height: 69px;
       padding: 35px 0px;
   }
+
+  .lb{
+    margin-left: 5px;
+  }
+  
+  .form-switch{
+    padding-left: 0px;
+    margin-left: 70px;
+  }
 }
 
 @media only screen and (max-width: 415px) {
@@ -311,6 +387,25 @@ input, mat-select {
   .btn-dark {
       margin-left: 32%;
       height: 60px;
+  }
+
+  .lb{
+    margin-left: 5px;
+  }
+  
+  .template{
+    width: 270px;
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;
+  }
+  
+  .template mat-label {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-left: 45px;
+    width: 10px;
   }
 
 }

@@ -224,9 +224,6 @@ export class CadastroEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-
-
     this.route.params.subscribe((params: any) => {
       const id = params['id'];
       const empreendedor$ = this.empreendedorService.findById(id);
@@ -253,7 +250,6 @@ export class CadastroEditComponent implements OnInit {
       .getEmpreendorIdByEmail(localStorage.getItem('email')!)
       .subscribe((idEmpreendedor) => {
         this.idEmpreendedor = idEmpreendedor;
-
         this.empreendedorService.findById(this.idEmpreendedor).subscribe({
           next: (empreendedor) => {
             empreendedor.password = '';
@@ -270,7 +266,6 @@ export class CadastroEditComponent implements OnInit {
       .getConsumidorIdByEmail(localStorage.getItem('email')!)
       .subscribe((idConsumidor) => {
         this.idConsumidor = idConsumidor;
-
         this.consumidorService.findById(this.idConsumidor).subscribe({
           next: (consumidor) => {
             consumidor.password = '';
@@ -286,7 +281,5 @@ export class CadastroEditComponent implements OnInit {
     this.isConsumidor();
     this.isEmpreendedor();
     this.idAdmin();
-
-
   }
 }
