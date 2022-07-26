@@ -3,19 +3,14 @@
     <h2 class="carrinho-titulo"><i class="bi bi-cart3">Carrinho</i></h2>
     <div *ngIf="cartitems.length > 0">
       <div class="produtos" *ngFor="let tempCartItem of cartitems">
-        <img
-          src="{{ tempCartItem.imagem }}"
-          alt="Imagem de uma placa de video"
-        />
+        <img src="{{ tempCartItem.imagem }}" alt="Imagem de uma placa de video" />
         <div class="produto-descricao">
           <p class="nome-produto">
             {{ tempCartItem.name }}
           </p>
-
           <p class="preco">
             Preço:<span>
-              {{ tempCartItem.preco_unidade | currency: "BRL" }}</span
-            >
+              {{ tempCartItem.preco_unidade | currency: "BRL" }}</span>
           </p>
           <p class="preco">
             Quantiade:<span> {{ tempCartItem.quantidade }}</span>
@@ -23,8 +18,8 @@
           <p class="preco">
             Valor:<span>
               {{
-                tempCartItem.quantidade * tempCartItem.preco_unidade!
-                  | currency: "BRL"
+              tempCartItem.quantidade * tempCartItem.preco_unidade!
+              | currency: "BRL"
               }}</span>
           </p>
           <div class="items">
@@ -32,9 +27,7 @@
             <div class="row no-gutters">
               <div class="container-quantidade">
                 <div class="col">
-                  <button
-                    (click)="decrementQuantity(tempCartItem)"
-                    class="btn button-decremento">
+                  <button (click)="decrementQuantity(tempCartItem)" class="btn button-decremento">
                     <i class="fas fa-minus"></i>
                   </button>
                 </div>
@@ -42,9 +35,7 @@
                   {{ tempCartItem.quantidade }}
                 </div>
                 <div class="col">
-                  <button
-                    (click)="incrementQuantity(tempCartItem)"
-                    class="btn button-incremento">
+                  <button (click)="incrementQuantity(tempCartItem)" class="btn button-incremento">
                     <i class="fas fa-plus"></i>
                   </button>
                 </div>
@@ -69,10 +60,16 @@
       </p>
       <button class="button-comprar" type="button">COMPRAR</button>
       <button class="button-continuar-comprando" type="button">
-        <a href="/produto-list">CONTINUAR COMPRANDO</a>
+        <a routerLink="/produtos-list">CONTINUAR COMPRANDO</a>
       </button>
     </div>
   </section>
+  <ng-template #removeModalCarrinho class="container-modal">
+    <div class="modal-body text-center">
+      <h4>ATENÇÃO</h4>
+      <p>Deseja realmente remover este produto ?</p>
+      <button type="button" class="btn btn-default" (click)="confirmaRemoveProduto()">Sim</button>
+      <button type="button" class="btn btn-primary" (click)="naoRemover()">Não</button>
+    </div>
+  </ng-template>
 </main>
-
-
