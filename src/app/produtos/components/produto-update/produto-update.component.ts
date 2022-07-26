@@ -84,7 +84,6 @@ export class ProdutoUpdateComponent implements OnInit {
     let arquivo = event.target.files[0]
     let reader = new FileReader()
     this.carregando = true;
-
     reader.readAsDataURL(arquivo)
     reader.onloadend = () => {
       console.log(reader.result)
@@ -101,7 +100,6 @@ export class ProdutoUpdateComponent implements OnInit {
     this.route.params.subscribe(
       (params: any) => {
         const id = params['id'];
-        console.log(id);
         const produto$ = this.produtoService.getById(id);
         produto$.subscribe(produto => {
           this.id = id;

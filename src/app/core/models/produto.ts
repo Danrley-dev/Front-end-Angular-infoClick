@@ -32,6 +32,6 @@ export enum Status {
 }
 
 export enum Promocao {
-  ATIVADA,
-  DESATIVADA
+  ATIVADA = "ativada",
+  DESATIVADA = "desativada"
 }
