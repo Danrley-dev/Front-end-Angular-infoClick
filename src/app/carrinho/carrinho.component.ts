@@ -31,13 +31,20 @@ export class CarrinhoComponent implements OnInit {
     this.carrinhoService.totalPrice.subscribe(
       data => this.totalPrice = data
     );
-
+    this.cartitems.sort((a, b) => {
+      if (a.loja! < b.loja!) {
+        return -1;
+      }
+      if (a.loja! > b.loja!) {
+        return 1;
+      }
+      return 0;
+    }
+    );
     this.carrinhoService.totalQuantity.subscribe(
       data => this.totalQuantity = data
     );
-
     this.carrinhoService.computeCartTotals();
-
   }
 
   incrementQuantity(item: ItemCarrinho) {
