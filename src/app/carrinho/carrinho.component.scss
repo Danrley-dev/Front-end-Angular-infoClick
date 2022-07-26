@@ -1,6 +1,8 @@
 
 main {
   background-image: url("../../assets/img/fundo-carrinho.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   padding-top: 50px;
   padding-bottom: 55px;
   display: flex;
@@ -12,7 +14,6 @@ a {
   text-decoration: none;
   color: white;
 }
-
 
 .container-produtos {
   border-radius: 8px;
@@ -39,7 +40,7 @@ a {
 .produtos img {
   width: 250px;
   height: 250px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .produto-descricao {
@@ -115,6 +116,10 @@ span {
   border-radius: 5px;
   margin-top: 10px;
   margin-left: 15px;
+}
+
+.btn-default {
+  margin-right: 25px;
 }
 
 @media(max-width: 1080px) {
