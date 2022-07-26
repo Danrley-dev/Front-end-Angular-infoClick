@@ -25,6 +25,7 @@ export class LojaEmpreendedorComponent implements OnInit {
   produto: Produto = new Produto();
   lojas: Loja[] = [];
   opGerencia = false;
+  botaoGerenciar = false;
   public isCollapsed = true;
   userEmpreendedor?: boolean;
   userAdmin?: boolean;
@@ -49,6 +50,9 @@ export class LojaEmpreendedorComponent implements OnInit {
     private empreendedorService: EmpreendedorService,
   ) { }
 
+  clickOpcoes(){
+    this.botaoGerenciar = !this.botaoGerenciar;
+  }
 
   isAdmin() {
     this.authService.userInfo().subscribe(res => {
