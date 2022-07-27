@@ -21,9 +21,7 @@
     <div class="container-filtro">
       <ul *ngIf="filtro" class="lista-filtro">
         <li class="todos-produtos">
-          <a routerLink="/produtos-list"
-            ><i class="bi bi-pc-display"></i>TODOS PRODUTOS</a
-          >
+          <a routerLink="/produtos-list"><i class="bi bi-pc-display"></i>TODOS PRODUTOS</a>
         </li>
         <li class="hardware">
           <a routerLink="/categoria/1"><i class="bi bi-pc"></i>HARDWARE</a>
@@ -41,52 +39,64 @@
     </div>
 
     <div *ngFor="let produto of produtos" class="container-card">
-      <div class="card">
-        <div class="promo">
-          <p class="porcent-promo"><span>{{produto.produtoDesconto}}%</span> OFF</p>
-          <p class="time-promo">
-            termina em:
-            <span>{{produto.dataLimitePromocao | date }}</span>
-          </p>
-        </div>
-        <div class="details">
-          <a
-            routerLink="/produto-detail/{{ produto.id }}"
-            class="img-wrap"
-            data-abc="true"
-          >
-            <img
-              src="{{ produto.produtoImagem }}"
-              alt="Imagem de um computador"
-            />
-          </a>
-          <a
-            routerLink="/loja-empreendedor/{{ produto.loja?.idLoja }}"
-            class="img-wrap"
-            data-abc="true"
-          >
-            <p class="nome-loja">
-              <b>{{ produto.loja?.nomeLoja }}</b>
+      <div *ngIf="produto.produtoAntigoValor != produto.produtoValor; else semDesconto">
+        <div class="card">
+          <div class="promo">
+            <p class="porcent-promo"><span>{{produto.produtoDesconto}}%</span> OFF</p>
+            <p class="time-promo">
+              termina em:
+              <span>{{produto.dataLimitePromocao | date }}</span>
             </p>
-          </a>
-          <p class="nome-produto">{{ produto.name }}</p>
-          <p class="preco-corte">
-            De: {{ produto.produtoAntigoValor | currency: "BRL" }}
-          </p>
-          <p class="preco-promo">
-            {{ produto.produtoValor | currency: "BRL" }}
-          </p>
-          <!-- <p class="parcelas">12x de R$ 499,98 sem juros</p> -->
+          </div>
+          <div class="details">
+            <a routerLink="/produto-detail/{{ produto.id }}" class="img-wrap" data-abc="true">
+              <img src="{{ produto.produtoImagem }}" alt="Imagem de um computador" />
+            </a>
+            <a routerLink="/loja-empreendedor/{{ produto.loja?.idLoja }}" class="img-wrap" data-abc="true">
+              <p class="nome-loja">
+                <b>{{ produto.loja?.nomeLoja }}</b>
+              </p>
+            </a>
+            <p class="nome-produto">{{ produto.name }}</p>
+            <p class="preco-corte">
+              De: {{ produto.produtoAntigoValor | currency: "BRL" }}
+            </p>
+            <p class="preco-promo">
+              {{ produto.produtoValor | currency: "BRL" }}
+            </p>
 
-          <button
-            (click)="addToCart(produto)"
-            class="button-card"
-            type="button"
-          >
-            <a>ADICIONAR AO CARRINHO</a>
-          </button>
+            <button (click)="addToCart(produto)" class="button-card" type="button">
+              <a>ADICIONAR AO CARRINHO</a>
+            </button>
+          </div>
         </div>
       </div>
+      <ng-template #semDesconto>
+        <div class="container-card">
+          <div class="card2">
+            <div class="promo">
+              <p class="porcent-promo">{{produto.categoria}}</p>
+            </div>
+            <div class="details2">
+              <a routerLink="/produto-detail/{{ produto.id }}" class="img-wrap" data-abc="true">
+                <img src="{{ produto.produtoImagem }}" alt="Imagem de um computador" />
+              </a>
+              <a routerLink="/loja-empreendedor/{{ produto.loja?.idLoja }}" class="img-wrap" data-abc="true">
+                <p class="nome-loja">
+                  <b>{{ produto.loja?.nomeLoja }}</b>
+                </p>
+              </a>
+              <p class="nome-produto">{{ produto.name }}</p>
+              <p class="preco-promo">
+                {{ produto.produtoValor | currency: "BRL" }}
+              </p>
+              <button (click)="addToCart(produto)" class="button-card2" type="button">
+                <a>ADICIONAR AO CARRINHO</a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </ng-template>
     </div>
   </section>
 </main>

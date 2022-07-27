@@ -49,41 +49,69 @@
   </section>
   <section class="container-cards1">
     <div *ngFor="let itens of loja.produtos">
-      <div class="card">
-                  <div class="promo">
-           <p class="porcent-promo"><span>{{itens.produtoDesconto}}%</span> OFF</p>
-          <p class="time-promo">
-            termina em:
-            <span>{{itens.dataLimitePromocao | date }}</span>
-          </p>
-        </div>
+      <div *ngIf="produto.produtoAntigoValor != produto.produtoValor; else semDesconto">
+        <div class="card">
+          <div class="promo">
+            <p class="porcent-promo"><span>{{itens.produtoDesconto}}%</span> OFF</p>
+            <p class="time-promo">
+              termina em:
+              <span>{{itens.dataLimitePromocao | date }}</span>
+            </p>
+          </div>
 
-        <div class="details">
-          <a routerLink="/produto-detail/{{ itens.id }}" class="img-wrap" data-abc="true">
-            <img  src="{{ itens.produtoImagem }}" />
-          </a>
-          <p class="nome-produto">
-            {{ itens.name }}
-          </p>
-          <p class="preco-corte">
-            De: {{ itens.produtoAntigoValor | currency: "BRL" }}
-          </p>
-          <p class="preco-promo">
-            Por: {{ itens.produtoValor | currency: "BRL" }}
-          </p>
-          <div class="botoes-edit" *ngIf="opGerencia">
-            <a class="botoes-edit-a" (click)="editarProduto(itens.id!)">
-              <mat-icon style="font-size: 30px">edit</mat-icon>
+          <div class="details">
+            <a routerLink="/produto-detail/{{ itens.id }}" class="img-wrap" data-abc="true">
+              <img src="{{ itens.produtoImagem }}" />
             </a>
-            <div class="botoes-edit-linha"></div>
-            <a *ngIf="opGerencia" class="old" (click)="deletarProdutoModal(itens)"><i class="bi bi-trash"
-              style="font-size: 25px;"></i></a>
+            <p class="nome-produto">
+              {{ itens.name }}
+            </p>
+            <p class="preco-corte">
+              De: {{ itens.produtoAntigoValor | currency: "BRL" }}
+            </p>
+            <p class="preco-promo">
+              Por: {{ itens.produtoValor | currency: "BRL" }}
+            </p>
+            <div class="botoes-edit" *ngIf="opGerencia">
+              <a class="botoes-edit-a" (click)="editarProduto(itens.id!)">
+                <mat-icon style="font-size: 30px">edit</mat-icon>
+              </a>
+              <div class="botoes-edit-linha"></div>
+              <a *ngIf="opGerencia" class="old" (click)="deletarProdutoModal(itens)"><i class="bi bi-trash"
+                  style="font-size: 25px;"></i></a>
             </div>
-          <button (click)="addToCart(itens)" class="button-card" type="button" *ngIf="!opGerencia">
-            <a>ADICIONAR AO CARRINHO</a>
-          </button>
+            <button (click)="addToCart(itens)" class="button-card" type="button" *ngIf="!opGerencia">
+              <a>ADICIONAR AO CARRINHO</a>
+            </button>
+          </div>
         </div>
       </div>
+      <ng-template #semDesconto>
+        <div class="container-card">
+          <div class="card2">
+            <div class="promo">
+              <p class="porcent-promo">{{itens.categoria}}</p>
+            </div>
+            <div class="details2">
+              <a routerLink="/produto-detail/{{ itens.id }}" class="img-wrap" data-abc="true">
+                <img src="{{ itens.produtoImagem }}" alt="Imagem de um computador" />
+              </a>
+              <a routerLink="/loja-empreendedor/{{itens.loja?.idLoja }}" class="img-wrap" data-abc="true">
+                <p class="nome-loja">
+                  <b>{{ itens.loja?.nomeLoja }}</b>
+                </p>
+              </a>
+              <p class="nome-produto">{{ itens.name }}</p>
+              <p class="preco-promo">
+                {{ itens.produtoValor | currency: "BRL" }}
+              </p>
+              <button (click)="addToCart(itens)" class="button-card2" type="button" *ngIf="!opGerencia">
+                <a>ADICIONAR AO CARRINHO</a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </ng-template>
     </div>
   </section>
   <ng-template #deleteModal>

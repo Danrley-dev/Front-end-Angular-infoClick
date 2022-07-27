@@ -97,6 +97,15 @@ main {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
+.card2 {
+  margin-bottom: 100px;
+  width: 301px;
+  height: 454px;
+  font-size: 75%;
+  background-color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
 .promo {
   display: flex;
   justify-content: center;
@@ -147,6 +156,19 @@ main {
   object-fit: contain;
 }
 
+.details2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.details2 img {
+  width: 169.81px;
+  height: 105.53px;
+  margin-top: 50px;
+  object-fit: contain;
+}
+
 .nome-loja {
   width: 170px;
   font-size: 12px;
@@ -169,6 +191,7 @@ main {
 }
 
 .nome-produto {
+  width: 170px;
   text-align: center;
 }
 
@@ -191,7 +214,24 @@ main {
 
 .card:hover {
   height: 490px;
+
   .button-card {
+    display: block;
+  }
+}
+
+.button-card2 {
+  width: 299px;
+  height: 71px;
+  background-color: #1f1f1f;
+  display: none;
+  color: white;
+}
+
+.card2:hover {
+  height: 450px;
+
+  .button-card2 {
     display: block;
   }
 }
@@ -200,6 +240,7 @@ main {
   .container-carousel {
     width: 1084px;
   }
+
   // .container-filtro {
   //   width: 280px;
   //   height: 50px;
@@ -218,6 +259,7 @@ main {
     width: 100%;
     margin-right: 7.9%;
   }
+
   .container-filtro {
     width: 960px;
   }
@@ -264,6 +306,7 @@ main {
   .card {
     height: 490px;
     margin-right: 25px;
+
     .button-card {
       display: block;
     }
@@ -277,9 +320,11 @@ main {
 
     margin-left: 4.5%;
   }
+
   .container-carousel img {
     height: 250px;
   }
+
   .container-filtro {
     width: 740px;
   }
@@ -297,8 +342,10 @@ main {
   .software {
     padding-left: 70px;
   }
+
   .card {
     height: 490px;
+
     .button-card {
       display: block;
     }
@@ -313,11 +360,13 @@ main {
   .lista-filtro {
     padding-left: 0px;
   }
+
   .container-carousel {
     width: 87%;
     height: 210px;
     margin-left: 5%;
   }
+
   .container-carousel img {
     height: 200px;
   }
@@ -343,6 +392,7 @@ main {
 
   .card {
     height: 490px;
+
     .button-card {
       display: block;
     }
@@ -376,6 +426,7 @@ main {
     padding-right: 0px;
     font-size: 13px;
   }
+
   .container-carousel img {
     height: 150px;
   }
@@ -415,11 +466,13 @@ main {
 
   .card {
     height: 490px;
+
     .button-card {
       display: block;
     }
   }
 }
+
 @media (max-width: 400px) {
   .container-carousel {
     width: 85%;
@@ -430,12 +483,15 @@ main {
   .container-carousel img {
     height: 130px;
   }
+
   .card {
     height: 490px;
+
     .button-card {
       display: block;
     }
   }
+
   @media (max-width: 280px) {
     main {
       place-items: center;
@@ -447,6 +503,7 @@ main {
       height: 140px;
       padding-left: 1%;
     }
+
     .container-filtro {
       width: 200px;
       height: 50px;
@@ -461,6 +518,7 @@ main {
         align-items: center;
         justify-items: center;
       }
+
       p {
         margin-left: 25px;
       }
@@ -485,10 +543,12 @@ main {
       place-items: center;
 
       height: 490px;
+
       .button-card {
         display: block;
         width: 220px;
       }
+
       .time-promo {
         font-size: small9;
       }

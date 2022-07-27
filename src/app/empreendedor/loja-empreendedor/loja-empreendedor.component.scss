@@ -164,6 +164,15 @@ main {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
+.card2 {
+  margin-bottom: 100px;
+  width: 301px;
+  height: 454px;
+  font-size: 75%;
+  background-color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
 .promo {
   display: flex;
   justify-content: center;
@@ -201,7 +210,7 @@ main {
   color: black;
 }
 
-.botoes-edit{
+.botoes-edit {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -210,7 +219,7 @@ main {
   border-top: 2px solid #f4da5e;
 }
 
-.botoes-edit-linha{
+.botoes-edit-linha {
   height: 60px;
   width: 2px;
   background-color: #f4da5e;
@@ -232,18 +241,28 @@ main {
   color: #ea1010;
 }
 
-
-
 .details {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-
 .details img {
   width: 169.81px;
   height: 105.53px;
+  margin-top: 50px;
+  object-fit: contain;
+}
+
+.details2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.details2 img {
+  width: 169.81px;
+  height: 125.53px;
   margin-top: 50px;
   object-fit: contain;
 }
@@ -292,6 +311,22 @@ main {
   }
 }
 
+.button-card2 {
+  width: 299px;
+  height: 71px;
+  background-color: #1f1f1f;
+  display: none;
+  color: white;
+}
+
+.card2:hover {
+  height: 450px;
+
+  .button-card2 {
+    display: block;
+  }
+}
+
 @media (max-width: 1000px) {
   .container-informacoes {
     width: 600px;
@@ -330,8 +365,6 @@ main {
     display: block;
     margin-top: -6px;
   }
-
-  /*************fim***830**************/
 }
 
 @media (max-width: 730px) {
@@ -354,7 +387,6 @@ main {
     width: 80%;
   }
 
-  /************inicio**730************/
   .menu {
     display: none;
   }
@@ -399,8 +431,6 @@ main {
     text-decoration: none;
     color: black;
   }
-
-  //   /***********fim***730**********/
 }
 
 @media (max-width: 630px) {
