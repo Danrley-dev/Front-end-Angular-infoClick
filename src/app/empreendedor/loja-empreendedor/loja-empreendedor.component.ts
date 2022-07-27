@@ -11,8 +11,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { ProdutoUpdateComponent } from 'src/app/produtos/components/produto-update/produto-update.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ProdutoService } from 'src/app/core/services/produtos/produto.service';
 import { EmpreendedorService } from 'src/app/core/services/empreendedor/empreendedor.service';
+import { ProdutoService } from 'src/app/core/services/produtos/produto.service';
 
 @Component({
   selector: 'app-loja-empreendedor',

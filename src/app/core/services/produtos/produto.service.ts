@@ -14,8 +14,8 @@ import { Produto } from '../../models/produto';
 })
 export class ProdutoService {
 
-  private baseUrl = "https://soulcode-projeto-final.azurewebsites.net/service/produto";
-  private lojaUrl = "https://soulcode-projeto-final.azurewebsites.net/service/lojas";
+  private baseUrl = "https://ecomerce-soulcode.azurewebsites.net/service/produto";
+  private lojaUrl = "https://ecomerce-soulcode.azurewebsites.net/service/lojas";
 
   constructor(private http: HttpClient) { }
 
