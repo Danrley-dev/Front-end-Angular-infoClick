@@ -105,6 +105,14 @@
               <p class="preco-promo">
                 {{ itens.produtoValor | currency: "BRL" }}
               </p>
+              <div class="botoes-edit" *ngIf="opGerencia">
+                <a class="botoes-edit-a" (click)="editarProduto(itens.id!)">
+                  <mat-icon style="font-size: 30px">edit</mat-icon>
+                </a>
+                <div class="botoes-edit-linha"></div>
+                <a *ngIf="opGerencia" class="old" (click)="deletarProdutoModal(itens)"><i class="bi bi-trash"
+                    style="font-size: 25px;"></i></a>
+              </div>
               <button (click)="addToCart(itens)" class="button-card2" type="button" *ngIf="!opGerencia">
                 <a>ADICIONAR AO CARRINHO</a>
               </button>
