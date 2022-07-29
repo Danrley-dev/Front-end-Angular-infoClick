@@ -10,6 +10,10 @@ main {
   align-items: center;
 }
 
+.mobile{
+  display: none;
+}
+
 a {
   text-decoration: none;
   color: white;
@@ -127,6 +131,14 @@ span {
     height: 350px;
   }
 
+  .desktop{
+    display: none;
+  }
+
+  .mobile{
+    display: inline;
+  }
+
 }
 
 @media(max-width: 915px) {
@@ -139,9 +151,13 @@ span {
     object-fit: cover;
   }
   .button-deletar {
-    width: 200px;
+    width: 100px;
     margin-left: 15px;
   }
+  .desktop{
+    display: none;
+  }
+
 }
 
 
@@ -176,6 +192,10 @@ span {
     height: 40px;
     font-size: 12px;
   }
+
+  .desktop{
+    display: none;
+  }
 }
 
 @media(max-width: 630px) {
@@ -207,6 +227,9 @@ span {
 
   .button-deletar {
     width: 140px;
+  }
+  .desktop{
+    display: none;
   }
 }
 
@@ -262,6 +285,9 @@ span {
   border: none;
   color: white;
 }
+.desktop{
+  display: none;
+}
 
 }
 
@@ -282,4 +308,9 @@ span {
   object-fit: cover;
   padding-right: 10px;
 }
+
+.desktop{
+  display: none;
+}
+
 }
