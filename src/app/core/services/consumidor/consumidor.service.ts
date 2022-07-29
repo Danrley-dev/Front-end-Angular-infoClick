@@ -43,4 +43,10 @@ export class ConsumidorService {
       map(response => response),
     );
   }
+
+    getConsumidorMesBy(id: number) {
+    return this.http.get<Consumidor[]>(`${this.consumidorUrl}/mes/${id}`).pipe(
+      map(response => response.length)
+    );
+  }
 }

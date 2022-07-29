@@ -13,6 +13,9 @@ import { GraficosComponent } from './components/graficos/graficos/graficos.compo
 import { NgxChartsModule }from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GraficoComponent } from './components/graficos/grafico/grafico.component';
+import { GraficoConsumidorComponent } from './components/graficos/graficoConsumidor/graficoConsumidor.component';
+import { GraficoEmpreendedorComponent } from './components/graficos/graficoEmpreendedor/graficoEmpreendedor.component';
+
 
 
 
@@ -25,7 +28,8 @@ import { GraficoComponent } from './components/graficos/grafico/grafico.componen
     EditConsumidorComponent,
     GraficosComponent,
     GraficoComponent,
-
+    GraficoConsumidorComponent,
+    GraficoEmpreendedorComponent
 
   ],
   imports: [

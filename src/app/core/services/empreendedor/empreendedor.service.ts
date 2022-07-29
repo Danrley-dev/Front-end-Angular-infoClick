@@ -43,4 +43,10 @@ export class EmpreendedorService {
     );
   }
 
+      getEmpreendedorMesBy(id: number) {
+    return this.http.get<Empreendedor[]>(`${this.empreendedorUrl}/mes/${id}`).pipe(
+      map(response => response.length)
+    );
+  }
+
 }
