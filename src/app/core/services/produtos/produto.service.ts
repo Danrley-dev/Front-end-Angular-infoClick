@@ -14,8 +14,9 @@ import { Produto } from '../../models/produto';
 })
 export class ProdutoService {
 
-  private baseUrl = "https://ecomerce-soulcode.azurewebsites.net/service/produto";
-  private lojaUrl = "https://ecomerce-soulcode.azurewebsites.net/service/lojas";
+
+  private baseUrl = "localhost:8080/service/produto";
+  private lojaUrl = "localhost:8080/service/lojas";
 
   constructor(private http: HttpClient) { }
 
@@ -75,6 +76,41 @@ export class ProdutoService {
   update(id: number, produto: Produto): Promise<any> {
     return this.http.put(`${this.baseUrl}/${id}`, produto).toPromise();
   }
+
+  getProdutoMesBy(id: number) {
+    return this.http.get<Produto[]>(`${this.baseUrl}/buscames/${id}`).pipe(
+      map(response => response.length)
+    );
+  }
+
+  ProdutoMes() {
+    return this.http.get<Produto[]>(`${this.baseUrl}/buscames`).pipe(
+      map(response => response)
+    );
+  }
+
+  // length produto mes
+  get ProdutoMesLength() {
+    return this.http.get<Produto[]>(`${this.baseUrl}/buscames`).pipe(
+      map(response => response.length)
+    );
+  }
+
+   JulhoLength() {
+    return this.http.get<Produto[]>(`${this.baseUrl}/buscames/7`).pipe(
+      map(response => response.length)
+    );
+  }
+
+
+  SemanaLength() {
+    return this.http.get<Produto[]>(`${this.baseUrl}/busca-semana/30`).pipe(
+      map(response => response.length)
+    );
+  }
+
+
+
 }
 
 

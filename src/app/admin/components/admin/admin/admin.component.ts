@@ -210,12 +210,17 @@ editarConsumidor(id: number) {
 }
 
 
+
+
+
   ngOnInit(): void {
     this.listaProdutos();
     this.listaLojas();
     this.listaPessoas();
     this.listaEmpreendedor();
     this.listaConsumidores();
+
+
   }
 
 }

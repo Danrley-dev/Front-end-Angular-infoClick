@@ -25,6 +25,8 @@ import { provideFunctions,getFunctions } from '@angular/fire/functions';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { CommonModule } from '@angular/common';
 import { LojaEditComponent } from './empreendedor/loja-edit/loja-edit/loja-edit.component';
+import { NgxChartsModule }from '@swimlane/ngx-charts';
+
 
 
 @NgModule({
@@ -55,6 +57,8 @@ import { LojaEditComponent } from './empreendedor/loja-edit/loja-edit/loja-edit.
     MaterialModule,
     AdminModule,
     CommonModule,
+    BrowserAnimationsModule,
+    NgxChartsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideFunctions(() => getFunctions()),

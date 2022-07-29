@@ -7,7 +7,7 @@ import { Loja } from '../../models/loja';
   providedIn: 'root'
 })
 export class LojaService {
-  private lojaUrl = "https://ecomerce-soulcode.azurewebsites.net/service/lojas";
+  private lojaUrl = "localhost:8080/service/lojas";
 
   constructor(private http: HttpClient) { }
 
