@@ -9,6 +9,10 @@ import { MaterialModule } from '../shared/material.module';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditConsumidorComponent } from './components/edit-consumidor/edit-consumidor/edit-consumidor.component';
+import { GraficosComponent } from './components/graficos/graficos/graficos.component';
+import { NgxChartsModule }from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GraficoComponent } from './components/graficos/grafico/grafico.component';
 
 
 
@@ -19,6 +23,8 @@ import { EditConsumidorComponent } from './components/edit-consumidor/edit-consu
     AdminComponent,
     EditsComponent,
     EditConsumidorComponent,
+    GraficosComponent,
+    GraficoComponent,
 
 
   ],
@@ -30,6 +36,8 @@ import { EditConsumidorComponent } from './components/edit-consumidor/edit-consu
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    NgxChartsModule
     ]
 })
 export class AdminModule { }

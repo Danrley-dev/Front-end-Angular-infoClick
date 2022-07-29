@@ -1,6 +1,6 @@
 export const API_CONFIG = {
   baseUrl: {
-    mock: 'https://ecomerce-soulcode.azurewebsites.net/',
-    prod: 'https://ecomerce-soulcode.azurewebsites.net/',
+    mock: 'localhost:8080',
+    prod: 'localhost:8080',
   },
 };

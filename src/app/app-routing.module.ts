@@ -1,3 +1,5 @@
+import { GraficoComponent } from './admin/components/graficos/grafico/grafico.component';
+import { GraficosComponent } from './admin/components/graficos/graficos/graficos.component';
 import { RoleEmpreendedorGuard } from './auth/guards/roleEmpreendedor/role-empreendedor.guard';
 import { AdminComponent } from './admin/components/admin/admin/admin.component';
 import { LojaEmpreendedorComponent } from './empreendedor/loja-empreendedor/loja-empreendedor.component';
@@ -26,6 +28,16 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'admin/grafico',
+    component: GraficoComponent,
+    // canActivate: [RoleAdminGuard],
+  },
+  {
+    path: 'admin/graficos',
+    component: GraficosComponent,
+    // canActivate: [RoleAdminGuard],
   },
   {
     path: 'admin/consumidor-edit/:id',

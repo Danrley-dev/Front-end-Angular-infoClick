@@ -50,9 +50,9 @@
       <div class="col-lg-3 col-6" *ngIf="consumidores">
         <div class="small-box bg-danger">
           <div class="inner">
-            <h3>{{consumidores.length}}</h3>
+            <h3>{{ consumidores.length }}</h3>
 
-            <p>Consumidores </p>
+            <p>Consumidores</p>
           </div>
           <div class="icon">
             <i class="ion ion-pie-graph"></i>
@@ -63,6 +63,44 @@
         </div>
       </div>
     </div>
+
+    <!-- aqui -->
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Produtos Mês</h3>
+                <div class="card-tools"></div>
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <app-grafico> </app-grafico>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Produto Semanal</h3>
+                <div class="card-tools"></div>
+              </div>
+              <div class="card-body">
+                <app-graficos></app-graficos>
+
+                <div class="chart"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- fim -->
 
     <div class="row">
       <section>
@@ -138,28 +176,31 @@
                         <th>Editar</th>
                       </tr>
                     </thead>
-                    <tbody >
+                    <tbody>
                       <tr></tr>
                       <tr *ngFor="let pessoa of empreendedor">
-                        <td>{{ pessoa.id}}</td>
+                        <td>{{ pessoa.id }}</td>
                         <td>{{ pessoa.nome }}</td>
-                        <td>{{ pessoa.perfil}}</td>
+                        <td>{{ pessoa.perfil }}</td>
                         <td>{{ pessoa.email }}</td>
-                        <td> <a ><span
-                          class="bi bi-trash"
-                          style="color: red"
-                          (click)="deletarEmpreendedorModal(pessoa)"
-                        ></span
-                      ></a>
-                    </td>
-                    <td>
-                      <a ><span
-                          class="bi bi-pencil"
-                          style="color: blue"
-                          (click)="editarEmpreendedor(pessoa.id!)"
-                        ></span
-                      ></a>
-                    </td>
+                        <td>
+                          <a
+                            ><span
+                              class="bi bi-trash"
+                              style="color: red"
+                              (click)="deletarEmpreendedorModal(pessoa)"
+                            ></span
+                          ></a>
+                        </td>
+                        <td>
+                          <a
+                            ><span
+                              class="bi bi-pencil"
+                              style="color: blue"
+                              (click)="editarEmpreendedor(pessoa.id!)"
+                            ></span
+                          ></a>
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -168,7 +209,6 @@
             </div>
           </div>
         </div>
-
 
         <div class="card">
           <div class="row">
@@ -198,28 +238,31 @@
                         <th>Editar</th>
                       </tr>
                     </thead>
-                    <tbody >
+                    <tbody>
                       <tr></tr>
                       <tr *ngFor="let pessoa of consumidores">
-                        <td>{{ pessoa.id}}</td>
+                        <td>{{ pessoa.id }}</td>
                         <td>{{ pessoa.nome }}</td>
-                        <td>{{ pessoa.perfil}}</td>
+                        <td>{{ pessoa.perfil }}</td>
                         <td>{{ pessoa.email }}</td>
-                        <td> <a ><span
-                          class="bi bi-trash"
-                          style="color: red"
-                          (click)="deletarConsumidorModal(pessoa)"
-                        ></span
-                      ></a>
-                    </td>
-                    <td>
-                      <a ><span
-                          class="bi bi-pencil"
-                          style="color: blue"
-                          (click)="editarConsumidor(pessoa.id!)"
-                        ></span
-                      ></a>
-                    </td>
+                        <td>
+                          <a
+                            ><span
+                              class="bi bi-trash"
+                              style="color: red"
+                              (click)="deletarConsumidorModal(pessoa)"
+                            ></span
+                          ></a>
+                        </td>
+                        <td>
+                          <a
+                            ><span
+                              class="bi bi-pencil"
+                              style="color: blue"
+                              (click)="editarConsumidor(pessoa.id!)"
+                            ></span
+                          ></a>
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -264,9 +307,11 @@
                       <tr></tr>
                       <tr *ngFor="let produto of produtos">
                         <td>{{ produto.id }}</td>
-                        <td>{{ produto.name}}</td>
+                        <td>{{ produto.name }}</td>
                         <td>{{ produto.loja?.nomeLoja }}</td>
-                        <td> <a ><span
+                        <td>
+                          <a
+                            ><span
                               class="bi bi-trash"
                               style="color: red"
                               (click)="deletarProdutoModal(produto)"
@@ -274,7 +319,8 @@
                           ></a>
                         </td>
                         <td>
-                          <a ><span
+                          <a
+                            ><span
                               class="bi bi-pencil"
                               style="color: blue"
                               (click)="editarProduto(produto.id!)"
@@ -291,32 +337,49 @@
         </div>
       </section>
     </div>
-
-
   </div>
 </section>
-
 
 <ng-template #deleteModal>
   <div class="modal-body text-center">
     <p>Deseja deletar esse Produto ?</p>
-    <button type="button" class="btn btn-default" (click)="confirmaDelete()">Sim</button>
-    <button type="button" class="btn btn-primary" (click)="naoDeletar()" >Não</button>
+    <button type="button" class="btn btn-default" (click)="confirmaDelete()">
+      Sim
+    </button>
+    <button type="button" class="btn btn-primary" (click)="naoDeletar()">
+      Não
+    </button>
   </div>
 </ng-template>
 
 <ng-template #deleteModalEmpreendedor>
   <div class="modal-body text-center">
     <p>Deseja deletar esse Empreendedor ?</p>
-    <button type="button" class="btn btn-default" (click)="confirmaDeleteEmpreendedor()">Sim</button>
-    <button type="button" class="btn btn-primary" (click)="naoDeletar()" >Não</button>
+    <button
+      type="button"
+      class="btn btn-default"
+      (click)="confirmaDeleteEmpreendedor()"
+    >
+      Sim
+    </button>
+    <button type="button" class="btn btn-primary" (click)="naoDeletar()">
+      Não
+    </button>
   </div>
 </ng-template>
 
 <ng-template #deleteModalConsumidor>
   <div class="modal-body text-center">
     <p>Deseja deletar esse Empreendedor ?</p>
-    <button type="button" class="btn btn-default" (click)="confirmaDeleteConsumidor()">Sim</button>
-    <button type="button" class="btn btn-primary" (click)="naoDeletar()">Não</button>
+    <button
+      type="button"
+      class="btn btn-default"
+      (click)="confirmaDeleteConsumidor()"
+    >
+      Sim
+    </button>
+    <button type="button" class="btn btn-primary" (click)="naoDeletar()">
+      Não
+    </button>
   </div>
 </ng-template>
