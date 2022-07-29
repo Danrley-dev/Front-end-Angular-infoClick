@@ -4,7 +4,7 @@
     <div *ngIf="cartitems.length > 0">
       <div class="produtos" *ngFor="let tempCartItem of cartitems">
         <img src="{{ tempCartItem.imagem }}" alt="Imagem de uma placa de video"/>
-        <p>{{tempCartItem.loja}}</p>
+        <p class="nome-produto desktop">{{tempCartItem.loja}}</p>
         <div class="produto-descricao">
           <p class="nome-produto">
             {{ tempCartItem.name }}
@@ -23,6 +23,7 @@
               | currency: "BRL"
               }}</span>
           </p>
+          <p class="nome-produto mobile">{{tempCartItem.loja}}</p>
           <div class="items">
             <label class="text-quantidade">Quantidade:</label>
             <div class="row no-gutters">
