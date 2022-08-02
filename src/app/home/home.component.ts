@@ -22,9 +22,9 @@ export class HomeComponent implements OnInit {
   searchMode?: boolean;
   storage: Storage = localStorage;
   images = [
-    '../../assets/img/Group 84.png',
-    '../../assets/img/Group 82.png',
-    '../../assets/img/Group 83.png'
+    'assets/img/Group 84.png',
+    'assets/img/Group 82.png',
+    'assets/img/Group 83.png'
   ]
 
   constructor(

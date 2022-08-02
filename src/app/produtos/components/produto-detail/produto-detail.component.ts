@@ -14,7 +14,7 @@ import { ProdutoService } from 'src/app/core/services/produtos/produto.service';
 })
 export class ProdutoDetailComponent implements OnInit {
 
-  images = ['../../../../assets/img/3.png', '../../../../assets/img/4.png', '../../../../assets/img/1.png']
+  images = ['assets/img/3.png', 'assets/img/4.png', 'assets/img/1.png']
 
   produto: Produto = new Produto();
   loja: Loja = new Loja();

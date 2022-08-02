@@ -25,7 +25,7 @@ export class LojaCreateComponent implements OnInit {
 
   carregando = false;
 
-  urlImagem: any = "../../../../assets/img/logo-infoclick.png"
+  urlImagem: any = "assets/img/logo-infoclick.png"
   idEmpreendedor?: number;
   errorsI?: any;
   mudar: boolean = true;
