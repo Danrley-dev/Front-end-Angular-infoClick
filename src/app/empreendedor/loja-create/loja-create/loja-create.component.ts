@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { Loja } from 'src/app/core/models/loja';
@@ -15,7 +15,7 @@ import { UploadImgService } from 'src/app/core/services/uploadImg/upload-img.ser
 export class LojaCreateComponent implements OnInit {
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private lojaService: LojaService,
     private toast: HotToastService,
     private router: Router,

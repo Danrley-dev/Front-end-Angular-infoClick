@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { Consumidor, Empreendedor } from 'src/app/core/models/pessoa';
@@ -28,7 +28,7 @@ export class CadastroEditComponent implements OnInit {
   userAdmin!: boolean;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private consumidorService: ConsumidorService,
     private empreendedorService: EmpreendedorService,
     private toast: HotToastService,

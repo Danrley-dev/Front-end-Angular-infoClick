@@ -1,6 +1,6 @@
 import { HotToastService } from '@ngneat/hot-toast';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { ConsumidorService } from 'src/app/core/services/consumidor/consumidor.service';
 import { EmpreendedorService } from 'src/app/core/services/empreendedor/empreendedor.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -20,7 +20,7 @@ export class EditConsumidorComponent implements OnInit {
   id?: number;
   idConsumidor?: number;
 
-  constructor( private fb: FormBuilder,
+  constructor( private fb: UntypedFormBuilder,
     private consumidorService: ConsumidorService,
     private empreendedorService: EmpreendedorService,
     private toast: HotToastService,

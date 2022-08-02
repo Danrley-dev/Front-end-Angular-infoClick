@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { Observable } from 'rxjs';
@@ -27,7 +27,7 @@ export class ProdutoCreateComponent implements OnInit {
   produtoAtivo = false;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private lojaService: LojaService,
     private toast: HotToastService,
     private router: Router,
