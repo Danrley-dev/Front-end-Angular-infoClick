@@ -16,7 +16,7 @@ import { HotToastService } from '@ngneat/hot-toast';
 export class ProdutosListComponent implements OnInit {
 
   filtro = true;
-  images = ['../../../../assets/img/2.png', '../../../../assets/img/5.png', '../../../../assets/img/6.png']
+  images = ['assets/img/2.png', 'assets/img/5.png', 'assets/img/6.png']
 
   produtos?: Produto[];
   lojas?: Loja[];

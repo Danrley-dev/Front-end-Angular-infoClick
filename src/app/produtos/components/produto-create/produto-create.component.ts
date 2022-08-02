@@ -23,7 +23,7 @@ export class ProdutoCreateComponent implements OnInit {
   icon?: string = 'upload';
   errorsI?: any;
   mudar: boolean = true;
-  urlImagem: any = "../../../../assets/img/logo-infoclick.png";
+  urlImagem: any = "assets/img/logo-infoclick.png";
   produtoAtivo = false;
 
   constructor(
