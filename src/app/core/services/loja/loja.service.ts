@@ -7,7 +7,7 @@ import { Loja } from '../../models/loja';
   providedIn: 'root'
 })
 export class LojaService {
-  private lojaUrl = "https://ecomerce-soulcode.azurewebsites.net/service/lojas";
+  private lojaUrl = "https://infoclick1.herokuapp.com/service/lojas";
 
   constructor(private http: HttpClient) { }
 
