@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   ocultar = true;
   isLoading = true;
 
-  constructor(private fb: FormBuilder,
+  constructor(private fb: UntypedFormBuilder,
     private authService: AuthService,
     private router: Router,
     private toast: HotToastService) {

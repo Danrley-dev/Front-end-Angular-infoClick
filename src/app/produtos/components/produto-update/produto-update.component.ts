@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
@@ -15,7 +15,7 @@ import { UploadImgService } from 'src/app/core/services/uploadImg/upload-img.ser
 })
 export class ProdutoUpdateComponent implements OnInit {
   constructor(public dialog: MatDialog,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private toast: HotToastService,
     private router: Router,
     private produtoService: ProdutoService,

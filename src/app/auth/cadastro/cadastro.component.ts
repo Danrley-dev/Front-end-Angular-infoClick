@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { ConsumidorService } from 'src/app/core/services/consumidor/consumidor.service';
@@ -23,7 +23,7 @@ export class CadastroComponent implements OnInit {
   errorsI?: any;
   mudar: boolean = true;
 
-  constructor(private fb: FormBuilder,
+  constructor(private fb: UntypedFormBuilder,
     private consumidorService: ConsumidorService,
     private empreendedorService: EmpreendedorService,
     private toast: HotToastService,

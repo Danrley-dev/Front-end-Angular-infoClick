@@ -1,6 +1,6 @@
 import { Produto } from 'src/app/core/models/produto';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
@@ -17,7 +17,7 @@ import { ProdutoService } from 'src/app/core/services/produtos/produto.service';
 export class EditsComponent implements OnInit {
 
   constructor(public dialog: MatDialog,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private lojaService: LojaService,
     private toast: HotToastService,
     private router: Router,

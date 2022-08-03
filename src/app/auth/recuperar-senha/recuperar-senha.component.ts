@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotToastClose, HotToastService } from '@ngneat/hot-toast';
 import { Pessoa } from 'src/app/core/models/pessoa';
@@ -15,7 +15,7 @@ export class RecuperarSenhaComponent implements OnInit {
   siteKey: string;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private pessoaService: PessoaService,
     private toast: HotToastService,
     private router: Router

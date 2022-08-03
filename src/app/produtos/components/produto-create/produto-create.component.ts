@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { Observable } from 'rxjs';
@@ -23,11 +23,11 @@ export class ProdutoCreateComponent implements OnInit {
   icon?: string = 'upload';
   errorsI?: any;
   mudar: boolean = true;
-  urlImagem: any = "../../../../assets/img/logo-infoclick.png";
+  urlImagem: any = "assets/img/logo-infoclick.png";
   produtoAtivo = false;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private lojaService: LojaService,
     private toast: HotToastService,
     private router: Router,

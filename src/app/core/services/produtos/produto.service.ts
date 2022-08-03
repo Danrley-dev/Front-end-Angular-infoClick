@@ -14,7 +14,6 @@ import { Produto } from '../../models/produto';
 })
 export class ProdutoService {
 
-
   private baseUrl = "https://infoclick1.herokuapp.com/service/produto";
   private lojaUrl = "https://infoclick1.herokuapp.com/service/lojas";
 
