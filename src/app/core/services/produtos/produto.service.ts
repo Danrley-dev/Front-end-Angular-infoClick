@@ -15,8 +15,8 @@ import { Produto } from '../../models/produto';
 export class ProdutoService {
 
 
-  private baseUrl = "localhost:8080/service/produto";
-  private lojaUrl = "localhost:8080/service/lojas";
+  private baseUrl = "https://infoclick1.herokuapp.com/service/produto";
+  private lojaUrl = "https://infoclick1.herokuapp.com/service/lojas";
 
   constructor(private http: HttpClient) { }
 

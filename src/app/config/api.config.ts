@@ -1,6 +1,6 @@
 export const API_CONFIG = {
   baseUrl: {
-    mock: 'localhost:8080',
-    prod: 'localhost:8080',
+    mock: 'https://infoclick1.herokuapp.com',
+    prod: 'https://infoclick1.herokuapp.com',
   },
 };
